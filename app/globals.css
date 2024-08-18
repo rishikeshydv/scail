@@ -67,3 +67,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* custom css overrides for antd components */
+.custom-select-container .ant-select .ant-select-selector {
+  border-radius: 50px;
+}
+
+

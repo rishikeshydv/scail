@@ -5,12 +5,12 @@ import React from "react";
 
 export const Navbar = () => {
   return (
-    <nav className="flex px-10 items-center fixed top-0 w-full text-white">
+    <nav className="flex px-10 items-center w-full text-white">
       {/* left section */}
       <div className="flex flex-[0.6] gap-x-20">
         <div className="text-[50px] font-semibold">Scail</div>
 
-        <div className="flex items-center gap-x-10 text-lg">
+        <div className="flex items-center gap-x-10 text-md">
           <Link href={"#"}>Homes for sell</Link>
           <Link href={"#"}>Reports</Link>
           <Link href={"#"}>Improvements</Link>

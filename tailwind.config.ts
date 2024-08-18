@@ -72,6 +72,9 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        "black-grid": "url('/images/home-bg-grid.svg')"
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
