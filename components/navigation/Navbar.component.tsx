@@ -23,7 +23,7 @@ export const Navbar = () => {
       {/* right section */}
       <div className="flex flex-[0.4] gap-x-3">
         <Input
-          className="rounded-[100px] bg-[#262626] text-white border-none"
+          className="rounded-[100px] bg-[#262626] text-white border-none placeholder:text-white"
           placeholder="Find house"
           suffix={<Search size={24}  />}
         />
