@@ -1,5 +1,4 @@
 import Image from "next/image";
-import HomeBackgroundGrid from "@/assets/images/home-bg-grid.svg";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { Button } from "antd";

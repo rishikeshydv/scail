@@ -1,10 +1,10 @@
-import { HistoryReportCard } from '@/components/card'
+import { HistoryReportCard, PropertyCardBorderless } from '@/components/card'
 import React from 'react'
 
 const Test = () => {
   return (
-    <div className='mt-[100px] mx-20'>
-       
+    <div className='pt-[100px] px-20 h-[300vh] bg-[#f5f5f5]'>
+        <PropertyCardBorderless />
     </div>
   )
 }
