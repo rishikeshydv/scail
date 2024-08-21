@@ -1,14 +1,11 @@
 import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
-import { Button } from "antd";
-import { Check, MoveRight } from "lucide-react";
+
 import {
   HistoryReportCard,
-  PropertyCard,
   PropertyCardBorderless,
 } from "@/components/card";
-import HeroProject60Image from "@/assets/images/hero-60-project.png";
 import PreOwnHeroImage from "@/assets/images/pre-own-hero.png";
 
 const PreOwn = () => {
