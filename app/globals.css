@@ -72,3 +72,10 @@
 .custom-select-container .ant-select .ant-select-selector {
   border-radius: 50px;
 }
+
+/* antd table css overrides */
+.ant-table-thead .ant-table-cell {
+  background-color: #0874de !important;
+  color: white !important;
+
+}
