@@ -8,7 +8,9 @@ import Link from "next/link";
 const LoginPage = () => {
   return (
     <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-10">
-      <Image src={ProfaxLogo} alt="Logo" />
+      <Link href={"/"}>
+        <Image src={ProfaxLogo} alt="Logo" />
+      </Link>
 
       <div className="text-[50px] font-normal flex">
         <span>Log in to&nbsp;</span>
@@ -40,7 +42,9 @@ const LoginPage = () => {
       </div>
 
       <div className="font-medium text-[18px] w-[30%] text-center">
-        By signing up, you confirm that you've read and accepted our <span className="text-[#0874DE] font-bold">Terms Of Use</span> and <span className="text-[#0874DE] font-bold">Privacy Policy.</span>
+        By signing up, you confirm that you've read and accepted our 
+        <span className="text-[#0874DE] font-bold">Terms Of Use</span> and 
+        <span className="text-[#0874DE] font-bold">Privacy Policy.</span>
       </div>
 
       <Button
@@ -51,11 +55,13 @@ const LoginPage = () => {
         icon={<MoveRight width={20} />}
         iconPosition="end"
       >
-       Login
+        Login
       </Button>
       <div className="font-medium text-[18px] w-[30%] text-center">
         Not a member? 
-        <Link href={"/auth/register"} className="text-[#0874DE] font-bold">Register here</Link>
+        <Link href={"/auth/register"} className="text-[#0874DE] font-bold">
+          Register here
+        </Link>
       </div>
     </section>
   );
