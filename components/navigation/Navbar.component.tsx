@@ -5,12 +5,17 @@ import Link from "next/link";
 import React from "react";
 import ProfaxLogo from "@/assets/logo/profax-logo.png";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
-export const Navbar = () => {
+interface NavbarProps {
+  className?: string
+}
+
+export const Navbar = ({ className }: NavbarProps) => {
   return (
-    <nav className="flex px-10 items-center w-full text-white font-semibold gap-10">
+    <nav className={cn("flex px-10 items-center w-full text-white font-semibold gap-5", className)}>
       {/* left section */}
-      <div className="flex flex-[0.6] gap-x-20 py-8 items-center">
+      <div className="flex flex-[0.7] gap-x-20 py-8 items-center">
         <Link href={"/"} className="text-[50px] font-semibold">
           <Image src={ProfaxLogo} alt="Logo" width={150} />
         </Link>
@@ -21,7 +26,7 @@ export const Navbar = () => {
           <Link href={"/new-home"}>New homes</Link>
           <Link href={"/reports"}>Reports</Link>
           <Link href={"/home-center"}>Home Centers</Link>
-          <Link href={"#"}>Contact</Link>
+          <Link href={"/contact"}>Contact</Link>
         </div>
       </div>
 
