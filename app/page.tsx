@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { Button } from "antd";
-import { Check, MoveRight } from "lucide-react";
+import { Check, MoveRight, FileText, MapPinHouse } from "lucide-react";
 import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject60Image from "@/assets/images/hero-60-project.png";
 import HeroHomeImage from "@/assets/images/hero-house.png";
@@ -22,28 +22,28 @@ export default function Home() {
               <span>Upgrade</span>
             </div>
             <div className="font-normal text-[25px] text-[#808080]">
-              Discover this charming 3-bedroom, 2-bathroom home located in the
-              serene Willow Creek neighborhood. Features include a spacious open
-              plan living area.
+            Empower your homeownership journey with accurate, reliable reports.
+            Discover the full potential of your home.
+            Your home's story, revealed through expert insights.
             </div>
             <div className="flex gap-x-4 py-10">
               <Button
                 type="primary"
                 shape="round"
                 size="large"
-                icon={<MoveRight width={15} />}
+                icon={<FileText width={20} />}
                 iconPosition="end"
               >
-                HOME REPORT
+                Home Report
               </Button>
               <Button
                 shape="round"
                 size="large"
-                icon={<MoveRight width={15} />}
+                icon={<MapPinHouse width={20} />}
                 iconPosition="end"
                 className="bg-[#262626] border-none text-white"
               >
-                BUY A HOME
+                Buy a Home
               </Button>
             </div>
           </div>
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="text-[50px] font-normal flex">
             <span>Property for &nbsp;</span>
             <span className="font-bold flex flex-col">
-              Sell and Rent
+              Buy, Sell and Rent
               <span
                 style={{
                   borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
@@ -80,7 +80,7 @@ export default function Home() {
               icon={<MoveRight width={15} />}
               iconPosition="end"
             >
-              VIEW ALL PROPERTY
+              View All Properties
             </Button>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function Home() {
 
         <div className="flex-[0.5] px-4">
           <div className="text-[#0874DE] font-medium text-[30px]">
-            Online property marketplace
+            Online Property Marketplace
           </div>
           <div className="text-[80px]">
             <span className="font-normal">We help you find </span>

@@ -8,7 +8,7 @@ const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Scail",
-  description: "Revolutionizing real estate",
+  description: "Revolutionizing Real Estate",
 };
 
 export default function RootLayout({

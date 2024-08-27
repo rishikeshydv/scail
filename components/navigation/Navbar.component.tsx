@@ -1,5 +1,6 @@
 import { Button, Input } from "antd";
-import { MoveRight, Search, User } from "lucide-react";
+import { MoveRight, Search, LogIn, MapPinHouse } from "lucide-react";
+
 import Link from "next/link";
 import React from "react";
 import ProfaxLogo from "@/assets/logo/profax-logo.png";
@@ -7,7 +8,7 @@ import Image from "next/image";
 
 export const Navbar = () => {
   return (
-    <nav className="flex px-10 items-center w-full text-white">
+    <nav className="flex px-10 items-center w-full text-white font-semibold gap-10">
       {/* left section */}
       <div className="flex flex-[0.6] gap-x-20 py-8 items-center">
         <Link href={"/"} className="text-[50px] font-semibold">
@@ -27,22 +28,21 @@ export const Navbar = () => {
       {/* right section */}
       <div className="flex flex-[0.4] gap-x-3">
         <Input
-          className="rounded-[100px] bg-[#262626] text-white border-none placeholder:text-white"
-          placeholder="Find house"
+          className="rounded-[100px] border-none px-6"
+          placeholder="Search Zip Code"
           suffix={<Search size={24} />}
         />
         <Button
           shape="round"
           size="large"
-          icon={<MoveRight width={15} />}
-          iconPosition="end"
-          className="bg-[#262626] border-none text-white"
+          icon={<MapPinHouse width={20} />}
+          className="bg-[#262626] border-none text-white font-semibold"
         >
-          BUY PROPERTY
+         Buy Property
         </Button>
         <Link href={"/auth"}>
-          <Button type="primary" shape="round" size="large" icon={<User />}>
-            LOGIN & SIGNUP
+          <Button type="primary" shape="round" size="large" icon={<LogIn width={20}/>} className="font-semibold">
+            Login
           </Button>
         </Link>
       </div>

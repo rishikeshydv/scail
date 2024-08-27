@@ -77,7 +77,7 @@ export const PropertyCard = ({
             icon={<MoveRight width={15} />}
             iconPosition="end"
           >
-            VIEW DETAILS
+            View Details
           </Button>
           <div className="text-xl font-semibold">{USDollar.format(price)}</div>
         </div>

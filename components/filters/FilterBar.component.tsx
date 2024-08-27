@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Row, Col, Select, Button } from "antd";
-import { HouseIcon, MoveRight } from "lucide-react";
+import { HouseIcon, MoveRight, Search } from "lucide-react";
 import { ClassNameValue } from "tailwind-merge";
 
 const { Option } = Select;
@@ -14,13 +14,13 @@ export const FilterBar = ({ className }: FilterBarProps) => {
   return (
     <div className={className}>
       <div
-        className="bg-[#0874DE] w-[150px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2"
+        className="bg-[#0874DE] w-[180px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2 font-semibold"
         style={{
           borderRadius: "20px 20px 0px 0px",
         }}
       >
         <HouseIcon size={18} />
-        <span>House</span>
+        <span>Find Property</span>
       </div>
       <div
         style={{
@@ -67,10 +67,10 @@ export const FilterBar = ({ className }: FilterBarProps) => {
               type="primary"
               shape="round"
               size="middle"
-              icon={<MoveRight width={15} />}
+              icon={<Search width={15} />}
               iconPosition="end"
             >
-              Save Search
+           Search
             </Button>
           </div>
         </div>
