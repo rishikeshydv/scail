@@ -16,11 +16,11 @@ export const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-x-10 text-md">
-          <Link href={"/"}>Homes for sell</Link>
-          <Link href={"/pre-own"}>Pre-own homes</Link>
-          <Link href={"/new-home"}>New homes</Link>
+          <Link href={"/"}>Buy</Link>
+          <Link href={"/pre-own"}>Rent</Link>
+          <Link href={"/new-home"}>Renovations</Link>
           <Link href={"/reports"}>Reports</Link>
-          <Link href={"/home-center"}>Home Centers</Link>
+          <Link href={"/home-center"}>Analytics</Link>
           <Link href={"#"}>Contact</Link>
         </div>
       </div>

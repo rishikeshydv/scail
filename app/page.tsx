@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { Button } from "antd";
-import { Check, MoveRight, FileText, MapPinHouse } from "lucide-react";
+import { Check, MoveRight, FileText, MapPinHouse, Info } from "lucide-react";
 import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject60Image from "@/assets/images/hero-60-project.png";
 import HeroHomeImage from "@/assets/images/hero-house.png";
@@ -60,9 +60,9 @@ export default function Home() {
       <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-32">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">
-            <span>Property for &nbsp;</span>
+            <span>Properties for &nbsp;</span>
             <span className="font-bold flex flex-col">
-              Buy, Sell and Rent
+              Sell & Rent
               <span
                 style={{
                   borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
@@ -124,14 +124,14 @@ export default function Home() {
           <div className="text-[#0874DE] font-medium text-[30px]">
             Online Property Marketplace
           </div>
-          <div className="text-[80px]">
+          <div className="text-[70px]">
             <span className="font-normal">We help you find </span>
             <span className="font-bold flex flex-col mt-[-30px]">
               your new place.
               <span
                 style={{
                   borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-36px",
+                  marginTop: "-27px",
                 }}
               ></span>
             </span>
@@ -166,10 +166,10 @@ export default function Home() {
               type="primary"
               shape="round"
               size="large"
-              icon={<MoveRight width={15} />}
+              icon={<Info width={20} />}
               iconPosition="end"
             >
-              ABOUT THE COMPANY
+              About Us
             </Button>
           </div>
         </div>
@@ -177,9 +177,9 @@ export default function Home() {
       <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-32">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">
-            <span>A House &nbsp;</span>
+            <span>Insightful &nbsp;</span>
             <span className="font-bold flex flex-col">
-              History Reports
+             Property Reports
               <span
                 style={{
                   borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
@@ -197,7 +197,7 @@ export default function Home() {
               icon={<MoveRight width={15} />}
               iconPosition="end"
             >
-              VIEW ALL PROPERTY
+              View All Properties
             </Button>
           </div>
         </div>

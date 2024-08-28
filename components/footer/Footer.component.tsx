@@ -12,7 +12,7 @@ export const Footer = () => {
       </div>
 
       <div className="w-full flex border-t border-b border-[#FFFFFF26] py-3 items-center justify-evenly font-semibold text-lg">
-        <div>About US</div>
+        <div>About Us</div>
         <div>Privacy Policy</div>
         <div>Terms & Conditions</div>
         <div>Payment Policy</div>
