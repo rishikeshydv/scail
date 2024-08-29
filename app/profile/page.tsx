@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/navigation";
 import Image from "next/image";
 import ProfileImage from "@/assets/images/profile.png";
-import { Button, Input, Rate } from "antd";
+import { Button, Input, Rate, Select } from "antd";
 import { Phone } from "lucide-react";
 
 export default function ProfilePage() {
@@ -153,12 +153,111 @@ export default function ProfilePage() {
         </div>
 
         {/* Reviews filter */}
-        <div>
-          
+        <div className="px-20">
+          <ReviewFilter />
         </div>
 
-
+        <div className="py-10 px-20 flex gap-x-3">
+          <ReviewCard />
+          <ReviewCard />
+          <ReviewCard />
+        </div>
       </section>
     </main>
   );
 }
+
+const ReviewFilter = () => {
+  return (
+    <div className="w-full flex gap-x-4">
+      <div className="flex-[0.4] flex flex-col gap-y-3 pb-2">
+        <div className="font-semibold text-[20px]">Filter by</div>
+        <div className="custom-select-container">
+          <Select placeholder="Select price" className="w-full h-[40px]" />
+        </div>
+      </div>
+      <div className="flex-[0.4]  flex flex-col gap-y-3 pb-2">
+        <div className="font-semibold text-[20px]">Sort by</div>
+        <div className="custom-select-container">
+          <Select placeholder="Select price" className="w-full h-[40px]" />
+        </div>
+      </div>
+      <div className="flex-[0.2]  flex flex-col gap-y-3 pb-2">
+        <div className="font-semibold text-[20px]">&nbsp;</div>
+
+        <div className="custom-select-container">
+          <Button shape="round" type="primary" className="h-[40px] w-full">
+            WRITE A REVIEW
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ReviewCard = () => {
+  return (
+    <div className="h-full w-full rounded-[30px] bg-white border border-[#D9D9D9] py-[30px] px-[15px]">
+      <div className="font-normal text-[30px] flex flex-row items-center">
+        Highly likely to <span className="font-bold">recommend</span> / 5.0
+        <span className="ml-2">
+          <svg
+            width="20"
+            height="18"
+            viewBox="0 0 20 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.99834 14.7262L4.14977 18L5.456 11.426L0.535156 6.87539L7.19101 6.08623L9.99834 0L12.8056 6.08623L19.4614 6.87539L14.5407 11.426L15.8469 18L9.99834 14.7262Z"
+              fill="#FFA800"
+            />
+          </svg>
+        </span>
+      </div>
+
+      <div className="mt-10 flex flex-col gap-y-3">
+        <div className="font-semibold text-[18px] text-[#0874DE]">
+          Report a problem
+        </div>
+        <div className="font-normal text-[18px] text-[#808080]">
+          Bathrooms total renovation, Kitchen and Dining Room total renovation.
+          Living Room and Master Bedroom total renovation, next up Basement Man
+          Cave!
+        </div>
+      </div>
+
+      <div className="mt-10 grid gap-3 grid-cols-2">
+        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
+          {" "}
+          <Rate value={5} disabled  />
+          <span>Responsiveness</span>
+        </div>
+        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
+          {" "}
+          <Rate value={5} disabled  />
+          <span>Responsiveness</span>
+        </div>
+        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
+          {" "}
+          <Rate value={5} disabled  />
+          <span>Responsiveness</span>
+        </div>
+        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
+          {" "}
+          <Rate value={5} disabled  />
+          <span>Responsiveness</span>
+        </div>
+      </div>
+
+      <div className="mt-10">
+        <div className="font-normal text-[18px] text-[#808080]">
+          Evelyn Benatar has done many projects for me and they each surpass the
+          other in the incredible beauty and colors that are the final
+          masterpiece. My wife and I only trust her with our interior design
+          projects. Thank Evelyn for taking the stress and wo.
+        </div>
+      </div>
+    </div>
+  );
+};
