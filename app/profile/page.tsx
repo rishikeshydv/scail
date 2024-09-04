@@ -230,22 +230,22 @@ const ReviewCard = () => {
       <div className="mt-10 grid gap-3 grid-cols-2">
         <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
           {" "}
-          <Rate value={5} disabled  />
+          <Rate value={5} disabled />
           <span>Responsiveness</span>
         </div>
         <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
           {" "}
-          <Rate value={5} disabled  />
+          <Rate value={5} disabled />
           <span>Responsiveness</span>
         </div>
         <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
           {" "}
-          <Rate value={5} disabled  />
+          <Rate value={5} disabled />
           <span>Responsiveness</span>
         </div>
         <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
           {" "}
-          <Rate value={5} disabled  />
+          <Rate value={5} disabled />
           <span>Responsiveness</span>
         </div>
       </div>
