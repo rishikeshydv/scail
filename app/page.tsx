@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { Button } from "antd";
-import { Check, MoveRight, FileText, MapPinHouse, Info } from "lucide-react";
+import { Check, MoveRight, FileText, MapPinHouse, Info, AlignRight } from "lucide-react";
 import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject100Image from "@/assets/images/hero-100-project.png";
 import HeroHomeImage from "@/assets/images/hero-house.png";
@@ -14,14 +14,14 @@ export default function Home() {
         <Navbar />
         <div className="text-white mx-20 flex pt-14">
           <div className="flex-[0.5] flex flex-col">
-            <div className="font-semibold text-[180px] mt-[-50px] flex justify-end">
+            <div className="font-semibold text-[140px] mt-[-50px] flex justify-end">
               <span className="text-[#0874DE]">+</span>
-              <span>Property</span>
+              <span>&nbsp;Property</span>
             </div>
-            <div className="font-semibold text-[180px] mt-[-130px] flex justify-end">
+            <div className="font-semibold text-[140px] mt-[-70px] flex justify-end">
               <span>Reports</span>
             </div>
-            <div className="font-normal text-[25px] text-[#808080]">
+            <div className="font-normal text-[32px] text-[#808080]">
               Discover homes for sale in your city and get detailed property
               reports
             </div>
@@ -32,6 +32,7 @@ export default function Home() {
                 size="large"
                 icon={<FileText width={20} />}
                 iconPosition="end"
+                className="p-6 text-lg"
               >
                 Home Report
               </Button>
@@ -40,13 +41,14 @@ export default function Home() {
                 size="large"
                 icon={<MapPinHouse width={20} />}
                 iconPosition="end"
-                className="bg-[#262626] border-none text-white"
+                className="bg-[#262626] border-none text-white p-6 text-lg"
               >
                 Buy a Home
               </Button>
             </div>
           </div>
-          <div className="flex-[0.5]">
+
+        <div className="flex-[0.5]">
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
@@ -76,7 +78,7 @@ export default function Home() {
               type="primary"
               shape="round"
               size="large"
-              icon={<MoveRight width={15} />}
+              icon={<AlignRight width={15} />}
               iconPosition="end"
             >
               View Homes

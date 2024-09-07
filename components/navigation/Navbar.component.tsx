@@ -22,7 +22,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       {/* left section */}
       <div className="flex w-full gap-x-20 py-8 items-center justify-around">
         <Link href={"/"} className="text-[50px] font-semibold flex-[0.2]">
-          <Image src={ProfaxLogo} alt="Logo" width={150} />
+          <Image src={"/logo/propfax-logo.png"} alt="Logo" width={150} height={250}/>
         </Link>
 
         <div className="flex items-center gap-x-10 text-md">
