@@ -1,9 +1,13 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 import { Button, Input } from "antd";
 import { LogIn, Phone } from "lucide-react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";;
+import {FaApple} from "react-icons/fa";
+import GoogleSignUp from "@/firebase/auth/google_provider";
+import AppleSignUp from "@/firebase/auth/apple_provider";
 
 const LoginPage = () => {
   return (
@@ -73,19 +77,24 @@ const LoginPage = () => {
         size="large"
         icon={<FcGoogle width={20} />}
         iconPosition="start"
+        onClick={()=>{
+          GoogleSignUp;
+          
+        }}
       >
         Continue with Google
       </Button>
-      <Button
+      {/* <Button
         className="py-[28px] text-lg bg-white text-black border border-gray-300 hover:bg-slate-100"
         type="primary"
         shape="round"
         size="large"
-        icon={<Phone width={20} className="text-gray-500 "/>}
+        icon={<FaApple width={20} className="text-gray-500 "/>}
         iconPosition="start"
+        onClick={AppleSignUp}
       >
-        Continue with Phone
-      </Button>
+        Continue with Apple
+      </Button> */}
       </div>
     </section>
   );

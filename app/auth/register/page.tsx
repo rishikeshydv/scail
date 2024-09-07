@@ -6,8 +6,12 @@ import { Button, Input } from "antd";
 import { MoveRight, Eye,EyeOff,UserRoundPlus,Phone } from "lucide-react";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
+import {FaApple}  from "react-icons/fa";
 import AddUser from "@/queries/account/Signup";
 import Confetti from 'react-confetti'
+import GoogleSignUp from "@/firebase/auth/google_provider";
+import AppleSignUp from "@/firebase/auth/apple_provider";
+import { set } from "firebase/database";
 
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -61,6 +65,28 @@ const RegisterPage = () => {
       setMessage("");
       //return (<Confetti width={width} height={height} />);
     }
+    }
+
+    //google signup function
+    const GoogleRegister = async() => {
+      const token = await GoogleSignUp();
+      if (token === "Error") {
+        setMessage("Error signing up with Google.");
+      }
+      setSuccess("Account Successfully Created.");
+      setSuccessColor("text-green-500");
+      setOnSuccess(true);
+    }
+
+    //apple signup function
+    const AppleRegister = async() => {
+      const token = await AppleSignUp();
+      if (token === "Error") {
+        setMessage("Error signing up with Apple.");
+      }
+      setSuccess("Account Successfully Created.");
+      setSuccessColor("text-green-500");
+      setOnSuccess(true);
     }
   return (
     <div>
@@ -173,19 +199,21 @@ const RegisterPage = () => {
         size="large"
         icon={<FcGoogle width={20} />}
         iconPosition="start"
+        onClick={GoogleRegister}
       >
         Continue with Google
       </Button>
-      <Button
+      {/* <Button
         className="py-[28px] text-lg bg-white text-black border border-gray-300 hover:bg-slate-100"
         type="primary"
         shape="round"
         size="large"
-        icon={<Phone width={20} className="text-gray-500 "/>}
+        icon={<FaApple width={20} className="text-gray-500 "/>}
         iconPosition="start"
+        onClick={AppleRegister}
       >
-        Continue with Phone
-      </Button>
+        Continue with Apple
+      </Button> */}
       </div>
     </section>
 
