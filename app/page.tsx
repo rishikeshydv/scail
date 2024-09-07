@@ -166,11 +166,7 @@ export default function Home() {
               icon={<Info width={20} />}
               iconPosition="end"
             >
-<<<<<<< HEAD
               About Us
-=======
-              ABOUT US
->>>>>>> e96b6e32454dfdeec2b9b42c465c51472010d369
             </Button>
           </div>
         </div>
@@ -198,11 +194,7 @@ export default function Home() {
               icon={<MoveRight width={15} />}
               iconPosition="end"
             >
-<<<<<<< HEAD
               View All Properties
-=======
-              GET A HOME REPORT
->>>>>>> e96b6e32454dfdeec2b9b42c465c51472010d369
             </Button>
           </div>
         </div>

@@ -8,11 +8,10 @@ import ProfaxLogo from "@/assets/logo/profax-logo.png";
 export const Footer = () => {
   return (
     <div className="min-h-[40vh] w-full bg-black text-white">
-      <div className="w-full flex items-center justify-start font-semibold text-[50px] py-14 px-40">
-        <Image src={ProfaxLogo} alt="Logo" width={150} />
+      <div className="w-full flex items-center justify-center font-semibold text-[50px] py-10 px-40">
+        <Image src={"/logo/propfax-logo.png"} alt="Logo" width={300} height={500} />
       </div>
 
-<<<<<<< HEAD
       <div className="w-full flex border-t border-b border-[#FFFFFF26] py-3 items-center justify-evenly font-semibold text-lg">
         <div>About Us</div>
         <div>Privacy Policy</div>
@@ -20,15 +19,6 @@ export const Footer = () => {
         <div>Payment Policy</div>
         <div>Login & Register</div>
         <div>Secure Payment</div>
-=======
-      <div className="w-full flex border-t border-b border-[#FFFFFF26]  items-center gap-x-5 px-40 font-semibold text-lg">
-        <div className="footer-link">About US</div>
-        <div className="footer-link">Privacy Policy</div>
-        <div className="footer-link">Terms & Conditions</div>
-        <div className="footer-link">Payment Policy</div>
-        <div className="footer-link">Login & Register</div>
-        <div className="footer-link">Secure Payment</div>
->>>>>>> e96b6e32454dfdeec2b9b42c465c51472010d369
       </div>
 
       <div className="flex mx-40">

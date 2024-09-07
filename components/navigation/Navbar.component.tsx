@@ -20,12 +20,11 @@ export const Navbar = ({ className }: NavbarProps) => {
       )}
     >
       {/* left section */}
-      <div className="flex w-full mx-20  gap-x-20 py-8 items-center justify-around">
+      <div className="flex w-full gap-x-20 py-8 items-center justify-around">
         <Link href={"/"} className="text-[50px] font-semibold flex-[0.2]">
           <Image src={ProfaxLogo} alt="Logo" width={150} />
         </Link>
 
-<<<<<<< HEAD
         <div className="flex items-center gap-x-10 text-md">
           <Link href={"/"}>Buy</Link>
           <Link href={"/pre-own"}>Rent</Link>
@@ -33,17 +32,9 @@ export const Navbar = ({ className }: NavbarProps) => {
           <Link href={"/reports"}>Reports</Link>
           <Link href={"/home-center"}>Analytics</Link>
           <Link href={"#"}>Contact</Link>
-=======
-        <div className="flex w-full items-center gap-x-10 text-md flex-[0.6]">
-          <Link href={"/"}>Homes for sell</Link>
-          <Link href={"/pre-own"}>Pre-own homes</Link>
-          <Link href={"/new-home"}>New homes</Link>
-          <Link href={"/reports"}>Reports</Link>
-          <Link href={"/home-center"}>Home Centers</Link>
-          <Link href={"/contact"}>Contact</Link>
->>>>>>> e96b6e32454dfdeec2b9b42c465c51472010d369
         </div>
 
+      {/*  */}
         <div className="flex w-full items-center justify-center gap-x-5  flex-[0.2]">
           <Badge dot color="green">
             <Avatar icon={<User />} style={{ backgroundColor: "#f56a00" }} size={"large"} />
