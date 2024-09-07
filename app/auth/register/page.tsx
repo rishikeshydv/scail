@@ -95,7 +95,7 @@ const RegisterPage = () => {
         onSuccess && <Confetti width={1600} height={1000} />
       }
       <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-6">
-      <Link href={"/"}>
+      <Link href={"/"} className="mt-8">
       <Image src={"/logo/profax-logo.png"} alt="Logo" width={300} height={500}/>
       </Link>
 

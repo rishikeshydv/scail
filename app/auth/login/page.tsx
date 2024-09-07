@@ -11,7 +11,7 @@ import AppleSignUp from "@/firebase/auth/apple_provider";
 
 const LoginPage = () => {
   return (
-    <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-6">
+    <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-8">
       <Link href={"/"} className="mt-8">
         <Image src={"/logo/profax-logo.png"} alt="Logo" width={300} height={500}/>
       </Link>

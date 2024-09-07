@@ -31,19 +31,25 @@ export const FilterBar = ({ className }: FilterBarProps) => {
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Price</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[200px]"  />
+            <Select placeholder="Select price" className="w-[180px]"  />
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Bed & Baths</div>
+          <div className="text-[20px] font-semibold">Bed</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[200px]" />
+            <Select placeholder="Select price" className="w-[100px]" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-y-[10px]">
+          <div className="text-[20px] font-semibold">Baths</div>
+          <div className="custom-select-container">
+            <Select placeholder="Select price" className="w-[100px]" />
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Home Type</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[200px]" />
+            <Select placeholder="Select price" className="w-[180px]" />
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">

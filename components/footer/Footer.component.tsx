@@ -1,24 +1,34 @@
+"use client";
 import { Button } from "antd";
-import { MoveRight, Phone } from "lucide-react";
+import { MoveRight, Phone, MailCheck } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import JumpingManImage from "@/assets/images/jumping-man.jpeg";
 import ProfaxLogo from "@/assets/logo/profax-logo.png";
+import AddEmails from "@/queries/newsletters/addEmails";
+import { FaFacebookF,FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { GrLinkedinOption } from "react-icons/gr";
+import { CiYoutube } from "react-icons/ci";
+import Link from "next/link";
 
 export const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [textColor, setTextColor] = useState("text-red-400");
   return (
     <div className="min-h-[40vh] w-full bg-black text-white">
-      <div className="w-full flex items-center justify-center font-semibold text-[50px] py-10 px-40">
-        <Image src={"/logo/propfax-logo.png"} alt="Logo" width={300} height={500} />
+      <div className="w-full flex items-start justify-start font-semibold text-[50px] py-10 px-40">
+        <Image src={"/logo/propfax-logo.png"} alt="Logo" width={150} height={250} />
       </div>
 
       <div className="w-full flex border-t border-b border-[#FFFFFF26] py-3 items-center justify-evenly font-semibold text-lg">
-        <div>About Us</div>
-        <div>Privacy Policy</div>
-        <div>Terms & Conditions</div>
-        <div>Payment Policy</div>
-        <div>Login & Register</div>
-        <div>Secure Payment</div>
+        <Link href={"/contact"} className="hover:bg-gradient-to-r hover:from-[#1B1B1E] hover:to-[#2E2C2F] rounded-2xl px-16 py-2">About Us</Link>
+        <Link href={"/policies"} className="hover:bg-gradient-to-r hover:from-[#1B1B1E] hover:to-[#2E2C2F] rounded-2xl px-16 py-2">Privacy Policy</Link>
+        <Link href={"/policies"} className="hover:bg-gradient-to-r hover:from-[#1B1B1E] hover:to-[#2E2C2F] rounded-2xl px-16 py-2">Terms & Conditions</Link>
+        <Link href={"/payment"} className="hover:bg-gradient-to-r hover:from-[#1B1B1E] hover:to-[#2E2C2F] rounded-2xl px-16 py-2">Payment Policy</Link>
+        <Link href={"/auth/login"} className="hover:bg-gradient-to-r hover:from-[#1B1B1E] hover:to-[#2E2C2F] rounded-2xl px-16 py-2">Login & Register</Link>
+        <Link href={"/payment"} className="hover:bg-gradient-to-r hover:from-[#1B1B1E] hover:to-[#2E2C2F] rounded-2xl px-16 py-2">Secure Payment</Link>
       </div>
 
       <div className="flex mx-40">
@@ -27,8 +37,7 @@ export const Footer = () => {
             Subscribe <span className="text-[#0874DE]">Newsletter</span>
           </div>
           <div className="w-3/4 font-medium text-[18px]">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page distribution of letters, as opposed.
+          Stay Informed: Subscribe to Our Newsletter for the Latest Updates and Insights!
           </div>
           <div>
             <input
@@ -38,22 +47,46 @@ export const Footer = () => {
               style={{
                 borderRadius: "50px 0px 0px 50px",
               }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <Button
               type="primary"
               shape="round"
               size="large"
-              icon={<MoveRight width={15} />}
+              icon={<MailCheck width={18} />}
               iconPosition="end"
               style={{
                 borderRadius: "0px 50px 50px 0px",
               }}
+              onClick={async () => {
+                if (email) {
+                  //check if the email is valid
+                  if (!email.includes("@") || !email.includes(".")) {
+                    setErrorMsg("Please enter a valid email");
+                    return;
+                  }
+                  const res = await AddEmails(email);
+                  if (res === 1) {
+                    setTextColor("text-red-400");
+                    setErrorMsg("Email already exists");
+                  } else {
+                    setTextColor("text-green-400");
+                    setErrorMsg("Subscribed successfully");
+                    setEmail("");
+                  }
+                } else {
+                  setTextColor("text-red-400");
+                  setErrorMsg("Please enter your email");
+                }
+              }}
+              
             >
               Subscribe
             </Button>
           </div>
         </div>
-        <div className="flex-[0.5] flex items-center px-10 justify-around">
+        <div className="flex-[0.5] flex items-center justify-around">
           <div className="flex flex-col gap-y-3">
             <div className="font-semibold text-[24px]">Products</div>
             <div className="font-medium text-[18px] text-[#808080]">
@@ -108,11 +141,30 @@ export const Footer = () => {
              Dealer Support
             </div>
           </div>
+
+          <div className="flex flex-col gap-y-3">
+            <div className="font-medium text-[18px] rounded-lg border border-gray-50 p-2">
+             <FaFacebookF className="text-[#ffffff]"/>
+            </div>
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+              <FaInstagram className="text-[#ffffff]"/>
+            </div>
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+              <FaXTwitter className="text-[#ffffff]"/>
+            </div>
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+              <GrLinkedinOption className="text-[#ffffff]"/>
+            </div>
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+              <CiYoutube className="text-[#ffffff]"/>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="font-medium text-[#808080] text-[18px] pb-10 flex items-center justify-center">
-        &copy; 2024 is Proudly Powered by Propfax
+      <div className="font-medium text-[#808080] text-[18px] pb-10 items-center justify-center flex flex-col">
+        <p className={`font-semibold ${textColor}`}>{errorMsg}</p>
+        <p>&copy; 2024 Propfax</p>
       </div>
 
 
