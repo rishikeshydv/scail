@@ -1,23 +1,51 @@
 "use client";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import type { FormProps, RadioChangeEvent } from "antd";
-import { Button, Checkbox, Form, Input, Radio } from "antd";
+import { Checkbox, Radio } from "antd";
 import { MoveRight } from "lucide-react";
 import CreditCardsImage from "@/assets/images/credit-cards.png";
 import PaypalImage from "@/assets/images/paypal.png";
 import AmzonPayImage from "@/assets/images/amazon-pay.png";
 import { USDollar } from "@/lib/price";
 import Image from "next/image";
+import { Urbanist } from "next/font/google";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 type FieldType = {
   name?: string;
-  streetAddress?: string;
+  address?: string;
   zip?: string;
   email: string;
   month?: number;
   year?: number;
   security_code?: string;
 };
+
+//all the form fields are required using .min(1)
+const formSchema = z.object({
+  name: z.string().min(1),
+  address: z.string().min(1),
+  zip: z.string().min(1),
+  email: z.string().min(1),
+  month: z.number().min(1),
+  year: z.number().min(1),
+  security_code: z.string().min(1),
+});
+
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
   console.log("Success:", values);
@@ -28,147 +56,303 @@ const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
 };
 
 export const CheckoutForm = () => {
+  //define the form
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+  });
+  //function for submit handler
+  function onSubmit(data: z.infer<typeof formSchema>) {
+    console.log(data);
+  }
   return (
-    <Form
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-      className="flex flex-col gap-y-14 px-12 w-full"
-    >
+    <div className="p-10">
+      <Form {...form}>
       <div>
         <PaymentMethodsList />
       </div>
 
-      <div>
-        <Form.Item<FieldType>
-          label="Housedholder Name"
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
           name="name"
-          layout="vertical"
-          rules={[{ required: true, message: "Please input your name!" }]}
-        >
-          <Input
-            placeholder="As it Appears on Housed"
-            className="rounded-[50px] h-[60px] w-full"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-lg">Cardholder Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter your Card Name..." {...field} className="rounded-2xl text-md"/>
+              </FormControl>
+              {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="flex gap-32">
+          <FormField
+            control={form.control}
+            name="address"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg"> Address</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter your Address..." {...field} className="rounded-2xl text-md w-[550px]"/>
+                </FormControl>
+                {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </Form.Item>
-      </div>
-
-      <div className="flex gap-x-4">
-        <div className="flex-[0.6]">
-          <Form.Item<FieldType>
-            label="Street Address"
-            name="streetAddress"
-            layout="vertical"
-            rules={[
-              { required: true, message: "Please input your street address!" },
-            ]}
-          >
-            <Input
-              placeholder="123 Main Street"
-              className="rounded-[50px] h-[60px] w-full"
-            />
-          </Form.Item>
-        </div>
-
-        <div className="flex-[0.4]">
-          <Form.Item<FieldType>
-            label="Zip"
+          <FormField
+            control={form.control}
             name="zip"
-            layout="vertical"
-            rules={[{ required: true, message: "Please input your zip!" }]}
-          >
-            <Input
-              placeholder="Zip"
-              className="rounded-[50px] h-[60px] w-full"
-            />
-          </Form.Item>
-        </div>
-      </div>
-
-      <div>
-        <Form.Item<FieldType>
-          label="Email"
-          name="email"
-          layout="vertical"
-          rules={[{ required: true, message: "Please input your email!" }]}
-        >
-          <Input
-            placeholder="example@gmail.com"
-            className="rounded-[50px] h-[60px] w-full"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg"> Zip</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter your Zip Code..." {...field} className="rounded-2xl text-md w-[450px]"/>
+                </FormControl>
+                {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </Form.Item>
-      </div>
-
-      <div className="flex gap-x-4">
-        <div className="flex-[0.5] flex gap-x-3">
-          <Form.Item<FieldType>
-            label="Expiration Month"
-            name="month"
-            layout="vertical"
-            rules={[{ required: true, message: "Required!" }]}
-          >
-            <Input
-              placeholder="Month"
-              className="rounded-[50px] h-[60px] w-full"
-              type="number"
-              max={12}
-            />
-          </Form.Item>
-          <Form.Item<FieldType>
-            label="Expiration Year"
-            name="year"
-            layout="vertical"
-            rules={[{ required: true, message: "Required!" }]}
-          >
-            <Input
-              placeholder="Year"
-              className="rounded-[50px] h-[60px] w-full"
-              type="number"
-            />
-          </Form.Item>
         </div>
-
-        <div className="flex-[0.5]">
-          <Form.Item<FieldType>
-            label="Security Code"
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-lg"> Email Address</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter your Email Address..." {...field} className="rounded-2xl text-md"/>
+              </FormControl>
+              {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="flex gap-96">
+          <div className="flex gap-4">
+            <FormField
+              control={form.control}
+              name="month"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-lg"> Expiration Month</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="MM"
+                      className="rounded-2xl text-md w-[80px] text-center"
+                      {...field}
+                    />
+                  </FormControl>
+                  {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="year"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-lg"> Expiration Year</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="YYYY"
+                      className="rounded-2xl text-md w-[140px] text-center"
+                      {...field}
+                    />
+                  </FormControl>
+                  {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormField
+            control={form.control}
             name="security_code"
-            layout="vertical"
-            rules={[
-              { required: true, message: "Please input your security code!" },
-            ]}
-          >
-            <Input
-              placeholder="Security code"
-              className="rounded-[50px] h-[60px] w-full"
-            />
-          </Form.Item>
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-lg"> Security Code</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter your Security Code..." {...field} className="rounded-2xl text-md w-[450px]"/>
+                </FormControl>
+                {/* <FormDescription>
+                This is your public display name.
+              </FormDescription> */}
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
-      </div>
-
-      <div className="">
-        <Checkbox>
-          I agree to the{" "}
-          <span className="text-[#0874DE]">Customer Agreement</span>  and
-          understand that HOUSEFAX may not have the complete history of every
-          vehicle.
-        </Checkbox>
-      </div>
-
-      <Form.Item className="mt-[-20px]">
-        <Button
-          type="primary"
-          htmlType="submit"
-          shape="round"
-          size="large"
-          icon={<MoveRight width={15} />}
-          iconPosition="end"
-        >
-          BUY YOUR REPORTS
-        </Button>
-      </Form.Item>
+        <div className={`${urbanist.className} text-md tracking-wide`}>
+          <Checkbox>
+            I agree to the{" "}
+            <span className="text-[#0874DE]">Customer Agreement</span>  and
+            understand that HOUSEFAX may not have the complete history of every
+            vehicle.
+          </Checkbox>
+        </div>
+        <Button type="submit" className="text-[19px] py-6 px-8 bg-[#0874DE] rounded-2xl">BUY REPORT</Button>
+      </form>
     </Form>
+    </div>
+    // <Form
+    //   name="basic"
+    //   initialValues={{ remember: true }}
+    //   onFinish={onFinish}
+    //   onFinishFailed={onFinishFailed}
+    //   autoComplete="off"
+    //   className={`flex flex-col gap-y-14 px-12 w-full ${urbanist.className}`}
+    //   style={{ fontSize: "26px", fontWeight: "semi-bold", fontFamily: "Urbanist" }}
+    //   //change the font size and font weight
+    // >
+    //   <div>
+    //     <PaymentMethodsList />
+    //   </div>
+
+    //   <div>
+    //     <Form.Item<FieldType>
+    //       label="Householder Name"
+    //       name="name"
+    //       layout="vertical"
+    //       rules={[{ required: true, message: "Please input your name!" }]}
+    //       style={{ fontSize: "26px", fontWeight: "semi-bold" }}
+    //     >
+    //       <Input
+    //         placeholder="As it Appears on Housed"
+    //         className="rounded-[50px] h-[60px] w-full"
+    //       />
+    //     </Form.Item>
+    //   </div>
+
+    //   <div className="flex gap-x-4">
+    //     <div className="flex-[0.6]">
+    //       <Form.Item<FieldType>
+    //         label="Street Address"
+    //         name="streetAddress"
+    //         layout="vertical"
+    //         rules={[
+    //           { required: true, message: "Please input your street address!" },
+    //         ]}
+    //       >
+    //         <Input
+    //           placeholder="123 Main Street"
+    //           className="rounded-[50px] h-[60px] w-full"
+    //         />
+    //       </Form.Item>
+    //     </div>
+
+    //     <div className="flex-[0.4]">
+    //       <Form.Item<FieldType>
+    //         label="Zip"
+    //         name="zip"
+    //         layout="vertical"
+    //         rules={[{ required: true, message: "Please input your zip!" }]}
+    //       >
+    //         <Input
+    //           placeholder="Zip"
+    //           className="rounded-[50px] h-[60px] w-full"
+    //         />
+    //       </Form.Item>
+    //     </div>
+    //   </div>
+
+    //   <div>
+    //     <Form.Item<FieldType>
+    //       label="Email"
+    //       name="email"
+    //       layout="vertical"
+    //       rules={[{ required: true, message: "Please input your email!" }]}
+    //     >
+    //       <Input
+    //         placeholder="example@gmail.com"
+    //         className="rounded-[50px] h-[60px] w-full"
+    //       />
+    //     </Form.Item>
+    //   </div>
+
+    //   <div className="flex gap-x-4">
+    //     <div className="flex-[0.5] flex gap-x-3">
+    //       <Form.Item<FieldType>
+    //         label="Expiration Month"
+    //         name="month"
+    //         layout="vertical"
+    //         rules={[{ required: true, message: "Required!" }]}
+    //       >
+    //         <Input
+    //           placeholder="Month"
+    //           className="rounded-[50px] h-[60px] w-full"
+    //           type="number"
+    //           max={12}
+    //         />
+    //       </Form.Item>
+    //       <Form.Item<FieldType>
+    //         label="Expiration Year"
+    //         name="year"
+    //         layout="vertical"
+    //         rules={[{ required: true, message: "Required!" }]}
+    //       >
+    //         <Input
+    //           placeholder="Year"
+    //           className="rounded-[50px] h-[60px] w-full"
+    //           type="number"
+    //         />
+    //       </Form.Item>
+    //     </div>
+
+    //     <div className="flex-[0.5]">
+    //       <Form.Item<FieldType>
+    //         label="Security Code"
+    //         name="security_code"
+    //         layout="vertical"
+    //         rules={[
+    //           { required: true, message: "Please input your security code!" },
+    //         ]}
+    //       >
+    //         <Input
+    //           placeholder="Security code"
+    //           className="rounded-[50px] h-[60px] w-full"
+    //         />
+    //       </Form.Item>
+    //     </div>
+    //   </div>
+
+    //   <div className="">
+    //     <Checkbox>
+    //       I agree to the{" "}
+    //       <span className="text-[#0874DE]">Customer Agreement</span>  and
+    //       understand that HOUSEFAX may not have the complete history of every
+    //       vehicle.
+    //     </Checkbox>
+    //   </div>
+
+    //   <Form.Item className="mt-[-20px]">
+    //     <Button
+    //       type="primary"
+    //       htmlType="submit"
+    //       shape="round"
+    //       size="large"
+    //       icon={<MoveRight width={15} />}
+    //       iconPosition="end"
+    //     >
+    //       BUY YOUR REPORTS
+    //     </Button>
+    //   </Form.Item>
+    // </Form>
   );
 };
 
@@ -183,13 +367,28 @@ const PaymentMethodsList = () => {
   return (
     <Radio.Group onChange={onChange} value={value} className="flex">
       <Radio value={1} className="flex  gap-x-4">
-        <Image src={CreditCardsImage} alt="payment method" />
+        <Image
+          src={CreditCardsImage}
+          alt="payment method"
+          width={200}
+          className="mt-3"
+        />
       </Radio>
       <Radio value={2} className="flex  gap-x-4">
-        <Image src={PaypalImage} alt="payment method" />
+        <Image
+          src={PaypalImage}
+          alt="payment method"
+          width={110}
+          className="mt-4"
+        />
       </Radio>
       <Radio value={3} className="flex  gap-x-4">
-        <Image src={AmzonPayImage} alt="payment method" />
+        <Image
+          src={AmzonPayImage}
+          alt="payment method"
+          width={150}
+          className="mt-4"
+        />
       </Radio>
     </Radio.Group>
   );

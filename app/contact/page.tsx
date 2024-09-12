@@ -1,16 +1,31 @@
 import { Navbar } from "@/components/navigation";
-import { Button, Input } from "antd";
+import { Button } from "@/components/ui/button";
 import { MoveRight } from "lucide-react";
-
+import Image from "next/image";
+import { Input } from "@/components/ui/input";
 export default function ContactPage() {
   return (
     <main>
-      <section className="min-h-[100vh] w-[100vw] overflow-hidden">
-        <Navbar className="bg-black" />
-        <div className="border border-[#00000026] w-full px-20 py-8 font-semibold text-[18px]">
-          Home - <span className="text-[#0874DE]">Contact Us</span>
-        </div>
+    <section className="h-[100vh] w-[100vw] overflow-hidden bg-black-grid">
+    <Navbar className="bg-black" />
+    <div className="flex flex-col justify-center items-center gap-16 pt-24 pb-16">
+      <Image src="/images/contact1.png"  alt="contact" height={400} width={950} className=""/>
+      <div className="flex flex-row text-[60px] font-normal text-white">
+            <span>Contact&nbsp;</span>
+            <span className="font-bold flex flex-col">
+              Now
+              <span
+                style={{
+                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                  marginTop: "-20px",
+                }}
+              ></span>
+            </span>
+          </div>
+    </div>
+    </section>
 
+      <section className="min-h-[100vh] w-[100vw] overflow-hidden">
         <div className="h-full w-full flex flex-col items-center py-20 gap-y-12">
           <div className="flex flex-row text-[50px] font-normal">
             <span>Request Help From&nbsp;</span>
@@ -35,7 +50,7 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Enter your first name"
-                  className="rounded-[50px] px-[18px] py-[20px]"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md"
                 />
               </div>
 
@@ -45,7 +60,7 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Enter your last name"
-                  className="rounded-[50px] px-[18px] py-[20px]"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md"
                 />
               </div>
               <div className="flex flex-col gap-y-3">
@@ -54,7 +69,7 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Enter your email address"
-                  className="rounded-[50px] px-[18px] py-[20px]"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md"
                 />
               </div>
 
@@ -63,8 +78,8 @@ export default function ContactPage() {
                   Confirm Email Address<sup>*</sup>{" "}
                 </div>
                 <Input
-                  placeholder="Enter your confirm email address"
-                  className="rounded-[50px] px-[18px] py-[20px]"
+                  placeholder="Confirm email address"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md"
                 />
               </div>
             </div>
@@ -74,21 +89,16 @@ export default function ContactPage() {
                 Choose a Concern<sup>*</sup>{" "}
               </div>
               <Input
-                placeholder="Enter your first name"
-                className="rounded-[50px] px-[18px] py-[20px]"
+                placeholder="Enter your concern"
+                className="rounded-[50px] px-[18px] py-[20px] text-md"
               />
             </div>
 
             <div className="py-8">
               <Button
-                className="px-[18px] py-[15px] w-[180px] h-[60px]"
-                type="primary"
-                shape="round"
-                size="large"
-                icon={<MoveRight width={15} />}
-                iconPosition="end"
+                className="px-[18px] py-[15px] w-[180px] h-[60px] text-lg rounded-3xl bg-[#0874DE]"
               >
-                Submit
+                SUBMIT
               </Button>
             </div>
           </div>
@@ -104,17 +114,12 @@ export default function ContactPage() {
                   you
                 </div>
                 <Button
-                className="px-[18px] py-[15px] min-w-[180px] h-[60px]"
-                type="primary"
-                shape="round"
-                size="large"
-                icon={<MoveRight width={15} />}
-                iconPosition="end"
+                className="px-[18px] py-[15px] min-w-[180px] h-[60px] bg-[#0874DE] rounded-3xl text-md"
               >
                 REPORT A CONCERN
               </Button>
               </div>
-              <div className="flex-[0.5] flex flex-col items-center justify-center gap-y-5">
+              <div className="flex-[0.5] flex flex-col items-center justify-center gap-y-5 ">
                 <div className="font-semibold text-[30px]">
                 Have a general question?
                 </div>
@@ -122,12 +127,7 @@ export default function ContactPage() {
                 Send us a message and read our response at your convenience
                 </div>
                 <Button
-                className="px-[18px] py-[15px] min-w-[180px] h-[60px]"
-                type="primary"
-                shape="round"
-                size="large"
-                icon={<MoveRight width={15} />}
-                iconPosition="end"
+                className="px-[18px] py-[15px] min-w-[180px] h-[60px] bg-[#0874DE] rounded-3xl text-md"
               >
                CONTACT US
               </Button>

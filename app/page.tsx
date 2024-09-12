@@ -9,9 +9,11 @@ import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject100Image from "@/assets/images/hero-100-project.png";
 import HeroHomeImage from "@/assets/images/hero-house.png";
 import { useRouter } from "next/navigation";
+import React from "react";
 
 export default function Home() {
   const router = useRouter();
+  const [searched, setSearched] = React.useState(false);
   return (
     <main>
       <section className="h-[110vh] w-[100vw] overflow-hidden bg-black-grid">
@@ -61,7 +63,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <FilterBar className="mx-20 mt-[-100px]" />
+      <FilterBar className="mx-20 mt-[-100px]" searched={searched} setSearched={setSearched}/>
       <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-32">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">

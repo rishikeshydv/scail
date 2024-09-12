@@ -46,7 +46,7 @@ const LoginPage = () => {
       </div>
 
       <div className="font-medium text-[18px] w-[30%] text-center">
-        By logging in, you confirm that you've read and accepted our 
+        By logging in, you confirm that you&apos;ve read and accepted our 
         <Link href={"/policies"}> <span className="text-[#0874DE] font-bold underline">Terms Of Use</span> </Link>
          and 
         <Link href={"/policies"}> <span className="text-[#0874DE] font-bold underline">Privacy Policy.</span></Link>

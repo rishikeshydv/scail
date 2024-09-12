@@ -164,7 +164,14 @@ export const Footer = () => {
 
       <div className="font-medium text-[#808080] text-[18px] pb-10 items-center justify-center flex flex-col">
         <p className={`font-semibold ${textColor}`}>{errorMsg}</p>
-        <p>&copy; 2024 Propfax</p>
+
+        <div className='flex items-center justify-center gap-2 md:gap-4 p-2 '>
+    {/* This is the section for download images */}
+    <img alt="" src={"/images/app-store-badge.svg"} className="w-[130px]"/>
+          <img alt="" src={"/images/google-play-badge.svg"} className="w-[145px]"/>
+  </div>
+        
+        <p className="">&copy; 2024 Propfax</p>
       </div>
 
 

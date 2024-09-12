@@ -8,7 +8,7 @@ import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import {FaApple}  from "react-icons/fa";
 import AddUser from "@/queries/account/Signup";
-import Confetti from 'react-confetti'
+import Confetti from "react-confetti"
 import GoogleSignUp from "@/firebase/auth/google_provider";
 import AppleSignUp from "@/firebase/auth/apple_provider";
 import { set } from "firebase/database";
@@ -167,7 +167,7 @@ const RegisterPage = () => {
       </div>
 
       <div className="font-medium text-[18px] w-[30%] text-center">
-        By signing up, you confirm that you've read and accepted our 
+        By signing up, you confirm that you&apos;ve read and accepted our 
         <span className="text-[#0874DE] font-bold">Terms Of Use</span> and 
         <span className="text-[#0874DE] font-bold">Privacy Policy.</span>
       </div>

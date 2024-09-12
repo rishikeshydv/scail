@@ -1,8 +1,9 @@
 import { Navbar } from "@/components/navigation";
 import Image from "next/image";
 import ProfileImage from "@/assets/images/profile.png";
-import { Button, Input, Rate, Select } from "antd";
+import { Input, Rate, Select } from "antd";
 import { Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function ProfilePage() {
   return (
@@ -26,13 +27,13 @@ export default function ProfilePage() {
                   className="rounded-[50%] h-[195px] w-[195px]"
                 />
               </div>
-              <div className="text-[24px] font-bold">
-                <div className="text-[#0874DE]">Harold Lane</div>
+              <div className="">
+                <div className="text-[24px] font-bold text-[#0874DE]">Harold Lane</div>
                 <div>
                   {" "}
                   <Rate value={4.9} disabled />
                 </div>
-                <div className="pt-5">4.9 • 3 reviews</div>
+                <div className="pt-5 font-semibold text-[20px]">3+ reviews</div>
               </div>
             </div>
             <div className="flex flex-row text-[50px] font-normal">
@@ -49,7 +50,7 @@ export default function ProfilePage() {
             </div>
             <div className="flex flex-col gap-y-3">
               <div className="font-semibold text-[24px] text-[#0874DE]">
-                Plumber (26 years experience)
+                Plumber (26+ years experience)
               </div>
               <div className="font-medium text-[24px]">
                 Specialties Plumbing
@@ -88,12 +89,9 @@ export default function ProfilePage() {
                 <textarea className="rounded-[10px] px-[25px] h-[100px] border" />
               </div>
               <Button
-                type="primary"
-                shape="round"
-                className="w-full  py-[25px] font-semibold text-[18px]"
-                icon={<Phone size={18} />}
+                className="w-full  py-[25px] font-medium text-[18px] rounded-3xl tracking-wide"
               >
-                CONTACT
+                CONTACT &nbsp;<Phone size={18} />
               </Button>
             </div>
             <div className="flex-[0.5] rounded-[20px] bg-white p-[30px] flex flex-col gap-y-5">
@@ -148,8 +146,8 @@ export default function ProfilePage() {
         </div>
 
         {/* User reviews section */}
-        <div className="w-full px-20 py-10 text-[30px] font-normal">
-          Harold Lane <span className="font-bold">reviews</span> (02)
+        <div className="w-full px-20 py-10 text-[40px] font-normal">
+        <span className="font-bold">Reviews</span>
         </div>
 
         {/* Reviews filter */}
@@ -157,11 +155,25 @@ export default function ProfilePage() {
           <ReviewFilter />
         </div>
 
-        <div className="py-10 px-20 flex gap-x-3">
-          <ReviewCard />
-          <ReviewCard />
-          <ReviewCard />
+        <div className="pt-20 px-28">
+          <div className="flex">
+          <NewReview />
+          <NewReview />
+          <NewReview />
+          </div>
+
+          <div className="flex justify-center items-center pt-16 pb-20">
+      <div className="flex space-x-2 p-2 bg-gray-200 rounded-full">
+        <div className="w-4 h-4 border-2 border-black rounded-full" />
+        <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
+        <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
+        <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
+      </div>
+    </div>
+
         </div>
+      
+
       </section>
     </main>
   );
@@ -169,11 +181,11 @@ export default function ProfilePage() {
 
 const ReviewFilter = () => {
   return (
-    <div className="w-full flex gap-x-4">
+    <div className="w-full flex gap-x-16">
       <div className="flex-[0.4] flex flex-col gap-y-3 pb-2">
         <div className="font-semibold text-[20px]">Filter by</div>
         <div className="custom-select-container">
-          <Select placeholder="Select price" className="w-full h-[40px]" />
+          <Select placeholder="Select Filter  " className="w-full h-[40px]" />
         </div>
       </div>
       <div className="flex-[0.4]  flex flex-col gap-y-3 pb-2">
@@ -186,7 +198,7 @@ const ReviewFilter = () => {
         <div className="font-semibold text-[20px]">&nbsp;</div>
 
         <div className="custom-select-container">
-          <Button shape="round" type="primary" className="h-[40px] w-full">
+          <Button className="px-10 py-5 text-[16px] tracking-wide rounded-3xl">
             WRITE A REVIEW
           </Button>
         </div>
@@ -195,69 +207,61 @@ const ReviewFilter = () => {
   );
 };
 
-const ReviewCard = () => {
+const NewReview = () => {
   return (
-    <div className="h-full w-full rounded-[30px] bg-white border border-[#D9D9D9] py-[30px] px-[15px]">
-      <div className="font-normal text-[30px] flex flex-row items-center">
-        Highly likely to <span className="font-bold">recommend</span> / 5.0
-        <span className="ml-2">
-          <svg
-            width="20"
-            height="18"
-            viewBox="0 0 20 18"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9.99834 14.7262L4.14977 18L5.456 11.426L0.535156 6.87539L7.19101 6.08623L9.99834 0L12.8056 6.08623L19.4614 6.87539L14.5407 11.426L15.8469 18L9.99834 14.7262Z"
-              fill="#FFA800"
-            />
-          </svg>
-        </span>
+    <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="relative">
+        <img
+          src="/reviews/review3.webp"
+          alt="Customer"
+          className="w-full h-48 object-cover"
+          width="300"
+          height="300"
+          style={{ aspectRatio: "300/300", objectFit: "cover" }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white rounded-b-lg" />
       </div>
+      <div className="p-4">
+        <h2 className="text-2xl font-bold">ABC treks with Global Treks Guide</h2>
+        <p className="text-md text-muted-foreground mt-2 tracking-wide">
+          Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore. Lorem
+          Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore. Lorem Ipsum
+          Dolor Sit Amet.
+        </p>
+        <div className="flex items-center mt-4">
+          <div className="flex-1">
+            <p className="font-bold text-[#0874DE] text-xl">Ray Robertson</p>
+          </div>
+          <div className="flex items-center">
+            <StarIcon className="stroke-yellow-400 fill-yellow-300" />
+            <StarIcon className="stroke-yellow-400 fill-yellow-300" />
+            <StarIcon className="stroke-yellow-400 fill-yellow-300" />
+            <StarIcon className="stroke-yellow-400 fill-yellow-300" />
+            <StarIcon className="stroke-yellow-400 fill-yellow-300" />
 
-      <div className="mt-10 flex flex-col gap-y-3">
-        <div className="font-semibold text-[18px] text-[#0874DE]">
-          Report a problem
-        </div>
-        <div className="font-normal text-[18px] text-[#808080]">
-          Bathrooms total renovation, Kitchen and Dining Room total renovation.
-          Living Room and Master Bedroom total renovation, next up Basement Man
-          Cave!
-        </div>
-      </div>
-
-      <div className="mt-10 grid gap-3 grid-cols-2">
-        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
-          {" "}
-          <Rate value={5} disabled />
-          <span>Responsiveness</span>
-        </div>
-        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
-          {" "}
-          <Rate value={5} disabled />
-          <span>Responsiveness</span>
-        </div>
-        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
-          {" "}
-          <Rate value={5} disabled />
-          <span>Responsiveness</span>
-        </div>
-        <div className="bg-[#F5F5F5] flex font-semibold text-[15px] px-3 py-2 items-center gap-x-3">
-          {" "}
-          <Rate value={5} disabled />
-          <span>Responsiveness</span>
-        </div>
-      </div>
-
-      <div className="mt-10">
-        <div className="font-normal text-[18px] text-[#808080]">
-          Evelyn Benatar has done many projects for me and they each surpass the
-          other in the incredible beauty and colors that are the final
-          masterpiece. My wife and I only trust her with our interior design
-          projects. Thank Evelyn for taking the stress and wo.
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
+
+
+function StarIcon(props:any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  )
+}

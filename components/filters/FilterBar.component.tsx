@@ -3,14 +3,17 @@ import React from "react";
 import { Row, Col, Select, Button } from "antd";
 import { HouseIcon, MoveRight, Search } from "lucide-react";
 import { ClassNameValue } from "tailwind-merge";
+import { set } from "firebase/database";
 
 const { Option } = Select;
 
 interface FilterBarProps {
   className?: string;
+  searched:boolean
+  setSearched:React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const FilterBar = ({ className }: FilterBarProps) => {
+export const FilterBar = ({ className,searched,setSearched }: FilterBarProps) => {
   return (
     <div className={className}>
       <div
@@ -75,6 +78,7 @@ export const FilterBar = ({ className }: FilterBarProps) => {
               size="middle"
               icon={<Search width={15} />}
               iconPosition="end"
+              onClick={()=>setSearched(true)}
             >
            Search
             </Button>
