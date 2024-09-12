@@ -36,21 +36,19 @@ const Reports = () => {
   };
   return (
     <main>
-      <section className="h-[80vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[125vh] xl:h-[80vh] w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
 
-        <div className="text-white mx-32  flex gap-x-10">
+        <div className="text-white mx-32  flex flex-col xl:flex-row gap-x-10 ">
           <div className="flex-[0.5] flex flex-col gap-y-6 justify-center">
-            <div className="text-[50px] font-normal flex">
+            <div className="text-6xl xl:text-[50px] font-normal flex xl:flex-row flex-col">
               <span>Get Your&nbsp;</span>
-              <span className="font-bold flex flex-col">
+              <span className="flex flex-col font-bold mt-[-8px] w-fit"
+                style={{
+                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                }}>
                 Home Reports
-                <span
-                  style={{
-                    borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                    marginTop: "-18px",
-                  }}
-                ></span>
+                
               </span>
             </div>
             <div className="text-[#808080] text-[20px] font-normal">
@@ -59,16 +57,16 @@ const Reports = () => {
             </div>
             <div>
               <p className="mb-4">Search by Address</p>
-              <div className="flex gap-x-4 items-center">
+              <div className="flex flex-col gap-y-5 md:flex-row gap-x-4 items-center">
                 <input
                   placeholder="Enter Address"
-                  className="rounded-[50px] bg-[#262626] border-none outline-none w-[70%] px-[18px] py-[20px]"
+                  className="rounded-[50px] bg-[#262626] border-none outline-none w-full xl:w-[70%] px-[18px] py-[20px]"
                 />
                 <Button
                   type="primary"
                   shape="round"
                   icon={<FileText width={20} />}
-                  className="px-[18px] py-[20px] h-[60px] w-[30%] text-[18px]"
+                  className="px-[18px] py-[20px] h-[60px] w-full xl:w-[30%] text-[18px]"
                   iconPosition="end"
                 >
                   Get Reports
@@ -80,7 +78,7 @@ const Reports = () => {
             <Image
               src={ReportsHeroImage}
               alt="reports hero home image"
-              className="ml-36 mt-24"
+              className="xl:ml-36 mt-24"
               style={{ width: "800px", height: "450px" }}
             />
           </div>
