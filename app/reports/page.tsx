@@ -63,15 +63,7 @@ const Reports = () => {
                   className="rounded-[50px] bg-[#262626] border-none outline-none w-full xl:w-[70%] px-[18px] py-[20px]"
                 />
                 <Button
-<<<<<<< HEAD
-                  type="primary"
-                  shape="round"
-                  icon={<FileText width={20} />}
-                  className="px-[18px] py-[20px] h-[60px] w-full xl:w-[30%] text-[18px]"
-                  iconPosition="end"
-=======
                   className="px-[18px] py-[15px] h-[60px] w-[30%] text-[18px] rounded-[50px] bg-[#0874DE]"
->>>>>>> 7ad3c44 (feat: changes 2.0)
                 >
                   Get Reports&nbsp;<FileText width={20} />
                 </Button>
@@ -389,7 +381,7 @@ Your Property's History"
       </section>
 
       <section className="h-[90vh] w-[100vw] overflow-hidden bg-blue-grid px-10">
-        <div className="flex mt-32">
+        <div className="flex mt-24">
           <div className="">
             <Image
               src="/images/footer-2.png"

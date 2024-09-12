@@ -231,57 +231,9 @@ const Rent = () => {
           </div>
           <div className="flex flex-col gap-6 mt-14">
             {/* This is for the text */}
-<<<<<<< HEAD
-            <FAQ
-              logo={
-                <HousePlus
-                  className="text-[#0874DE] bg-white p-2 rounded-full"
-                  height={40}
-                  width={40}
-                />
-              }
-              header={
-                "What is the advantage of shopping for a used House on Homes?"
-              }
-              content={
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. "
-              }
-            />
-            <FAQ
-              logo={
-                <HousePlus
-                  className="text-[#0874DE] bg-white p-2 rounded-full"
-                  height={40}
-                  width={40}
-                />
-              }
-              header={
-                "What is the advantage of shopping for a used House on Homes?"
-              }
-              content={
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. "
-              }
-            />
-            <FAQ
-              logo={
-                <HousePlus
-                  className="text-[#0874DE] bg-white p-2 rounded-full"
-                  height={40}
-                  width={40}
-                />
-              }
-              header={
-                "What is the advantage of shopping for a used House on Homes?"
-              }
-              content={
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. "
-              }
-            />
-=======
             <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
             <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
             <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
->>>>>>> 7ad3c44 (feat: changes 2.0)
           </div>
         </div>
       </section>
