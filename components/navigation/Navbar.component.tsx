@@ -90,7 +90,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 </SelectItem>
               </SelectContent>
             </Select>
-            <Link href={"/rent"} className="ml-1">
+            <Link href={"/reports"} className="ml-1">
               Reports
             </Link>
             <Select>
@@ -206,7 +206,7 @@ export const Navbar = ({ className }: NavbarProps) => {
               </SelectItem>
             </SelectContent>
           </Select>
-          <Link href={"/rent"} className="ml-1">
+          <Link href={"/reports"} className="ml-1">
             Reports
           </Link>
           <Select>
