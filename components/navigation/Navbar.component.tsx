@@ -1,5 +1,5 @@
 "use client"
-import { Avatar, Badge, Button, Input } from "antd";
+import { Avatar, Badge, Input } from "antd";
 import { MoveRight, Search, LogIn, MapPinHouse, User, Globe} from "lucide-react";
 import Link from "next/link";
 import React, { useState , useEffect} from "react";
@@ -17,6 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Button } from "../ui/button";
 
 interface NavbarProps {
   className?: string;
@@ -44,13 +45,13 @@ export const Navbar = ({ className }: NavbarProps) => {
           <Image src={"/logo/propfax-logo.png"} alt="Logo" width={150} height={250}/>
         </Link>
 
-        <div className="flex items-center gap-x-10 text-md">
+        <div className="flex items-center gap-x-10 text-xl">
           <Link href={"/buy"}>Buy</Link>
           <Link href={"/rent"}>Rent</Link>
-          <Link href={"/new-home"}>Renovations</Link>
+          <Link href={"/contractors"}>Renovations</Link>
           <Link href={"/reports"}>Reports</Link>
           <Link href={"/home-center"}>Analytics</Link>
-          <Link href={"#"}>Contact</Link>
+          <Link href={"/contact"}>Contact</Link>
         </div>
 
       {/* Right Corner */}
@@ -62,39 +63,31 @@ export const Navbar = ({ className }: NavbarProps) => {
           </Badge>
           <Link href={"/auth"}>
             <Button
-              type="primary"
-              shape="circle"
-              size="large"
-              icon={<LogIn width={20} />}
               className="font-semibold"
               onClick={logout}
-            ></Button>
+            ><LogIn width={20} /></Button>
           </Link>
         </div>
         ):(
           <div className="flex">
             <Globe className="text-[#0874DE] mt-2"/>
             <Select>
-          <SelectTrigger className="w-[100px] bg-transparent border-none">
+          <SelectTrigger className="w-[100px] bg-transparent border-none text-lg">
             <SelectValue placeholder="ENG 🇺🇸" defaultValue={"eng"}/>
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="eng">ENG 🇺🇸</SelectItem>
-            <SelectItem value="esp">ESP 🇪🇸</SelectItem>
+            <SelectItem value="eng" className="text-lg">ENG 🇺🇸</SelectItem>
+            <SelectItem value="esp" className="text-lg">ESP 🇪🇸</SelectItem>
           </SelectContent>
         </Select>
 
             <Button
-            type="primary"
-            shape="round"
-            icon={<User width={20} />}
-            iconPosition="start"
-            className="text-md py-4 font-semibold tracking-wide"
+            className="text-lg py-4 font-semibold tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
             onClick={() => {
              router.push("/auth/login")
             }}
             >
-              LOGIN
+              LOGIN&nbsp;&nbsp;<User width={18} />
               </Button>
           </div>
         )

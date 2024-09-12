@@ -24,7 +24,7 @@ import HumanImage from "@/assets/images/jumping-man.jpeg";
 import GirlSmilingImage from "@/assets/images/girl-smiling.png";
 import GoogleMapReact from "google-map-react";
 import React from "react";
-
+import { useRouter } from "next/navigation";
 interface ReviewCardProps {
   image: any;
   name: string;
@@ -111,10 +111,9 @@ const HomeCenterPage = () => {
       </section>
 
       {
-        searched && (
+        searched ? (
           <div>
-
-<div className="px-20 py-10 bg-[#F5F5F5] flex items-center gap-x-5">
+  <div className="px-20 py-10 bg-[#F5F5F5] flex items-center gap-x-5">
         <div className="flex flex-col w-full gap-y-2">
           <div className="text-[20px] font-semibold">Location</div>
           <Input
@@ -203,104 +202,103 @@ const HomeCenterPage = () => {
       </section>
 
           </div>
+        ):
+        (
+          <section className="min-h-[70vh] w-full py-20">
+          <div className="w-full">
+                <div className="text-[50px] font-normal flex justify-center">
+                  <span>Our Highly&nbsp;</span>
+                  <span className="font-bold flex flex-col">
+                    Trusted Contractors
+                    <span
+                      style={{
+                        borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                        marginTop: "-18px",
+                      }}
+                    ></span>
+                  </span>
+                </div>
+              </div>
+              <div className="grid grid-cols-4 px-10 py-16 gap-6">
+              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+                              <ReviewCard
+                    name="Harold Lane"
+                    contact="(800) 299-9470"
+                    rating={5}
+                    totalReviews={10}
+                    agency="Appliance Connection"
+                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    image={HumanImage}
+                  />
+      
+      
+              </div>
+            </section>
         )
       }
-    {
-      !searched && (
-        <section className="min-h-[70vh] w-full py-20">
-        <div className="w-full">
-              <div className="text-[50px] font-normal flex justify-center">
-                <span>Our Highly&nbsp;</span>
-                <span className="font-bold flex flex-col">
-                  Trusted Contractors
-                  <span
-                    style={{
-                      borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                      marginTop: "-18px",
-                    }}
-                  ></span>
-                </span>
-              </div>
-            </div>
-            <div className="grid grid-cols-4 px-10 py-16 gap-6">
-            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-                            <ReviewCard
-                  name="Harold Lane"
-                  contact="(800) 299-9470"
-                  rating={5}
-                  totalReviews={10}
-                  agency="Appliance Connection"
-                  review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                  image={HumanImage}
-                />
-    
-    
-            </div>
-          </section>
-      )
-    }
+
 
       <section className="min-h-[70vh] w-full bg-[#F5F5F5] py-20">
         <div className="w-full">
@@ -369,7 +367,7 @@ const HomeCenterPage = () => {
           </div>
           <div className="flex-[0.5]">
 
-            <Image src={GirlSmilingImage} alt="Girl smiling image." className="h-[110%] mt-[-52px] ml-20" />
+            <Image src={GirlSmilingImage} alt="Girl smiling image." className="h-[110%] w-[50%] mt-[-52px] ml-20" />
 
           </div>
         </div>
@@ -379,6 +377,7 @@ const HomeCenterPage = () => {
 };
 
 const ReviewCard = (props: ReviewCardProps) => {
+  const router = useRouter();
   return (
     <div className="px-[15px] py-[30px] rounded-[30px] border border-[#D9D9D9] flex flex-col w-full max-w-[480px] gap-y-4">
       <div className="flex gap-x-8 ">
@@ -414,7 +413,7 @@ const ReviewCard = (props: ReviewCardProps) => {
         </div>
       </div>
       <div className="flex items-end justify-end">
-      <Button shape="circle" type="primary" className="h-[50px] w-[50px]">
+      <Button shape="circle" type="primary" className="h-[50px] w-[50px]" onClick={()=>(router.push("/profile"))}>
         <MoveRight width={15} />
       </Button>
       </div>
