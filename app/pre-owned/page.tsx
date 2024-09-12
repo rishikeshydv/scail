@@ -30,10 +30,10 @@ const Rent = () => {
       <section className="h-[80vh] w-[100vw] bg-black-grid z-10">
         <Navbar />
         <div className="text-white flex pt-14 relative">
-          <div className="flex-[0.4] flex flex-col gap-y-5 pl-36">
-            <div className="font-normal text-[20px]">Pre Homes for Sale</div>
+          <div className="flex-[0.4] flex flex-col pl-36">
+            <div className="font-light text-[20px]">Pre Homes for Sale</div>
             <div className="flex flex-col text-[80px]">
-              <span className="font-normal">Rent with</span>
+              <span className="font-normal">Buy with</span>
               <span className="flex flex-col font-bold mt-[-30px]">
                 confidence.
                 <span
@@ -58,7 +58,7 @@ const Rent = () => {
             />
           </div>
           <div className="z-[99999] absolute w-full bottom-5">
-            <FilterBar className="z-20 mx-20 text-black" searched={searched} setSearched={setSearched}/>
+            <FilterBar className="z-20 mx-20 text-black relative" searched={searched} setSearched={setSearched}/>
           </div>
         </div>
       </section>
@@ -173,7 +173,7 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-10">
+      <section className="min-h-[70vh] w-[100vw] overflow-hidden pt-10">
         <div className="flex mx-20 justify-center text-[50px] font-normal py-14">
           <span>Every Used Homes comes with a &nbsp;</span>
           <span className="font-bold flex flex-col">

@@ -11,23 +11,24 @@ import HeroHomeImage from "@/assets/images/hero-house.png";
 import { useRouter } from "next/navigation";
 import React from "react";
 
+
 export default function Home() {
   const router = useRouter();
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[110vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[92vh] w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
         <div className="text-white mx-20 flex pt-14">
-          <div className="flex-[0.5] flex flex-col">
-            <div className="font-semibold text-[140px] mt-[-50px] flex justify-end">
+          <div className="flex-[0.40] flex flex-col">
+            <div className="font-semibold text-[120px] mt-[-50px] flex justify-end">
               <span className="text-[#0874DE]">+</span>
               <span>&nbsp;Property</span>
             </div>
-            <div className="font-semibold text-[140px] mt-[-70px] flex justify-end">
+            <div className="font-semibold text-[120px] mt-[-60px] flex justify-end">
               <span>Reports</span>
             </div>
-            <div className="font-normal text-[32px] text-[#808080]">
+            <div className="font-normal text-[28px] text-[#808080]">
               Discover homes for sale in your city and get detailed property
               reports
             </div>
@@ -54,7 +55,7 @@ export default function Home() {
             </div>
           </div>
 
-        <div className="flex-[0.5]">
+        <div className="flex-[0.52] ml-[150px]">
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
