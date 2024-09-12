@@ -1,10 +1,12 @@
 import { HistoryReportCard, PropertyCardBorderless } from '@/components/card'
+import { Navbar } from '@/components/navigation'
 import React from 'react'
 
 const Test = () => {
   return (
-    <div className='pt-[100px] px-20 h-[300vh] bg-[#f5f5f5]'>
-        <PropertyCardBorderless />
+    <div className=''>
+        <Navbar className='bg-black' />
+        <div className='h-dvh'></div>
     </div>
   )
 }
