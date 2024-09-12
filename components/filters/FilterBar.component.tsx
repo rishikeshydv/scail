@@ -1,19 +1,28 @@
 "use client";
 import React from "react";
-import { Row, Col, Select, Button } from "antd";
+import { Row, Col, Button } from "antd";
 import { HouseIcon, MoveRight, Search } from "lucide-react";
 import { ClassNameValue } from "tailwind-merge";
 import { set } from "firebase/database";
-
-const { Option } = Select;
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FilterBarProps {
   className?: string;
-  searched:boolean
-  setSearched:React.Dispatch<React.SetStateAction<boolean>>
+  searched: boolean;
+  setSearched: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const FilterBar = ({ className,searched,setSearched }: FilterBarProps) => {
+export const FilterBar = ({
+  className,
+  searched,
+  setSearched,
+}: FilterBarProps) => {
   return (
     <div className={className}>
       <div
@@ -34,39 +43,112 @@ export const FilterBar = ({ className,searched,setSearched }: FilterBarProps) =>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Price</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[180px]"  />
+            <Select>
+              <SelectTrigger className="w-[180px] rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Bed</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[100px]" />
+            <Select>
+              <SelectTrigger className="w-[100px] rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Baths</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[100px]" />
+            <Select>
+              <SelectTrigger className="w-[100px]  rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Home Type</div>
           <div className="custom-select-container">
-            <Select placeholder="Select price" className="w-[180px]" />
+            <Select>
+              <SelectTrigger className="w-[180px]  rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Square feet</div>
           <div className="flex gap-x-5 custom-select-container">
-            <Select placeholder="Min" className="w-[150px]" />
-            <Select placeholder="Max" className="w-[150px]" />
+            <Select>
+              <SelectTrigger className="w-[150px] rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger className="w-[150px] rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Year built</div>
           <div className="flex gap-x-5 custom-select-container">
-            <Select placeholder="Min" className="w-[150px]" />
-            <Select placeholder="Max" className="w-[150px]"  />
+            <Select>
+              <SelectTrigger className="w-[150px] rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select>
+              <SelectTrigger className="w-[150px] rounded-3xl">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
         <div className="flex flex-col gap-y-[30px]">
@@ -78,9 +160,9 @@ export const FilterBar = ({ className,searched,setSearched }: FilterBarProps) =>
               size="middle"
               icon={<Search width={15} />}
               iconPosition="end"
-              onClick={()=>setSearched(true)}
+              onClick={() => setSearched(true)}
             >
-           Search
+              Search
             </Button>
           </div>
         </div>

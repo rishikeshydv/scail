@@ -30,10 +30,10 @@ const Rent = () => {
       <section className="h-[80vh] w-[100vw] bg-black-grid z-10">
         <Navbar />
         <div className="text-white flex pt-14 relative">
-          <div className="flex-[0.4] flex flex-col gap-y-5 pl-36">
-            <div className="font-normal text-[20px]">Pre Homes for Sale</div>
+          <div className="flex-[0.4] flex flex-col pl-36">
+            <div className="font-light text-[20px]">Pre Homes for Sale</div>
             <div className="flex flex-col text-[80px]">
-              <span className="font-normal">Rent with</span>
+              <span className="font-normal">Buy with</span>
               <span className="flex flex-col font-bold mt-[-30px]">
                 confidence.
                 <span
