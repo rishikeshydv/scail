@@ -46,7 +46,7 @@ export const Navbar = ({ className }: NavbarProps) => {
   const handleOpenMobileNav = () => setIsMobileNavOpen(!isMobileNavOpen);
 
   return (
-    <div className="border border-red-900">
+    <div className="">
       <nav
         className={cn(
           "flex px-10 items-center w-full text-white font-semibold gap-5",
@@ -56,7 +56,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         {/* left section */}
         <div className="flex w-full gap-x-20 py-8 items-center justify-around">
           <div className="text-[50px] font-semibold flex-[0.5] lg:flex-[0.4] justify-start cursor-pointer items-center flex gap-x-4">
-            <MenuIcon size={24} onClick={handleOpenMobileNav}  />
+            <MenuIcon size={24} onClick={handleOpenMobileNav} />
             <Link href={"/"}>
               <Image
                 src={"/logo/propfax-logo.png"}
@@ -179,9 +179,71 @@ export const Navbar = ({ className }: NavbarProps) => {
           )}
         </div>
       </nav>
-      <div className={`h-[140vh] w-full bg-[#262223] ${!isMobileNavOpen ? 'hidden' : 'flex'} xl:hidden`}>
-
-      </div>
+      <div
+        className={`h-screen w-full bg-[#262223] ${
+          !isMobileNavOpen ? "hidden" : "flex"
+        } xl:hidden flex-col w-full items-start text-white gap-y-8 px-10 pt-5`}
+      >
+          {/* <Link href={"/buy"}>Buy</Link> */}
+          <Select>
+            <SelectTrigger className="w-[170px] border-none bg-transparent text-lg text-left px-[-18px]">
+              <SelectValue placeholder="Homes for Sell" />
+            </SelectTrigger>
+            <SelectContent className="">
+              <SelectItem
+                value="pre-owned"
+                className="text-md  hover:bg-transparent"
+                onClick={() => router.push("/pre-owned")}
+              >
+                Pre-Owned Homes
+              </SelectItem>
+              <SelectItem
+                value="new"
+                className="text-md  hover:bg-transparent"
+                onClick={() => router.push("/new-homes")}
+              >
+                New Homes
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <Link href={"/rent"} className="ml-1">
+            Reports
+          </Link>
+          <Select>
+            <SelectTrigger className="w-[149px] border-none bg-transparent text-left text-lg  px-[-18px]">
+              <SelectValue placeholder="Renovations" />
+            </SelectTrigger>
+            <SelectContent className="">
+              <SelectItem
+                value="pre-owned"
+                className="text-md  hover:bg-transparent"
+                onClick={() => router.push("/contractors")}
+              >
+                Plumbing
+              </SelectItem>
+              <SelectItem
+                value="new"
+                className="text-md  hover:bg-transparent"
+                onClick={() => router.push("/contractors")}
+              >
+                Electrician
+              </SelectItem>
+              <SelectItem
+                value="new"
+                className="text-md  hover:bg-transparent"
+                onClick={() => router.push("/contractors")}
+              >
+                HVAC
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <Link href={"/home-values"} className="">
+            Home Values
+          </Link>
+          <Link href={"/contact"} className="">
+            Contact
+          </Link>
+        </div>
     </div>
   );
 };
