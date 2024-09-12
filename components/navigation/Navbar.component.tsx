@@ -56,7 +56,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         {/* left section */}
         <div className="flex w-full gap-x-20 py-8 items-center justify-around">
           <div className="text-[50px] font-semibold flex-[0.5] lg:flex-[0.4] justify-start cursor-pointer items-center flex gap-x-4">
-            <MenuIcon size={24} onClick={handleOpenMobileNav} />
+            <MenuIcon size={24} onClick={handleOpenMobileNav} className="xl:hidden block" />
             <Link href={"/"}>
               <Image
                 src={"/logo/propfax-logo.png"}
