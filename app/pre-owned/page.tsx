@@ -206,7 +206,7 @@ const Rent = () => {
       </section>
 
       <section className="min-h-[70vh] w-[100vw] overflow-hidden pt-10">
-        <div className="flex mx-20 justify-center text-[50px] font-normal py-14">
+        <div className="flex mx-20 justify-center text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes with a &nbsp;</span>
           <span className="font-bold flex flex-col">
             Free Home Report
@@ -218,19 +218,20 @@ const Rent = () => {
             ></span>
           </span>
         </div>
-        <div className="grid grid-cols-2 w-full gap-5 px-20">
-          <div>
+        <div className="grid grid-cols-2 w-full px-20 pt-10">
+          <div className="ml-20">
             {/* This is for the image */}
             <Image
               src={"/images/lady_laptop.png"}
               alt="Hero home image"
-              className="z-10 mt-20"
+              className="z-10 mt-6"
               height={600}
               width={500}
             />
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 mt-14">
             {/* This is for the text */}
+<<<<<<< HEAD
             <FAQ
               logo={
                 <HousePlus
@@ -276,6 +277,11 @@ const Rent = () => {
                 "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. "
               }
             />
+=======
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+>>>>>>> 7ad3c44 (feat: changes 2.0)
           </div>
         </div>
       </section>

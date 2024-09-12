@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { Navbar } from "@/components/navigation";
 import ReportsHeroImage from "@/public/images/reports.png";
-import { Button } from "antd";
 import { House, FileText, Phone } from "lucide-react";
 import { theme } from "antd";
 import HomeImage from "@/assets/images/hero-house.png";
@@ -15,6 +14,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 const Reports = () => {
   const { token } = theme.useToken();
@@ -63,13 +63,17 @@ const Reports = () => {
                   className="rounded-[50px] bg-[#262626] border-none outline-none w-full xl:w-[70%] px-[18px] py-[20px]"
                 />
                 <Button
+<<<<<<< HEAD
                   type="primary"
                   shape="round"
                   icon={<FileText width={20} />}
                   className="px-[18px] py-[20px] h-[60px] w-full xl:w-[30%] text-[18px]"
                   iconPosition="end"
+=======
+                  className="px-[18px] py-[15px] h-[60px] w-[30%] text-[18px] rounded-[50px] bg-[#0874DE]"
+>>>>>>> 7ad3c44 (feat: changes 2.0)
                 >
-                  Get Reports
+                  Get Reports&nbsp;<FileText width={20} />
                 </Button>
               </div>
             </div>
@@ -385,19 +389,19 @@ Your Property's History"
       </section>
 
       <section className="h-[90vh] w-[100vw] overflow-hidden bg-blue-grid px-10">
-        <div className="flex mt-40">
+        <div className="flex mt-32">
           <div className="">
             <Image
-              src="/images/house1.png"
+              src="/images/footer-2.png"
               alt="house"
               className=""
               height={400}
-              width={900}
+              width={700}
             />
           </div>
           <div className="mt-20 ml-10">
           <div className="w-full flex flex-col">
-            <div className="text-[57px] font-normal flex justify-left text-white tracking-wide">
+            <div className="text-[50px] font-normal flex justify-left text-white tracking-wide">
               <span>Selling a&nbsp;</span>
               <span className="font-bold flex flex-col">
                 Used Property
@@ -410,11 +414,11 @@ Your Property's History"
                 ></span>
               </span>
             </div>
-            <p className="text-gray-100 text-left text-2xl mt-6 mb-12">
+            <p className="text-gray-100 text-left text-[20px] mt-6 mb-12 ">
             Build trust with potential buyers by providing them with a Property History Report today.
             </p>
           </div>
-          <Button className="bg-black text-white border border-black text-[18px] tracking-wide rounded-[20px] py-7 px-14"  size="large" iconPosition="end" icon={<Phone width={24} color="#0874DE" className="border-none ml-2"/> }>CONTACT US</Button>
+          <Button className="bg-black text-white border border-black text-[18px] rounded-[50px] py-7 px-14">CONTACT US&nbsp;<Phone width={20} color="#0874DE" className="border-none ml-2"/></Button>
 
           </div>
 
