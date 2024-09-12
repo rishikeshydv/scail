@@ -27,7 +27,7 @@ const Rent = () => {
   return (
     <main>
 
-      <section className="h-[80vh] w-[100vw] bg-black-grid z-10">
+      <section className="h-[80vh] w-[100vw] bg-black-grid">
         <Navbar />
         <div className="text-white flex pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36">
@@ -57,8 +57,8 @@ const Rent = () => {
               className="h-[100%] object-contain z-10"
             />
           </div>
-          <div className="z-[99999] absolute w-full bottom-5">
-            <FilterBar className="z-20 mx-20 text-black relative" searched={searched} setSearched={setSearched}/>
+          <div className="absolute w-full bottom-5">
+            <FilterBar className=" mx-20 text-black relative" searched={searched} setSearched={setSearched}/>
           </div>
         </div>
       </section>
