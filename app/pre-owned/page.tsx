@@ -181,7 +181,7 @@ const Rent = () => {
         </section>
       )}
 
-      <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-10 bg-[#F5F5F5]">
+      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-10 bg-[#F5F5F5]">
         <div className="flex mx-20 justify-center text-[50px] font-normal py-20">
           <span>Recently Listed &nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -194,14 +194,16 @@ const Rent = () => {
             ></span>
           </span>
         </div>
-
+        <div className="flex flx-col">
+        <div className="flex justify-end">
+        <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
+        </div>
         <div className="grid grid-cols-3 gap-5 mx-20 justify-center pt-6">
           <PropertyCardBorderless />
           <PropertyCardBorderless />
           <PropertyCardBorderless />
         </div>
-        <div className="flex items-end justify-end mr-32">
-        <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
+
         </div>
       </section>
 

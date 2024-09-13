@@ -16,15 +16,15 @@ export const Footer = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [textColor, setTextColor] = useState("text-red-400");
   return (
-    <div className="min-h-[40vh] min-w-[100vw] bg-black text-white">
+    <div className="min-h-[40vh] min-w-[100vw] bg-[#0F0F0F] text-white">
       <div className="w-full flex items-start justify-start font-semibold text-[50px] py-10 px-40">
         <Image src={"/logo/propfax-logo.png"} alt="Logo" width={150} height={250} />
       </div>
       {/* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(8, 116, 222, 0.15) 100%); */}
 
       <div className="w-full flex border-t border-b border-[#FFFFFF26] items-center justify-evenly font-semibold text-lg">
-        <Link href={"/contact"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">About Us</Link>
-        <Link href={"/policies"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Privacy Policy</Link>
+        <Link href={"/contact"} className="hover:bg-gradient-to-b hover:from-[#0F0F0F] hover:to-[#0874DE] text-white opacity-15 px-16 py-2">About Us</Link>
+        <Link href={"/policies"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334]  px-16 py-2">Privacy Policy</Link>
         <Link href={"/policies"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Terms & Conditions</Link>
         <Link href={"/payment"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Payment Policy</Link>
         <Link href={"/auth/login"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Login & Register</Link>
@@ -39,7 +39,7 @@ export const Footer = () => {
           <div className="w-3/4 font-medium text-[18px]">
           Stay Informed: Subscribe to Our Newsletter for the Latest Updates and Insights!
           </div>
-          <div>
+          <div className="flex">
             <input
               className="h-[40px] bg-[#262626] text-[#808080] px-8 py-3 border-none outline-none"
               type="email"
