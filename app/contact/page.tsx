@@ -8,8 +8,8 @@ export default function ContactPage() {
     <main>
     <section className="h-[50vh] w-[100vw] overflow-hidden bg-black-grid">
     <Navbar className="bg-black" />
-    <div className="flex flex-col justify-center items-center py-20 md:mt-2 lg:mt-32">
-      <div className="flex flex-row text-[60px] font-normal text-white">
+    <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-row text-[60px] font-normal text-white py-[12vh] 2xl:py-[15vh]">
             <span>Contact&nbsp;</span>
             <span className="font-bold flex flex-col">
               Now

@@ -23,22 +23,22 @@ export default function Home() {
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[120vh] xl:h-[92vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[120vh] xl:h-[85vh] w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
-        <div className="text-white mx-20 flex pt-14 flex-col-reverse gap-y-8 xl:flex-row xl:gap-y-0">
-          <div className="flex-[0.7] xl:flex-[0.40] flex flex-col items-center xl:items-start">
-            <div className="font-semibold text-6xl xl:text-[120px]  flex justify-end">
+        <div className="text-white mx-20 flex flex-col-reverse gap-y-8 xl:flex-row xl:gap-y-0">
+          <div className="flex-[0.7] xl:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
+            <div className="font-semibold text-6xl xl:text-[100px]  flex justify-end">
               <span className="text-[#0874DE]">+</span>
               <span>&nbsp;Property</span>
             </div>
-            <div className="font-semibold text-6xl xl:text-[120px]  flex justify-end">
+            <div className="font-semibold text-6xl xl:text-[100px]  flex justify-end">
               <span>Reports</span>
             </div>
-            <div className="font-normal text-[28px] text-[#808080]">
+            <div className="font-normal text-[24px] text-[#808080] mt-4">
               Discover homes for sale in your city and get detailed property
               reports
             </div>
-            <div className="flex gap-x-4 py-10">
+            <div className="flex gap-x-4 py-6">
               <Button
                 type="primary"
                 shape="round"
@@ -61,17 +61,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-[0.3]  xl:flex-[0.52] xl:ml-[150px] flex items-center">
+          <div className="flex-[0.3] xl:flex-[0.52] xl:ml-[150px] flex items-center">
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
-              className=" h-[300px] xl:h-[90%] object-contain"
+              className=" h-[300px] xl:h-[80%] object-contain"
             />
           </div>
         </div>
       </section>
       <FilterBar
-        className="mx-20 mt-[-100px]"
+        className="mx-20 mt-[-120px]"
         searched={searched}
         setSearched={setSearched}
       />

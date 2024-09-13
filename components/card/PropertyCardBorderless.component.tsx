@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const PropertyCardBorderless = () => {
   return (
-    <div className="min-h-[500px] max-w-[400px] flex flex-col bg-[#F5F5F5] p-5">
+    <div className="min-h-[420px] max-w-[400px] flex flex-col bg-[#F5F5F5] p-5">
       <div className="flex flex-[0.6] ">
         <div className="bg-white rounded-[30px] h-[250px] w-full">
           <Image src={HomeImage} alt="image" className="h-[120%] mt-[-50px]" />

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Row, Col, Button } from "antd";
+import { Row, Col } from "antd";
 import { HouseIcon, MoveRight, Search } from "lucide-react";
 import { ClassNameValue } from "tailwind-merge";
 import { set } from "firebase/database";
@@ -11,13 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "../ui/button";
 
 interface FilterBarProps {
   className?: string;
   searched: boolean;
   setSearched: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
 export const FilterBar = ({
   className,
   searched,
@@ -38,7 +38,7 @@ export const FilterBar = ({
         style={{
           borderRadius: "0px 20px 20px 20px",
         }}
-        className="bg-white shadow-md flex items-center justify-between border min-h-[120px] px-[35px] py-[20px] flex-wrap"
+        className="bg-white shadow-md flex items-center justify-between border min-h-[120px] px-[35px] py-[8px] flex-wrap"
       >
         <div className="flex flex-col gap-y-[10px]">
           <div className="text-[20px] font-semibold">Price</div>
@@ -152,17 +152,12 @@ export const FilterBar = ({
           </div>
         </div>
         <div className="flex flex-col gap-y-[40px]">
-          <div></div>
-          <div className="">
+          <div className="py-2 mt-2">
             <Button
-              type="primary"
-              shape="round"
-              size="middle"
-              icon={<Search width={15} />}
-              iconPosition="end"
               onClick={() => setSearched(true)}
+              className="bg-[#0874DE] rounded-3xl text-[14px]"
             >
-              Search
+              Search&nbsp;<Search width={15} />
             </Button>
           </div>
         </div>

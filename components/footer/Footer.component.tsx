@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "antd";
 import { MoveRight, Phone, MailCheck } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -11,7 +10,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { GrLinkedinOption } from "react-icons/gr";
 import { CiYoutube } from "react-icons/ci";
 import Link from "next/link";
-
+import { Button } from "../ui/button";
 export const Footer = () => {
   const [email, setEmail] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -52,14 +51,6 @@ export const Footer = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <Button
-              type="primary"
-              shape="round"
-              size="large"
-              icon={<MailCheck width={18} />}
-              iconPosition="end"
-              style={{
-                borderRadius: "0px 50px 50px 0px",
-              }}
               onClick={async () => {
                 if (email) {
                   //check if the email is valid
@@ -81,9 +72,12 @@ export const Footer = () => {
                   setErrorMsg("Please enter your email");
                 }
               }}
-              
+              className="bg-[#0874de] rounded-l-none rounded-r-3xl"
+              style={{
+                borderRadius: "0px 50px 50px 0px",
+              }}
             >
-              Subscribe
+              Subscribe&nbsp;&nbsp;<MailCheck width={18} />
             </Button>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import styles from "@/styles/Image.module.css";
 import { Star } from 'lucide-react';
 interface ReviewProps {
     img:string
@@ -17,7 +16,7 @@ export default function Review({img,content,name,profession}: ReviewProps) {
             width={150}
             height={150}
             alt="Rishi's profile picture"
-            className={`${styles.circular}`} // Add a new class
+            style={{borderRadius: '50%'}} // Add a new class
           />
           <div className='flex gap-2'>
           <Star color='#0874DE' fill='#0874DE'/>

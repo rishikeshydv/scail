@@ -5,7 +5,7 @@ import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { HousePlus } from "lucide-react";
 import { HistoryReportCard, PropertyCardBorderless } from "@/components/card";
-import PreOwnHeroImage from "@/assets/images/pre-own-hero.png";
+import PreOwnHeroImage from "@/public/images/new-home.png";
 import FAQ from "@/components/buy/FAQ";
 import Resource from "@/components/buy/Resource";
 import Filters from "@/components/search/Filters";
@@ -45,11 +45,11 @@ const Rent = () => {
               listings include a free homes report!
             </div>
           </div>
-          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 mx-5 xl:mx-0 flex justify-end items-end">
+          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex justify-end items-end ">
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
-              className="h-[100%] object-contain z-10"
+              className="h-[70%] object-contain z-10 mb-48"
             />
           </div>
           <div className="xl:absolute w-full bottom-5">
@@ -193,12 +193,7 @@ const Rent = () => {
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-5 mx-20 justify-center py-6">
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
+        <div className="grid grid-cols-3 gap-5 mx-20 justify-center py-6">
           <PropertyCardBorderless />
           <PropertyCardBorderless />
           <PropertyCardBorderless />

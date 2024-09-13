@@ -5,10 +5,11 @@ import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { HousePlus } from "lucide-react";
 import { HistoryReportCard, PropertyCardBorderless } from "@/components/card";
-import PreOwnHeroImage from "@/assets/images/pre-own-hero.png";
+import PreOwnHeroImage from "@/public/images/new-home.png";
 import FAQ from "@/components/buy/FAQ";
 import Resource from "@/components/buy/Resource";
 import Filters from "@/components/search/Filters";
+import { FaAlignRight } from "react-icons/fa6";
 import {
   Select,
   SelectContent,
@@ -18,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 
 const Rent = () => {
   const [searched, setSearched] = React.useState(false);
@@ -27,7 +29,7 @@ const Rent = () => {
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
-            <div className="font-light text-[20px]">Pre Homes for Sale</div>
+            <div className="font-light text-[20px]">Pre Owned Homes for Sale</div>
             <div className="flex flex-col text-6xl xl:text-[80px]">
               <span className="font-normal">Buy with</span>
               <span
@@ -45,11 +47,11 @@ const Rent = () => {
               listings include a free homes report!
             </div>
           </div>
-          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 mx-5 xl:mx-0 flex justify-end items-end">
+          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex justify-end items-end ">
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
-              className="h-[100%] object-contain z-10"
+              className="h-[70%] object-contain z-10 mb-48"
             />
           </div>
           <div className="xl:absolute w-full bottom-5">
@@ -179,7 +181,7 @@ const Rent = () => {
         </section>
       )}
 
-      <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-16 bg-[#F5F5F5]">
+      <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-10 bg-[#F5F5F5]">
         <div className="flex mx-20 justify-center text-[50px] font-normal py-20">
           <span>Recently Listed &nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -193,15 +195,13 @@ const Rent = () => {
           </span>
         </div>
 
-        <div className="flex flex-wrap gap-5 mx-20 justify-center py-6">
+        <div className="grid grid-cols-3 gap-5 mx-20 justify-center pt-6">
           <PropertyCardBorderless />
           <PropertyCardBorderless />
           <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
+        </div>
+        <div className="flex items-end justify-end mr-32">
+        <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
         </div>
       </section>
 

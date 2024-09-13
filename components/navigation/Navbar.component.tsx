@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
 import { FaAngleRight } from "react-icons/fa6";
-
+import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 interface NavbarProps {
   className?: string;
 }
@@ -37,7 +37,7 @@ export const Navbar = ({ className }: NavbarProps) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [user] = useAuthState(auth);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   useEffect(() => {
     if (user && user.email) {
       setLoggedIn(true);
@@ -56,7 +56,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       >
         {/* left section */}
         <div className="flex w-full gap-x-20 py-8 items-center justify-around">
-          <div className="text-[50px] font-semibold flex-[0.5] lg:flex-[0.4] justify-start cursor-pointer items-center flex gap-x-4">
+          <div className="text-[50px] font-semibold flex-[0.5] lg:flex-[0.3] justify-start cursor-pointer items-center flex gap-x-4">
             <MenuIcon size={24} onClick={handleOpenMobileNav} className="xl:hidden block" />
             <Link href={"/"}>
               <Image
@@ -68,27 +68,18 @@ export const Navbar = ({ className }: NavbarProps) => {
             </Link>
           </div>
 
-          <div className="hidden xl:flex xl:gap-6 justify-center items-center font-light mr-10">
-            {/* <Link href={"/buy"}>Buy</Link> */}
-            <Select onValueChange={(value)=>router.push(`/${value}`)}>
-              <SelectTrigger className="min-w-[170px] border-none bg-transparent text-[18px]">
-                <SelectValue placeholder="Homes for Sell" />
-              </SelectTrigger>
-              <SelectContent className="bg-[#262626] py-2">
-                <SelectItem
-                  value="pre-owned"
-                  className="text-[18px] text-[#777777] hover:bg-transparent px-2"
-                >
-                  <Link href={"/pre-owned"}>Pre-Owned Homes</Link>
-                </SelectItem>
-                <SelectItem
-                  value="new-homes"
-                  className="text-[18px] text-[#777777] hover:bg-transparent py-2 px-2"
-                >
-                   <Link href={"/new-homes"}>New Homes<span></span></Link>
-                </SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="hidden xl:flex xl:gap-6 justify-center items-center font-light">
+                <Dropdown isOpen={isDropdownOpen} className="bg-[#262626] text-[#777777]" onMouseLeave={()=>setIsDropdownOpen(false)}>
+              <DropdownTrigger className="" >
+                <Button className="text-[18px] bg-transparent hover:bg-transparent font-light" onMouseEnter={()=>setIsDropdownOpen(true)}>
+                Homes for Sell
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu aria-label="Static Actions">
+                <DropdownItem key="pre-owned" className="" onClick={()=>setIsDropdownOpen(false)}><Link href={"/pre-owned"} className="text-[16px]">Pre-Owned Homes</Link></DropdownItem>
+                <DropdownItem key="new-homes" onClick={()=>setIsDropdownOpen(false)}><Link href={"/new-homes"} className="text-[16px]">New Homes</Link></DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
             <Link href={"/reports"} className="ml-1 text-[18px]">
               Reports
             </Link>
