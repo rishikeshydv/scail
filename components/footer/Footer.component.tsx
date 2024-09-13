@@ -22,13 +22,13 @@ export const Footer = () => {
       </div>
       {/* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(8, 116, 222, 0.15) 100%); */}
 
-      <div className="w-full flex border-t border-b border-[#FFFFFF26] items-center justify-evenly font-semibold text-lg">
-        <Link href={"/contact"} className="hover:bg-gradient-to-b hover:from-[#0F0F0F] hover:to-[#0874DE] text-white opacity-15 px-16 py-2">About Us</Link>
-        <Link href={"/policies"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334]  px-16 py-2">Privacy Policy</Link>
-        <Link href={"/policies"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Terms & Conditions</Link>
-        <Link href={"/payment"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Payment Policy</Link>
-        <Link href={"/auth/login"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Login & Register</Link>
-        <Link href={"/payment"} className="hover:bg-gradient-to-b hover:from-[#000000] hover:via-[#101316] hover:to-[#122334] px-16 py-2">Secure Payment</Link>
+      <div className="w-full flex border-t border-b border-[#FFFFFF26] items-center justify-evenly font-semibold text-lg text-white">
+        <Link href={"/contact"} className="px-16 py-2 hover:bg-custom-gradient"><p className="text-white">About Us</p></Link>
+        <Link href={"/policies"} className="hover:bg-custom-gradient  px-16 py-2">Privacy Policy</Link>
+        <Link href={"/policies"} className="hover:bg-custom-gradient px-16 py-2">Terms & Conditions</Link>
+        <Link href={"/payment"} className="hover:bg-custom-gradient px-16 py-2">Payment Policy</Link>
+        <Link href={"/auth/login"} className="hover:bg-custom-gradient px-16 py-2">Login & Register</Link>
+        <Link href={"/payment"} className="hover:bg-custom-gradient px-16 py-2">Secure Payment</Link>
       </div>
 
       <div className="flex mx-40">
