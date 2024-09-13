@@ -56,8 +56,8 @@ export const Navbar = ({ className }: NavbarProps) => {
         )}
       >
         {/* left section */}
-        <div className="flex w-full gap-x-10 py-8 items-center justify-around">
-          <div className="text-[50px] font-semibold flex-[0.5] lg:flex-[0.3] justify-start cursor-pointer items-center flex gap-x-4">
+        <div className="flex w-full gap-x-10 py-8 items-center justify-between px-16">
+          <div className="text-[50px] font-semibold items-center cursor-pointer flex gap-x-4">
             <MenuIcon size={24} onClick={handleOpenMobileNav} className="xl:hidden block" />
             <Link href={"/"}>
               <Image
@@ -66,9 +66,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 className="w-[146px] h[38px]"
               />
             </Link>
-          </div>
-
-          <div className="hidden xl:flex xl:gap-6 justify-center items-center font-light">
+            <div className="hidden xl:flex xl:gap-10 items-center font-light px-7">
                 <Dropdown isOpen={isDropdownOpen} className="bg-[#262626] text-[#777777]" onMouseLeave={()=>setIsDropdownOpen(false)}>
               <DropdownTrigger className="" >
                 <Button className="text-[18px] bg-transparent hover:bg-transparent font-light" onMouseEnter={()=>setIsDropdownOpen(true)}>
@@ -117,6 +115,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Link href={"/contact"} className="ml-6 text-[18px]">
               Contact
             </Link>
+          </div>
           </div>
 
           {/* Right Corner */}

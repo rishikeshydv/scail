@@ -7,9 +7,9 @@ export default function ContactPage() {
   return (
     <main>
     <section className="min-h-[20vh] min-w-[100vw] overflow-hidden bg-black-grid">
-    <Navbar className="bg-black" />
+    <Navbar className=" bg-black-grid" />
     <div className="flex flex-col justify-center items-center">
-      <div className="flex flex-row text-[60px] font-normal text-white py-[6vh]">
+      <div className="flex flex-row text-[60px] font-normal text-white pb-[6vh]">
             <span>Contact&nbsp;</span>
             <span className="font-bold flex flex-col">
               Now
