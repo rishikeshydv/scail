@@ -23,7 +23,7 @@ export default function Home() {
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[120vh] xl:h-[85vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
         <div className="text-white mx-20 flex flex-col-reverse gap-y-8 xl:flex-row xl:gap-y-0">
           <div className="flex-[0.7] xl:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
@@ -75,7 +75,7 @@ export default function Home() {
         searched={searched}
         setSearched={setSearched}
       />
-      <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-32">
+      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-32">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">
             <span>Properties for &nbsp;</span>
@@ -185,7 +185,7 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <section className="min-h-[80vh] w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-52 gap-x-14">
+      <section className="min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-52 gap-x-14">
         <div className="flex-[0.5]">
           <Image src={HeroProject100Image} alt="hero image" height={700} />
         </div>
@@ -243,7 +243,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-32">
+      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-32">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">
             <span>Insightful &nbsp;</span>

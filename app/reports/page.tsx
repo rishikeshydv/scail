@@ -8,6 +8,7 @@ import HomeImage from "@/assets/images/hero-house.png";
 import Value from "@/components/reports/Value";
 import Points from "@/components/reports/Points";
 import Review from "@/components/reports/Review";
+import FooterHero from "@/public/images/footer-2.png"
 import {
   Accordion,
   AccordionContent,
@@ -36,7 +37,7 @@ const Reports = () => {
   };
   return (
     <main>
-      <section className="h-[125vh] xl:h-[75vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[125vh] xl:h-[75vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
 
         <div className="text-white mx-32  flex flex-col xl:flex-row gap-x-10 ">
@@ -81,7 +82,7 @@ const Reports = () => {
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-full bg-[#F5F5F5] pt-20 pb-10">
+      <section className="min-h-[70vh] min-w-[100vw] bg-[#F5F5F5] pt-20 pb-10">
         <div className="w-full">
           <div className="text-[50px] font-normal flex justify-center">
             <span>A House History&nbsp;</span>
@@ -119,7 +120,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-full py-20">
+      <section className="min-h-[70vh] min-w-[100vw] py-20">
         <div className="w-full mt-6 mb-16">
           <div className="text-[50px] font-normal flex justify-center">
             <span className="font-bold flex flex-col">
@@ -283,7 +284,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-full bg-[#F5F5F5] pt-32 pb-20">
+      <section className="min-h-[70vh] min-w-[100vw] bg-[#F5F5F5] pt-32 pb-20">
         <div className="w-full">
           <div className="text-[50px] font-normal flex justify-center">
             <span>What customers&nbsp;</span>
@@ -320,7 +321,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-full mt-40 mb-10">
+      <section className="min-h-[70vh] mt-40 mb-10">
         <div className="w-full mb-10">
           <div className="text-[50px] font-normal flex justify-center">
             <span>Frequently&nbsp;</span>
@@ -380,20 +381,16 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="h-[90vh] w-[100vw] overflow-hidden bg-blue-grid px-10">
-        <div className="flex ml-12 mt-24 gap-20">
-          <div className="">
-            <Image
-              src="/images/footer-2.png"
-              alt="house"
-              className=""
-              height={400}
-              width={700}
-            />
-          </div>
-          <div className="mt-20 ml-10">
-          <div className="w-[550px] flex flex-col">
-            <div className="text-[48px] font-normal flex justify-left text-white ">
+      <section>
+      <div className="flex items-center justify-center min-h-[75vh] bg-blue-grid px-20">
+      <div className="flex flex-col items-center gap-20 md:flex-row">
+        <Image
+          src={FooterHero}
+          alt="Modern House"
+          className="w-full max-w-md md:max-w-xl 2xl:max-w-3xl"
+        />
+        <div className="flex flex-col items-center mt-8 text-center md:items-start md:mt-0 md:ml-8 md:text-left">
+        <div className="text-[48px] font-normal flex justify-left text-white ">
               <span>Selling a&nbsp;</span>
               <span className="font-bold flex flex-col">
                 Used Property
@@ -406,15 +403,15 @@ Your Property's History"
                 ></span>
               </span>
             </div>
-            <p className="text-gray-100 text-left text-[20px] mt-6 mb-12 ">
+          <p className="mt-4 text-gray-100 text-left pr-24 text-[20px]">
             Build trust with potential buyers by providing them with a Property History Report today.
-            </p>
-          </div>
-          <Button className="bg-black text-white border border-black text-[18px] rounded-[50px] py-7 px-14">CONTACT US&nbsp;<Phone width={20} color="#0874DE" className="border-none ml-2"/></Button>
-
-          </div>
-
+          </p>
+          <Button size={"lg"} className="mt-8 bg-black text-white px-10 py-4 rounded-full flex items-center">
+            CONTACT US&nbsp;<Phone width={20} color="#0874DE" className="border-none ml-2"/>
+          </Button>
         </div>
+      </div>
+    </div>
       </section>
     </main>
   );
