@@ -65,7 +65,7 @@ export default function Home() {
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
-              className=" h-[300px] xl:h-[80%] object-contain"
+              className=" h-[300px] xl:h-[80%] object-contain overflow-hidden"
             />
           </div>
         </div>

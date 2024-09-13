@@ -18,6 +18,7 @@ import { auth } from "@/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logout from "@/firebase/auth/logout";
 import { useRouter } from "next/navigation";
+import logo from "@/public/logo/propfax-logo.png";
 import {
   Select,
   SelectContent,
@@ -60,10 +61,9 @@ export const Navbar = ({ className }: NavbarProps) => {
             <MenuIcon size={24} onClick={handleOpenMobileNav} className="xl:hidden block" />
             <Link href={"/"}>
               <Image
-                src={"/logo/propfax-logo.png"}
+                src={logo}
                 alt="Logo"
-                width={150}
-                height={250}
+                className="w-[146px] h[38px]"
               />
             </Link>
           </div>
@@ -136,7 +136,7 @@ export const Navbar = ({ className }: NavbarProps) => {
               </Link>
             </div>
           ) : (
-            <div className="flex flex-[0.5] lg:flex-[0.2] justify-end">
+            <div className="flex flex-[0.5] lg:flex-[0.3] justify-end">
               <Globe className="text-[#0874DE] mt-2" />
               <Select>
                 <SelectTrigger className="w-[100px] bg-transparent border-none text-[18px] font-light">
