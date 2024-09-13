@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { HousePlus } from "lucide-react";
-import { HistoryReportCard, PropertyCardBorderless } from "@/components/card";
+import { HistoryReportCard, PropertyCardBorderless, PropertyCard } from "@/components/card";
 import PreOwnHeroImage from "@/public/images/new-home.png";
 import FAQ from "@/components/buy/FAQ";
 import Resource from "@/components/buy/Resource";
@@ -181,29 +181,106 @@ const Rent = () => {
         </section>
       )}
 
-      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-10 bg-[#F5F5F5]">
-        <div className="flex mx-20 justify-center text-[50px] font-normal py-16">
-          <span>Recently Listed &nbsp;</span>
-          <span className="font-bold flex flex-col">
-            Properties
-            <span
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                marginTop: "-19px",
-              }}
-            ></span>
-          </span>
-        </div>
-        <div className="flex flex-col gap-10">
-        <div className="flex justify-end mr-36">
-        <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
-        </div>
-        <div className="grid grid-cols-3 gap-5 mx-20 justify-center pt-6">
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-        </div>
+<section className="min-h-[100vh] min-w-[100vw] overflow-hidden bg-[#F5F5F5] pt-52 pb-28">
+        <div className="flex justify-between mx-20 items-center">
+          <div className="text-[50px] font-normal flex">
+            <span>Recently Listed&nbsp;</span>
+            <span className="font-bold flex flex-col">
+              Properties
+              <span
+                style={{
+                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                  marginTop: "-22px",
+                }}
+              ></span>
+            </span>
+          </div>
 
+          <div>
+          <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
+          </div>
+        </div>
+        <div className="gap-x-4 pt-24 mx-5 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+          <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6">
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={false}
+              />
+            </li>
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={true}
+              />
+            </li>
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={true}
+              />
+            </li>{" "}
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={true}
+              />
+            </li>
+          </ul>
+
+          <ul
+            className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6"
+            aria-hidden="true"
+          >
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={false}
+              />
+            </li>
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={true}
+              />
+            </li>
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={true}
+              />
+            </li>{" "}
+            <li>
+              <PropertyCard
+                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Modern villa in Oregon"
+                adddress="1261 Sampson street senver"
+                price={800000}
+                isNew={true}
+              />
+            </li>
+          </ul>
         </div>
       </section>
 

@@ -138,19 +138,19 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-y-3">
-            <div className="font-medium text-[18px] rounded-lg border border-gray-50 p-2">
+            <div className="font-medium text-[18px] rounded-lg bg-[#0874DE] p-2">
              <FaFacebookF className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
               <FaInstagram className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
               <FaXTwitter className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
               <GrLinkedinOption className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg border border-gray-50 p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
               <CiYoutube className="text-[#ffffff]"/>
             </div>
           </div>
