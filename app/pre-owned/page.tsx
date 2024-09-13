@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-
+import LaptopImg from "@/public/images/lady_laptop.png";
 const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
@@ -284,7 +284,7 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-[100vw] overflow-hidden pt-10">
+      <section className="h-[90vh] min-w-[100vw] overflow-hidden pt-10">
         <div className="flex mx-20 justify-center text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes with a &nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -292,27 +292,26 @@ const Rent = () => {
             <span
               style={{
                 borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                marginTop: "-22px",
+                marginTop: "-18px",
               }}
             ></span>
           </span>
         </div>
-        <div className="grid grid-cols-2 w-full px-20 pt-10">
-          <div className="ml-20">
+        <div className="grid grid-cols-2 w-full pr-24">
+          <div className="">
             {/* This is for the image */}
             <Image
-              src={"/images/lady_laptop.png"}
+              src={LaptopImg}
               alt="Hero home image"
-              className="z-10 mt-6"
-              height={600}
-              width={500}
+              width={800}
+              height={500}
             />
           </div>
-          <div className="flex flex-col gap-6 mt-14">
+          <div className="flex flex-col gap-6 mt-20">
             {/* This is for the text */}
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
           </div>
         </div>
       </section>
