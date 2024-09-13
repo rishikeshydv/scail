@@ -68,7 +68,7 @@ const HomeCenterPage = () => {
         <Navbar />
 
         <div className="text-white mx-32 flex gap-x-10">
-          <div className="flex-[0.5] flex flex-col gap-y-4 justify-center">
+          <div className="flex-[0.55] flex flex-col gap-y-4 justify-center">
             <div className="text-[50px] font-normal flex">
               <span>Find Home&nbsp;</span>
               <span className="font-bold flex flex-col">
@@ -104,7 +104,7 @@ const HomeCenterPage = () => {
             <Image
               src={HomeCenterHeroImage}
               alt="payment hero home image"
-              className="h-[80%] object-contain"
+              className="h-[85%] object-contain"
             />
           </div>
         </div>

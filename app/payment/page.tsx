@@ -20,12 +20,12 @@ interface ReportInfoCardProps {
 const PaymentPage = () => {
   return (
     <main>
-      <section className="h-[75vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[70vh] w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
 
-        <div className="text-white mx-32  flex pt-20">
+        <div className="text-white mx-32 flex">
           <div className="flex-[0.5] flex flex-col gap-y-6 mt-20">
-            <div className="text-[60px] font-normal flex">
+            <div className="text-[50px] font-normal flex">
               <span>Order&nbsp;</span>
               <span className="font-bold flex flex-col">
                 Homes Reports !
@@ -51,14 +51,14 @@ const PaymentPage = () => {
               </span>
             </div>
           </div>
-          <div className="flex-[0.68]">
-            <Image src={"/images/payment-home.png"} alt="payment hero home image" className="ml-24" width={1200} height={700}/>
+          <div className="flex-[0.56] mt-8">
+            <Image src={"/images/payment-home.png"} alt="payment hero home image" className="ml-24 w-[780px] h-[430px]" width={600} height={700}/>
           </div>
         </div>
       </section>
 
       <section className="min-h-[100vh] flex">
-        <div className="flex-[0.25] min-h-[100vh] border-r border-[#00000026] flex flex-col px-10 py-10 gap-y-5">
+        <div className="w-[50vh] min-h-[80vh] border-r border-[#00000026] flex flex-col px-10 mt-14 gap-y-4 pb-10">
           <ReportInfoCard
             icon={PieChartIcon}
             title="Fire Department"
@@ -80,15 +80,8 @@ const PaymentPage = () => {
         recusandae officiis fuga unde dolor quis minus porro iusto explicabo
         nisi."
           />
-          <ReportInfoCard
-            icon={HouseIcon}
-            title="Contractors Database"
-            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-        recusandae officiis fuga unde dolor quis minus porro iusto explicabo
-        nisi."
-          />
         </div>
-        <div className="flex-[0.75] h-full py-5">
+        <div className="w-[140vh] h-full pt-14">
           <div className="font-bold text-[24px] border-b border-[#00000026] px-3 pb-5">
             <span className="text-[#0874DE]">Step 1.</span> Select Your Package
           </div>
@@ -107,7 +100,7 @@ const PaymentPage = () => {
             </div>
           </div>
 
-          <div className="border-b border-[#00000026] px-3 py-5 w-full">
+          <div className=" px-3 py-5 w-full">
             <CheckoutForm />
           </div>
         </div>

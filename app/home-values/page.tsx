@@ -97,7 +97,7 @@ const HomeCenterPage = () => {
       <section className="h-[80vh] w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
         <div className="text-white mx-24  flex gap-x-10">
-          <div className="flex-[0.5] flex flex-col gap-y-6 justify-center">
+          <div className="flex-[0.55] flex flex-col gap-y-6 justify-center">
             <div className="text-[50px] font-normal flex">
               <span>What&apos;s Your&nbsp;</span>
               <span className="font-bold flex flex-col">

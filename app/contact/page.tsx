@@ -6,10 +6,9 @@ import { Input } from "@/components/ui/input";
 export default function ContactPage() {
   return (
     <main>
-    <section className="h-[100vh] w-[100vw] overflow-hidden bg-black-grid">
+    <section className="h-[50vh] w-[100vw] overflow-hidden bg-black-grid">
     <Navbar className="bg-black" />
-    <div className="flex flex-col justify-center items-center gap-16 pt-24 pb-16">
-      <Image src="/images/contact1.png"  alt="contact" height={400} width={950} className=""/>
+    <div className="flex flex-col justify-center items-center gap-16 py-20">
       <div className="flex flex-row text-[60px] font-normal text-white">
             <span>Contact&nbsp;</span>
             <span className="font-bold flex flex-col">

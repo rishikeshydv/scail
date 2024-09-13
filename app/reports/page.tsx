@@ -43,7 +43,7 @@ const Reports = () => {
           <div className="flex-[0.5] flex flex-col gap-y-6 justify-center">
             <div className="text-6xl xl:text-[50px] font-normal flex xl:flex-row flex-col">
               <span>Get Your&nbsp;</span>
-              <span className="flex flex-col font-bold mt-[-8px] w-fit"
+              <span className="flex flex-col font-bold w-fit"
                 style={{
                   borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
                 }}>
@@ -381,7 +381,7 @@ Your Property's History"
       </section>
 
       <section className="h-[90vh] w-[100vw] overflow-hidden bg-blue-grid px-10">
-        <div className="flex mt-24">
+        <div className="flex ml-12 mt-24 gap-20">
           <div className="">
             <Image
               src="/images/footer-2.png"
@@ -392,8 +392,8 @@ Your Property's History"
             />
           </div>
           <div className="mt-20 ml-10">
-          <div className="w-full flex flex-col">
-            <div className="text-[50px] font-normal flex justify-left text-white tracking-wide">
+          <div className="w-[550px] flex flex-col">
+            <div className="text-[48px] font-normal flex justify-left text-white ">
               <span>Selling a&nbsp;</span>
               <span className="font-bold flex flex-col">
                 Used Property

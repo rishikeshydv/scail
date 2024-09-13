@@ -67,64 +67,62 @@ export const Navbar = ({ className }: NavbarProps) => {
             </Link>
           </div>
 
-          <div className="hidden xl:flex items-center text-sm font-light">
+          <div className="hidden xl:flex items-center font-light">
             {/* <Link href={"/buy"}>Buy</Link> */}
-            <Select>
-              <SelectTrigger className="w-[170px] border-none bg-transparent text-lg">
+            <Select onValueChange={(value)=>router.push(`/${value}`)}>
+              <SelectTrigger className="w-[170px] border-none bg-transparent text-[20px]">
                 <SelectValue placeholder="Homes for Sell" />
               </SelectTrigger>
               <SelectContent className="bg-transparent">
                 <SelectItem
                   value="pre-owned"
-                  className="text-md text-white hover:bg-transparent"
-                  onClick={() => router.push("/pre-owned")}
+                  className="text-[20px] text-white hover:bg-transparent"
                 >
-                  Pre-Owned Homes
+                  <Link href={"/pre-owned"}>Pre-Owned Homes</Link>
                 </SelectItem>
                 <SelectItem
-                  value="new"
-                  className="text-md text-white hover:bg-transparent"
-                  onClick={() => router.push("/new-homes")}
+                  value="new-homes"
+                  className="text-[20px] text-white hover:bg-transparent"
                 >
-                  New Homes
+                   <Link href={"/new-homes"}>New Homes</Link>
                 </SelectItem>
               </SelectContent>
             </Select>
-            <Link href={"/reports"} className="ml-1">
+            <Link href={"/reports"} className="ml-1 text-[20px]">
               Reports
             </Link>
-            <Select>
-              <SelectTrigger className="w-[149px] border-none bg-transparent text-lg ml-5">
+            <Select onValueChange={(value)=>router.push("/contractors")}>
+              <SelectTrigger className="w-[149px] border-none bg-transparent text-[20px] ml-5">
                 <SelectValue placeholder="Renovations" />
               </SelectTrigger>
               <SelectContent className="bg-transparent">
                 <SelectItem
                   value="pre-owned"
-                  className="text-md text-white hover:bg-transparent"
+                  className="text-[20px] text-white hover:bg-transparent"
                   onClick={() => router.push("/contractors")}
                 >
                   Plumbing
                 </SelectItem>
                 <SelectItem
                   value="new"
-                  className="text-md text-white hover:bg-transparent"
+                  className="text-[20px] text-white hover:bg-transparent"
                   onClick={() => router.push("/contractors")}
                 >
                   Electrician
                 </SelectItem>
                 <SelectItem
                   value="new"
-                  className="text-md text-white hover:bg-transparent"
+                  className="text-[20px] text-white hover:bg-transparent"
                   onClick={() => router.push("/contractors")}
                 >
                   HVAC
                 </SelectItem>
               </SelectContent>
             </Select>
-            <Link href={"/home-values"} className="">
+            <Link href={"/home-values"} className="text-[20px]">
               Home Values
             </Link>
-            <Link href={"/contact"} className="ml-6">
+            <Link href={"/contact"} className="ml-6 text-[20px]">
               Contact
             </Link>
           </div>
@@ -149,7 +147,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <div className="flex flex-[0.5] lg:flex-[0.2] justify-end">
               <Globe className="text-[#0874DE] mt-2" />
               <Select>
-                <SelectTrigger className="w-[100px] bg-transparent border-none text-md font-light">
+                <SelectTrigger className="w-[100px] bg-transparent border-none text-[18px] font-light">
                   <SelectValue
                     placeholder="ENG 🇺🇸"
                     defaultValue={"eng"}
@@ -157,17 +155,17 @@ export const Navbar = ({ className }: NavbarProps) => {
                   />
                 </SelectTrigger>
                 <SelectContent className="bg-transparent">
-                  <SelectItem value="eng" className="text-sm text-white">
+                  <SelectItem value="eng" className="text-[18px] text-white">
                     ENG 🇺🇸
                   </SelectItem>
-                  <SelectItem value="esp" className="text-sm text-white">
+                  <SelectItem value="esp" className="text-[18px] text-white">
                     ESP 🇪🇸
                   </SelectItem>
                 </SelectContent>
               </Select>
 
               <Button
-                className="text-md py-4 font-light tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
+                className="text-[18px] py-4 font-light tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
                 onClick={() => {
                   router.push("/auth/login");
                 }}

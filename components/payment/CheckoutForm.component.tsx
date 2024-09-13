@@ -71,7 +71,7 @@ export const CheckoutForm = () => {
         <PaymentMethodsList />
       </div>
 
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 mt-4">
         <FormField
           control={form.control}
           name="name"
@@ -112,7 +112,7 @@ export const CheckoutForm = () => {
               <FormItem>
                 <FormLabel className="text-lg"> Zip</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your Zip Code..." {...field} className="rounded-2xl text-md w-[450px]"/>
+                  <Input placeholder="Enter your Zip Code..." {...field} className="rounded-2xl text-md w-[350px]"/>
                 </FormControl>
                 {/* <FormDescription>
                 This is your public display name.
@@ -139,13 +139,13 @@ export const CheckoutForm = () => {
           )}
         />
         <div className="flex gap-96">
-          <div className="flex gap-4">
+          <div className="flex gap-1">
             <FormField
               control={form.control}
               name="month"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-lg"> Expiration Month</FormLabel>
+                  <FormLabel className="text-lg"> Month</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="MM"
@@ -165,11 +165,11 @@ export const CheckoutForm = () => {
               name="year"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-lg"> Expiration Year</FormLabel>
+                  <FormLabel className="text-lg"> Year</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="YYYY"
-                      className="rounded-2xl text-md w-[140px] text-center"
+                      className="rounded-2xl text-md w-[100px] text-center"
                       {...field}
                     />
                   </FormControl>
@@ -188,7 +188,7 @@ export const CheckoutForm = () => {
               <FormItem>
                 <FormLabel className="text-lg"> Security Code</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your Security Code..." {...field} className="rounded-2xl text-md w-[450px]"/>
+                  <Input placeholder="Enter your Security Code..." {...field} className="rounded-2xl text-md w-[460px]"/>
                 </FormControl>
                 {/* <FormDescription>
                 This is your public display name.
