@@ -26,6 +26,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
+import { FaAngleRight } from "react-icons/fa6";
 
 interface NavbarProps {
   className?: string;
@@ -67,62 +68,62 @@ export const Navbar = ({ className }: NavbarProps) => {
             </Link>
           </div>
 
-          <div className="hidden xl:flex items-center font-light">
+          <div className="hidden xl:flex xl:gap-6 justify-center items-center font-light mr-10">
             {/* <Link href={"/buy"}>Buy</Link> */}
             <Select onValueChange={(value)=>router.push(`/${value}`)}>
-              <SelectTrigger className="w-[170px] border-none bg-transparent text-[20px]">
+              <SelectTrigger className="w-[170px] border-none bg-transparent text-[18px]">
                 <SelectValue placeholder="Homes for Sell" />
               </SelectTrigger>
-              <SelectContent className="bg-transparent">
+              <SelectContent className="bg-[#262626] py-2">
                 <SelectItem
                   value="pre-owned"
-                  className="text-[20px] text-white hover:bg-transparent"
+                  className="text-[18px] text-[#777777] hover:bg-transparent"
                 >
-                  <Link href={"/pre-owned"}>Pre-Owned Homes</Link>
+                  <Link href={"/pre-owned"} className="flex gap-10">Pre-Owned Homes <span><FaAngleRight className="mt-1"/></span></Link>
                 </SelectItem>
                 <SelectItem
                   value="new-homes"
-                  className="text-[20px] text-white hover:bg-transparent"
+                  className="text-[18px] text-[#777777] hover:bg-transparent py-2"
                 >
-                   <Link href={"/new-homes"}>New Homes</Link>
+                   <Link href={"/new-homes"} className="flex gap-24">New Homes<span><FaAngleRight className="mt-1"/></span></Link>
                 </SelectItem>
               </SelectContent>
             </Select>
-            <Link href={"/reports"} className="ml-1 text-[20px]">
+            <Link href={"/reports"} className="ml-1 text-[18px]">
               Reports
             </Link>
-            <Select onValueChange={(value)=>router.push("/contractors")}>
-              <SelectTrigger className="w-[149px] border-none bg-transparent text-[20px] ml-5">
+            {/* <Select onValueChange={(value)=>router.push("/contractors")}>
+              <SelectTrigger className="w-[149px] border-none bg-transparent text-[18px] ml-5">
                 <SelectValue placeholder="Renovations" />
               </SelectTrigger>
               <SelectContent className="bg-transparent">
                 <SelectItem
                   value="pre-owned"
-                  className="text-[20px] text-white hover:bg-transparent"
+                  className="text-[18px] text-white hover:bg-transparent"
                   onClick={() => router.push("/contractors")}
                 >
                   Plumbing
                 </SelectItem>
                 <SelectItem
                   value="new"
-                  className="text-[20px] text-white hover:bg-transparent"
+                  className="text-[18px] text-white hover:bg-transparent"
                   onClick={() => router.push("/contractors")}
                 >
                   Electrician
                 </SelectItem>
                 <SelectItem
                   value="new"
-                  className="text-[20px] text-white hover:bg-transparent"
+                  className="text-[18px] text-white hover:bg-transparent"
                   onClick={() => router.push("/contractors")}
                 >
                   HVAC
                 </SelectItem>
               </SelectContent>
             </Select>
-            <Link href={"/home-values"} className="text-[20px]">
+            <Link href={"/home-values"} className="text-[18px]">
               Home Values
-            </Link>
-            <Link href={"/contact"} className="ml-6 text-[20px]">
+            </Link> */}
+            <Link href={"/contact"} className="ml-6 text-[18px]">
               Contact
             </Link>
           </div>

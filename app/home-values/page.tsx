@@ -110,7 +110,7 @@ const HomeCenterPage = () => {
                 ></span>
               </span>
             </div>
-            <p className="text-[#808080] text-[20px] font-normal text-center -20">
+            <p className="text-[#808080] text-[20px] font-normal text-left -20">
             Discover Your Home&apos;s History-Based Value and Uncover What It&apos;s Truly Worth. Make smarter decisions with a comprehensive report on past ownership, renovations, and neighborhood trends.
             </p>
             <div className="flex gap-x-4 items-center">
