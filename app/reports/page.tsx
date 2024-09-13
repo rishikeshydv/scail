@@ -36,7 +36,7 @@ const Reports = () => {
   };
   return (
     <main>
-      <section className="h-[125vh] xl:h-[80vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[125vh] xl:h-[75vh] w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
 
         <div className="text-white mx-32  flex flex-col xl:flex-row gap-x-10 ">
@@ -74,8 +74,8 @@ const Reports = () => {
             <Image
               src={ReportsHeroImage}
               alt="reports hero home image"
-              className="xl:ml-36 mt-24"
-              style={{ width: "800px", height: "450px" }}
+              className="xl:ml-36 mt-14"
+              style={{ width: "1000px", height: "450px" }}
             />
           </div>
         </div>
