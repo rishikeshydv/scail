@@ -182,7 +182,7 @@ const Rent = () => {
       )}
 
       <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-10 bg-[#F5F5F5]">
-        <div className="flex mx-20 justify-center text-[50px] font-normal py-20">
+        <div className="flex mx-20 justify-center text-[50px] font-normal py-16">
           <span>Recently Listed &nbsp;</span>
           <span className="font-bold flex flex-col">
             Properties
@@ -194,8 +194,8 @@ const Rent = () => {
             ></span>
           </span>
         </div>
-        <div className="flex flx-col">
-        <div className="flex justify-end">
+        <div className="flex flex-col gap-10">
+        <div className="flex justify-end mr-36">
         <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
         </div>
         <div className="grid grid-cols-3 gap-5 mx-20 justify-center pt-6">
