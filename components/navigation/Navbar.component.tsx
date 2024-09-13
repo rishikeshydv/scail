@@ -50,12 +50,12 @@ export const Navbar = ({ className }: NavbarProps) => {
     <div className="">
       <nav
         className={cn(
-          "flex px-10 items-center w-full text-white font-semibold gap-5",
+          "flex items-center justify-center w-full text-white font-semibold gap-5",
           className
         )}
       >
         {/* left section */}
-        <div className="flex w-full gap-x-20 py-8 items-center justify-around">
+        <div className="flex w-full gap-x-10 py-8 items-center justify-around">
           <div className="text-[50px] font-semibold flex-[0.5] lg:flex-[0.3] justify-start cursor-pointer items-center flex gap-x-4">
             <MenuIcon size={24} onClick={handleOpenMobileNav} className="xl:hidden block" />
             <Link href={"/"}>

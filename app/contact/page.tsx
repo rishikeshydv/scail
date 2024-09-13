@@ -6,10 +6,10 @@ import { Input } from "@/components/ui/input";
 export default function ContactPage() {
   return (
     <main>
-    <section className="h-[50vh] w-[100vw] overflow-hidden bg-black-grid">
+    <section className="min-h-[20vh] min-w-[100vw] overflow-hidden bg-black-grid">
     <Navbar className="bg-black" />
     <div className="flex flex-col justify-center items-center">
-      <div className="flex flex-row text-[60px] font-normal text-white py-[12vh] 2xl:py-[15vh]">
+      <div className="flex flex-row text-[60px] font-normal text-white py-[6vh]">
             <span>Contact&nbsp;</span>
             <span className="font-bold flex flex-col">
               Now
@@ -39,7 +39,7 @@ export default function ContactPage() {
             </span>
           </div>
 
-          <div className="w-[85%] min-h-[60vh] rounded-[30px] border border-[#00000026] shadow-md px-[50px] py-[40px]">
+          <div className="w-[85%] min-h-[35vh] rounded-[30px] border border-[#00000026] shadow-md px-[50px] pt-[40px]">
             <div className="font-bold text-[24px]">Your Information</div>
 
             <div className="grid grid-cols-2 gap-4 py-10">
