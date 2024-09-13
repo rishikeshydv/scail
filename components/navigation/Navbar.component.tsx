@@ -71,21 +71,21 @@ export const Navbar = ({ className }: NavbarProps) => {
           <div className="hidden xl:flex xl:gap-6 justify-center items-center font-light mr-10">
             {/* <Link href={"/buy"}>Buy</Link> */}
             <Select onValueChange={(value)=>router.push(`/${value}`)}>
-              <SelectTrigger className="w-[170px] border-none bg-transparent text-[18px]">
+              <SelectTrigger className="min-w-[170px] border-none bg-transparent text-[18px]">
                 <SelectValue placeholder="Homes for Sell" />
               </SelectTrigger>
               <SelectContent className="bg-[#262626] py-2">
                 <SelectItem
                   value="pre-owned"
-                  className="text-[18px] text-[#777777] hover:bg-transparent"
+                  className="text-[18px] text-[#777777] hover:bg-transparent px-2"
                 >
-                  <Link href={"/pre-owned"} className="flex gap-10">Pre-Owned Homes <span><FaAngleRight className="mt-1"/></span></Link>
+                  <Link href={"/pre-owned"}>Pre-Owned Homes</Link>
                 </SelectItem>
                 <SelectItem
                   value="new-homes"
-                  className="text-[18px] text-[#777777] hover:bg-transparent py-2"
+                  className="text-[18px] text-[#777777] hover:bg-transparent py-2 px-2"
                 >
-                   <Link href={"/new-homes"} className="flex gap-24">New Homes<span><FaAngleRight className="mt-1"/></span></Link>
+                   <Link href={"/new-homes"}>New Homes<span></span></Link>
                 </SelectItem>
               </SelectContent>
             </Select>
