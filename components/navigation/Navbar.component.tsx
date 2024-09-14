@@ -78,7 +78,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <DropdownItem key="new-homes" className="text-[16px]" onClick={()=>{setIsDropdownOpen(false);router.push("/new-homes")}}>New Homes</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <Link href={"/reports"} className="ml-1 text-[18px]">
+            <Link href={"/reports"} className="ml-1 text-[18px] hover:text-[17px] hover:text-[#777777]">
               Reports
             </Link>
             {/* <Select onValueChange={(value)=>router.push("/contractors")}>
@@ -112,7 +112,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Link href={"/home-values"} className="text-[18px]">
               Home Values
             </Link> */}
-            <Link href={"/contact"} className="ml-6 text-[18px]">
+            <Link href={"/contact"} className="ml-6 text-[18px] hover:text-[17px] hover:text-[#777777]">
               Contact
             </Link>
           </div>
