@@ -200,87 +200,10 @@ const Rent = () => {
           <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
           </div>
         </div>
-        <div className="gap-x-4 pt-24 mx-5 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-          <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6">
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={false}
-              />
-            </li>
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={true}
-              />
-            </li>
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={true}
-              />
-            </li>{" "}
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={true}
-              />
-            </li>
-          </ul>
-
-          <ul
-            className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6"
-            aria-hidden="true"
-          >
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={false}
-              />
-            </li>
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={true}
-              />
-            </li>
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={true}
-              />
-            </li>{" "}
-            <li>
-              <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
-                isNew={true}
-              />
-            </li>
-          </ul>
+        <div className="flex flex-wrap gap-5 mx-20 justify-center mt-32">
+          <PropertyCardBorderless />
+          <PropertyCardBorderless />
+          <PropertyCardBorderless />
         </div>
       </section>
 
