@@ -24,8 +24,8 @@ import LaptopImg from "@/public/images/lady_laptop.png";
 const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
-    <main>
-      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid">
+    <main className="">
+      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid overflow-clip">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
@@ -66,7 +66,7 @@ const Rent = () => {
 
       {/* Search Section */}
       {searched && (
-        <section className="bg-white min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-16">
+        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16">
           <div>
             {/* Left Filter */}
             <div>
@@ -181,7 +181,7 @@ const Rent = () => {
         </section>
       )}
 
-<section className="min-h-[100vh] min-w-[100vw] overflow-hidden bg-[#F5F5F5] pt-52 pb-28">
+<section className="min-h-[100vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-52 pb-28">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">
             <span>Recently Listed&nbsp;</span>
@@ -284,7 +284,7 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="h-[90vh] min-w-[100vw] overflow-hidden pt-10">
+      <section className="h-[90vh] w-[100vw] overflow-clip pt-10">
         <div className="flex mx-20 justify-center text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes with a &nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -316,7 +316,7 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="bg-[#F5F5F5] pb-32">
+      <section className="bg-[#F5F5F5] pb-32 w-[100vw] overflow-clip">
         <div className="flex mx-20 justify-center text-[50px] font-normal py-16">
           <span>Helpful&nbsp;</span>
           <span className="font-bold flex flex-col">

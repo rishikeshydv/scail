@@ -37,7 +37,7 @@ const Reports = () => {
   };
   return (
     <main>
-      <section className="h-[125vh] xl:h-[75vh] min-w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[125vh] xl:h-[75vh] w-[100vw] overflow-clip bg-black-grid">
         <Navbar />
 
         <div className="text-white mx-32  flex flex-col xl:flex-row gap-x-10 ">
@@ -82,7 +82,7 @@ const Reports = () => {
         </div>
       </section>
 
-      <section className="min-h-[70vh] min-w-[100vw] bg-[#F5F5F5] pt-20 pb-10">
+      <section className="min-h-[70vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-20 pb-10">
         <div className="w-full">
           <div className="text-[50px] font-normal flex justify-center">
             <span>A House History&nbsp;</span>
@@ -120,7 +120,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh] min-w-[100vw] py-20">
+      <section className="min-h-[70vh] w-[100vw] overflow-clip py-20">
         <div className="w-full mt-6 mb-16">
           <div className="text-[50px] font-normal flex justify-center">
             <span className="font-bold flex flex-col">
@@ -284,7 +284,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh] min-w-[100vw] bg-[#F5F5F5] pt-32 pb-20">
+      <section className="min-h-[70vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-32 pb-20">
         <div className="w-full">
           <div className="text-[50px] font-normal flex justify-center">
             <span>What customers&nbsp;</span>
@@ -321,7 +321,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh] mt-40 mb-10">
+      <section className="min-h-[70vh]  w-[100vw] overflow-clip mt-40 mb-10">
         <div className="w-full mb-10">
           <div className="text-[50px] font-normal flex justify-center">
             <span>Frequently&nbsp;</span>
@@ -381,7 +381,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section>
+      <section className=" w-[100vw] overflow-clip">
       <div className="flex items-center justify-center min-h-[75vh] bg-blue-grid px-20">
       <div className="flex flex-col items-center gap-20 md:flex-row">
         <Image
@@ -419,7 +419,7 @@ Your Property's History"
 
 const PropertyCardBorderless = () => {
   return (
-    <div className=" max-w-[400px] flex flex-col gap-y-4 bg-[#F5F5F5] p-5">
+    <div className="max-w-[400px] flex flex-col gap-y-4 bg-[#F5F5F5] p-5">
       <div className="flex flex-[0.6] ">
         <div className="bg-white rounded-[30px] h-[250px] w-full">
           <Image src={HomeImage} alt="image" className="h-[120%] mt-[-50px]" />

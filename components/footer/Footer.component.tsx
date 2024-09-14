@@ -16,7 +16,7 @@ export const Footer = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [textColor, setTextColor] = useState("text-red-400");
   return (
-    <div className="min-h-[40vh] min-w-[100vw] bg-[#0F0F0F] text-white">
+    <div className="min-h-[40vh] w-[100vw] overflow-clip bg-[#0F0F0F] text-white">
       <div className="w-full flex items-start justify-start font-semibold text-[50px] py-10 px-40">
         <Image src={"/logo/propfax-logo.png"} alt="Logo" width={150} height={250} />
       </div>
