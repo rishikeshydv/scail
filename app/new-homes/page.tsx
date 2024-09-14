@@ -20,15 +20,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-const Rent = () => {
+import LaptopImg from "@/public/images/lady_laptop.png";
+const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
-    <main>
-      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid">
+    <main className="">
+      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid overflow-clip">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
-            <div className="font-light text-[20px]">New Homes for Sale</div>
+            <div className="font-light text-[20px]">Pre Owned Homes for Sale</div>
             <div className="flex flex-col text-6xl xl:text-[80px]">
               <span className="font-normal">Buy with</span>
               <span
@@ -65,7 +66,7 @@ const Rent = () => {
 
       {/* Search Section */}
       {searched && (
-        <section className="bg-white min-h-[100vh] w-[100vw] overflow-hidden pt-28 pb-16">
+        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16">
           <div>
             {/* Left Filter */}
             <div>
@@ -180,7 +181,7 @@ const Rent = () => {
         </section>
       )}
 
-<section className="min-h-[100vh] min-w-[100vw] overflow-hidden bg-[#F5F5F5] pt-52 pb-28">
+<section className="min-h-[100vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-52 pb-28">
         <div className="flex justify-between mx-20 items-center">
           <div className="text-[50px] font-normal flex">
             <span>Recently Listed&nbsp;</span>
@@ -283,7 +284,7 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-[100vw] overflow-hidden pt-10">
+      <section className="max-h-[90vh] w-[100vw] pt-8">
         <div className="flex mx-20 justify-center text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes with a &nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -291,32 +292,31 @@ const Rent = () => {
             <span
               style={{
                 borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                marginTop: "-22px",
+                marginTop: "-18px",
               }}
             ></span>
           </span>
         </div>
-        <div className="grid grid-cols-2 w-full px-20 pt-10">
-          <div className="ml-20">
+        <div className="grid grid-cols-2 w-full pr-24">
+          <div className="">
             {/* This is for the image */}
             <Image
-              src={"/images/lady_laptop.png"}
+              src={LaptopImg}
               alt="Hero home image"
-              className="z-10 mt-6"
-              height={600}
-              width={500}
+              width={800}
+              height={500}
             />
           </div>
-          <div className="flex flex-col gap-6 mt-14">
+          <div className="flex flex-col gap-6 mt-20 mr-10">
             {/* This is for the text */}
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-5 rounded-full" height={65} width={65}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F5F5F5] pb-32">
+      <section className="bg-[#F5F5F5] pb-32 w-[100vw] overflow-clip">
         <div className="flex mx-20 justify-center text-[50px] font-normal py-16">
           <span>Helpful&nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -364,4 +364,4 @@ const Rent = () => {
   );
 };
 
-export default Rent;
+export default Buy;

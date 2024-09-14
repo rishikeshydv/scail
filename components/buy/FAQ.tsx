@@ -6,7 +6,7 @@ interface FAQProps {
 }
 const FAQ:React.FC<FAQProps> = ({logo,header,content}) => {
   return (
-    <div className='flex gap-8 bg-[#F5F5F5] px-10 pt-4 rounded-3xl w-[105%]'>
+    <div className='flex gap-8 bg-[#F5F5F5] px-10 py-4 rounded-3xl w-[105%]'>
         <div className='py-7'>
             {/* This is for the logo */}
             {logo}

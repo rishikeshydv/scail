@@ -284,7 +284,7 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="h-[90vh] w-[100vw] overflow-clip pt-10">
+      <section className="max-h-[90vh] w-[100vw] pt-8">
         <div className="flex mx-20 justify-center text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes with a &nbsp;</span>
           <span className="font-bold flex flex-col">
@@ -307,7 +307,7 @@ const Rent = () => {
               height={500}
             />
           </div>
-          <div className="flex flex-col gap-6 mt-20">
+          <div className="flex flex-col gap-6 mt-20 mr-10">
             {/* This is for the text */}
             <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
             <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
