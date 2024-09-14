@@ -25,7 +25,7 @@ const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid overflow-clip">
+      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
