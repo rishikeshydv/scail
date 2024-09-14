@@ -29,7 +29,7 @@ const Buy = () => {
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
-            <div className="font-light text-[20px]">Pre Owned Homes for Sale</div>
+            <div className="font-light text-[20px]">New Homes for Sale</div>
             <div className="flex flex-col text-6xl xl:text-[80px]">
               <span className="font-normal">Buy with</span>
               <span

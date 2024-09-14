@@ -17,7 +17,6 @@ import { cn } from "@/lib/utils";
 import { auth } from "@/firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import logout from "@/firebase/auth/logout";
-import { useRouter } from "next/navigation";
 import logo from "@/public/logo/propfax-logo.png";
 import {
   Select,
@@ -28,6 +27,7 @@ import {
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
 import { FaAngleRight } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
 interface NavbarProps {
   className?: string;
@@ -70,12 +70,12 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <Dropdown isOpen={isDropdownOpen} className="bg-[#262626] text-[#777777]" onMouseLeave={()=>setIsDropdownOpen(false)}>
               <DropdownTrigger className="" >
                 <Button className="text-[18px] bg-transparent hover:bg-transparent font-light" onMouseEnter={()=>setIsDropdownOpen(true)}>
-                Homes for Sell
+                Homes for Sale
                 </Button>
               </DropdownTrigger>
               <DropdownMenu aria-label="Static Actions">
-                <DropdownItem key="pre-owned" className="" onClick={()=>setIsDropdownOpen(false)}><Link href={"/pre-owned"} className="text-[16px]">Pre-Owned Homes</Link></DropdownItem>
-                <DropdownItem key="new-homes" onClick={()=>setIsDropdownOpen(false)}><Link href={"/new-homes"} className="text-[16px]">New Homes</Link></DropdownItem>
+                <DropdownItem key="pre-owned" className="text-[16px]" onClick={()=>{setIsDropdownOpen(false);router.push("/pre-owned")}}>Pre-Owned Homes</DropdownItem>
+                <DropdownItem key="new-homes" className="text-[16px]" onClick={()=>{setIsDropdownOpen(false);router.push("/new-homes")}}>New Homes</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <Link href={"/reports"} className="ml-1 text-[18px]">
