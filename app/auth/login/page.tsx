@@ -8,15 +8,15 @@ import { FcGoogle } from "react-icons/fc";;
 import {FaApple} from "react-icons/fa";
 import GoogleSignUp from "@/firebase/auth/google_provider";
 import AppleSignUp from "@/firebase/auth/apple_provider";
-
+import Logo from "@/public/logo/propfax-logo.png";
 const LoginPage = () => {
   return (
-    <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-8">
-      <Link href={"/"} className="mt-8">
-        <Image src={"/logo/profax-logo.png"} alt="Logo" width={300} height={500}/>
+    <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-4">
+      <Link href={"/"} className="my-8">
+        <Image src={Logo} alt="Logo" className="w-[244px]"/>
       </Link>
 
-      <div className="text-[50px] font-normal flex">
+      <div className="text-[50px] font-normal flex mb-4">
         <span>Log in to&nbsp;</span>
         <span className="font-bold flex flex-col">
           your account
@@ -84,7 +84,7 @@ const LoginPage = () => {
       >
         Continue with Google
       </Button>
-      {/* <Button
+      <Button
         className="py-[28px] text-lg bg-white text-black border border-gray-300 hover:bg-slate-100"
         type="primary"
         shape="round"
@@ -94,7 +94,7 @@ const LoginPage = () => {
         onClick={AppleSignUp}
       >
         Continue with Apple
-      </Button> */}
+      </Button>
       </div>
     </section>
   );

@@ -12,7 +12,8 @@ import Confetti from "react-confetti"
 import GoogleSignUp from "@/firebase/auth/google_provider";
 import AppleSignUp from "@/firebase/auth/apple_provider";
 import { set } from "firebase/database";
-
+import { Label } from "@/components/ui/label"
+import Logo from "@/public/logo/propfax-logo.png";
 const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -96,7 +97,7 @@ const RegisterPage = () => {
       }
       <section className="min-h-[100vh] flex flex-col items-center justify-center gap-y-6">
       <Link href={"/"} className="mt-8">
-      <Image src={"/logo/profax-logo.png"} alt="Logo" width={300} height={500}/>
+      <Image src={Logo} alt="Logo" width={300} height={500}/>
       </Link>
 
       <div className="text-[50px] font-normal flex">
@@ -111,9 +112,10 @@ const RegisterPage = () => {
           ></span>
         </span>
       </div>
-      <div className="flex flex-row justify-between gap-14">
-      <div className="flex flex-col items-start w-[40%] gap-y-2">
-        <div className="text-[18px] font-semibold">First Name</div>
+      <div className="space-y-8">
+      <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-2">
+        <Label className="text-[18px] font-semibold">First Name</Label>
         <Input
           placeholder="Enter your first name"
           className="rounded-[50px] px-[18px] py-[10px] text-lg"
@@ -121,8 +123,8 @@ const RegisterPage = () => {
           onChange={(e) => setFirstName(e.target.value)}
         />
       </div>
-      <div className="flex flex-col items-start w-[40%] gap-y-2">
-        <div className="text-[18px] font-semibold">Last Name</div>
+      <div className="space-y-2">
+        <Label className="text-[18px] font-semibold">Last Name</Label>
         <Input
           placeholder="Enter your last name"
           className="rounded-[50px] px-[18px] py-[10px] text-lg"
@@ -132,8 +134,8 @@ const RegisterPage = () => {
       </div>
       </div>
 
-      <div className="flex flex-col items-start w-[35%] gap-y-2">
-        <div className="text-[18px] font-semibold">Email Address</div>
+      <div className="space-y-2">
+        <Label className="text-[18px] font-semibold">Email Address</Label>
         <Input
           placeholder="Enter your email address"
           className="rounded-[50px] px-[18px] py-[10px] text-lg"
@@ -141,8 +143,8 @@ const RegisterPage = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="flex flex-col items-start w-[35%] gap-y-2">
-        <div className="text-[18px] font-semibold">Password</div>
+      <div className="space-y-2 relative">
+        <Label className="text-[18px] font-semibold">Password</Label>
         <Input
           placeholder="Enter your password"
           type={showPassword?"text":"password"}
@@ -152,8 +154,8 @@ const RegisterPage = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <div className="flex flex-col items-start w-[35%] gap-y-2">
-        <div className="text-[18px] font-semibold">Confirm Password</div>
+      <div className="space-y-2 relative">
+        <Label className="text-[18px] font-semibold">Confirm Password</Label>
         <div>
         </div>
         <Input
@@ -166,6 +168,7 @@ const RegisterPage = () => {
         />
       </div>
 
+      </div>
       <div className="font-medium text-[18px] w-[30%] text-center">
         By signing up, you confirm that you&apos;ve read and accepted our 
         <span className="text-[#0874DE] font-bold">Terms Of Use</span> and 
@@ -203,7 +206,7 @@ const RegisterPage = () => {
       >
         Continue with Google
       </Button>
-      {/* <Button
+      <Button
         className="py-[28px] text-lg bg-white text-black border border-gray-300 hover:bg-slate-100"
         type="primary"
         shape="round"
@@ -213,7 +216,7 @@ const RegisterPage = () => {
         onClick={AppleRegister}
       >
         Continue with Apple
-      </Button> */}
+      </Button>
       </div>
     </section>
 
