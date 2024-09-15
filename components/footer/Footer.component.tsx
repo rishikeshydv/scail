@@ -22,7 +22,7 @@ export const Footer = () => {
       </div>
       {/* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(8, 116, 222, 0.15) 100%); */}
 
-      <div className="w-full flex border-t border-b border-[#FFFFFF26] justify-center font-semibold text-lg text-white">
+      <div className="w-full flex flex-wrap border-t border-b border-[#FFFFFF26] justify-center font-semibold text-lg text-white">
         <Link href={"/contact"} className="w-[120px] text-center py-2 hover:bg-custom-gradient"><p className="text-white">About Us</p></Link>
         <Link href={"/policies"} className="hover:bg-custom-gradient  w-[200px] text-center py-2">Privacy Policy</Link>
         <Link href={"/policies"} className="hover:bg-custom-gradient w-[200px] text-center py-2">Terms & Conditions</Link>
@@ -31,8 +31,8 @@ export const Footer = () => {
         <Link href={"/payment"} className="hover:bg-custom-gradient w-[200px] text-center py-2">Secure Payment</Link>
       </div>
 
-      <div className="flex mx-40">
-        <div className="flex-[0.5] border-r border-[#FFFFFF26] my-20 flex gap-y-8 flex-col">
+      <div className="flex mx-10 lg:mx-40 xl:flex-row flex-col">
+        <div className="flex-[0.5] xl:border-r border-[#FFFFFF26] my-20 flex gap-y-8 flex-col">
           <div className="font-bold text-[30px]">
             Subscribe <span className="text-[#0874DE]">Newsletter</span>
           </div>
@@ -81,7 +81,7 @@ export const Footer = () => {
             </Button>
           </div>
         </div>
-        <div className="flex-[0.5] flex items-center justify-around">
+        <div className="flex-[0.5] flex flex-wrap items-center justify-between xl:justify-around gap-4">
           <div className="flex flex-col gap-y-3">
             <div className="font-semibold text-[24px]">Products</div>
             <div className="font-medium text-[18px] text-[#808080]">
