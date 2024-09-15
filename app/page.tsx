@@ -184,25 +184,24 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <section className="min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-52 gap-x-14">
-        <div className="flex-[0.5]">
+      <section className="min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-52 lg:gap-x-14 lg:flex-row flex-col gap-y-5">
+        <div className="w-full lg:flex-[0.5]">
           <Image src={HeroProject100Image} alt="hero image" height={700} />
         </div>
 
-        <div className="flex-[0.5] px-4">
+        <div className="lg:flex-[0.5] lg:px-4">
           <div className="text-[#0874DE] font-medium text-[30px]">
             Online Property Marketplace
           </div>
-          <div className="text-[70px]">
+          <div className="text-[2rem] lg:text-[70px]">
             <span className="font-normal">We help you find </span>
-            <span className="font-bold flex flex-col mt-[-30px]">
+            <span
+              className="font-bold lg:mt-[-30px]"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               your new home.
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-27px",
-                }}
-              ></span>
             </span>
           </div>
 
