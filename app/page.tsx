@@ -76,17 +76,16 @@ export default function Home() {
         setSearched={setSearched}
       />
       <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-32">
-        <div className="flex justify-between mx-20 items-center">
-          <div className="text-[50px] font-normal flex">
+        <div className="flex justify-between mx-20 items-center flex-col lg:flex-row gap-y-5">
+          <div className="text-2xl md:text-[50px] font-normal flex">
             <span>Properties for &nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               Sell & Rent
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-22px",
-                }}
-              ></span>
             </span>
           </div>
 
