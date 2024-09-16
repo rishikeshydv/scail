@@ -4,7 +4,11 @@ import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { HousePlus } from "lucide-react";
-import { HistoryReportCard, PropertyCardBorderless, PropertyCard } from "@/components/card";
+import {
+  HistoryReportCard,
+  PropertyCardBorderless,
+  PropertyCard,
+} from "@/components/card";
 import PreOwnHeroImage from "@/public/images/new-home.png";
 import FAQ from "@/components/buy/FAQ";
 import Resource from "@/components/buy/Resource";
@@ -25,11 +29,13 @@ const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[150vh] xl:h-[80vh] w-[100vw] bg-black-grid">
+      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
-            <div className="font-light text-[20px]">Pre Owned Homes for Sale</div>
+            <div className="font-light text-[20px]">
+              Pre Owned Homes for Sale
+            </div>
             <div className="flex flex-col text-6xl xl:text-[80px]">
               <span className="font-normal">Buy with</span>
               <span
@@ -39,7 +45,6 @@ const Rent = () => {
                 }}
               >
                 confidence.
-               
               </span>
             </div>
             <div className="font-normal text-[#808080] text-[18px] w-[70%] pt-5">
@@ -54,19 +59,12 @@ const Rent = () => {
               className="h-[70%] object-contain z-10 mb-48"
             />
           </div>
-          <div className="xl:absolute w-full bottom-5">
-            <FilterBar
-              className="mx-20 text-black relative"
-              searched={searched}
-              setSearched={setSearched}
-            />
-          </div>
         </div>
       </section>
 
       {/* Search Section */}
       {searched && (
-        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16">
+        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16 mt-[-120px]">
           <div>
             {/* Left Filter */}
             <div>
@@ -181,23 +179,28 @@ const Rent = () => {
         </section>
       )}
 
-<section className="min-h-[100vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-52 pb-28">
-        <div className="flex justify-between mx-20 items-center">
-          <div className="text-[50px] font-normal flex">
+      <section className="min-h-[100vh] w-[100vw]  bg-[#F5F5F5] pt-52 pb-28">
+        <div className="mx-20 mt-[-300px] pb-20">
+          <FilterBar searched={searched} setSearched={setSearched} />
+        </div>
+        <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">
+          <div className="text-xl sm:text-3xl md:text-[50px] font-normal flex">
             <span>Recently Listed&nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               Properties
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-22px",
-                }}
-              ></span>
             </span>
           </div>
 
           <div>
-          <Button className="bg-[#0874DE] text-[16px] rounded-3xl">View More&nbsp;&nbsp;<FaAlignRight /></Button>
+            <Button className="bg-[#0874DE] text-[16px] rounded-3xl">
+              View More&nbsp;&nbsp;
+              <FaAlignRight />
+            </Button>
           </div>
         </div>
         <div className="flex flex-wrap gap-5 mx-20 justify-center mt-32">
@@ -207,20 +210,19 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="max-h-[90vh] w-[100vw] pt-8">
-        <div className="flex mx-20 justify-center text-[50px] font-normal tracking-tight">
+      <section className="min-h-[90vh] w-[100vw] py-8">
+        <div className="flex flex-col md:flex-row mx-20 justify-center text-xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes with a &nbsp;</span>
-          <span className="font-bold flex flex-col">
+          <span
+            className="font-bold flex flex-col"
+            style={{
+              borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+            }}
+          >
             Free Home Report
-            <span
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                marginTop: "-18px",
-              }}
-            ></span>
           </span>
         </div>
-        <div className="grid grid-cols-2 w-full pr-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full pr-24">
           <div className="">
             {/* This is for the image */}
             <Image
@@ -230,11 +232,53 @@ const Rent = () => {
               height={500}
             />
           </div>
-          <div className="flex flex-col gap-6 mt-20 mr-10">
+          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0">
             {/* This is for the text */}
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
-            <FAQ logo={<HousePlus className="text-[#0874DE] bg-white p-4 rounded-full" height={55} width={55}/>} header={"What is the advantage of shopping for a used House on Homes?"} content={"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "} />
+            <FAQ
+              logo={
+                <HousePlus
+                  className="text-[#0874DE] bg-white p-4 rounded-full"
+                  height={55}
+                  width={55}
+                />
+              }
+              header={
+                "What is the advantage of shopping for a used House on Homes?"
+              }
+              content={
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+              }
+            />
+            <FAQ
+              logo={
+                <HousePlus
+                  className="text-[#0874DE] bg-white p-4 rounded-full"
+                  height={55}
+                  width={55}
+                />
+              }
+              header={
+                "What is the advantage of shopping for a used House on Homes?"
+              }
+              content={
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+              }
+            />
+            <FAQ
+              logo={
+                <HousePlus
+                  className="text-[#0874DE] bg-white p-4 rounded-full"
+                  height={55}
+                  width={55}
+                />
+              }
+              header={
+                "What is the advantage of shopping for a used House on Homes?"
+              }
+              content={
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
+              }
+            />
           </div>
         </div>
       </section>
@@ -252,7 +296,7 @@ const Rent = () => {
             ></span>
           </span>
         </div>
-        <div className="grid grid-cols-4 gap-5 px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 px-20">
           <Resource
             image={"/images/resource-1.png"}
             header={"Home Inspection"}

@@ -24,7 +24,7 @@ export const FilterBar = ({
   setSearched,
 }: FilterBarProps) => {
   return (
-    <div className={`${className} z-10`}>
+    <div className={`${className}`}>
       <div
         className="bg-[#0874DE] w-[180px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2 font-semibold"
         style={{
