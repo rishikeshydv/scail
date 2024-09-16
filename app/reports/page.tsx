@@ -8,7 +8,7 @@ import HomeImage from "@/assets/images/hero-house.png";
 import Value from "@/components/reports/Value";
 import Points from "@/components/reports/Points";
 import Review from "@/components/reports/Review";
-import FooterHero from "@/public/images/footer-2.png"
+import FooterHero from "@/public/images/footer-2.png";
 import {
   Accordion,
   AccordionContent,
@@ -44,12 +44,13 @@ const Reports = () => {
           <div className="flex-[0.5] flex flex-col gap-y-6 justify-center">
             <div className="text-6xl xl:text-[50px] font-normal flex xl:flex-row flex-col">
               <span>Get Your&nbsp;</span>
-              <span className="flex flex-col font-bold w-fit"
+              <span
+                className="flex flex-col font-bold w-fit"
                 style={{
                   borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                }}>
+                }}
+              >
                 Home Reports
-                
               </span>
             </div>
             <div className="text-[#808080] text-[20px] font-normal">
@@ -63,10 +64,9 @@ const Reports = () => {
                   placeholder="Enter Address"
                   className="rounded-[50px] bg-[#262626] border-none outline-none w-full xl:w-[70%] px-[18px] py-[20px]"
                 />
-                <Button
-                  className="px-[18px] py-[15px] h-[60px] w-[30%] text-[18px] rounded-[50px] bg-[#0874DE]"
-                >
-                  Get Reports&nbsp;<FileText width={20} />
+                <Button className="px-[18px] py-[15px] h-[60px] w-[100%] md:w-[30%] text-[18px] rounded-[50px] bg-[#0874DE]">
+                  Get Reports&nbsp;
+                  <FileText width={20} />
                 </Button>
               </div>
             </div>
@@ -84,21 +84,20 @@ const Reports = () => {
 
       <section className="min-h-[70vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-20 pb-10">
         <div className="w-full">
-          <div className="text-[50px] font-normal flex justify-center">
+          <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>A House History&nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               affects its value.
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-22px",
-                }}
-              ></span>
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-5 px-40 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10 lg:px-40 py-20">
           <Value
             img="/images/value.png"
             title="Discover the Insights Hidden in 
@@ -122,20 +121,19 @@ Your Property's History"
 
       <section className="min-h-[70vh] w-[100vw] overflow-clip py-20">
         <div className="w-full mt-6 mb-16">
-          <div className="text-[50px] font-normal flex justify-center">
-            <span className="font-bold flex flex-col">
+          <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               PropFax Insights
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-18px",
-                }}
-              ></span>
             </span>
           </div>
         </div>
 
-        <div className="px-28 py-10 grid grid-cols-4 gap-6">
+        <div className="px-8 lg:px-28 py-10 grid grid-cols-1 g  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <Points
             icon={
               <House
@@ -219,22 +217,21 @@ Your Property's History"
         </div>
 
         <div className="w-full mt-10">
-          <div className="text-[50px] font-normal flex justify-center">
+          <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>Trusted by&nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               Thousands
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-18px",
-                }}
-              ></span>
             </span>
           </div>
         </div>
 
         <div className="">
-          <ul className="flex items-center justify-center gap-10 mt-6">
+          <ul className="flex flex-wrap items-center justify-center gap-10 mt-6">
             <li className="">
               <Image
                 src="/logo/zillow.svg"
@@ -286,20 +283,19 @@ Your Property's History"
 
       <section className="min-h-[70vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-32 pb-20">
         <div className="w-full">
-          <div className="text-[50px] font-normal flex justify-center">
+          <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>What customers&nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               are saying?
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-18px",
-                }}
-              ></span>
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-16 p-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-20">
           <Review
             img="/reviews/review2.jpg"
             content="I recently bought a house through and the experience  was fantastic. The property was exactly as described, and the agent was incredibly knowledgeable and responsive The neighborhood is perfect for my family."
@@ -323,20 +319,19 @@ Your Property's History"
 
       <section className="min-h-[70vh]  w-[100vw] overflow-clip mt-40 mb-10">
         <div className="w-full mb-10">
-          <div className="text-[50px] font-normal flex justify-center">
+          <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>Frequently&nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               Asked Questions
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-22px",
-                }}
-              ></span>
             </span>
           </div>
         </div>
-        <div className="px-44 py-10">
+        <div className="px-8 md:px-14 lg:px-44 py-10">
           <Accordion type="single" collapsible className="flex flex-col gap-2">
             <AccordionItem
               value="item-1"
@@ -381,37 +376,46 @@ Your Property's History"
         </div>
       </section>
 
-      <section className=" w-[100vw] overflow-clip">
-      <div className="flex items-center justify-center min-h-[75vh] bg-blue-grid px-20">
-      <div className="flex flex-col items-center gap-20 md:flex-row">
-        <Image
-          src={FooterHero}
-          alt="Modern House"
-          className="w-full max-w-md md:max-w-xl 2xl:max-w-3xl"
-        />
-        <div className="flex flex-col items-center mt-8 text-center md:items-start md:mt-0 md:ml-8 md:text-left">
-        <div className="text-[48px] font-normal flex justify-left text-white ">
-              <span>Selling a&nbsp;</span>
-              <span className="font-bold flex flex-col">
-                Used Property
+      <section className="w-[100vw] overflow-clip">
+        <div className="flex  items-center justify-center min-h-[75vh] bg-blue-grid px-20 py-20">
+          <div className="flex flex-col items-center gap-20 lg:flex-row">
+            <Image
+              src={FooterHero}
+              alt="Modern House"
+              className="w-full max-w-md md:max-w-xl 2xl:max-w-3xl"
+            />
+            <div className="flex flex-col justify-center mt-8 items-start md:mt-0 md:ml-8 md:text-left">
+              <div className="text-2xl md:text-4xl lg:text-[48px] font-normal flex text-white ">
+                <span>Selling a&nbsp;</span>
                 <span
+                  className="font-bold flex flex-col"
                   style={{
                     borderBottom: "6px solid transparent",
-                    borderImage: "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)) 1",
-                    marginTop: "-18px",
+                    borderImage:
+                      "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)) 1",
                   }}
-                ></span>
-              </span>
+                >
+                  Used Property
+                </span>
+              </div>
+              <p className="mt-4 text-gray-100 text-left lg:text-left pr-24 text-[20px]">
+                Build trust with potential buyers by providing them with a
+                Property History Report today.
+              </p>
+              <Button
+                size={"lg"}
+                className="mt-8 bg-black text-white px-10 py-4 rounded-full flex items-center"
+              >
+                CONTACT US&nbsp;
+                <Phone
+                  width={20}
+                  color="#0874DE"
+                  className="border-none ml-2"
+                />
+              </Button>
             </div>
-          <p className="mt-4 text-gray-100 text-left pr-24 text-[20px]">
-            Build trust with potential buyers by providing them with a Property History Report today.
-          </p>
-          <Button size={"lg"} className="mt-8 bg-black text-white px-10 py-4 rounded-full flex items-center">
-            CONTACT US&nbsp;<Phone width={20} color="#0874DE" className="border-none ml-2"/>
-          </Button>
+          </div>
         </div>
-      </div>
-    </div>
       </section>
     </main>
   );
