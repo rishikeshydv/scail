@@ -210,29 +210,32 @@ const Rent = () => {
         </div>
       </section>
 
-      <section className="min-h-[90vh] w-[100vw] py-8">
-        <div className="flex flex-col md:flex-row mx-20 justify-center text-xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
-          <span>Every Used Homes comes with a &nbsp;</span>
+      <section
+        className="min-h-[90vh] w-[100vw] pt-24"
+        style={{ borderTop: "1px solid #00000026" }}
+      >
+        <div className="flex flex-col md:flex-row mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
+          <span>Every Used Homes comes  &nbsp;</span>
           <span
-            className="font-bold flex flex-col"
+            className="font-bold flex flex-col w-fit"
             style={{
               borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
             }}
           >
-            Free Home Report
+            with a Free Home Report
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full pr-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
           <div className="">
             {/* This is for the image */}
             <Image
               src={LaptopImg}
               alt="Hero home image"
-              width={800}
-              height={500}
+              width={900}
+              height={600}
             />
           </div>
-          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0">
+          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10">
             {/* This is for the text */}
             <FAQ
               logo={
