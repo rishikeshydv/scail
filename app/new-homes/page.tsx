@@ -29,10 +29,10 @@ const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
-          <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
+          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14">
             <div className="font-light text-[20px]">
               New Homes for Sale
             </div>
@@ -52,7 +52,7 @@ const Buy = () => {
               listings include a free homes report!
             </div>
           </div>
-          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex justify-end items-end ">
+          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex px-10 justify-center items-center">
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
@@ -210,29 +210,32 @@ const Buy = () => {
         </div>
       </section>
 
-      <section className="min-h-[90vh] w-[100vw] py-8">
-        <div className="flex flex-col md:flex-row mx-20 justify-center text-xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
-          <span>Every Used Homes comes with a &nbsp;</span>
+      <section
+        className="min-h-[90vh] w-[100vw] pt-24"
+        style={{ borderTop: "1px solid #00000026" }}
+      >
+        <div className="flex flex-col md:flex-row mx-20 justify-center items-center text-2xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
+          <span>Every Used Homes comes &nbsp;</span>
           <span
-            className="font-bold flex flex-col"
+            className="font-bold flex flex-col w-fit"
             style={{
               borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
             }}
           >
-            Free Home Report
+            with a Free Home Report
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full pr-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
           <div className="">
             {/* This is for the image */}
             <Image
               src={LaptopImg}
               alt="Hero home image"
-              width={800}
-              height={500}
+              width={900}
+              height={600}
             />
           </div>
-          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0">
+          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10">
             {/* This is for the text */}
             <FAQ
               logo={
@@ -284,19 +287,18 @@ const Buy = () => {
       </section>
 
       <section className="bg-[#F5F5F5] pb-32 w-[100vw] overflow-clip">
-        <div className="flex mx-20 justify-center text-[50px] font-normal py-16">
+        <div className="flex mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-16">
           <span>Helpful&nbsp;</span>
-          <span className="font-bold flex flex-col">
+          <span
+            className="font-bold flex flex-col w-fit"
+            style={{
+              borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+            }}
+          >
             Resources
-            <span
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                marginTop: "-22px",
-              }}
-            ></span>
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 px-8 lg:px-20">
           <Resource
             image={"/images/resource-1.png"}
             header={"Home Inspection"}
