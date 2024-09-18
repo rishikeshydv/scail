@@ -152,7 +152,8 @@ export const FilterBar = ({
           </div>
         </div>
         <div className="flex flex-col gap-y-[40px]">
-          <div className="py-2 mt-2">
+          <div></div>
+          <div className="py-2">
             <Button
               onClick={() => setSearched(true)}
               className="bg-[#0874DE] rounded-3xl text-[14px]"
