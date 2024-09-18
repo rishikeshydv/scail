@@ -11,7 +11,7 @@ const FAQ:React.FC<FAQProps> = ({logo,header,content}) => {
             {/* This is for the logo */}
             {logo}
         </div>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2  justify-center'>
             {/* This is for the text */}
             <p className='text-xl font-semibold'>
                 {/* This is for the header */}
