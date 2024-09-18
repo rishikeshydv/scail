@@ -29,10 +29,10 @@ const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
-          <div className="flex-[0.4] flex flex-col pl-36 justify-center xl:justify-start">
+          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14">
             <div className="font-light text-[20px]">
               Pre Owned Homes for Sale
             </div>
@@ -52,7 +52,7 @@ const Rent = () => {
               listings include a free homes report!
             </div>
           </div>
-          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex justify-end items-end ">
+          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex px-10 justify-center items-center">
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
