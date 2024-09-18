@@ -23,7 +23,7 @@ export default function Home() {
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient">
         <Navbar />
         <div className="text-white mx-20 flex flex-col-reverse gap-y-8 xl:flex-row xl:gap-y-0">
           <div className="flex-[0.7] xl:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
