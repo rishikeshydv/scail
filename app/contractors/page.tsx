@@ -64,7 +64,7 @@ const HomeCenterPage = () => {
     };
   return (
     <main>
-      <section className="h-[80vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[80vh] w-[100vw] overflow-hidden bg-black-grid-with-gradient">
         <Navbar />
 
         <div className="text-white mx-32 flex gap-x-10">

@@ -29,7 +29,7 @@ const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14">

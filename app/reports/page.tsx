@@ -37,7 +37,7 @@ const Reports = () => {
   };
   return (
     <main>
-      <section className="max-h-[125vh] xl:max-h-[75vh] w-[100vw] overflow-clip bg-black-grid">
+      <section className="max-h-[125vh] xl:max-h-[75vh] w-[100vw] overflow-clip bg-black-grid-with-gradient">
         <Navbar />
 
         <div className="text-white mx-32  flex flex-col xl:flex-row gap-x-10 ">
