@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Navbar } from "@/components/navigation";
-import PaymentHeroImage from "@/public/images/payment-home.png";
+import PaymentHeroImage from "@/assets/images/3d-laptop.png";
 import PieChartIcon from "@/assets/icons/pie-chart-line 1.svg";
 import ClockIcon from "@/assets/icons/clock.svg";
 import HouseIcon from "@/assets/icons/house.svg";
@@ -24,8 +24,8 @@ const PaymentPage = () => {
         <Navbar />
 
         <div className="text-white mx-14 lg:mx-32 flex flex-col md:flex-row">
-          <div className="flex-[0.5] flex flex-col gap-y-6 mt-20">
-            <div className="text-2xl md:text-4xl lg:text-[50px]  font-normal flex">
+          <div className="flex-[0.5] flex flex-col gap-y-6 mt-20  justify-center">
+            <div className="text-2xl md:text-4xl lg:text-[50px]  font-normal flex items-center md:items-start flex-col gap-y-3">
               <span>Order&nbsp;</span>
               <span
                 className="font-bold flex flex-col w-fit"
@@ -41,18 +41,18 @@ const PaymentPage = () => {
               <Image src={NewHomeBadge} alt="badge" />
             </div> */}
 
-            <div className="flex flex-col">
+            <div className="flex flex-col text-center md:text-left">
               <span className="font-semibold text-xl md:text-3xl lg:text-[40px] text-[#0874DE]">
                 A Homes history affects its value.
               </span>
-              <span className="font-normal text-[24px]">
+              <span className="font-normal text-lg md:text-2xl lg:text-[24px]">
                 What&apos;s a Homes worth? Find out with every report!
               </span>
             </div>
           </div>
           <div className="flex-[0.56] mt-8 items-center justify-center">
             <Image
-              src={"/images/payment-home.png"}
+              src={PaymentHeroImage}
               alt="payment hero home image"
               className="lg:ml-24  md:h-[430px]"
               width={600}
