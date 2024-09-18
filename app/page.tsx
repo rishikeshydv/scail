@@ -23,7 +23,7 @@ export default function Home() {
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient">
+      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
         <div className="text-white mx-20 flex flex-col-reverse gap-y-8 xl:flex-row xl:gap-y-0">
           <div className="flex-[0.7] xl:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
@@ -268,7 +268,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-5 py-28 px-20">
+        <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-5 py-28 px-8 lg:px-20">
           <HistoryReportCard
             position={1}
             title="Find the perfect place."
