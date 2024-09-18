@@ -17,7 +17,7 @@ export default function ProfilePage() {
 
         {/* Profile detail section */}
 
-        <div className="min-h-[50vh] w-full px-20 py-8 flex">
+        <div className="min-h-[50vh] w-full px-20 py-8 flex flex-col lg:flex-row gap-y-5">
           <div className="flex-[0.4] flex flex-col gap-y-5">
             <div className="flex items-center gap-x-8">
               <div className="h-[195px] w-[195px]">
@@ -28,7 +28,9 @@ export default function ProfilePage() {
                 />
               </div>
               <div className="">
-                <div className="text-[24px] font-bold text-[#0874DE]">Harold Lane</div>
+                <div className="text-[24px] font-bold text-[#0874DE]">
+                  Harold Lane
+                </div>
                 <div>
                   {" "}
                   <Rate value={4.9} disabled />
@@ -65,7 +67,7 @@ export default function ProfilePage() {
               </div>
             </div>
           </div>
-          <div className="flex-[0.6] flex gap-x-3">
+          <div className="flex-[0.6] flex flex-col lg:flex-row gap-x-3 gap-y-5">
             <div className="flex-[0.5] rounded-[20px] bg-white p-[30px] flex flex-col gap-y-5">
               <div className="font-bold text-[30px]">
                 Contact Evelyn Benatar
@@ -88,10 +90,9 @@ export default function ProfilePage() {
                 <div className="font-semibold text-[20px]">Message</div>
                 <textarea className="rounded-[10px] px-[25px] h-[100px] border" />
               </div>
-              <Button
-                className="w-full  py-[25px] font-medium text-[18px] rounded-3xl tracking-wide"
-              >
-                CONTACT &nbsp;<Phone size={18} />
+              <Button className="w-full  py-[25px] font-medium text-[18px] rounded-3xl tracking-wide">
+                CONTACT &nbsp;
+                <Phone size={18} />
               </Button>
             </div>
             <div className="flex-[0.5] rounded-[20px] bg-white p-[30px] flex flex-col gap-y-5">
@@ -147,7 +148,7 @@ export default function ProfilePage() {
 
         {/* User reviews section */}
         <div className="w-full px-20 py-10 text-[40px] font-normal">
-        <span className="font-bold">Reviews</span>
+          <span className="font-bold">Reviews</span>
         </div>
 
         {/* Reviews filter */}
@@ -155,25 +156,22 @@ export default function ProfilePage() {
           <ReviewFilter />
         </div>
 
-        <div className="pt-20 px-28">
-          <div className="flex">
-          <NewReview />
-          <NewReview />
-          <NewReview />
+        <div className="pt-20 px-10 lg:px-28">
+          <div className="gap-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <NewReview />
+            <NewReview />
+            <NewReview />
           </div>
 
           <div className="flex justify-center items-center pt-16 pb-20">
-      <div className="flex space-x-2 p-2 bg-gray-200 rounded-full">
-        <div className="w-4 h-4 border-2 border-black rounded-full" />
-        <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
-        <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
-        <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
-      </div>
-    </div>
-
+            <div className="flex space-x-2 p-2 bg-gray-200 rounded-full">
+              <div className="w-4 h-4 border-2 border-black rounded-full" />
+              <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
+              <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
+              <div className="w-4 h-4 bg-[#0874DE] rounded-full" />
+            </div>
+          </div>
         </div>
-      
-
       </section>
     </main>
   );
@@ -181,7 +179,7 @@ export default function ProfilePage() {
 
 const ReviewFilter = () => {
   return (
-    <div className="w-full flex gap-x-16">
+    <div className="w-full flex gap-x-16 flex-wrap">
       <div className="flex-[0.4] flex flex-col gap-y-3 pb-2">
         <div className="font-semibold text-[20px]">Filter by</div>
         <div className="custom-select-container">
@@ -222,11 +220,14 @@ const NewReview = () => {
         <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white rounded-b-lg" />
       </div>
       <div className="p-4">
-        <h2 className="text-2xl font-bold">ABC treks with Global Treks Guide</h2>
+        <h2 className="text-2xl font-bold">
+          ABC treks with Global Treks Guide
+        </h2>
         <p className="text-md text-muted-foreground mt-2 tracking-wide">
-          Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore. Lorem
-          Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut Labore. Lorem Ipsum
-          Dolor Sit Amet.
+          Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit, Sed Do
+          Eiusmod Tempor Incididunt Ut Labore. Lorem Ipsum Dolor Sit Amet,
+          Consectetur Adipisicing Elit, Sed Do Eiusmod Tempor Incididunt Ut
+          Labore. Lorem Ipsum Dolor Sit Amet.
         </p>
         <div className="flex items-center mt-4">
           <div className="flex-1">
@@ -238,16 +239,14 @@ const NewReview = () => {
             <StarIcon className="stroke-yellow-400 fill-yellow-300" />
             <StarIcon className="stroke-yellow-400 fill-yellow-300" />
             <StarIcon className="stroke-yellow-400 fill-yellow-300" />
-
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-
-function StarIcon(props:any) {
+function StarIcon(props: any) {
   return (
     <svg
       {...props}
@@ -263,5 +262,5 @@ function StarIcon(props:any) {
     >
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
-  )
+  );
 }
