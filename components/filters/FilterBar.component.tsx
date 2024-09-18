@@ -44,7 +44,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Price</div>
           <div className="">
             <Select>
-              <SelectTrigger className="w-[180px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[180px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent className="">
@@ -89,7 +89,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Home Type</div>
           <div className="custom-select-container">
             <Select>
-              <SelectTrigger className="w-[180px]  rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[180px]  rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -104,7 +104,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Square feet</div>
           <div className="flex flex-col gap-y-3 md:flex-row gap-x-5  custom-select-container">
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -115,7 +115,7 @@ export const FilterBar = ({
             </Select>
 
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -130,7 +130,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Year built</div>
           <div className="flex flex-col gap-y-3 md:flex-row gap-x-5 custom-select-container">
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -140,7 +140,7 @@ export const FilterBar = ({
               </SelectContent>
             </Select>
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
