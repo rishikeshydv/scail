@@ -79,7 +79,7 @@ export const CheckoutForm = () => {
             <FormItem>
               <FormLabel className="text-lg">Cardholder Name</FormLabel>
               <FormControl>
-                <Input placeholder="Enter your Card Name..." {...field} className="rounded-2xl text-md"/>
+                <Input placeholder="Enter your Card Name..." {...field} className="rounded-2xl text-md w-full"/>
               </FormControl>
               {/* <FormDescription>
                 This is your public display name.
@@ -88,7 +88,7 @@ export const CheckoutForm = () => {
             </FormItem>
           )}
         />
-        <div className="flex gap-32">
+        <div className="flex flex-wrap gap-x-32 gap-y-5">
           <FormField
             control={form.control}
             name="address"
@@ -96,7 +96,7 @@ export const CheckoutForm = () => {
               <FormItem>
                 <FormLabel className="text-lg"> Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your Address..." {...field} className="rounded-2xl text-md w-[550px]"/>
+                  <Input placeholder="Enter your Address..." {...field} className="rounded-2xl text-md w-full md:w-[550px]"/>
                 </FormControl>
                 {/* <FormDescription>
                 This is your public display name.
@@ -112,7 +112,7 @@ export const CheckoutForm = () => {
               <FormItem>
                 <FormLabel className="text-lg"> Zip</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your Zip Code..." {...field} className="rounded-2xl text-md w-[350px]"/>
+                  <Input placeholder="Enter your Zip Code..." {...field} className="rounded-2xl text-md w-full md:w-[350px]"/>
                 </FormControl>
                 {/* <FormDescription>
                 This is your public display name.
@@ -138,7 +138,7 @@ export const CheckoutForm = () => {
             </FormItem>
           )}
         />
-        <div className="flex gap-96">
+        <div className="flex gap-x-96 gap-y-5 flex-wrap">
           <div className="flex gap-1">
             <FormField
               control={form.control}
@@ -188,7 +188,7 @@ export const CheckoutForm = () => {
               <FormItem>
                 <FormLabel className="text-lg"> Security Code</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter your Security Code..." {...field} className="rounded-2xl text-md w-[460px]"/>
+                  <Input placeholder="Enter your Security Code..." {...field} className="rounded-2xl text-md w-full md:w-[460px]"/>
                 </FormControl>
                 {/* <FormDescription>
                 This is your public display name.
@@ -365,7 +365,7 @@ const PaymentMethodsList = () => {
   };
 
   return (
-    <Radio.Group onChange={onChange} value={value} className="flex">
+    <Radio.Group onChange={onChange} value={value} className="flex flex-col lg:flex-row gap-y-4">
       <Radio value={1} className="flex  gap-x-4">
         <Image
           src={CreditCardsImage}
