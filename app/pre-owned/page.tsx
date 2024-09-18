@@ -29,7 +29,7 @@ const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient">
+      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
         <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
           <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14">
@@ -211,10 +211,10 @@ const Rent = () => {
       </section>
 
       <section
-        className="min-h-[90vh] w-[100vw] pt-24"
+        className="min-h-[75vh] w-[100vw] pt-24"
         style={{ borderTop: "1px solid #00000026" }}
       >
-        <div className="flex flex-col md:flex-row mx-20 justify-center items-center text-2xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
+        <div className="flex flex-col md:flex-row  justify-center items-center text-2xl lg:text-3xl lg:pb-4  xl:text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes &nbsp;</span>
           <span
             className="font-bold flex flex-col w-fit"
@@ -226,16 +226,15 @@ const Rent = () => {
           </span>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
-          <div className="">
+          <div className="lg:pl-20">
             {/* This is for the image */}
             <Image
               src={LaptopImg}
               alt="Hero home image"
-              width={900}
-              height={600}
+              width={700}
             />
           </div>
-          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10">
+          <div className="flex flex-col items-center justify-center w-full gap-6  mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10 lg:pb-0">
             {/* This is for the text */}
             <FAQ
               logo={
