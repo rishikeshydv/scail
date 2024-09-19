@@ -3,7 +3,14 @@ import Image from "next/image";
 import { Navbar } from "@/components/navigation";
 import HomeCenterHeroImage from "@/assets/images/home-center-hero-house.png";
 import { Button, Input, Rate } from "antd";
-import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationLink, PaginationNext } from "@/components/ui/pagination";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationPrevious,
+  PaginationLink,
+  PaginationNext,
+} from "@/components/ui/pagination";
 import {
   Delete,
   Headset,
@@ -11,7 +18,7 @@ import {
   Search,
   Trash,
   UserRoundPlus,
-  UserPen
+  UserPen,
 } from "lucide-react";
 import {
   Select,
@@ -55,30 +62,32 @@ const HomeCenterPage = () => {
   const [itemsPerPage] = React.useState<number>(8);
 
   //product list
-  const productList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+  const productList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   //logic for number of pages
-  const totalPages = React.useMemo(() => Math.ceil(productList.length / itemsPerPage), [productList.length, itemsPerPage]);
-    //logic for handling page change
-    const handlePageChange = (page: number) => {
-      setCurrentPage(page);
-    };
+  const totalPages = React.useMemo(
+    () => Math.ceil(productList.length / itemsPerPage),
+    [productList.length, itemsPerPage]
+  );
+  //logic for handling page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
     <main>
-      <section className="h-[80vh] w-[100vw] overflow-hidden bg-black-grid-with-gradient">
+      <section className="h-[110vh] xl:h-[80vh] w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-cover  bg-no-repeat">
         <Navbar />
 
-        <div className="text-white mx-32 flex gap-x-10">
+        <div className="text-white mx-10 lg:mx-32 flex gap-10 flex-col xl:flex-row">
           <div className="flex-[0.55] flex flex-col gap-y-4 justify-center">
-            <div className="text-[50px] font-normal flex">
+            <div className="text-3xl lg:text-[35px] xl:text-[40px] font-normal flex flex-col xl:flex-row">
               <span>Find Home&nbsp;</span>
-              <span className="font-bold flex flex-col">
+              <span
+                className="font-bold flex flex-col w-fit"
+                style={{
+                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                }}
+              >
                 Centers Near Me.
-                <span
-                  style={{
-                    borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                    marginTop: "-18px",
-                  }}
-                ></span>
               </span>
             </div>
             <div className="text-[#808080] text-[20px] font-normal">
@@ -94,229 +103,244 @@ const HomeCenterPage = () => {
                 type="primary"
                 shape="round"
                 icon={<Search width={40} />}
-                className=" font-semibold py-[32px]"
+                className="font-semibold py-[32px]"
                 onClick={() => setSearched(true)}
-              >
-              </Button>
+              ></Button>
             </div>
           </div>
-          <div className="flex-[0.5] flex justify-center items-center">
+          <div className="flex-[0.5] flex justify-center items-center pt-10 xl:pt-0">
             <Image
               src={HomeCenterHeroImage}
               alt="payment hero home image"
-              className="h-[85%] object-contain"
+              className=" h-[75%] xl:h-[85%] object-contain"
             />
           </div>
         </div>
       </section>
 
-      {
-        searched ? (
-          <div>
-  <div className="px-20 py-10 bg-[#F5F5F5] flex items-center gap-x-5">
-        <div className="flex flex-col w-full gap-y-2">
-          <div className="text-[20px] font-semibold">Location</div>
-          <Input
-            placeholder="Find here"
-            className="rounded-[50px] px-[20px] py-[14px] w-full text-[18px]"
-            suffix={<Search width={20} />}
-          />
-        </div>
-        <div className="flex flex-col w-full gap-y-2">
-          <div className="text-[20px] font-semibold">Service</div>
-          <Select>
-            <SelectTrigger className="w-full rounded-[50px] px-[20px] py-[28px]  outline-none text-[18px]">
-              <SelectValue placeholder="Any" />
-            </SelectTrigger>
-            <SelectContent className="outline-none border-none">
-              <SelectItem value="any" className="text-[18px]">Any</SelectItem>
-              <SelectItem value="plumbing" className="text-[18px]">Plumbing</SelectItem>
-              <SelectItem value="electrician" className="text-[18px]">Electrician</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-        <div className="flex flex-col w-full gap-y-2">
-          <div className="text-[20px] font-semibold">Search Radius</div>
-          <Select>
-            <SelectTrigger className="w-full rounded-[50px] px-[20px] py-[28px]  outline-none text-[18px]">
-              <SelectValue placeholder="10 Mi" />
-            </SelectTrigger>
-            <SelectContent className="outline-none border-none">
-              <SelectItem value="10" className="text-[18px]">10 Mi</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+      {searched ? (
         <div>
-
-        </div>
-      </div>
-
-      <section className="h-[100vh] flex">
-        <div className="flex-[0.5] px-20 flex flex-col h-[96vh] overflow-y-scroll">
-        <div className="grid grid-cols-2 gap-x-4 gap-y-4 my-10">
-          {
-            productList.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((product) => (
-              <ReviewCard key={product} image={HumanImage} name="Harold Lane" contact="(800) 299-9470" rating={5} totalReviews={10} agency="Appliance Connection" review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less" />
-            ))
-          }
+          <div className="px-20 py-10 bg-[#F5F5F5] flex items-center gap-5 flex-col md:flex-row">
+            <div className="flex flex-col w-full gap-y-2">
+              <div className="text-[20px] font-semibold">Location</div>
+              <Input
+                placeholder="Find here"
+                className="rounded-[50px] px-[20px] py-[14px] w-full text-[18px]"
+                suffix={<Search width={20} />}
+              />
+            </div>
+            <div className="flex flex-col w-full gap-y-2">
+              <div className="text-[20px] font-semibold">Service</div>
+              <Select>
+                <SelectTrigger className="w-full rounded-[50px] px-[20px] py-[28px]  outline-none text-[18px]">
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent className="outline-none border-none">
+                  <SelectItem value="any" className="text-[18px]">
+                    Any
+                  </SelectItem>
+                  <SelectItem value="plumbing" className="text-[18px]">
+                    Plumbing
+                  </SelectItem>
+                  <SelectItem value="electrician" className="text-[18px]">
+                    Electrician
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="flex flex-col w-full gap-y-2">
+              <div className="text-[20px] font-semibold">Search Radius</div>
+              <Select>
+                <SelectTrigger className="w-full rounded-[50px] px-[20px] py-[28px]  outline-none text-[18px]">
+                  <SelectValue placeholder="10 Mi" />
+                </SelectTrigger>
+                <SelectContent className="outline-none border-none">
+                  <SelectItem value="10" className="text-[18px]">
+                    10 Mi
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div></div>
           </div>
-        <div className="flex justify-center mt-8">
-          <Pagination>
-            <PaginationContent >
-              <PaginationItem>
-                <PaginationPrevious
-                  href="#"
-                //   disabled={currentPage === 1}
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  className="text-lg font-semibold"
-                />
-              </PaginationItem>
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <PaginationItem key={page}>
-                  <PaginationLink href="#" isActive={page === currentPage} onClick={() => handlePageChange(page)} className="text-lg font-semibold bg-gray-100">
-                    {page}
-                  </PaginationLink>
-                </PaginationItem>
-              ))}
-              <PaginationItem>
-                <PaginationNext
-                  href="#"
-                //   disabled={currentPage === totalPages}
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  className="text-lg font-semibold"
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
-        </div>
 
+          <section className="h-[100vh] flex flex-col lg:flex-row">
+            <div className="flex-[1] lg:flex-[0.5] px-8 lg:px-20 flex flex-col h-[96vh] overflow-y-scroll">
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-4 gap-y-4 my-10 place-items-center">
+                {productList
+                  .slice(
+                    (currentPage - 1) * itemsPerPage,
+                    currentPage * itemsPerPage
+                  )
+                  .map((product) => (
+                    <ReviewCard
+                      key={product}
+                      image={HumanImage}
+                      name="Harold Lane"
+                      contact="(800) 299-9470"
+                      rating={5}
+                      totalReviews={10}
+                      agency="Appliance Connection"
+                      review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+                    />
+                  ))}
+              </div>
+              <div className="flex justify-center mt-8">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious
+                        href="#"
+                        //   disabled={currentPage === 1}
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        className="text-lg font-semibold"
+                      />
+                    </PaginationItem>
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                      (page) => (
+                        <PaginationItem key={page}>
+                          <PaginationLink
+                            href="#"
+                            isActive={page === currentPage}
+                            onClick={() => handlePageChange(page)}
+                            className="text-lg font-semibold bg-gray-100"
+                          >
+                            {page}
+                          </PaginationLink>
+                        </PaginationItem>
+                      )
+                    )}
+                    <PaginationItem>
+                      <PaginationNext
+                        href="#"
+                        //   disabled={currentPage === totalPages}
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        className="text-lg font-semibold"
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            </div>
+            <div className="flex-[1] lg:flex-[0.5] mx-10 lg:mr-10 my-10 border border-gray-400 overflow-hidden rounded-3xl flex items-center justify-center">
+              <GoogleMapReact
+                bootstrapURLKeys={{
+                  key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
+                }}
+                defaultCenter={defaultProps.center}
+                defaultZoom={defaultProps.zoom}
+              />
+            </div>
+          </section>
         </div>
-        <div className="flex-[0.5] mr-10 my-10 border border-1 border-gray-400 overflow-hidden rounded-3xl">
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY! }}
-            defaultCenter={defaultProps.center}
-            defaultZoom={defaultProps.zoom}
-          />
-        </div>
-
-      </section>
-
-          </div>
-        ):
-        (
-          <section className="min-h-[70vh] w-full py-20">
+      ) : (
+        <section className="min-h-[70vh] w-full py-20">
           <div className="w-full">
-                <div className="text-[50px] font-normal flex justify-center">
-                  <span>Our Highly&nbsp;</span>
-                  <span className="font-bold flex flex-col">
-                    Trusted Contractors
-                    <span
-                      style={{
-                        borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                        marginTop: "-18px",
-                      }}
-                    ></span>
-                  </span>
-                </div>
-              </div>
-              <div className="grid grid-cols-4 px-10 py-16 gap-6">
-              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-                              <ReviewCard
-                    name="Harold Lane"
-                    contact="(800) 299-9470"
-                    rating={5}
-                    totalReviews={10}
-                    agency="Appliance Connection"
-                    review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
-                    image={HumanImage}
-                  />
-      
-      
-              </div>
-            </section>
-        )
-      }
-
+            <div className="text-3xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
+              <span>Our Highly&nbsp;</span>
+              <span
+                className="font-bold flex flex-col w-fit"
+                style={{
+                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                }}
+              >
+                Trusted Contractors
+              </span>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-10 py-16 gap-6">
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+            <ReviewCard
+              name="Harold Lane"
+              contact="(800) 299-9470"
+              rating={5}
+              totalReviews={10}
+              agency="Appliance Connection"
+              review="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using is that it has a more-or-less"
+              image={HumanImage}
+            />
+          </div>
+        </section>
+      )}
 
       <section className="min-h-[70vh] w-full bg-[#F5F5F5] py-20">
         <div className="w-full">
-          <div className="text-[50px] font-normal flex justify-center">
+          <div className="text-3xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>Browse By &nbsp;</span>
-            <span className="font-bold flex flex-col">
+            <span
+              className="font-bold flex flex-col w-fit"
+              style={{
+                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+              }}
+            >
               Popular Services
-              <span
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                  marginTop: "-22px",
-                }}
-              ></span>
             </span>
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-5 px-14 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-5 px-14 py-20">
           <PopularServiceCard
             title="Crawl Space Cleaning"
             description="   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, libero incidunt culpa neque saepe eos voluptatum illo nemo voluptas tempora?"
@@ -340,20 +364,18 @@ const HomeCenterPage = () => {
         </div>
       </section>
 
-      <section className="min-h-[50vh] py-36 px-28">
-        <div className="bg-blue-grid rounded-[40px] flex text-white h-[500px]">
+      <section className="min-h-[50vh] py-36 px-10 lg:px-28">
+        <div className="bg-blue-grid rounded-[40px] flex text-white h-[800px] lg:h-[500px] flex-col-reverse lg:flex-row flex-wrap-reverse">
           <div className="flex-[0.5] flex flex-col ml-20">
-            <div className="flex flex-col justify-center text-[60px] font-normal pt-20 pb-10">
+            <div className="flex flex-col gap-y-4 justify-center text-3xl md:text-4xl lg:text-[60px] font-normal pt-20 pb-10">
               <span>Buy your home&nbsp;</span>
-              <span className="font-bold flex flex-col">
+              <span
+                className="font-bold flex flex-col w-fit"
+                style={{
+                  borderBottom: "6px solid rgba(255, 255, 255, 0.302)",
+                }}
+              >
                 with confidence.
-                <span
-                  style={{
-                    borderBottom: "6px solid rgba(255, 255, 255, 0.302)",
-                    marginTop: "-18px",
-                    width: "60%",
-                  }}
-                ></span>
               </span>
             </div>
 
@@ -361,14 +383,22 @@ const HomeCenterPage = () => {
               Visit a Homes Service Center and we will automatically add the
               service records to your homes account.
             </div>
-            <Button type="default" shape="round" iconPosition="end" icon={<UserPen />} className="bg-black text-white border-none outline-none w-[300px] px-[10px] py-[28px] my-6 text-lg">
-            Create Free Account
+            <Button
+              type="default"
+              shape="round"
+              iconPosition="end"
+              icon={<UserPen />}
+              className="bg-black text-white border-none outline-none w-[300px] px-[10px] py-[28px] my-6 text-lg"
+            >
+              Create Free Account
             </Button>
           </div>
           <div className="flex-[0.5]">
-
-            <Image src={GirlSmilingImage} alt="Girl smiling image." className="h-[110%] w-[50%] mt-[-52px] ml-20" />
-
+            <Image
+              src={GirlSmilingImage}
+              alt="Girl smiling image."
+              className="h-[110%] w-[50%] lg:mt-[-52px] ml-20 my-5"
+            />
           </div>
         </div>
       </section>
@@ -379,7 +409,7 @@ const HomeCenterPage = () => {
 const ReviewCard = (props: ReviewCardProps) => {
   const router = useRouter();
   return (
-    <div className="px-[15px] py-[30px] rounded-[30px] border border-[#D9D9D9] flex flex-col w-full max-w-[480px] gap-y-4">
+    <div className="px-[15px] py-[30px] rounded-[30px] border border-[#D9D9D9] flex flex-col w-full  gap-y-4">
       <div className="flex gap-x-8 ">
         <div className="">
           <Image
@@ -413,9 +443,14 @@ const ReviewCard = (props: ReviewCardProps) => {
         </div>
       </div>
       <div className="flex items-end justify-end">
-      <Button shape="circle" type="primary" className="h-[50px] w-[50px]" onClick={()=>(router.push("/profile"))}>
-        <MoveRight width={15} />
-      </Button>
+        <Button
+          shape="circle"
+          type="primary"
+          className="h-[50px] w-[50px]"
+          onClick={() => router.push("/profile")}
+        >
+          <MoveRight width={15} />
+        </Button>
       </div>
     </div>
   );
@@ -423,7 +458,7 @@ const ReviewCard = (props: ReviewCardProps) => {
 
 const PopularServiceCard = (props: PopularServiceCardProps) => {
   return (
-    <div className="rounded-[40px] w-full max-w-[435px] border border-[#0000001A] flex flex-col items-center gap-y-5 bg-white px-10 py-10">
+    <div className="rounded-[40px] w-full  border border-[#0000001A] flex flex-col items-center gap-y-5 bg-white px-10 py-10">
       <div className="h-[110px] w-[110px] rounded-[50%] border border-[#00000026] flex items-center justify-center">
         {props.icon}
       </div>
