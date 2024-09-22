@@ -62,9 +62,15 @@ const Rent = () => {
         </div>
       </section>
 
+      {searched && (
+        <div className="px-20 mt-[-80px] pb-20">
+          <FilterBar searched={searched} setSearched={setSearched} />
+        </div>
+      )}
+
       {/* Search Section */}
       {searched && (
-        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16 mt-[-120px]">
+        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16">
           <div>
             {/* Left Filter */}
             <div>
@@ -179,10 +185,12 @@ const Rent = () => {
         </section>
       )}
 
-      <section className="min-h-[100vh] w-[100vw]  bg-[#F5F5F5] pt-52 pb-28">
-        <div className="mx-20 mt-[-300px] pb-20">
-          <FilterBar searched={searched} setSearched={setSearched} />
-        </div>
+      <section className="min-h-[100vh] w-[100vw]  bg-[#F5F5F5] pt-52 pb-28 border">
+        {!searched && (
+          <div className="mx-20 mt-[-300px] pb-20">
+            <FilterBar searched={searched} setSearched={setSearched} />
+          </div>
+        )}
         <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-xl sm:text-3xl md:text-[50px] font-normal flex">
             <span>Recently Listed&nbsp;</span>
@@ -210,6 +218,54 @@ const Rent = () => {
         </div>
       </section>
 
+      <section className="bg-white pb-32 w-[100vw] overflow-clip">
+        <div className="flex mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-24">
+          <span>Find Homes That&nbsp;</span>
+          <span
+            className="font-bold flex flex-col w-fit"
+            style={{
+              borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+            }}
+          >
+            Meet Your Needs
+          </span>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 px-8 lg:px-20">
+          <Resource
+            variant="secondary"
+            image={"/images/resource-1.png"}
+            header={"352 High Falls Dr., Conway, SC 29526"}
+            content={
+              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+          />
+          <Resource
+            variant="secondary"
+            image={"/images/resource-1.png"}
+            header={"352 High Falls Dr., Conway, SC 29526"}
+            content={
+              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+          />
+          <Resource
+            variant="secondary"
+            image={"/images/resource-1.png"}
+            header={"352 High Falls Dr., Conway, SC 29526"}
+            content={
+              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+          />
+          <Resource
+            variant="secondary"
+            image={"/images/resource-1.png"}
+            header={"352 High Falls Dr., Conway, SC 29526"}
+            content={
+              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+            }
+          />
+        </div>
+      </section>
+
       <section
         className="min-h-[75vh] w-[100vw] pt-24"
         style={{ borderTop: "1px solid #00000026" }}
@@ -228,11 +284,7 @@ const Rent = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
           <div className="lg:pl-20">
             {/* This is for the image */}
-            <Image
-              src={LaptopImg}
-              alt="Hero home image"
-              width={700}
-            />
+            <Image src={LaptopImg} alt="Hero home image" width={700} />
           </div>
           <div className="flex flex-col items-center justify-center w-full gap-6  mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10 lg:pb-0">
             {/* This is for the text */}
@@ -286,7 +338,7 @@ const Rent = () => {
       </section>
 
       <section className="bg-[#F5F5F5] pb-32 w-[100vw] overflow-clip">
-        <div className="flex mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-16">
+        <div className="flex mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-24">
           <span>Helpful&nbsp;</span>
           <span
             className="font-bold flex flex-col w-fit"
