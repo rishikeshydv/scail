@@ -23,11 +23,11 @@ export default function Home() {
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
+      <section className="h-[110vh] lg:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
         <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0">
-          <div className="flex-[0.7] lg:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
-            <div className="font-semibold text-6xl xl:text-[100px]  flex justify-end">
+          <div className="flex-[0.7] lg:flex-[0.40] flex flex-col items-center xl:items-start mt-4 md:mt-16">
+            <div className="font-semibold text-6xl xl:text-[100px] flex justify-end">
               <span className="text-[#0874DE]">+</span>
               <span>&nbsp;Property</span>
             </div>
@@ -38,7 +38,7 @@ export default function Home() {
               Discover homes for sale in your city and get detailed property
               reports
             </div>
-            <div className="flex gap-x-4 py-6">
+            <div className="flex md:flex-row flex-col gap-y-5 md:gap-y-0 md:gap-x-4 py-6">
               <Button
                 type="primary"
                 shape="round"
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-[0.3] lg:flex-[0.52] xl:ml-[150px] flex items-center">
+          <div className="flex-[0.3] lg:flex-[0.52] xl:ml-[150px] flex items-center pt-10 md:pt-0">
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
@@ -71,13 +71,13 @@ export default function Home() {
         </div>
       </section>
       <FilterBar
-        className="mx-20 mt-[-100px]"
+        className="mx-8 md:mx-20 mt-[-100px]"
         searched={searched}
         setSearched={setSearched}
       />
-      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-32">
-        <div className="flex justify-between mx-20 items-center flex-col lg:flex-row gap-y-5">
-          <div className="text-2xl md:text-[50px] font-normal flex">
+      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-28 pb-32">
+        <div className="flex justify-between mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
+          <div className="text-[24px] md:text-[50px] font-normal flex">
             <span>Properties for &nbsp;</span>
             <span
               className="font-bold flex flex-col"
@@ -101,7 +101,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="gap-x-4 pt-24 mx-5 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+        <div className="gap-x-4 pt-16 md:pt-24 mx-5 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6">
             <li>
               <PropertyCard
@@ -189,11 +189,11 @@ export default function Home() {
           <Image src={HeroProject100Image} alt="hero image" height={700} />
         </div>
 
-        <div className="lg:flex-[0.5] lg:px-4">
-          <div className="text-[#0874DE] font-medium text-[30px]">
+        <div className="lg:flex-[0.5] lg:px-4 text-center">
+          <div className="text-[#0874DE] font-medium text-[20px] md:text-[30px]">
             Online Property Marketplace
           </div>
-          <div className="text-[2rem] lg:text-[70px]">
+          <div className="text-[2.5rem] lg:text-[70px]">
             <span className="font-normal">We help you find </span>
             <span
               className="font-bold lg:mt-[-30px]"
@@ -205,24 +205,24 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="font-normal text-[25px] text-[#808080] py-10">
+          <div className="font-normal text-[22px] md:text-[25px] text-[#808080] py-10">
             Online property marketplace to buy, sell, and rent residential and
             commercial properties.
           </div>
 
           <div className="flex flex-col gap-y-3">
             <div className="flex items-center gap-x-3">
-              <div className="h-[50px] w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
-                <Check size={24} color="#0874DE" />
+              <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
+                <Check size={20} color="#0874DE" />
               </div>
-              <div className="text-[25px]">Detailed property reports</div>
+              <div className="text-[22px] md:text-[25px]">Detailed property reports</div>
             </div>
             <div className="flex items-center gap-x-3 py-4">
-              <div className="h-[50px] w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
-                <Check size={24} color="#0874DE" />
+              <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
+                <Check size={20} color="#0874DE" />
               </div>
-              <div className="text-[25px]">
-                Discover the best deals in your city
+              <div className="text-[22px] md:text-[25px]">
+                Discover the best deals
               </div>
             </div>
           </div>
@@ -241,15 +241,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 pb-32">
-        <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">
-          <div className="text-2xl md:text-[50px] font-normal flex">
+      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
+        <div className="flex justify-between md:mx-20 items-center lg:flex-row flex-col gap-y-5">
+          <div className="text-3xl md:text-[50px] font-normal flex">
             <span>Insightful &nbsp;</span>
             <span
-              className="font-bold flex flex-col"
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-              }}
+              className="font-bold flex flex-col border-b-[6px] border-[#0874DE80]"
             >
               Property Reports
             </span>
