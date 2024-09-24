@@ -25,8 +25,8 @@ export default function Home() {
     <main>
       <section className="h-[120vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar />
-        <div className="text-white mx-20 flex flex-col-reverse gap-y-8 xl:flex-row xl:gap-y-0">
-          <div className="flex-[0.7] xl:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
+        <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0">
+          <div className="flex-[0.7] lg:flex-[0.40] flex flex-col items-center xl:items-start mt-16">
             <div className="font-semibold text-6xl xl:text-[100px]  flex justify-end">
               <span className="text-[#0874DE]">+</span>
               <span>&nbsp;Property</span>
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-[0.3] xl:flex-[0.52] xl:ml-[150px] flex items-center">
+          <div className="flex-[0.3] lg:flex-[0.52] xl:ml-[150px] flex items-center">
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
@@ -71,7 +71,7 @@ export default function Home() {
         </div>
       </section>
       <FilterBar
-        className="mx-20 mt-[-120px]"
+        className="mx-20 mt-[-100px]"
         searched={searched}
         setSearched={setSearched}
       />
