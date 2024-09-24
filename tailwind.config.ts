@@ -93,6 +93,7 @@ const config = {
   		},
   		backgroundImage: {
 			"black-grid": "url('/images/home-bg-grid.svg')",
+			"black-grid-with-gradient": "url('/images/home-bg-gradient-grid.svg')",
 			"blue-grid": "url('/images/home-blue-grid.svg')",
 			'custom-gradient': 'linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0%, rgba(8, 116, 222, 0.15) 110%)',
   		}

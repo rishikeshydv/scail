@@ -6,12 +6,12 @@ interface FAQProps {
 }
 const FAQ:React.FC<FAQProps> = ({logo,header,content}) => {
   return (
-    <div className='flex gap-8 bg-[#F5F5F5] px-10 py-4 rounded-3xl w-[105%]'>
-        <div className='py-7'>
+    <div className='flex flex-col md:flex-row gap-4 md:gap-8 bg-[#F5F5F5] px-10 py-4 rounded-3xl w-[105%]'>
+        <div className=''>
             {/* This is for the logo */}
             {logo}
         </div>
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-2  justify-center'>
             {/* This is for the text */}
             <p className='text-xl font-semibold'>
                 {/* This is for the header */}

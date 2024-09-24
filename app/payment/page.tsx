@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Navbar } from "@/components/navigation";
-import PaymentHeroImage from "@/public/images/payment-home.png";
+import PaymentHeroImage from "@/assets/images/3d-laptop.png";
 import PieChartIcon from "@/assets/icons/pie-chart-line 1.svg";
 import ClockIcon from "@/assets/icons/clock.svg";
 import HouseIcon from "@/assets/icons/house.svg";
@@ -20,21 +20,20 @@ interface ReportInfoCardProps {
 const PaymentPage = () => {
   return (
     <main>
-      <section className="h-[70vh] w-[100vw] overflow-hidden bg-black-grid">
+      <section className="h-[70vh] w-[100vw] overflow-hidden bg-black-grid-with-gradient">
         <Navbar />
 
-        <div className="text-white mx-32 flex">
-          <div className="flex-[0.5] flex flex-col gap-y-6 mt-20">
-            <div className="text-[50px] font-normal flex">
+        <div className="text-white mx-14 lg:mx-32 flex flex-col md:flex-row">
+          <div className="flex-[0.5] flex flex-col gap-y-6 mt-20  justify-center">
+            <div className="text-2xl md:text-4xl lg:text-[50px]  font-normal flex items-center md:items-start flex-col gap-y-3">
               <span>Order&nbsp;</span>
-              <span className="font-bold flex flex-col">
+              <span
+                className="font-bold flex flex-col w-fit"
+                style={{
+                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
+                }}
+              >
                 Homes Reports !
-                <span
-                  style={{
-                    borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                    marginTop: "-22px",
-                  }}
-                ></span>
               </span>
             </div>
 
@@ -42,23 +41,29 @@ const PaymentPage = () => {
               <Image src={NewHomeBadge} alt="badge" />
             </div> */}
 
-            <div className="flex flex-col">
-              <span className="font-semibold text-[40px] text-[#0874DE]">
+            <div className="flex flex-col text-center md:text-left">
+              <span className="font-semibold text-xl md:text-3xl lg:text-[40px] text-[#0874DE]">
                 A Homes history affects its value.
               </span>
-              <span className="font-normal text-[24px]">
+              <span className="font-normal text-lg md:text-2xl lg:text-[24px]">
                 What&apos;s a Homes worth? Find out with every report!
               </span>
             </div>
           </div>
-          <div className="flex-[0.56] mt-8">
-            <Image src={"/images/payment-home.png"} alt="payment hero home image" className="ml-24 w-[780px] h-[430px]" width={600} height={700}/>
+          <div className="flex-[0.56] mt-8 items-center justify-center">
+            <Image
+              src={PaymentHeroImage}
+              alt="payment hero home image"
+              className="lg:ml-24  md:h-[430px]"
+              width={600}
+              height={700}
+            />
           </div>
         </div>
       </section>
 
-      <section className="min-h-[100vh] flex">
-        <div className="w-[50vh] min-h-[80vh] border-r border-[#00000026] flex flex-col px-10 mt-14 gap-y-4 pb-10">
+      <section className="min-h-[100vh] flex flex-col lg:flex-row">
+        <div className="lg:w-[50vh] min-h-[80vh] border-r border-[#00000026] flex flex-col px-10 mt-14 gap-y-4 pb-10">
           <ReportInfoCard
             icon={PieChartIcon}
             title="Fire Department"
@@ -81,7 +86,7 @@ const PaymentPage = () => {
         nisi."
           />
         </div>
-        <div className="w-[140vh] h-full pt-14">
+        <div className="lg:w-[140vh] h-full pt-14">
           <div className="font-bold text-[24px] border-b border-[#00000026] px-3 pb-5">
             <span className="text-[#0874DE]">Step 1.</span> Select Your Package
           </div>
@@ -134,7 +139,7 @@ const ReportPlanList = () => {
   };
 
   return (
-    <Radio.Group onChange={onChange} value={value} className="flex">
+    <Radio.Group onChange={onChange} value={value} className="flex flex-wrap">
       <Radio value={1} className="flex flex-col gap-y-4">
         <div className="h-[120px] w-[350px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
           <div className="text-[20px] font-bold">1 Home Report</div>

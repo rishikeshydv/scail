@@ -24,7 +24,7 @@ export const FilterBar = ({
   setSearched,
 }: FilterBarProps) => {
   return (
-    <div className={`${className} z-10`}>
+    <div className={`${className}`}>
       <div
         className="bg-[#0874DE] w-[180px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2 font-semibold"
         style={{
@@ -44,7 +44,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Price</div>
           <div className="">
             <Select>
-              <SelectTrigger className="w-[180px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[180px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent className="">
@@ -89,7 +89,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Home Type</div>
           <div className="custom-select-container">
             <Select>
-              <SelectTrigger className="w-[180px]  rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[180px]  rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -104,7 +104,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Square feet</div>
           <div className="flex flex-col gap-y-3 md:flex-row gap-x-5  custom-select-container">
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -115,7 +115,7 @@ export const FilterBar = ({
             </Select>
 
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -130,7 +130,7 @@ export const FilterBar = ({
           <div className="text-[20px] font-semibold">Year built</div>
           <div className="flex flex-col gap-y-3 md:flex-row gap-x-5 custom-select-container">
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -140,7 +140,7 @@ export const FilterBar = ({
               </SelectContent>
             </Select>
             <Select>
-              <SelectTrigger className="w-[150px] rounded-3xl ">
+              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
                 <SelectValue placeholder="Theme" />
               </SelectTrigger>
               <SelectContent>
@@ -152,7 +152,8 @@ export const FilterBar = ({
           </div>
         </div>
         <div className="flex flex-col gap-y-[40px]">
-          <div className="py-2 mt-2">
+          <div></div>
+          <div className="py-2">
             <Button
               onClick={() => setSearched(true)}
               className="bg-[#0874DE] rounded-3xl text-[14px]"

@@ -28,7 +28,13 @@ import {
 import { Button } from "../ui/button";
 import { FaAngleRight } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
-import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownSection,
+  DropdownItem,
+} from "@nextui-org/dropdown";
 interface NavbarProps {
   className?: string;
 }
@@ -58,30 +64,58 @@ export const Navbar = ({ className }: NavbarProps) => {
         {/* left section */}
         <div className="flex w-full gap-x-10 py-8 items-center justify-between px-16">
           <div className="text-[50px] font-semibold items-center cursor-pointer flex gap-x-4">
-            <MenuIcon size={24} onClick={handleOpenMobileNav} className="xl:hidden block" />
+            <MenuIcon
+              size={24}
+              onClick={handleOpenMobileNav}
+              className="xl:hidden block"
+            />
             <Link href={"/"}>
-              <Image
-                src={logo}
-                alt="Logo"
-                className="w-[146px] h[38px]"
-              />
+              <Image src={logo} alt="Logo" className="w-[146px] h[38px]" />
             </Link>
             <div className="hidden xl:flex xl:gap-10 items-center font-light px-7">
-                <Dropdown isOpen={isDropdownOpen} className="bg-[#262626] text-[#777777]" onMouseLeave={()=>setIsDropdownOpen(false)}>
-              <DropdownTrigger className="" >
-                <Button className="text-[18px] bg-transparent hover:bg-transparent font-light" onMouseEnter={()=>setIsDropdownOpen(true)}>
-                Homes for Sale
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Static Actions">
-                <DropdownItem key="pre-owned" className="text-[16px]" onClick={()=>{setIsDropdownOpen(false);router.push("/pre-owned")}}>Pre-Owned Homes</DropdownItem>
-                <DropdownItem key="new-homes" className="text-[16px]" onClick={()=>{setIsDropdownOpen(false);router.push("/new-homes")}}>New Homes</DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-            <Link href={"/reports"} className="ml-1 text-[18px] hover:text-[17px] hover:text-[#777777]">
-              Reports
-            </Link>
-            {/* <Select onValueChange={(value)=>router.push("/contractors")}>
+              <Dropdown
+                isOpen={isDropdownOpen}
+                className="bg-[#262626] text-[#777777]"
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <DropdownTrigger className="">
+                  <Button
+                    className="text-[18px] bg-transparent hover:bg-transparent font-light"
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                  >
+                    Homes for Sale
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownItem
+                    key="pre-owned"
+                    className="text-[16px]"
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      router.push("/pre-owned");
+                    }}
+                  >
+                    Pre-Owned Homes
+                  </DropdownItem>
+                  <DropdownItem
+                    key="new-homes"
+                    className="text-[16px]"
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      router.push("/new-homes");
+                    }}
+                  >
+                    New Homes
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <Link
+                href={"/reports"}
+                className="ml-1 text-[18px] hover:text-[17px] hover:text-[#777777]"
+              >
+                Reports
+              </Link>
+              {/* <Select onValueChange={(value)=>router.push("/contractors")}>
               <SelectTrigger className="w-[149px] border-none bg-transparent text-[18px] ml-5">
                 <SelectValue placeholder="Renovations" />
               </SelectTrigger>
@@ -112,10 +146,13 @@ export const Navbar = ({ className }: NavbarProps) => {
             <Link href={"/home-values"} className="text-[18px]">
               Home Values
             </Link> */}
-            <Link href={"/contact"} className="ml-6 text-[18px] hover:text-[17px] hover:text-[#777777]">
-              Contact
-            </Link>
-          </div>
+              <Link
+                href={"/contact"}
+                className="ml-6 text-[18px] hover:text-[17px] hover:text-[#777777]"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
 
           {/* Right Corner */}
@@ -136,9 +173,9 @@ export const Navbar = ({ className }: NavbarProps) => {
             </div>
           ) : (
             <div className="flex flex-[0.5] lg:flex-[0.3] justify-end">
-              <Globe className="text-[#0874DE] mt-2" />
+              <Globe className="text-[#0874DE] mt-2 hidden md:block" />
               <Select>
-                <SelectTrigger className="w-[100px] bg-transparent border-none text-[18px] font-light">
+                <SelectTrigger className="w-[100px] bg-transparent border-none text-[18px] font-light hidden md:flex">
                   <SelectValue
                     placeholder="ENG 🇺🇸"
                     defaultValue={"eng"}
@@ -146,17 +183,17 @@ export const Navbar = ({ className }: NavbarProps) => {
                   />
                 </SelectTrigger>
                 <SelectContent className="bg-transparent">
-                  <SelectItem value="eng" className="text-[18px] text-white">
+                  <SelectItem value="eng" className="text-md text-white">
                     ENG 🇺🇸
                   </SelectItem>
-                  <SelectItem value="esp" className="text-[18px] text-white">
+                  <SelectItem value="esp" className="text-md text-white">
                     ESP 🇪🇸
                   </SelectItem>
                 </SelectContent>
               </Select>
 
               <Button
-                className="text-[18px] py-4 font-light tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
+                className="text-sm md:text-[18px] py-4 font-light tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
                 onClick={() => {
                   router.push("/auth/login");
                 }}
@@ -173,66 +210,86 @@ export const Navbar = ({ className }: NavbarProps) => {
           !isMobileNavOpen ? "hidden" : "flex"
         } xl:hidden flex-col w-full items-start text-white gap-y-8 px-10 pt-5`}
       >
-          {/* <Link href={"/buy"}>Buy</Link> */}
+        <div className="flex gap-x-5 text-black">
+          <Globe className="text-[#0874DE] mt-2 block md:hidden" />
           <Select>
-            <SelectTrigger className="w-[170px] border-none bg-transparent text-lg text-left px-[-18px]">
-              <SelectValue placeholder="Homes for Sell" />
+            <SelectTrigger className="w-[100px]  border-none text-[18px] font-light flex md:hidden">
+              <SelectValue
+                placeholder="ENG 🇺🇸"
+                defaultValue={"eng"}
+                className="border-none "
+              />
             </SelectTrigger>
             <SelectContent className="">
-              <SelectItem
-                value="pre-owned"
-                className="text-md  hover:bg-transparent"
-                onClick={() => router.push("/pre-owned")}
-              >
-                Pre-Owned Homes
+              <SelectItem value="eng" className="text-md ">
+                ENG 🇺🇸
               </SelectItem>
-              <SelectItem
-                value="new"
-                className="text-md  hover:bg-transparent"
-                onClick={() => router.push("/new-homes")}
-              >
-                New Homes
+              <SelectItem value="esp" className="text-md ">
+                ESP 🇪🇸
               </SelectItem>
             </SelectContent>
           </Select>
-          <Link href={"/reports"} className="ml-1">
-            Reports
-          </Link>
-          <Select>
-            <SelectTrigger className="w-[149px] border-none bg-transparent text-left text-lg  px-[-18px]">
-              <SelectValue placeholder="Renovations" />
-            </SelectTrigger>
-            <SelectContent className="">
-              <SelectItem
-                value="pre-owned"
-                className="text-md  hover:bg-transparent"
-                onClick={() => router.push("/contractors")}
-              >
-                Plumbing
-              </SelectItem>
-              <SelectItem
-                value="new"
-                className="text-md  hover:bg-transparent"
-                onClick={() => router.push("/contractors")}
-              >
-                Electrician
-              </SelectItem>
-              <SelectItem
-                value="new"
-                className="text-md  hover:bg-transparent"
-                onClick={() => router.push("/contractors")}
-              >
-                HVAC
-              </SelectItem>
-            </SelectContent>
-          </Select>
-          <Link href={"/home-values"} className="">
-            Home Values
-          </Link>
-          <Link href={"/contact"} className="">
-            Contact
-          </Link>
         </div>
+        {/* <Link href={"/buy"}>Buy</Link> */}
+        <Select>
+          <SelectTrigger className="w-[170px] border-none bg-transparent text-lg text-left px-[-18px]">
+            <SelectValue placeholder="Homes for Sell" />
+          </SelectTrigger>
+          <SelectContent className="">
+            <SelectItem
+              value="pre-owned"
+              className="text-md  hover:bg-transparent"
+              onClick={() => router.push("/pre-owned")}
+            >
+              Pre-Owned Homes
+            </SelectItem>
+            <SelectItem
+              value="new"
+              className="text-md  hover:bg-transparent"
+              onClick={() => router.push("/new-homes")}
+            >
+              New Homes
+            </SelectItem>
+          </SelectContent>
+        </Select>
+        <Link href={"/reports"} className="ml-1">
+          Reports
+        </Link>
+        <Select>
+          <SelectTrigger className="w-[149px] border-none bg-transparent text-left text-lg  px-[-18px]">
+            <SelectValue placeholder="Renovations" />
+          </SelectTrigger>
+          <SelectContent className="">
+            <SelectItem
+              value="pre-owned"
+              className="text-md  hover:bg-transparent"
+              onClick={() => router.push("/contractors")}
+            >
+              Plumbing
+            </SelectItem>
+            <SelectItem
+              value="new"
+              className="text-md  hover:bg-transparent"
+              onClick={() => router.push("/contractors")}
+            >
+              Electrician
+            </SelectItem>
+            <SelectItem
+              value="new"
+              className="text-md  hover:bg-transparent"
+              onClick={() => router.push("/contractors")}
+            >
+              HVAC
+            </SelectItem>
+          </SelectContent>
+        </Select>
+        <Link href={"/home-values"} className="">
+          Home Values
+        </Link>
+        <Link href={"/contact"} className="">
+          Contact
+        </Link>
+      </div>
     </div>
   );
 };
