@@ -24,145 +24,281 @@ export const FilterBar = ({
   setSearched,
 }: FilterBarProps) => {
   return (
-    <div className={`${className}`}>
-      <div
-        className="bg-[#0874DE] w-[180px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2 font-semibold"
-        style={{
-          borderRadius: "20px 20px 0px 0px",
-        }}
-      >
-        <HouseIcon size={18} />
-        <span>Find Property</span>
-      </div>
-      <div
-        style={{
-          borderRadius: "0px 20px 20px 20px",
-        }}
-        className="bg-white shadow-md flex items-center justify-between border min-h-[120px] px-[35px] py-[8px] flex-wrap"
-      >
-        <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Price</div>
-          <div className="">
-            <Select>
-              <SelectTrigger className="w-full md:w-[180px] rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent className="">
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Bed</div>
-          <div className="custom-select-container">
-            <Select>
-              <SelectTrigger className="w-[100px] rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Baths</div>
-          <div className="custom-select-container">
-            <Select>
-              <SelectTrigger className="w-[100px]  rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Home Type</div>
-          <div className="custom-select-container">
-            <Select>
-              <SelectTrigger className="w-full md:w-[180px]  rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Square feet</div>
-          <div className="flex flex-col gap-y-3 md:flex-row gap-x-5  custom-select-container">
-            <Select>
-              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
+    // <div className={`${className}`}>
+    //   <div
+    //     className="bg-[#0874DE] w-[180px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2 font-semibold"
+    //     style={{
+    //       borderRadius: "20px 20px 0px 0px",
+    //     }}
+    //   >
+    //     <HouseIcon size={18} />
+    //     <span>Find Property</span>
+    //   </div>
+    //   <div
+    //     style={{
+    //       borderRadius: "0px 20px 20px 20px",
+    //     }}
+    //     className="bg-white shadow-md flex items-center justify-between border min-h-[120px] px-[35px] py-[8px] flex-wrap"
+    //   >
+    //     <div className="flex flex-col gap-y-[10px]">
+    //       <div className="text-[20px] font-semibold">Price</div>
+    //       <div className="">
+    //         <Select>
+    //           <SelectTrigger className="w-full md:w-[180px] rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent className="">
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //       </div>
+    //     </div>
+    //     <div className="flex flex-col gap-y-[10px]">
+    //       <div className="text-[20px] font-semibold">Bed</div>
+    //       <div className="custom-select-container">
+    //         <Select>
+    //           <SelectTrigger className="w-[100px] rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //       </div>
+    //     </div>
+    //     <div className="flex flex-col gap-y-[10px]">
+    //       <div className="text-[20px] font-semibold">Baths</div>
+    //       <div className="custom-select-container">
+    //         <Select>
+    //           <SelectTrigger className="w-[100px]  rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //       </div>
+    //     </div>
+    //     <div className="flex flex-col gap-y-[10px]">
+    //       <div className="text-[20px] font-semibold">Home Type</div>
+    //       <div className="custom-select-container">
+    //         <Select>
+    //           <SelectTrigger className="w-full md:w-[180px]  rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //       </div>
+    //     </div>
+    //     <div className="flex flex-col gap-y-[10px]">
+    //       <div className="text-[20px] font-semibold">Square feet</div>
+    //       <div className="flex flex-col gap-y-3 md:flex-row gap-x-5  custom-select-container">
+    //         <Select>
+    //           <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
 
-            <Select>
-              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-[10px]">
-          <div className="text-[20px] font-semibold">Year built</div>
-          <div className="flex flex-col gap-y-3 md:flex-row gap-x-5 custom-select-container">
-            <Select>
-              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-            <Select>
-              <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-[40px]">
-          <div></div>
-          <div className="py-2">
-            <Button
-              onClick={() => setSearched(true)}
-              className="bg-[#0874DE] rounded-3xl text-[14px]"
-            >
-              Search&nbsp;<Search width={15} />
-            </Button>
-          </div>
-        </div>
+    //         <Select>
+    //           <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //       </div>
+    //     </div>
+    //     <div className="flex flex-col gap-y-[10px]">
+    //       <div className="text-[20px] font-semibold">Year built</div>
+    //       <div className="flex flex-col gap-y-3 md:flex-row gap-x-5 custom-select-container">
+    //         <Select>
+    //           <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //         <Select>
+    //           <SelectTrigger className="w-full md:w-[150px] rounded-3xl ">
+    //             <SelectValue placeholder="Theme" />
+    //           </SelectTrigger>
+    //           <SelectContent>
+    //             <SelectItem value="light">Light</SelectItem>
+    //             <SelectItem value="dark">Dark</SelectItem>
+    //             <SelectItem value="system">System</SelectItem>
+    //           </SelectContent>
+    //         </Select>
+    //       </div>
+    //     </div>
+    //     <div className="flex flex-col gap-y-[40px]">
+    //       <div></div>
+    //       <div className="py-2">
+    //         <Button
+    //           onClick={() => setSearched(true)}
+    //           className="bg-[#0874DE] rounded-3xl text-[14px]"
+    //         >
+    //           Search&nbsp;<Search width={15} />
+    //         </Button>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    <div className={`${className}`}>
+  <div
+    className="bg-[#0874DE] w-full md:w-[180px] p-[15px] flex items-center justify-center text-white text-[18px] gap-x-2 font-semibold"
+    style={{
+      borderRadius: "20px 20px 0px 0px",
+    }}
+  >
+    <HouseIcon size={18} />
+    <span>Find Property</span>
+  </div>
+  <div
+    style={{
+      borderRadius: "0px 0px 20px 20px",
+    }}
+    className="bg-white shadow-md flex flex-col md:flex-row items-center justify-between border min-h-[120px] px-[20px] md:px-[35px] py-[10px] md:py-[8px] flex-wrap gap-y-5"
+  >
+    <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
+      <div className="text-[16px] md:text-[20px] font-semibold">Price</div>
+      <div>
+        <Select>
+          <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
     </div>
+    <div className="flex gap-y-[10px] md:gap-x-5 w-full md:w-auto md:space-x-0 space-x-6">
+    <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
+      <div className="text-[16px] md:text-[20px] font-semibold">Bed</div>
+      <Select>
+        <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+          <SelectValue placeholder="Theme" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="light">Light</SelectItem>
+          <SelectItem value="dark">Dark</SelectItem>
+          <SelectItem value="system">System</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+    <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
+      <div className="text-[16px] md:text-[20px] font-semibold">Baths</div>
+      <Select>
+        <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+          <SelectValue placeholder="Theme" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="light">Light</SelectItem>
+          <SelectItem value="dark">Dark</SelectItem>
+          <SelectItem value="system">System</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+    </div>
+    <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
+      <div className="text-[16px] md:text-[20px] font-semibold">Home Type</div>
+      <Select>
+        <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+          <SelectValue placeholder="Theme" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem value="light">Light</SelectItem>
+          <SelectItem value="dark">Dark</SelectItem>
+          <SelectItem value="system">System</SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
+    <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
+      <div className="text-[16px] md:text-[20px] font-semibold">Square feet</div>
+      <div className="flex gap-y-3 md:flex-row gap-x-5">
+        <Select>
+          <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
+        <Select>
+          <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
+    <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
+      <div className="text-[16px] md:text-[20px] font-semibold">Year Built</div>
+      <div className="flex gap-y-3 md:flex-row gap-x-5">
+        <Select>
+          <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
+        <Select>
+          <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="light">Light</SelectItem>
+            <SelectItem value="dark">Dark</SelectItem>
+            <SelectItem value="system">System</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+    </div>
+    <div className="flex flex-col gap-y-[40px] w-full md:w-auto">
+      <div></div>
+      <div className="py-2">
+        <Button
+          onClick={() => setSearched(true)}
+          className="w-full md:w-auto bg-[#0874DE] rounded-3xl text-[14px]"
+        >
+          Search&nbsp;<Search width={15} />
+        </Button>
+      </div>
+    </div>
+  </div>
+</div>
+
   );
 };

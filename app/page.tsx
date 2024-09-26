@@ -101,7 +101,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className="gap-x-4 pt-16 md:pt-24 mx-5 w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+        <div className="gap-x-4 pt-16 md:pt-24 mx-5 w-full inline-flex flex-nowrap overflow-hidden md:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
           <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6">
             <li>
               <PropertyCard
