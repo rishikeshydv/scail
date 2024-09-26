@@ -9,6 +9,7 @@ import Value from "@/components/reports/Value";
 import Points from "@/components/reports/Points";
 import Review from "@/components/reports/Review";
 import FooterHero from "@/public/images/footer-2.png";
+import ReportsHeroMobile from "@/public/images/house1.png";
 import {
   Accordion,
   AccordionContent,
@@ -16,6 +17,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import ValueImage from "@/public/images/value.png";
+import React from "react";
 
 const Reports = () => {
   const { token } = theme.useToken();
@@ -35,20 +38,19 @@ const Reports = () => {
     },
     zoom: 11,
   };
+
+
   return (
     <main>
-      <section className="max-h-[125vh] xl:max-h-[75vh] w-[100vw] overflow-clip bg-black-grid-with-gradient">
+      <section className="max-h-[145vh] xl:max-h-[75vh] w-[100vw] overflow-clip bg-reports-hero bg-no-repeat bg-cover sm:bg-black-grid-with-gradient">
         <Navbar />
 
-        <div className="text-white mx-32  flex flex-col xl:flex-row gap-x-10 ">
-          <div className="flex-[0.5] flex flex-col gap-y-6 justify-center">
-            <div className="text-6xl xl:text-[50px] font-normal flex xl:flex-row flex-col">
+        <div className="text-white mx-10 md:mx-32  flex flex-col xl:flex-row gap-x-10 ">
+          <div className="flex-[0.5] flex flex-col gap-y-6 justify-center py-20 md:py-0">
+            <div className="text-5xl xl:text-[50px] font-normal flex xl:flex-row flex-col">
               <span>Get Your&nbsp;</span>
               <span
-                className="flex flex-col font-bold w-fit"
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                }}
+                className="flex flex-col font-bold w-fit border-b-[6px] border-[#0874DE80]"
               >
                 Home Reports
               </span>
@@ -71,7 +73,14 @@ const Reports = () => {
               </div>
             </div>
           </div>
-          <div className="flex-[0.5] flex justify-center items-center">
+          <div className="flex-[0.5] sm:hidden flex justify-center items-center mb-20">
+            <Image
+              src={ReportsHeroMobile}
+              alt="reports hero home image"
+              style={{ width: "500px", height: "300px" }}
+            />
+          </div>
+          <div className="flex-[0.5] hidden md:flex justify-center items-center">
             <Image
               src={ReportsHeroImage}
               alt="reports hero home image"
@@ -99,19 +108,19 @@ const Reports = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10 lg:px-40 py-20">
           <Value
-            img="/images/value.png"
+            img={ValueImage}
             title="Discover the Insights Hidden in 
 Your Property's History. Discover the Insights Hidden in 
 Your Property's History"
           />
           <Value
-            img="/images/value.png"
+            img={ValueImage}
             title="Discover the Insights Hidden in 
 Your Property's History. Discover the Insights Hidden in 
 Your Property's History"
           />
           <Value
-            img="/images/value.png"
+            img={ValueImage}
             title="Discover the Insights Hidden in 
 Your Property's History. Discover the Insights Hidden in 
 Your Property's History"
@@ -317,7 +326,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="min-h-[70vh]  w-[100vw] overflow-clip mt-40 mb-10">
+      <section className="md:min-h-[70vh]  w-[100vw] overflow-clip mt-20 md:mt-40 mb-10">
         <div className="w-full mb-10">
           <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>Frequently&nbsp;</span>
@@ -335,7 +344,7 @@ Your Property's History"
           <Accordion type="single" collapsible className="flex flex-col gap-2">
             <AccordionItem
               value="item-1"
-              className="border border-gray-200 bg-gray-100 px-6 py-2 rounded-2xl"
+              className={`border border-gray-200 px-6 py-2 rounded-2xl data-[state=open]:bg-gray-100`}
             >
               <AccordionTrigger className="text-xl tracking-wide font-semibold p-4 rounded-2xl">
                 Why should I get a home report?
@@ -348,7 +357,7 @@ Your Property's History"
             </AccordionItem>
             <AccordionItem
               value="item-2"
-              className="border border-gray-200 bg-gray-100 px-6 py-2 rounded-2xl"
+              className={`border border-gray-200 px-6 py-2 rounded-2xl data-[state=open]:bg-gray-100`}
             >
               <AccordionTrigger className="text-xl tracking-wide font-semibold p-4 rounded-2xl">
                 What data will I see?
@@ -361,7 +370,7 @@ Your Property's History"
             </AccordionItem>
             <AccordionItem
               value="item-3"
-              className="border border-gray-200 bg-gray-100 px-6 py-2 rounded-2xl"
+              className={`border border-gray-200  px-6 py-2 rounded-2xl data-[state=open]:bg-gray-100`}
             >
               <AccordionTrigger className="text-xl tracking-wide font-semibold p-4 rounded-2xl">
                 Does this replace a home inspection?{" "}
@@ -377,15 +386,15 @@ Your Property's History"
       </section>
 
       <section className="w-[100vw] overflow-clip">
-        <div className="flex  items-center justify-center min-h-[75vh] bg-blue-grid px-20 py-20">
-          <div className="flex flex-col items-center gap-20 lg:flex-row">
+        <div className="flex  items-center justify-center min-h-[75vh] bg-blue-grid bg-no-repeat bg-cover md:px-20 py-20">
+          <div className="flex flex-col items-center gap-10 md:gap-20 lg:flex-row">
             <Image
               src={FooterHero}
               alt="Modern House"
-              className="w-full max-w-md md:max-w-xl 2xl:max-w-3xl"
+              className="w-full ml-4 sm:ml-0 max-w-md md:max-w-xl 2xl:max-w-3xl"
             />
-            <div className="flex flex-col justify-center mt-8 items-start md:mt-0 md:ml-8 md:text-left">
-              <div className="text-2xl md:text-4xl lg:text-[48px] font-normal flex text-white ">
+            <div className="flex flex-col justify-center items-center md:items-start md:mt-0 md:ml-8 md:text-left">
+              <div className="text-2xl md:text-4xl lg:text-[48px] font-normal flex text-white">
                 <span>Selling a&nbsp;</span>
                 <span
                   className="font-bold flex flex-col"
@@ -398,7 +407,7 @@ Your Property's History"
                   Used Property
                 </span>
               </div>
-              <p className="mt-4 text-gray-100 text-left lg:text-left pr-24 text-[20px]">
+              <p className="mt-4 text-gray-100 text-center md:text-left md:pr-24 px-4 md:px-0 text-[20px]">
                 Build trust with potential buyers by providing them with a
                 Property History Report today.
               </p>
@@ -421,23 +430,5 @@ Your Property's History"
   );
 };
 
-const PropertyCardBorderless = () => {
-  return (
-    <div className="max-w-[400px] flex flex-col gap-y-4 bg-[#F5F5F5] p-5">
-      <div className="flex flex-[0.6] ">
-        <div className="bg-white rounded-[30px] h-[250px] w-full">
-          <Image src={HomeImage} alt="image" className="h-[120%] mt-[-50px]" />
-        </div>
-      </div>
-
-      <div className="flex-[0.4] flex flex-row items-center gap-x-2">
-        <div className="h-[60px] w-[60px] bg-white border border-[#00000026] rounded-[50%] flex items-center justify-center">
-          <House color="#0874DE" size={30} />
-        </div>
-        <div className="font-semibold text-[30px]">Homes First Owner</div>
-      </div>
-    </div>
-  );
-};
 
 export default Reports;

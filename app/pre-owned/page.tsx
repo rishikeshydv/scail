@@ -28,10 +28,10 @@ import LaptopImg from "@/public/images/lady_laptop.png";
 const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
-    <main className="">
+    <main>
       <section className="min-h-[80vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-pre-owned-mobile md:bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
-        <div className="text-white flex flex-col md:gap-y-10 xl:flex-row md:pt-14 relative">
+        <div className="text-white flex flex-col md:gap-y-10 xl:flex-row md:pt-14">
           <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14 space-y-6 md:space-y-4">
             <div className="font-light text-[20px]">
               Pre Owned Homes for Sale

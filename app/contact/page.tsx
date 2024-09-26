@@ -9,10 +9,10 @@ export default function ContactPage() {
       <section className="min-h-[20vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar className=" bg-black-grid" />
         <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-row text-2xl md:text-4xl lg:text-[60px] font-normal text-white pb-[6vh]">
+          <div className="flex flex-wrap md:flex-row text-2xl md:text-4xl lg:text-[60px] font-normal text-white pb-[6vh]">
             <span>Contact&nbsp;</span>
             <span
-              className="font-bold flex flex-col"
+              className="font-bold flex flex-col "
               style={{
                 borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
               }}
@@ -25,13 +25,10 @@ export default function ContactPage() {
 
       <section className="min-h-[100vh] w-[100vw] overflow-hidden">
         <div className="h-full w-full flex flex-col items-center py-20 gap-y-12">
-          <div className="flex flex-row text-2xl md:text-4xl lg:text-[50px] font-normal">
+          <div className="flex flex-col md:flex-row text-2xl md:text-4xl lg:text-[50px] font-normal">
             <span>Request Help From&nbsp;</span>
             <span
-              className="font-bold flex flex-col"
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-              }}
+              className="font-bold flex flex-col border-b-[6px] border-[#0874DE80]"
             >
               Our Support Teams
             </span>
@@ -100,7 +97,7 @@ export default function ContactPage() {
 
           <div className="w-[85%] rounded-[20px] bg-[#F5F5F5] min-h-[60vh] mt-10 flex flex-col">
             <div className="flex-[0.75] flex flex-col lg:flex-row gap-y-5 border-b border-[#00000033]  w-full">
-              <div className="border-b lg:border-r border-[#00000033] flex-[0.5] flex flex-col items-center justify-center gap-y-5 py-5">
+              <div className="border-b lg:border-r border-[#00000033] flex-[0.5] flex flex-col items-center justify-center gap-y-5 p-10 md:p-5">
                 <div className="font-semibold text-[30px]">
                   Think a report has an error?
                 </div>
@@ -112,7 +109,7 @@ export default function ContactPage() {
                   REPORT A CONCERN
                 </Button>
               </div>
-              <div className="flex-[0.5] flex flex-col items-center justify-center gap-y-5 py-5">
+              <div className="flex-[0.5] flex flex-col items-center justify-center gap-y-5  p-10 md:p-5">
                 <div className="font-semibold text-[30px]">
                   Have a general question?
                 </div>
