@@ -29,10 +29,10 @@ const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
+      <section className="min-h-[80vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-pre-owned-mobile md:bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
-        <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
-          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14">
+        <div className="text-white flex flex-col md:gap-y-10 xl:flex-row md:pt-14 relative">
+          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14 space-y-6 md:space-y-4">
             <div className="font-light text-[20px]">
               Pre Owned Homes for Sale
             </div>
@@ -52,11 +52,11 @@ const Rent = () => {
               listings include a free homes report!
             </div>
           </div>
-          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex px-10 justify-center items-center">
+          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-40 md:mb-20 xl:mx-0 flex px-10 justify-center items-center">
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
-              className="h-[70%] object-contain z-10 mb-48"
+              className="h-[40%] md:h-[70%] object-contain z-10 md:mb-48"
             />
           </div>
         </div>
@@ -191,27 +191,24 @@ const Rent = () => {
             <FilterBar searched={searched} setSearched={setSearched} />
           </div>
         )}
-        <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">
-          <div className="text-xl sm:text-3xl md:text-[50px] font-normal flex">
+        <div className="flex md:justify-between md:mx-20 items-center lg:flex-row flex-col gap-y-5">
+          <div className="text-[25px] sm:text-3xl md:text-[50px] font-normal flex">
             <span>Recently Listed&nbsp;</span>
             <span
-              className="font-bold flex flex-col"
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-              }}
+              className="font-bold flex flex-col border-b-[6px] border-[#0874DE80]"
             >
               Properties
             </span>
           </div>
 
-          <div>
+          <div >
             <Button className="bg-[#0874DE] text-[16px] rounded-3xl">
               View More&nbsp;&nbsp;
               <FaAlignRight />
             </Button>
           </div>
         </div>
-        <div className="flex flex-wrap gap-5 mx-20 justify-center mt-32">
+        <div className="flex flex-wrap gap-16 md:gap-5 mx-20 justify-center mt-32">
           <PropertyCardBorderless />
           <PropertyCardBorderless />
           <PropertyCardBorderless />
@@ -219,15 +216,11 @@ const Rent = () => {
       </section>
 
       <section className="bg-white pb-32 w-[100vw] overflow-clip">
-        <div className="flex mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-24">
+        <div className="flex flex-col md:flex-row md:mx-20 justify-center items-center text-[25px] sm:text-3xl lg:text-[50px] font-normal py-24">
           <span>Find Homes That&nbsp;</span>
           <span
-            className="font-bold flex flex-col w-fit"
-            style={{
-              borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-            }}
-          >
-            Meet Your Needs
+            className="font-bold flex flex-col w-fit  border-b-[6px] border-[#0874DE80]"
+          >Meet Your Needs
           </span>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 px-8 lg:px-20">
@@ -267,7 +260,7 @@ const Rent = () => {
       </section>
 
       <section
-        className="min-h-[75vh] w-[100vw] pt-24"
+        className="md:max-h-[100vh] w-[100vw] pt-24"
         style={{ borderTop: "1px solid #00000026" }}
       >
         <div className="flex flex-col md:flex-row  justify-center items-center text-2xl lg:text-3xl lg:pb-4  xl:text-[50px] font-normal tracking-tight">

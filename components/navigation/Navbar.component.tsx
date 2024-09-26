@@ -62,7 +62,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         )}
       >
         {/* left section */}
-        <div className="flex w-full gap-x-10 py-8 items-center justify-between px-16">
+        <div className="flex w-full gap-x-10 py-8 items-center justify-between px-8 md:px-16">
           <div className="text-[50px] font-semibold items-center cursor-pointer flex gap-x-4">
             <MenuIcon
               size={24}
@@ -208,7 +208,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       <div
         className={`absolute bg-[#262223] ${
           !isMobileNavOpen ? "hidden" : "flex"
-        } xl:hidden flex-col items-start text-white gap-y-8 p-8 pt-5`}
+        } xl:hidden flex-col items-start text-white gap-y-8 p-8 rounded-2xl`}
       >
         {/* <div className="flex gap-x-5 text-black">
           <Globe className="text-[#0874DE] mt-2 block md:hidden" />
@@ -231,28 +231,40 @@ export const Navbar = ({ className }: NavbarProps) => {
           </Select>
         </div> */}
         {/* <Link href={"/buy"}>Buy</Link> */}
-        <Select>
-          <SelectTrigger className="w-[170px] border-none bg-transparent text-lg text-left px-[-18px]">
-            <SelectValue placeholder="Homes for Sell" />
-          </SelectTrigger>
-          <SelectContent className="text-center">
-            <SelectItem
-              value="pre-owned"
-              className="text-md  hover:bg-transparent text-center pr-6"
-              onClick={() => router.push("/pre-owned")}
-            >
-              Pre-Owned Homes
-            </SelectItem>
-            <SelectItem
-              value="new"
-              className="text-md  hover:bg-transparent text-center"
-              onClick={() => router.push("/new-homes")}
-            >
-              New Homes
-            </SelectItem>
-          </SelectContent>
-        </Select>
-        <Link href={"/reports"} className="ml-1">
+        <Dropdown
+                className="bg-[#262626] text-[#777777]"
+              >
+                <DropdownTrigger className="px-[-18px]">
+                  <Button
+                    className="text-[18px] bg-transparent hover:bg-transparent font-light"
+                  >
+                    Homes for Sale
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownItem
+                    key="pre-owned"
+                    className="text-[16px]"
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      router.push("/pre-owned");
+                    }}
+                  >
+                    Pre-Owned Homes
+                  </DropdownItem>
+                  <DropdownItem
+                    key="new-homes"
+                    className="text-[16px]"
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      router.push("/new-homes");
+                    }}
+                  >
+                    New Homes
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+        <Link href={"/reports"} className="ml-1 text-lg">
           Reports
         </Link>
         {/* <Select>
@@ -286,7 +298,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         <Link href={"/home-values"} className="">
           Home Values
         </Link> */}
-        <Link href={"/contact"} className="">
+        <Link href={"/contact"} className="text-lg">
           Contact
         </Link>
       </div>
