@@ -3,11 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
-import { HousePlus } from "lucide-react";
+import { HousePlus,MoveRight } from "lucide-react";
 import {
-  HistoryReportCard,
   PropertyCardBorderless,
-  PropertyCard,
 } from "@/components/card";
 import PreOwnHeroImage from "@/public/images/new-home.png";
 import FAQ from "@/components/buy/FAQ";
@@ -24,42 +22,50 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import LaptopImg from "@/public/images/lady_laptop.png";
+import Points from "@/components/reports/Points";
+import NewProp from "@/components/new-home/NewProp";
+import { House} from "lucide-react";
+import NewsCarousal from "@/components/news/NewsCarousal";
 const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-      <section className="h-[110vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient">
+      <section className="h-[90vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient">
         <Navbar />
-        <div className="text-white flex flex-col gap-y-10 xl:flex-row pt-14 relative">
-          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14">
-            <div className="font-light text-[20px]">
-              New Homes for Sale
-            </div>
-            <div className="flex flex-col text-6xl xl:text-[80px]">
-              <span className="font-normal">Buy with</span>
-              <span
-                className="flex flex-col font-bold mt-[-8px] w-fit"
-                style={{
-                  borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-                }}
-              >
-                confidence.
-              </span>
-            </div>
-            <div className="font-normal text-[#808080] text-[18px] w-[70%] pt-5">
-              Everything you need to browse nearby Homes, all in one place. Used
-              listings include a free homes report!
-            </div>
-          </div>
-          <div className="flex-[0.8] h-[68vh] w-full z-10 mb-20 xl:mx-0 flex px-10 justify-center items-center">
-            <Image
-              src={PreOwnHeroImage}
-              alt="Hero home image"
-              className="h-[70%] object-contain z-10 mb-48"
-            />
-          </div>
-        </div>
+        <div className="text-white flex flex-col justify-evenly gap-y-10 xl:flex-row pt-10 lg:pt-14 relative">
+  {/* Text Section */}
+  <div className="flex flex-col gap-2 lg:pl-28 md:pt-14 w-full xl:w-1/2">
+    {/* Breadcrumb */}
+    <div className="font-light text-[16px] md:text-[20px] flex justify-center md:justify-start items-center gap-3">
+      <span>Home</span>
+      <span><MoveRight className="text-[#0874DE]" /></span>
+      <span>New Homes</span>
+    </div>
+
+    {/* Heading */}
+    <div className="flex flex-row justify-center md:justify-start text-[24px] sm:text-[30px] md:text-[36px] lg:text-[48px]">
+      <span className="font-normal">New Homes for</span>&nbsp;
+      <span className="flex flex-col font-bold w-fit border-b-[4px] sm:border-b-[6px] border-[#0874DE80]">
+        Sale Near Me.
+      </span>
+    </div>
+
+    {/* Subtext */}
+    <div className="font-normal text-[#808080] text-[14px] sm:text-[16px] md:text-[20px] max-w-full md:max-w-[70%] pt-4 md:pt-5 text-center md:text-left">
+      Everything you need to browse nearby Homes, all in one place. Used listings include a free homes report!
+    </div>
+  </div>
+
+  {/* Image Section */}
+  <div className="h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[68vh] w-full xl:w-1/2 flex justify-center items-center">
+    <Image
+      src={PreOwnHeroImage}
+      alt="Hero home image"
+      className="h-[70%] sm:h-[80%] md:h-[85%] object-contain z-10 mb-20 sm:mb-40 lg:mb-48"
+    />
+  </div>
+</div>
+
       </section>
 
       {/* Search Section */}
@@ -184,8 +190,8 @@ const Buy = () => {
           <FilterBar searched={searched} setSearched={setSearched} />
         </div>
         <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">
-          <div className="text-xl sm:text-3xl md:text-[50px] font-normal flex">
-            <span>Recently Listed&nbsp;</span>
+          <div className="text-2xl sm:text-3xl md:text-[50px] font-normal flex">
+            <span>Suggested&nbsp;</span>
             <span
               className="font-bold flex flex-col"
               style={{
@@ -203,10 +209,10 @@ const Buy = () => {
             </Button>
           </div>
         </div>
-        <div className="flex flex-wrap gap-5 mx-20 justify-center mt-32">
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
+        <div className="flex flex-wrap mx-20 justify-center mt-10 md:mt-20">
+        <NewProp />
+        <NewProp />
+        <NewProp />
         </div>
       </section>
 
@@ -215,120 +221,103 @@ const Buy = () => {
         style={{ borderTop: "1px solid #00000026" }}
       >
         <div className="flex flex-col md:flex-row mx-20 justify-center items-center text-2xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
-          <span>Every Used Homes comes &nbsp;</span>
+          <span>Why New Homes&nbsp;</span>
           <span
-            className="font-bold flex flex-col w-fit"
-            style={{
-              borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-            }}
+            className="font-bold flex flex-col w-fit border-b-[6px] border-[#0874DE80] mt-[2px]"
           >
-            with a Free Home Report
+            Over Pre-Homes?
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
-          <div className="">
-            {/* This is for the image */}
-            <Image
-              src={LaptopImg}
-              alt="Hero home image"
-              width={900}
-              height={600}
-            />
-          </div>
-          <div className="flex flex-col items-center justify-center w-full gap-6 mt-20 mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10">
-            {/* This is for the text */}
-            <FAQ
-              logo={
-                <HousePlus
-                  className="text-[#0874DE] bg-white p-4 rounded-full"
-                  height={55}
-                  width={55}
-                />
-              }
-              header={
-                "What is the advantage of shopping for a used House on Homes?"
-              }
-              content={
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
-              }
-            />
-            <FAQ
-              logo={
-                <HousePlus
-                  className="text-[#0874DE] bg-white p-4 rounded-full"
-                  height={55}
-                  width={55}
-                />
-              }
-              header={
-                "What is the advantage of shopping for a used House on Homes?"
-              }
-              content={
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
-              }
-            />
-            <FAQ
-              logo={
-                <HousePlus
-                  className="text-[#0874DE] bg-white p-4 rounded-full"
-                  height={55}
-                  width={55}
-                />
-              }
-              header={
-                "What is the advantage of shopping for a used House on Homes?"
-              }
-              content={
-                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. "
-              }
-            />
-          </div>
+        <div className="px-8 lg:px-28 py-10 grid grid-cols-1 g  md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Points
+            icon={
+              <House
+                size={80}
+                className="bg-white text-[#0874DE] p-4 rounded-[44px]"
+              />
+            }
+            title="Modern Design & Technology"
+            content="New homes come with the latest designs, 
+            energy-efficient features, and smart 
+            technology integration."
+          />
+          <Points
+            icon={
+              <House
+                size={80}
+                className="bg-white text-[#0874DE] p-4 rounded-[44px]"
+              />
+            }
+            title="Customization Options" 
+            content="Enjoy the ability to customize your home 
+            with personal finishes and designs that suit 
+            your taste."
+          />
+          <Points
+            icon={
+              <House
+                size={80}
+                className="bg-white text-[#0874DE] p-4 rounded-[44px]"
+              />
+            }
+            title="Lower Maintenance Costs"
+            content="Newly constructed homes are built to the 
+            latest standards and come with warranties,
+            reducing the need for repairs and renovations."
+          />
+          <Points
+            icon={
+              <House
+                size={80}
+                className="bg-white text-[#0874DE] p-4 rounded-[44px]"
+              />
+            }
+            title="Energy Efficiency"
+            content="New homes are built with energy-saving 
+            materials and appliances, resulting in lower 
+            utility bills and environmental impact."
+          />
+          <Points
+            icon={
+              <House
+                size={80}
+                className="bg-white text-[#0874DE] p-4 rounded-[44px]"
+              />
+            }
+            title="Healthier Living"
+            content="Modern homes often come with better ventilation 
+            systems and use safer, eco-friendly materials, 
+            contributing to a healthier indoor environment."
+          />
+          <Points
+            icon={
+              <House
+                size={80}
+                className="bg-white text-[#0874DE] p-4 rounded-[44px]"
+              />
+            }
+            title="More Space & Functionality"
+            content="New homes are designed to meet modern needs, 
+            providing open floor plans, more storage, and
+            multifunctional spaces."
+          />
         </div>
+
       </section>
 
       <section className="bg-[#F5F5F5] pb-32 w-[100vw] overflow-clip">
-        <div className="flex mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-16">
-          <span>Helpful&nbsp;</span>
+        <div className="flex flex-col md:flex-row mx-20 justify-center text-2xl sm:text-3xl lg:text-[50px] font-normal py-16">
+          <span>Latest Property&nbsp;</span>
           <span
-            className="font-bold flex flex-col w-fit"
-            style={{
-              borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-            }}
+            className="font-bold flex flex-col w-fit border-b-[6px] border-[#0874DE80]"
           >
-            Resources
+           News & Updates
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-5 px-8 lg:px-20">
-          <Resource
-            image={"/images/resource-1.png"}
-            header={"Home Inspection"}
-            content={
-              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-          />
-          <Resource
-            image={"/images/resource-1.png"}
-            header={"Home Inspection"}
-            content={
-              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-          />
-          <Resource
-            image={"/images/resource-1.png"}
-            header={"Home Inspection"}
-            content={
-              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-          />
-          <Resource
-            image={"/images/resource-1.png"}
-            header={"Home Inspection"}
-            content={
-              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
-            }
-          />
-        </div>
+        <NewsCarousal />
+
       </section>
+
     </main>
   );
 };

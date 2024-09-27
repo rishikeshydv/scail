@@ -6,7 +6,7 @@ interface PointsProps {
 }
 export default function Points({icon,title,content}: PointsProps) {
   return (
-    <div className='flex flex-col gap-4 justify-center bg-[#F5F5F5] p-8 rounded-2xl'>
+    <div className='flex flex-col gap-4 justify-center bg-[#F5F5F5] px-8 py-16 rounded-2xl'>
       <div className='flex items-center justify-center'>
         {icon}
       </div>

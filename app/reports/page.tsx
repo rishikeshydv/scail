@@ -4,7 +4,6 @@ import { Navbar } from "@/components/navigation";
 import ReportsHeroImage from "@/public/images/reports.png";
 import { House, FileText, Phone } from "lucide-react";
 import { theme } from "antd";
-import HomeImage from "@/assets/images/hero-house.png";
 import Value from "@/components/reports/Value";
 import Points from "@/components/reports/Points";
 import Review from "@/components/reports/Review";
