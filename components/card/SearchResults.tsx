@@ -15,7 +15,7 @@ interface PropertyCardProps {
   image: string;
 }
 
-export const PropertyCard = ({
+export const SearchResults = ({
   image,
   name,
   adddress,
@@ -24,7 +24,7 @@ export const PropertyCard = ({
 }: PropertyCardProps) => {
   const badgeColor = isNew ? "#0874DE" : "#FFA800";
   return (
-    <div className="rounded-[40px] h-[550px] w-[400px] bg-[#F5F5F5] flex flex-col">
+    <div className="rounded-[40px] md:h-[580px] md:w-[450px] bg-[#F5F5F5] flex flex-col">
       <div
         className="flex-[0.5] bg-green-700 relative"
         style={{ borderRadius: "40px 40px 0px 0px" }}

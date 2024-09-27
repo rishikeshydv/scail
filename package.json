@@ -12,6 +12,8 @@
     "@ant-design/nextjs-registry": "^1.0.1",
     "@hookform/resolvers": "^3.9.0",
     "@nextui-org/dropdown": "^2.1.29",
+    "@nextui-org/input": "^2.2.5",
+    "@nextui-org/select": "^2.2.7",
     "@nextui-org/system": "^2.2.5",
     "@nextui-org/theme": "^2.2.9",
     "@radix-ui/react-accordion": "^1.2.0",
