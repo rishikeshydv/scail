@@ -5,9 +5,7 @@ import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { HousePlus } from "lucide-react";
 import {
-  HistoryReportCard,
   PropertyCardBorderless,
-  PropertyCard,
 } from "@/components/card";
 import PreOwnHeroImage from "@/public/images/new-home.png";
 import FAQ from "@/components/buy/FAQ";

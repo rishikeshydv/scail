@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button";
 import ValueImage from "@/public/images/value.png";
 import React from "react";
+import BrandsCarousal from "@/components/reports/BrandsCarousal";
 
 const Reports = () => {
   const { token } = theme.useToken();
@@ -239,7 +240,7 @@ Your Property's History"
         </div>
 
         <div className="">
-          <ul className="flex flex-wrap items-center justify-center gap-10 mt-6">
+          <ul className="hidden md:flex flex-wrap items-center justify-evenly mt-6">
             <li className="">
               <Image
                 src="/logo/zillow.svg"
@@ -286,6 +287,7 @@ Your Property's History"
               />
             </li>
           </ul>
+          <BrandsCarousal />
         </div>
       </section>
 
