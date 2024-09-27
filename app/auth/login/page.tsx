@@ -44,7 +44,7 @@ const LoginPage = () => {
         />
       </div>
 
-      <div className="font-medium text-[18px] w-[70%] md:w-[30%] text-center">
+      <div className="font-medium text-[18px] w-[70%] md:w-[30%] text-center py-6 sm:py-0">
         By logging in, you confirm that you&apos;ve read and accepted our 
         <Link href={"/policies"}>
           {" "}

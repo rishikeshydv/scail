@@ -206,7 +206,12 @@ export const CheckoutForm = () => {
             vehicle.
           </Checkbox>
         </div>
-        <Button type="submit" className="text-[19px] py-6 px-8 bg-[#0874DE] rounded-2xl">BUY REPORT</Button>
+        <Button type="submit" className="text-[19px] px-8 bg-[#0874DE] rounded-2xl">BUY REPORT</Button>
+        <div className={`${urbanist.className} text-md tracking-wide`}>
+          <Checkbox>
+            Send me special offers and other helpful information from Propfax. <span className="text-[#0874DE]">Privacy Statement</span>
+          </Checkbox>
+        </div>
       </form>
     </Form>
     </div>
