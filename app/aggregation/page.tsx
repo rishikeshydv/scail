@@ -45,12 +45,13 @@ export default function Aggregation() {
         </Button>
         </div>
       </section>
-      <section>
+      <section className="flex flex-col md:flex-row">
         {/* Left Section */}
-        <div>
-            <div className="">
-            <div className="border-b-1">
-                <p className="text-[18px]">This report is provided free of charge by:</p>
+        <div className="p-[30px] min-w-[440px]">
+            <div className="border-1">
+                <div className="p-[60px] ">
+                <div className="border-b-1">
+                <p className="text-[18px]">This report is provided by:</p>
                 <p className="text-[25px] font-semibold text-[#0874de]">ABC Realty</p>
                 <p className="text-[22px]">4960E US Highway 377</p>
                 <p className="text-[22px]">Granbury, TX 76049</p>
@@ -65,10 +66,89 @@ export default function Aggregation() {
             <p className="text-[18px] flex gap-2 text-[#808080]"><Heart className="text-[#0874de]" fill="#0874de"/>538 <span className="text-[#0874de] font-semibold underline">Customer Favorites</span>
             </p>
             </div>
+                </div>
             </div>
         </div>
         {/* Right Section */}
-        <div></div>
+        <div className="w-full border-l-1">
+            {/* Header */}
+            <div className="h-[80px] bg-[#0874de] py-[20px] text-[30px] text-white font-semibold px-[30px]">
+                Property History
+            </div>
+            {/* First Section */}
+            <div className="flex md:flex-row flex-col border-b-1">
+                {/* Left Section */}
+                <div className="flex flex-[0.35] flex-col gap-[60px] p-[40px]">
+                    <div className="text-[22px]">
+                        <p className="font-semibold">1000 TESTING DR</p>
+                        <p>Arlington, TX, 76016</p>
+                    </div>
+                    <div>
+                        <p className="text-[18px]">This report is provided free of charge by:</p>
+                        <p className="text-[25px] font-semibold text-[#0874de]">ABC Realty</p>
+                        <p className="text-[18px] flex gap-2 text-[#808080]"><Star className="text-[#0874de]" fill="#0874de"/>3.8 <span className="text-[#0874de] font-semibold underline">46 Verified Reviews</span>
+            <svg width="30" height="30" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 0.75L15.6627 2.11948C16.0059 2.19574 16.25 2.5001 16.25 2.85163V10.3417C16.25 11.8463 15.498 13.2513 14.2461 14.0859L9.5 17.25L4.75385 14.0859C3.50196 13.2513 2.75 11.8463 2.75 10.3417V2.85163C2.75 2.5001 2.99415 2.19574 3.3373 2.11948L9.5 0.75ZM12.8393 6.16637L9.12642 9.87818L7.00566 7.75732L5.94499 8.81805L9.12695 12L13.9 7.22703L12.8393 6.16637Z" fill="#0874DE"/>
+            </svg>
+            </p>
+            <p className="text-[18px] flex gap-2 text-[#808080]"><Heart className="text-[#0874de]" fill="#0874de"/>538 <span className="text-[#0874de] font-semibold underline">Customer Favorites</span>
+            </p>
+
+                    </div>
+                </div>
+                {/* Right Section */}
+                <div className="flex-[0.7] text-[22px] w-full">
+                    <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center border-1">
+                    <svg width="30" height="30" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 0.75L15.6627 2.11948C16.0059 2.19574 16.25 2.5001 16.25 2.85163V10.3417C16.25 11.8463 15.498 13.2513 14.2461 14.0859L9.5 17.25L4.75385 14.0859C3.50196 13.2513 2.75 11.8463 2.75 10.3417V2.85163C2.75 2.5001 2.99415 2.19574 3.3373 2.11948L9.5 0.75ZM12.8393 6.16637L9.12642 9.87818L7.00566 7.75732L5.94499 8.81805L9.12695 12L13.9 7.22703L12.8393 6.16637Z" fill="#0874DE"/>
+            </svg>
+                        Built in <span className="font-semibold">1985</span></p>
+                    <p className="flex gap-2 px-[30px] h-[70px] items-center border-1">
+                    <svg width="30" height="30" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 0.75L15.6627 2.11948C16.0059 2.19574 16.25 2.5001 16.25 2.85163V10.3417C16.25 11.8463 15.498 13.2513 14.2461 14.0859L9.5 17.25L4.75385 14.0859C3.50196 13.2513 2.75 11.8463 2.75 10.3417V2.85163C2.75 2.5001 2.99415 2.19574 3.3373 2.11948L9.5 0.75ZM12.8393 6.16637L9.12642 9.87818L7.00566 7.75732L5.94499 8.81805L9.12695 12L13.9 7.22703L12.8393 6.16637Z" fill="#0874DE"/>
+            </svg>
+                        Property Type: Single Family Home</p>
+                    <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center border-1">
+                    <svg width="30" height="30" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 0.75L15.6627 2.11948C16.0059 2.19574 16.25 2.5001 16.25 2.85163V10.3417C16.25 11.8463 15.498 13.2513 14.2461 14.0859L9.5 17.25L4.75385 14.0859C3.50196 13.2513 2.75 11.8463 2.75 10.3417V2.85163C2.75 2.5001 2.99415 2.19574 3.3373 2.11948L9.5 0.75ZM12.8393 6.16637L9.12642 9.87818L7.00566 7.75732L5.94499 8.81805L9.12695 12L13.9 7.22703L12.8393 6.16637Z" fill="#0874DE"/>
+            </svg>
+                        Number of Bedrooms: <span className="font-semibold">3</span> Bedroooms</p>
+                    <p className="flex gap-2 px-[30px] h-[70px] items-center  border-1">
+                    <svg width="30" height="30" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 0.75L15.6627 2.11948C16.0059 2.19574 16.25 2.5001 16.25 2.85163V10.3417C16.25 11.8463 15.498 13.2513 14.2461 14.0859L9.5 17.25L4.75385 14.0859C3.50196 13.2513 2.75 11.8463 2.75 10.3417V2.85163C2.75 2.5001 2.99415 2.19574 3.3373 2.11948L9.5 0.75ZM12.8393 6.16637L9.12642 9.87818L7.00566 7.75732L5.94499 8.81805L9.12695 12L13.9 7.22703L12.8393 6.16637Z" fill="#0874DE"/>
+            </svg>
+                        Number of Bathrooms: <span className="font-semibold">2</span> Bathrooms</p>
+                    <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center  border-1 ">
+                    <svg width="30" height="30" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.5 0.75L15.6627 2.11948C16.0059 2.19574 16.25 2.5001 16.25 2.85163V10.3417C16.25 11.8463 15.498 13.2513 14.2461 14.0859L9.5 17.25L4.75385 14.0859C3.50196 13.2513 2.75 11.8463 2.75 10.3417V2.85163C2.75 2.5001 2.99415 2.19574 3.3373 2.11948L9.5 0.75ZM12.8393 6.16637L9.12642 9.87818L7.00566 7.75732L5.94499 8.81805L9.12695 12L13.9 7.22703L12.8393 6.16637Z" fill="#0874DE"/>
+            </svg>
+                        Total Living Area of <span className="font-semibold">2,000</span> square feets</p>
+                </div>
+            </div>
+            {/* Second Section */}
+            <div className="py-[30px] w-full border-1">
+            <div className="bg-[#1769BA1A] px-[30px] flex ">
+                <p className="flex-[0.6] text-[40px] font-semibold text-[#0874de] p-[20px]  border-1">Maintenance History</p>
+                <div className="flex flex-[0.5] justify-between items-center space-x-[20px]">
+                    <p className="flex gap-2 text-[25px] font-semibold border-1 w-full">
+                        <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.835938 28C0.835938 22.1089 5.61156 17.3333 11.5026 17.3333C17.3937 17.3333 22.1693 22.1089 22.1693 28H0.835938ZM11.5026 16C7.0826 16 3.5026 12.42 3.5026 8C3.5026 3.58 7.0826 0 11.5026 0C15.9226 0 19.5026 3.58 19.5026 8C19.5026 12.42 15.9226 16 11.5026 16Z" fill="#0874DE"/>
+</svg>
+Owner 1</p>
+<p className="flex gap-2 text-[25px] font-semibold border-1 w-full">
+                        <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.835938 28C0.835938 22.1089 5.61156 17.3333 11.5026 17.3333C17.3937 17.3333 22.1693 22.1089 22.1693 28H0.835938ZM11.5026 16C7.0826 16 3.5026 12.42 3.5026 8C3.5026 3.58 7.0826 0 11.5026 0C15.9226 0 19.5026 3.58 19.5026 8C19.5026 12.42 15.9226 16 11.5026 16Z" fill="#0874DE"/>
+</svg>
+Owner 2</p>
+<p className="flex gap-2 text-[25px] font-semibold border-1n w-full">
+                        <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.835938 28C0.835938 22.1089 5.61156 17.3333 11.5026 17.3333C17.3937 17.3333 22.1693 22.1089 22.1693 28H0.835938ZM11.5026 16C7.0826 16 3.5026 12.42 3.5026 8C3.5026 3.58 7.0826 0 11.5026 0C15.9226 0 19.5026 3.58 19.5026 8C19.5026 12.42 15.9226 16 11.5026 16Z" fill="#0874DE"/>
+</svg>
+Owner 3</p>
+                </div>
+            </div>
+            </div>
+        </div>
       </section>
     </main>
   );

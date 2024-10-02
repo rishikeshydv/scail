@@ -4,12 +4,7 @@ import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { HousePlus,MoveRight } from "lucide-react";
-import {
-  PropertyCardBorderless,
-} from "@/components/card";
 import PreOwnHeroImage from "@/public/images/new-home.png";
-import FAQ from "@/components/buy/FAQ";
-import Resource from "@/components/buy/Resource";
 import Filters from "@/components/search/Filters";
 import { FaAlignRight } from "react-icons/fa6";
 import {
@@ -209,7 +204,7 @@ const Buy = () => {
             </Button>
           </div>
         </div>
-        <div className="flex flex-wrap mx-20 justify-center mt-10 md:mt-20">
+        <div className="flex flex-wrap gap-10 mx-10 justify-center mt-10 md:mt-20">
         <NewProp />
         <NewProp />
         <NewProp />

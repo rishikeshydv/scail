@@ -10,13 +10,12 @@ import { Button } from "@/components/ui/button"
 
 export default function NewProp() {
   return (
-      <Card className="w-[400px] bg-transparent shadow-none border-none">
-        <CardHeader className="flex justify-between items-center">
+      <Card className="w-[400px] bg-[#f5f5f5] shadow-none border-none">
+        <CardHeader className="flex justify-between items-center overflow-hidden">
         <img
           src="/images/new-prop-img.jpeg"
           alt="Luxury villa in Texas"
-          className="w-full h-[280px] object-cover rounded-xl"
-
+          className="w-full h-[280px] object-cover rounded-t-xl"
           style={{ aspectRatio: "350/200", objectFit: "cover" }}
         /></CardHeader>
         <CardContent>
