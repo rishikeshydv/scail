@@ -112,6 +112,7 @@ export default function details() {
                 />
               </div>
             </div>
+            {/* Mobile Screens */}
             <div className="md:hidden flex flex-col space-y-3 md:w-1/2 md:sticky md:top-0">
               <h1 className="text-[40px] font-bold mt-[-30px] md:mt-0 text-center">Luxury villa in Texas</h1>
               <div className="text-[30px] font-bold text-[#0874de] text-center">
@@ -322,7 +323,8 @@ export default function details() {
                   </svg>
                 </Button>
               </div>
-              <div className="bg-[#F5F5F5] py-6 rounded-[16px]">
+              {/* Mobile Screens */}
+              <div className="bg-bg-prop-ai py-6 rounded-[16px]">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8">
                   <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-2xl font-bold tracking-tight text-foreground">
@@ -650,7 +652,8 @@ export default function details() {
               </div>
             </div>
           </div>
-          <div className="hidden md:flex flex-col space-y-3 md:w-1/2 md:sticky md:top-0">
+          {/* Large Screens */}
+          <div className="hidden md:flex flex-col space-y-3 md:w-1/2 md:sticky md:top-20">
             <h1 className="text-[40px] font-bold">Luxury villa in Texas</h1>
             <div className="text-[30px] font-bold text-[#0874de]">
               $6,89,000
@@ -860,7 +863,8 @@ export default function details() {
                 </svg>
               </Button>
             </div>
-            <div className="bg-[#F5F5F5] py-6 rounded-[16px]">
+            {/* large screens */}
+            <div className="bg-prop-ai bg-no-repeat bg-cover py-6 rounded-[16px]">
               <div className="container mx-auto px-4 md:px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl text-center">
                   <h2 className="text-2xl font-bold tracking-tight text-foreground">
@@ -1112,7 +1116,7 @@ export default function details() {
                   <div className="ml-4">
                     <h3 className="font-semibold">Flood Factor</h3>
                     <p className="text-sm text-gray-500">
-                      This property's flood risk is not changing.
+                      This property&apos;s flood risk is not changing.
                     </p>
                   </div>
                   <span className="ml-auto text-sm text-gray-500">Minimal</span>
@@ -1146,7 +1150,7 @@ export default function details() {
                   <div className="ml-4">
                     <h3 className="font-semibold">Fire Factor</h3>
                     <p className="text-sm text-gray-500">
-                      This property's flood risk is not changing.
+                      This property&apos;s flood risk is not changing.
                     </p>
                   </div>
                   <span className="ml-auto text-sm text-gray-500">Minimal</span>
@@ -1180,7 +1184,7 @@ export default function details() {
                   <div className="ml-4">
                     <h3 className="font-semibold">Heat Factor</h3>
                     <p className="text-sm text-gray-500">
-                      This property's flood risk is not changing.
+                      This property&apos;s flood risk is not changing.
                     </p>
                   </div>
                   <span className="ml-auto text-sm text-gray-500">Minimal</span>
@@ -1214,7 +1218,7 @@ export default function details() {
                   <div className="ml-4">
                     <h3 className="font-semibold">Wind Factor</h3>
                     <p className="text-sm text-gray-500">
-                      This property's flood risk is not changing.
+                      This property&apos;s flood risk is not changing.
                     </p>
                   </div>
                   <span className="ml-auto text-sm text-gray-500">Minimal</span>
@@ -1252,133 +1256,5 @@ export default function details() {
         </div>
       </section>
     </main>
-  );
-}
-
-function DropletIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
-    </svg>
-  );
-}
-
-function FlameIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-    </svg>
-  );
-}
-
-function PlusIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="M12 5v14" />
-    </svg>
-  );
-}
-
-function SunIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2" />
-      <path d="M12 20v2" />
-      <path d="m4.93 4.93 1.41 1.41" />
-      <path d="m17.66 17.66 1.41 1.41" />
-      <path d="M2 12h2" />
-      <path d="M20 12h2" />
-      <path d="m6.34 17.66-1.41 1.41" />
-      <path d="m19.07 4.93-1.41 1.41" />
-    </svg>
-  );
-}
-
-function VariableIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M8 21s-4-3-4-9 4-9 4-9" />
-      <path d="M16 3s4 3 4 9-4 9-4 9" />
-      <line x1="15" x2="9" y1="9" y2="15" />
-      <line x1="9" x2="15" y1="9" y2="15" />
-    </svg>
-  );
-}
-
-function WindIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2" />
-      <path d="M9.6 4.6A2 2 0 1 1 11 8H2" />
-      <path d="M12.6 19.4A2 2 0 1 0 14 16H2" />
-    </svg>
   );
 }

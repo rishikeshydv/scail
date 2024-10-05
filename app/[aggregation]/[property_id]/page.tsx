@@ -2406,7 +2406,7 @@ Median List Price</p>
               <tr className="border-b">
                 <td className="px-2 py-3 text-[18px] flex justify-center">90-100</td>
                 <td className="p-2">
-                  <span className="text-[18px] font-semibold ">Walker's Paradise</span>
+                  <span className="text-[18px] font-semibold ">Walker&apos;s Paradise</span>
                   <br />
                   <p className="text-[16px]">Daily errands do not require a car.</p>
                 </td>
@@ -2460,7 +2460,7 @@ Median List Price</p>
               <tr className="border-b">
                 <td className="px-2 py-3 text-[18px] flex justify-center">90-100</td>
                 <td className="p-2">
-                  <span className="text-[18px] font-semibold ">Walker's Paradise</span>
+                  <span className="text-[18px] font-semibold ">Walker&apos;s Paradise</span>
                   <br />
                   <p className="text-[16px]">Daily errands do not require a car.</p>
                 </td>
@@ -2514,7 +2514,7 @@ Median List Price</p>
               <tr className="border-b">
                 <td className="px-2 py-3 text-[18px] flex justify-center">90-100</td>
                 <td className="p-2">
-                  <span className="text-[18px] font-semibold ">Walker's Paradise</span>
+                  <span className="text-[18px] font-semibold ">Walker&apos;s Paradise</span>
                   <br />
                   <p className="text-[16px]">Daily errands do not require a car.</p>
                 </td>
