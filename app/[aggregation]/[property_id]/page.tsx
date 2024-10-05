@@ -66,15 +66,15 @@ export default function Aggregation() {
     },
   } satisfies ChartConfig;
   return (
-    <main>
-      <section className="bg-[#0f0f0f] h-[100px] relative w-full flex items-center">
+    <main className="overflow-hidden">
+      <section className="bg-[#0f0f0f] md:h-[100px] md:relative w-full flex flex-col py-[20px] md:py-0 gap-[21px] md:gap-0 md:flex-row items-center">
         <Link
           href={"/"}
-          className="absolute left-1/2 transform -translate-x-1/2 justify-center"
+          className="md:absolute md:left-1/2 md:transform md:-translate-x-1/2 md:justify-center"
         >
           <Image src={logo} alt="Logo" className="w-[146px] h[38px]" />
         </Link>
-        <div className="absolute right-10 flex space-x-4">
+        <div className="md:absolute md:right-10 flex space-x-4">
           <Button className="px-[30px] py-[18px] bg-[#0874de] text-[16px] rounded-[50px]">
             <svg
               width="25"
@@ -107,11 +107,11 @@ export default function Aggregation() {
           </Button>
         </div>
       </section>
-      <section className="flex flex-col md:flex-row h-screen">
+      <section className="flex flex-col md:flex-row md:h-screen">
         {/* Left Section */}
-        <div className="p-[30px] min-w-[440px] md:sticky md:top-0">
+        <div className=" p-[10px] md:p-[30px] md:min-w-[440px] md:sticky md:top-0">
           <div className="border-1">
-            <div className="p-[60px] ">
+            <div className="p-[20px] md:p-[60px] ">
               <div className="border-b-1">
                 <p className="text-[18px]">This report is provided by:</p>
                 <p className="text-[25px] font-semibold text-[#0874de]">
@@ -155,13 +155,13 @@ export default function Aggregation() {
         {/* Right Section */}
         <div className="w-full border-l-1 md:h-screen md:overflow-y-auto">
           {/* Header */}
-          <div className="h-[80px] bg-[#0874de] py-[20px] text-[30px] text-white font-semibold px-[30px]">
+          <div className="h-[80px] text-center md:text-left bg-[#0874de] py-[20px] text-[30px] text-white font-semibold md:px-[30px]">
             Property History
           </div>
           {/* First Section */}
           <div className="flex md:flex-row flex-col border-b-1">
-            {/* Left Section */}
-            <div className="flex flex-[0.35] flex-col gap-[60px] p-[40px]">
+            {/* First Left Section */}
+            <div className="flex md:flex-[0.35] flex-col gap-[30px] md:gap-[60px] p-[20px] md:p-[40px]">
               <div className="text-[22px]">
                 <p className="font-semibold">1000 TESTING DR</p>
                 <p>Arlington, TX, 76016</p>
@@ -202,7 +202,7 @@ export default function Aggregation() {
               </div>
             </div>
             {/* Right Section */}
-            <div className="flex-[0.7] text-[22px] w-full">
+            <div className="md:flex-[0.7] text-[16px] md:text-[22px] w-full">
               <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center border-1">
                 <svg
                   width="30"
@@ -284,7 +284,7 @@ export default function Aggregation() {
             </div>
           </div>
           {/* Second Section */}
-          <div className="py-[30px] border-1">
+          <div className="py-[30px] border-1  overflow-scroll">
             {/* Table 1 */}
             <table className="w-full border-collapse">
               <thead className="bg-blue-100">
@@ -1506,7 +1506,7 @@ export default function Aggregation() {
             </table>
           </div>
           {/* Third Section */}
-          <div className="">
+          <div className=" overflow-scroll">
             <div className="border-t bg-blue-100">
               <div className="p-4">
                 <h2 className="text-[30px] font-bold text-[#0874de]">
@@ -1890,13 +1890,13 @@ export default function Aggregation() {
                 </Card>
               </div>
               <div className="flex justify-between">
-                <p className="text-[29px]">Total Sales</p>
+                <p className="md:text-[29px]">Total Sales</p>
                 <div className="text-[#748194] flex gap-[20px]">
-                  <p className="flex items-center gap-2 text-[25px]"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <p className="flex items-center gap-2 md:text-[25px]"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.945312" y="0.649414" width="20" height="20" rx="10" fill="#2C7BE5"/>
 </svg>
 Median List Price</p>
-<p className="flex items-center gap-2 text-[25px]"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<p className="flex items-center gap-2 md:text-[25px]"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect x="0.945312" y="0.649414" width="20" height="20" rx="10" fill="#F5803E"/>
 </svg>
 
@@ -1921,41 +1921,41 @@ Median List Price</p>
             </div>
 
             {/* Non Graph Part */}
-            <div className=" mx-auto p-4 space-y-6">
+            <div className="mx-auto p-4 space-y-6">
               <div className="bg-[#0874de] text-[20px] text-white px-3 py-2 rounded-[10px] font-semibold">
                 City, State Snapshot (Last 30 Days)
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] px-[122px]">
+                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px]  md:px-[122px]">
                   <CardTitle className="text-center">Homes Sold</CardTitle>
-                  <div className="text-[80px] font-bold text-[#0874de]">31</div>
+                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">31</div>
                   <p className="text-green-600">
                     ▲ <span className="text-[#808080]">1,450%</span>
                   </p>
                 </Card>
-                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] px-[122px]">
+                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] md:px-[122px]">
                   <CardTitle className="text-center">Avg. Sale Price</CardTitle>
-                  <div className="text-[80px] font-bold text-[#0874de]">
+                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">
                     $620,000
                   </div>
                   <p className="text-green-600">
                     ▲ <span className="text-[#808080]">61%</span>
                   </p>
                 </Card>
-                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] px-[122px]">
+                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] md:px-[122px]">
                   <CardTitle className="text-center">
                     Avg. Sale Price / Sq. Ft.
                   </CardTitle>
-                  <div className="text-[80px] font-bold text-[#0874de]">
+                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">
                     $290,000
                   </div>
                   <p className="text-red-600">
                     ▼ <span className="text-[#808080]">14%</span>
                   </p>
                 </Card>
-                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] px-[122px]">
+                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] md:px-[122px]">
                   <CardTitle className="text-center">Avg. Age</CardTitle>
-                  <div className="text-[80px] font-bold text-[#0874de]">35</div>
+                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">35</div>
                   <p className="text-red-600">
                     ▼ <span className="text-[#808080]">29</span>
                   </p>
@@ -2347,9 +2347,9 @@ Median List Price</p>
                   </div>
                 </div>
 
-       <div className=" mx-auto">
+       <div className=" mx-auto  overflow-scroll">
       <h1 className="text-2xl font-bold mb-6">Transit Scores</h1>
-      <div className="flex justify-evenly gap-20 mb-8">
+      <div className="flex md:justify-evenly md:gap-20 mb-8">
         <div className="flex flex-col items-center justify-center">
         <CircularProgress
           classNames={{
@@ -2393,8 +2393,8 @@ Median List Price</p>
           <p className="mt-2 font-semibold text-[24px]">Bike Score</p>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="border rounded-2xl overflow-hidden">
+      <div className="grid grid-cols-3 gap-[200px] md:gap-4">
+        <div className="border rounded-2xl overflow-visible md:overflow-hidden">
           <table className="w-full text-left">
             <thead className="bg-[#0874de] text-white">
               <tr>
@@ -2448,7 +2448,7 @@ Median List Price</p>
             </tbody>
           </table>
         </div>
-        <div className="border rounded-2xl overflow-hidden">
+        <div className="border rounded-2xl overflow-visible md:overflow-hidden">
           <table className="w-full text-left">
             <thead className="bg-[#009E3D] text-white">
               <tr>
@@ -2502,7 +2502,7 @@ Median List Price</p>
             </tbody>
           </table>
         </div>
-        <div className="border rounded-2xl overflow-hidden">
+        <div className="border rounded-2xl overflow-visible md:overflow-hidden">
           <table className="w-full text-left">
             <thead className="bg-[#E78E00] text-white">
               <tr>
@@ -2572,7 +2572,7 @@ Median List Price</p>
           style={{ aspectRatio: "1024/256", objectFit: "cover" }}
         />
       </div>
-      <div className="overflow-x-auto border p-4 rounded-xl">
+      <div className="overflow-x-scroll border p-4 rounded-xl">
         <table className="min-w-full bg-white text-[16px]">
           <thead className="bg-[#00000010]">
             <tr className="border-b">

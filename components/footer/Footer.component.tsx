@@ -32,15 +32,15 @@ export const Footer = () => {
 
 
 
-      <div className="flex mx-10 lg:mx-20 xl:flex-row flex-col">
+      <div className="flex xl:flex-row flex-col">
         <div className="flex-[0.5] xl:border-r border-[#FFFFFF26] my-20 flex gap-y-8 flex-col">
-          <div className="font-bold text-[30px]">
+          <div className="font-bold text-[30px] mx-10 lg:mx-20">
             Subscribe <span className="text-[#0874DE]">Newsletter</span>
           </div>
-          <div className="w-3/4 font-medium text-[18px]">
+          <div className="w-3/4 font-medium text-[18px] mx-10 lg:mx-20">
           Stay Informed: Subscribe to Our Newsletter for the Latest Updates and Insights!
           </div>
-          <div className="flex">
+          <div className="flex mx-auto lg:mx-20">
             <input
               className="h-[40px] bg-[#262626] text-[#808080] px-8 py-3 border-none outline-none"
               type="email"
@@ -82,7 +82,7 @@ export const Footer = () => {
             </Button>
           </div>
         </div>
-        <div className="flex-[0.5] flex flex-wrap items-center justify-between xl:justify-around gap-4 md:ml-10">
+        <div className="flex-[0.5] flex flex-wrap items-center justify-between xl:justify-around gap-4 mx-6 lg:mx-20 md:ml-10">
           <div className="flex flex-col gap-y-3">
             <div className="font-semibold text-[24px]">Products</div>
             <div className="font-medium text-[18px] text-[#808080]">
