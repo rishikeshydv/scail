@@ -19,7 +19,7 @@ import { Label } from '../ui/label'
 
 export default function Filters() {
   return (
-    <div className='border-r-1'>
+    <div className='md:border-r-1  px-4 md:px-10'>
         <div className='flex justify-between border-b-1'>
         <div className='flex items-center gap-2'>
         <Filter size={18} className='text-[#0874DE]'/>

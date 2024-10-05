@@ -23,7 +23,7 @@ export default function Home() {
   const [searched, setSearched] = React.useState(false);
   return (
     <main>
-      <section className="h-[110vh] lg:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
+      <section className="h-[135vh] md:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
         <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0">
           <div className="flex-[0.7] lg:flex-[0.40] flex flex-col items-center xl:items-start mt-4 md:mt-16">
@@ -65,7 +65,7 @@ export default function Home() {
             <Image
               src={HeroHomeImage}
               alt="Hero home image"
-              className=" h-[300px] xl:h-[80%] object-contain overflow-hidden"
+              className=" h-[300px] xl:h-[70%] object-contain overflow-hidden"
             />
           </div>
         </div>
@@ -76,14 +76,11 @@ export default function Home() {
         setSearched={setSearched}
       />
       <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-28 pb-32">
-        <div className="flex justify-between mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
+        <div className="flex justify-between md:mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
           <div className="text-[24px] md:text-[50px] font-normal flex">
             <span>Properties for &nbsp;</span>
             <span
-              className="font-bold flex flex-col"
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-              }}
+              className="font-bold flex flex-col border-b-[4px] sm:border-b-[6px] border-[#0874DE80]"
             >
               Sell & Rent
             </span>
@@ -184,22 +181,19 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <section className="min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-52 lg:gap-x-14 lg:flex-row flex-col gap-y-5">
-        <div className="w-full lg:flex-[0.5]">
-          <Image src={HeroProject100Image} alt="hero image" height={700} />
+      <section className="min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-20 lg:gap-x-14 lg:flex-row flex-col gap-y-5">
+        <div className="w-full lg:flex-[0.6]">
+          <Image src={HeroProject100Image} alt="hero image" className="md:h-[650px] md:w-[800px]"/>
         </div>
 
-        <div className="lg:flex-[0.5] lg:px-4 text-center">
+        <div className="lg:flex-[0.6] lg:px-4 text-left mt-6 md:mt-0">
           <div className="text-[#0874DE] font-medium text-[20px] md:text-[30px]">
             Online Property Marketplace
           </div>
-          <div className="text-[2.5rem] lg:text-[70px]">
+          <div className="text-[2.5rem] md:text-[70px]">
             <span className="font-normal">We help you find </span>
             <span
-              className="font-bold lg:mt-[-30px]"
-              style={{
-                borderBottom: "6px solid rgba(8, 116, 222, 0.5)",
-              }}
+              className="font-bold md:mt-[-20px] border-b-[4px] sm:border-b-[6px] border-[#0874DE80]"
             >
               your new home.
             </span>
@@ -242,7 +236,7 @@ export default function Home() {
         </div>
       </section>
       <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
-        <div className="flex justify-between md:mx-20 items-center lg:flex-row flex-col gap-y-5">
+        <div className="flex justify-between mx-4 md:mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-3xl md:text-[50px] font-normal flex">
             <span>Insightful &nbsp;</span>
             <span
@@ -265,7 +259,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-5 py-28 px-8 lg:px-20">
+        <div className="grid lg:grid-cols-2 grid-cols-1 w-full gap-5 py-16 px-8 lg:px-20">
           <HistoryReportCard
             position={1}
             title="Find the perfect place."

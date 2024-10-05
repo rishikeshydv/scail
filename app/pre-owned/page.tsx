@@ -28,11 +28,11 @@ import { SearchResults } from "@/components/card/SearchResults";
 const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
-    <main>
+    <main className="overflow-hidden">
       <section className="min-h-[80vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-pre-owned-mobile md:bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
-        <div className="text-white flex flex-col md:gap-y-10 xl:flex-row md:pt-14">
-          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 pt-14 space-y-6 md:space-y-4">
+        <div className="text-white flex flex-col gap-y-6 md:gap-y-10 xl:flex-row md:pt-14">
+          <div className="flex-[0.4] flex flex-col px-10 lg:pl-36 space-y-6 md:space-y-4">
             <div className="font-light text-[20px]">
               Pre Owned Homes for Sale
             </div>
@@ -47,7 +47,7 @@ const Rent = () => {
                 confidence.
               </span>
             </div>
-            <div className="font-normal text-[#808080] text-[18px] w-[70%] pt-5">
+            <div className="font-normal text-[#808080] text-[18px] md:w-[70%] pt-5">
               Everything you need to browse nearby Homes, all in one place. Used
               listings include a free homes report!
             </div>
@@ -56,14 +56,14 @@ const Rent = () => {
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
-              className="h-[40%] md:h-[70%] object-contain z-10 md:mb-48"
+              className="h-[40%] md:h-[95%] object-contain z-10 md:mb-48"
             />
           </div>
         </div>
       </section>
 
       {searched && (
-        <div className="px-20 mt-[-80px] pb-20">
+        <div className="px-8 md:px-20 mt-[-80px] pb-20">
           <FilterBar searched={searched} setSearched={setSearched} />
         </div>
       )}
@@ -71,9 +71,9 @@ const Rent = () => {
       {/* Search Section */}
       {searched && (
         <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip  pb-16">
-          <div className="flex flex-col md:flex-row px-10">
+          <div className="flex flex-col md:flex-row px-4 md:px-10">
             {/* Left Filter */}
-            <div className="flex-[0.3]">
+            <div className="flex-[0.3] ">
               <Filters />
             </div>
             {/* Right Results */}
@@ -193,7 +193,7 @@ const Rent = () => {
   </div>
   <div className="flex flex-col md:flex-row gap-6 md:gap-0 items-center md:justify-evenly w-full max-w-4xl mx-auto p-4">
       <div className="text-[20px]">1 - 25 of 500 results</div>
-      <div className="flex items-center space-x-2 md:space-x-4">
+      <div className="flex items-center space-x-[6px] md:space-x-4">
         <Button variant="outline" className="flex items-center space-x-1 rounded-[50px]">
           <ArrowLeftIcon className="w-4 h-4 text-[#0874de]" />
           <span>PREV</span>
@@ -223,10 +223,12 @@ const Rent = () => {
 
       <section className={`min-h-[100vh] w-[100vw]  bg-[#F5F5F5] ${searched ? "pt-20":"pt-52"} pb-28 border`}>
         {!searched && (
-          <div className="mx-20 mt-[-300px] pb-20">
+          <div className="mx-8 md:mx-20 mt-[-300px] pb-20">
             <FilterBar searched={searched} setSearched={setSearched} />
           </div>
         )}
+          {/* End of Search Section */}
+
         <div className="flex md:justify-between md:mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-[25px] sm:text-3xl md:text-[50px] font-normal flex">
             <span>Recently Listed&nbsp;</span>
@@ -252,7 +254,7 @@ const Rent = () => {
       </section>
 
       <section className="bg-white pb-32 w-[100vw] overflow-clip">
-        <div className="flex flex-col md:flex-row md:mx-20 justify-center items-center text-[25px] sm:text-3xl lg:text-[50px] font-normal py-24">
+        <div className="flex flex-col md:flex-row md:mx-20 justify-center items-center text-[25px] sm:text-3xl lg:text-[50px] font-normal py-10 md:py-24">
           <span>Find Homes That&nbsp;</span>
           <span
             className="font-bold flex flex-col w-fit  border-b-[6px] border-[#0874DE80]"

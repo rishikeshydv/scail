@@ -175,7 +175,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <div className="flex flex-[0.5] lg:flex-[0.3] justify-end">
               <Globe className="text-[#0874DE] mt-2 hidden md:block" />
               <Select>
-                <SelectTrigger className="w-[100px] bg-transparent border-none text-[18px] font-light hidden md:flex">
+                <SelectTrigger className="w-[105px] bg-transparent border-none text-[18px] font-light hidden md:flex">
                   <SelectValue
                     placeholder="ENG 🇺🇸"
                     defaultValue={"eng"}

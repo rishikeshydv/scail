@@ -3,8 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
-import { HousePlus,MoveRight } from "lucide-react";
-import PreOwnHeroImage from "@/public/images/new-home.png";
+import { MoveRight } from "lucide-react";
+import PreOwnHeroImage from "@/public/images/4.png";
 import Filters from "@/components/search/Filters";
 import { FaAlignRight } from "react-icons/fa6";
 import {
@@ -21,6 +21,7 @@ import Points from "@/components/reports/Points";
 import NewProp from "@/components/new-home/NewProp";
 import { House} from "lucide-react";
 import NewsCarousal from "@/components/news/NewsCarousal";
+import { SearchResults } from "@/components/card/SearchResults";
 const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
@@ -46,7 +47,7 @@ const Buy = () => {
     </div>
 
     {/* Subtext */}
-    <div className="font-normal text-[#808080] text-[14px] sm:text-[16px] md:text-[20px] max-w-full md:max-w-[70%] pt-4 md:pt-5 text-center md:text-left">
+    <div className="font-normal text-[#808080] text-[14px] sm:text-[16px] md:text-[20px] max-w-full md:max-w-[70%] pt-4 md:pt-5 px-4 md:px-0 text-center md:text-left">
       Everything you need to browse nearby Homes, all in one place. Used listings include a free homes report!
     </div>
   </div>
@@ -56,134 +57,177 @@ const Buy = () => {
     <Image
       src={PreOwnHeroImage}
       alt="Hero home image"
-      className="h-[70%] sm:h-[80%] md:h-[85%] object-contain z-10 mb-20 sm:mb-40 lg:mb-48"
+      className="h-[90%] sm:h-[80%] md:h-[95%] object-contain z-10 mb-20 sm:mb-40 lg:mb-48"
     />
   </div>
 </div>
 
       </section>
 
+      {searched && (
+        <div className="px-8 md:px-20 mt-[-80px] pb-20">
+          <FilterBar searched={searched} setSearched={setSearched} />
+        </div>
+      )}
       {/* Search Section */}
       {searched && (
-        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip pt-28 pb-16 mt-[-120px]">
-          <div>
+        <section className="bg-white min-h-[100vh] w-[100vw] overflow-clip  pb-16">
+          <div className="flex flex-col md:flex-row px-4 md:px-10">
             {/* Left Filter */}
-            <div>
+            <div className="flex-[0.3] ">
               <Filters />
             </div>
             {/* Right Results */}
-            <div>
-              {/* Top texts */}
-              <div className="flex flex-row justify-between gap-2">
-                <p>Showing 1 - 25 of 500 listings</p>
-                <div className="flex gap-2">
-                  <p className="mt-2">Sort by:</p>
-                  <Select>
-                    <SelectTrigger className="w-[280px] rounded-xl">
-                      <SelectValue placeholder="Select a timezone" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>North America</SelectLabel>
-                        <SelectItem value="est">
-                          Eastern Standard Time (EST)
-                        </SelectItem>
-                        <SelectItem value="cst">
-                          Central Standard Time (CST)
-                        </SelectItem>
-                        <SelectItem value="mst">
-                          Mountain Standard Time (MST)
-                        </SelectItem>
-                        <SelectItem value="pst">
-                          Pacific Standard Time (PST)
-                        </SelectItem>
-                        <SelectItem value="akst">
-                          Alaska Standard Time (AKST)
-                        </SelectItem>
-                        <SelectItem value="hst">
-                          Hawaii Standard Time (HST)
-                        </SelectItem>
-                      </SelectGroup>
-                      <SelectGroup>
-                        <SelectLabel>Europe & Africa</SelectLabel>
-                        <SelectItem value="gmt">
-                          Greenwich Mean Time (GMT)
-                        </SelectItem>
-                        <SelectItem value="cet">
-                          Central European Time (CET)
-                        </SelectItem>
-                        <SelectItem value="eet">
-                          Eastern European Time (EET)
-                        </SelectItem>
-                        <SelectItem value="west">
-                          Western European Summer Time (WEST)
-                        </SelectItem>
-                        <SelectItem value="cat">
-                          Central Africa Time (CAT)
-                        </SelectItem>
-                        <SelectItem value="eat">
-                          East Africa Time (EAT)
-                        </SelectItem>
-                      </SelectGroup>
-                      <SelectGroup>
-                        <SelectLabel>Asia</SelectLabel>
-                        <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
-                        <SelectItem value="ist">
-                          India Standard Time (IST)
-                        </SelectItem>
-                        <SelectItem value="cst_china">
-                          China Standard Time (CST)
-                        </SelectItem>
-                        <SelectItem value="jst">
-                          Japan Standard Time (JST)
-                        </SelectItem>
-                        <SelectItem value="kst">
-                          Korea Standard Time (KST)
-                        </SelectItem>
-                        <SelectItem value="ist_indonesia">
-                          Indonesia Central Standard Time (WITA)
-                        </SelectItem>
-                      </SelectGroup>
-                      <SelectGroup>
-                        <SelectLabel>Australia & Pacific</SelectLabel>
-                        <SelectItem value="awst">
-                          Australian Western Standard Time (AWST)
-                        </SelectItem>
-                        <SelectItem value="acst">
-                          Australian Central Standard Time (ACST)
-                        </SelectItem>
-                        <SelectItem value="aest">
-                          Australian Eastern Standard Time (AEST)
-                        </SelectItem>
-                        <SelectItem value="nzst">
-                          New Zealand Standard Time (NZST)
-                        </SelectItem>
-                        <SelectItem value="fjt">Fiji Time (FJT)</SelectItem>
-                      </SelectGroup>
-                      <SelectGroup>
-                        <SelectLabel>South America</SelectLabel>
-                        <SelectItem value="art">
-                          Argentina Time (ART)
-                        </SelectItem>
-                        <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
-                        <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
-                        <SelectItem value="clt">
-                          Chile Standard Time (CLT)
-                        </SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </div>
+            <div className="flex-[0.7]">
+  {/* Top section: Texts and Sort Dropdown */}
+  <div className="flex flex-col lg:flex-row justify-center items-center md:justify-between gap-4 px-6 lg:px-10 py-4 mt-6 md:mt-0">
+    <p className="text-[16px] lg:text-[18px]">Showing 1 - 25 of 500 listings</p>
+    
+    {/* Sort by Dropdown */}
+    <div className="flex items-center gap-2">
+      <p className="text-[16px] lg:text-[18px]">Sort by:</p>
+      <Select>
+        <SelectTrigger className="w-[180px] lg:w-[280px] rounded-lg text-[14px] lg:text-[16px]">
+          <SelectValue placeholder="Select a timezone" />
+        </SelectTrigger>
+        <SelectContent>
+          {/* North America */}
+          <SelectGroup>
+            <SelectLabel>North America</SelectLabel>
+            <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
+            <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
+            <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
+            <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
+            <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
+            <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
+          </SelectGroup>
+          
+          {/* Europe & Africa */}
+          <SelectGroup>
+            <SelectLabel>Europe & Africa</SelectLabel>
+            <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
+            <SelectItem value="cet">Central European Time (CET)</SelectItem>
+            <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
+            <SelectItem value="west">Western European Summer Time (WEST)</SelectItem>
+            <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
+            <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
+          </SelectGroup>
+
+          {/* Asia */}
+          <SelectGroup>
+            <SelectLabel>Asia</SelectLabel>
+            <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
+            <SelectItem value="ist">India Standard Time (IST)</SelectItem>
+            <SelectItem value="cst_china">China Standard Time (CST)</SelectItem>
+            <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
+            <SelectItem value="kst">Korea Standard Time (KST)</SelectItem>
+            <SelectItem value="ist_indonesia">Indonesia Central Time (WITA)</SelectItem>
+          </SelectGroup>
+
+          {/* Australia & Pacific */}
+          <SelectGroup>
+            <SelectLabel>Australia & Pacific</SelectLabel>
+            <SelectItem value="awst">Australian Western Standard Time (AWST)</SelectItem>
+            <SelectItem value="acst">Australian Central Standard Time (ACST)</SelectItem>
+            <SelectItem value="aest">Australian Eastern Standard Time (AEST)</SelectItem>
+            <SelectItem value="nzst">New Zealand Standard Time (NZST)</SelectItem>
+            <SelectItem value="fjt">Fiji Time (FJT)</SelectItem>
+          </SelectGroup>
+
+          {/* South America */}
+          <SelectGroup>
+            <SelectLabel>South America</SelectLabel>
+            <SelectItem value="art">Argentina Time (ART)</SelectItem>
+            <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
+            <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
+            <SelectItem value="clt">Chile Standard Time (CLT)</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
+  </div>
+
+  {/* Listings grid */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-4  gap-10 px-6 lg:px-10 pt-[25px] pb-[60px]">
+    <SearchResults
+      image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      name="Modern villa in Oregon"
+      adddress="1261 Sampson street senver"
+      price={800000}
+      isNew={false}
+    />
+    <SearchResults
+      image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      name="Modern villa in Oregon"
+      adddress="1261 Sampson street senver"
+      price={800000}
+      isNew={false}
+    />
+    <SearchResults
+      image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      name="Modern villa in Oregon"
+      adddress="1261 Sampson street senver"
+      price={800000}
+      isNew={false}
+    />
+    <SearchResults
+      image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      name="Modern villa in Oregon"
+      adddress="1261 Sampson street senver"
+      price={800000}
+      isNew={false}
+    />
+    <SearchResults
+      image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      name="Modern villa in Oregon"
+      adddress="1261 Sampson street senver"
+      price={800000}
+      isNew={false}
+    />
+    <SearchResults
+      image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      name="Modern villa in Oregon"
+      adddress="1261 Sampson street senver"
+      price={800000}
+      isNew={false}
+    />
+  </div>
+  <div className="flex flex-col md:flex-row gap-6 md:gap-0 items-center md:justify-evenly w-full max-w-4xl mx-auto p-4">
+      <div className="text-[20px]">1 - 25 of 500 results</div>
+      <div className="flex items-center space-x-[6px] md:space-x-4">
+        <Button variant="outline" className="flex items-center space-x-1 rounded-[50px]">
+          <ArrowLeftIcon className="w-4 h-4 text-[#0874de]" />
+          <span>PREV</span>
+        </Button>
+        <Button className="bg-blue-500 text-white rounded-full w-10 h-10">01</Button>
+        <Button variant="outline" className="rounded-full w-10 h-10">
+          02
+        </Button>
+        <Button variant="outline" className="rounded-full w-10 h-10">
+          03
+        </Button>
+        <span className="text-lg">...</span>
+        <Button variant="outline" className="rounded-full w-10 h-10">
+          25
+        </Button>
+        <Button className="bg-blue-500 text-white flex items-center space-x-1 rounded-[50px]">
+          <span>NEXT</span>
+          <ArrowRightIcon className="w-4 h-4" />
+        </Button>
+      </div>
+    </div>
+</div>
+
           </div>
         </section>
       )}
 
-      <section className="min-h-[100vh] w-[100vw]  bg-[#F5F5F5] pt-52 pb-28">
-        <div className="mx-20 mt-[-300px] pb-20">
-          <FilterBar searched={searched} setSearched={setSearched} />
-        </div>
+      <section className={`min-h-[100vh] w-[100vw]  bg-[#F5F5F5] ${searched ? "pt-20":"pt-52"} pb-28 border`}>
+      {!searched && (
+          <div className="mx-8 md:mx-20 mt-[-300px] pb-20">
+            <FilterBar searched={searched} setSearched={setSearched} />
+          </div>
+        )}
         <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-2xl sm:text-3xl md:text-[50px] font-normal flex">
             <span>Suggested&nbsp;</span>
@@ -318,3 +362,45 @@ const Buy = () => {
 };
 
 export default Buy;
+
+
+function ArrowLeftIcon(props:React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m12 19-7-7 7-7" />
+      <path d="M19 12H5" />
+    </svg>
+  )
+}
+
+
+function ArrowRightIcon(props:React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+  )
+}
