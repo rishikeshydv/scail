@@ -61,21 +61,24 @@ return () => {
           {/* First set of 3 reviews */}
           <div className="flex-[0_0_100%]">
             <div className="grid grid-cols-1 gap-8 ">
-              <News/>
+              <News image='/images/house-carousal-1.png' title='12 Things To Know Before Buying A House' content='Want to buy a house but are unsure about what we should know, here I will try to explain what we should
+              know and check when we want to buy a house' readTime='8 mins read' date='25 Sep 2024' writerImage='/avatars/avatar-1.png' writer='Cameron Williamson'/>
             </div>
           </div>
           
           {/* Second set of 3 reviews */}
           <div className="flex-[0_0_100%]">
           <div className="grid grid-cols-1 gap-8 ">
-              <News/>
+          <News image='/images/house-carousal-2.png' title='12 Things To Know Before Buying A House' content='Want to buy a house but are unsure about what we should know, here I will try to explain what we should
+              know and check when we want to buy a house' readTime='8 mins read' date='25 Sep 2024' writerImage='/avatars/avatar-1.png' writer='Cameron Williamson'/>
             </div>
           </div>
 
           {/* Third set of 3 reviews */}
                     <div className="flex-[0_0_100%]">
           <div className="grid grid-cols-1 gap-8">
-              <News/>
+          <News image='/images/house-carousal-3.png' title='12 Things To Know Before Buying A House' content='Want to buy a house but are unsure about what we should know, here I will try to explain what we should
+              know and check when we want to buy a house' readTime='8 mins read' date='25 Sep 2024' writerImage='/avatars/avatar-1.png' writer='Cameron Williamson'/>
             </div>
           </div>
         </div>

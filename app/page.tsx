@@ -17,6 +17,10 @@ import HeroProject100Image from "@/assets/images/hero-100-project.png";
 import HeroHomeImage from "@/assets/images/hero-house.png";
 import { useRouter } from "next/navigation";
 import React from "react";
+import MobilePhoneImage1 from "@/assets/images/mobile-phone1.png";
+import MobilePhoneImage2 from "@/assets/images/mobile-phone2.png";
+import MobilePhoneImage3 from "@/assets/images/mobile-phone3.png";
+import MobilePhoneImage4 from "@/assets/images/mobile-phone4.png";
 
 export default function Home() {
   const router = useRouter();
@@ -102,7 +106,7 @@ export default function Home() {
           <ul className="flex items-center justify-center md:justify-start animate-infinite-scroll gap-6">
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                image="/images/resource-1.png"
                 name="Modern villa in Oregon"
                 adddress="1261 Sampson street senver"
                 price={800000}
@@ -111,28 +115,28 @@ export default function Home() {
             </li>
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/value.png"
+                name="Luxury Apartment in New York"
+                adddress="50 Park Avenue, Manhattan"
+                price={1250000}
                 isNew={true}
               />
             </li>
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/new-prop-img.jpeg"
+                name="Cozy Cottage in Vermont"
+                adddress="78 Pine Ridge Road, Burlington"
+                price={450000}
                 isNew={true}
               />
             </li>{" "}
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/house-carousal-1.png"
+                name="Beachfront House in California"
+                adddress="235 Ocean View Drive, Malibu"
+                price={3200000}
                 isNew={true}
               />
             </li>
@@ -144,37 +148,38 @@ export default function Home() {
           >
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/house-carousal-2.png"
+                name="Suburban Home in Texas"
+                adddress="345 Elm Street, Austin"
+                price={600000}
                 isNew={false}
               />
             </li>
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/house-carousal-3.png"
+                name="Penthouse in Miami"
+                adddress="101 Biscayne Blvd, Miami"
+                price={2100000}
                 isNew={true}
               />
             </li>
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/house-carousal-4.png"
+                name="Rustic Farmhouse in Colorado"
+                adddress="897 River Bend Road, Aspen"
+                price={900000}                
                 isNew={true}
               />
             </li>{" "}
             <li>
               <PropertyCard
-                image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                name="Modern villa in Oregon"
-                adddress="1261 Sampson street senver"
-                price={800000}
+                image="/images/house-carousal-5.png"
+                name="Modern Condo in Seattle"
+                adddress="789 Pine Street, Downtown Seattle"
+                price={700000}
+                
                 isNew={true}
               />
             </li>
@@ -265,21 +270,25 @@ export default function Home() {
             title="Find the perfect place."
             description="Browse through a wide range of 
 properties to find your match"
+          image={MobilePhoneImage1}
           />
           <HistoryReportCard
             position={2}
             title="Enter the address"
             description="Enter the address in the Reports page"
+            image={MobilePhoneImage2}
           />
           <HistoryReportCard
             position={3}
             title="Make your payment"
             description="Select payment method and complete your payment"
+            image={MobilePhoneImage3}
           />
           <HistoryReportCard
             position={4}
             title="Your Prop Fax Report!"
             description="Get access to your detailed Prop fax report"
+            image={MobilePhoneImage4}
           />
         </div>
       </section>

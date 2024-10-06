@@ -24,7 +24,9 @@ import {
 import { Button } from "@/components/ui/button";
 import LaptopImg from "@/public/images/lady_laptop.png";
 import { SearchResults } from "@/components/card/SearchResults";
-
+import HomeImage from "@/assets/images/hero-house.png";
+import HomeImage1 from "@/public/images/new-home.png"
+import HomeImage2 from "@/public/images/footer-2.png"
 const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
@@ -247,9 +249,9 @@ const Rent = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-16 md:gap-5 mx-20 justify-center mt-32">
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
-          <PropertyCardBorderless />
+          <PropertyCardBorderless image={HomeImage} address="50 Park Avenue, Manhattan, NY" beds={2} baths={2} price={400000} sqft={400}/>
+          <PropertyCardBorderless image={HomeImage1} address="78 Pine Ridge Road, Burlington, NJ" beds={2} baths={2} price={400000} sqft={400}/>
+          <PropertyCardBorderless image={HomeImage2} address="345 Elm Street, Austin, TX" beds={2} baths={2} price={400000} sqft={400}/>
         </div>
       </section>
 
@@ -272,7 +274,7 @@ const Rent = () => {
           />
           <Resource
             variant="secondary"
-            image={"/images/resource-1.png"}
+            image={"/images/house-carousal-1.png"}
             header={"352 High Falls Dr., Conway, SC 29526"}
             content={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
@@ -280,7 +282,7 @@ const Rent = () => {
           />
           <Resource
             variant="secondary"
-            image={"/images/resource-1.png"}
+            image={"/images/house-carousal-2.png"}
             header={"352 High Falls Dr., Conway, SC 29526"}
             content={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
@@ -288,7 +290,7 @@ const Rent = () => {
           />
           <Resource
             variant="secondary"
-            image={"/images/resource-1.png"}
+            image={"/images/house-carousal-3.png"}
             header={"352 High Falls Dr., Conway, SC 29526"}
             content={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
@@ -389,21 +391,21 @@ const Rent = () => {
             }
           />
           <Resource
-            image={"/images/resource-1.png"}
+            image={"/images/house-carousal-1.png"}
             header={"Home Inspection"}
             content={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
             }
           />
           <Resource
-            image={"/images/resource-1.png"}
+            image={"/images/house-carousal-3.png"}
             header={"Home Inspection"}
             content={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
             }
           />
           <Resource
-            image={"/images/resource-1.png"}
+            image={"/images/house-carousal-5.png"}
             header={"Home Inspection"}
             content={
               "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."

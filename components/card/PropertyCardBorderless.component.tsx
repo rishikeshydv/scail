@@ -1,14 +1,20 @@
 import { USDollar } from "@/lib/price";
 import React from "react";
-import HomeImage from "@/assets/images/hero-house.png";
-import Image from "next/image";
-
-export const PropertyCardBorderless = () => {
+import Image, { StaticImageData } from "next/image";
+interface PropertyCardBorderlessProps {
+  address: string;
+  price: number;
+  beds: number;
+  baths: number;
+  sqft: number;
+  image: StaticImageData;
+}
+export const PropertyCardBorderless = ({address,price,beds,baths,sqft,image}:PropertyCardBorderlessProps) => {
   return (
-    <div className="min-h-[420px] max-w-[400px] flex flex-col bg-[#F5F5F5] p-5">
+    <div className="min-h-[420px] max-w-[400px] flex flex-col bg-[#F5F5F5] p-5 gap-[16px]">
       <div className="flex flex-[0.6] ">
         <div className="bg-white rounded-[30px] h-[250px] w-full">
-          <Image src={HomeImage} alt="image" className="h-[120%] mt-[-50px]" />
+          <Image src={image} alt="image" className="h-[120%] mt-[-50px]" />
         </div>
       </div>
       <div className="flex flex-[0.4] flex-col gap-y-3">
@@ -20,21 +26,21 @@ export const PropertyCardBorderless = () => {
           Pre Own
         </div>
         <div className="font-semibold text-[18px]">
-          419 Toledo St. Lot 145, Conway, SC 29526
+          {address}
         </div>
         <div className="flex justify-between gap-x-4">
           <div className="text-[#0874DE] font-bold text-[18px] items-center">
-            {USDollar.format(800000)}
+            {USDollar.format(price)}
           </div>
           <div className="flex gap-x-3">
             <div className="bg-white border border-[#0000001A] px-2 py-1 rounded-[8px] text-[13px] font-semibold">
-              2 Beds
+              {beds} Beds
             </div>
             <div className="bg-white border border-[#0000001A] px-2 py-1 rounded-[8px] text-[13px] font-semibold">
-              2 Baths
+              {baths} Baths
             </div>
             <div className="bg-white border border-[#0000001A] px-2 py-1 rounded-[8px] text-[13px] font-semibold">
-              955 sqft
+              {sqft} sqft
             </div>
           </div>
           <div></div>

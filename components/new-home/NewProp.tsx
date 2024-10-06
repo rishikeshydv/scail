@@ -8,20 +8,26 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
-export default function NewProp() {
+interface NewPropProps {
+  image:string,
+  title:string,
+  description:string,
+  price:string
+}
+export default function NewProp({image,title,description,price}:NewPropProps) {
   return (
       <Card className="w-[400px] bg-[#f5f5f5] shadow-none border-none">
         <CardHeader className="flex justify-between items-center overflow-hidden">
         <img
-          src="/images/new-prop-img.jpeg"
+          src={image}
           alt="Luxury villa in Texas"
           className="w-full h-[280px] object-cover rounded-t-xl"
           style={{ aspectRatio: "350/200", objectFit: "cover" }}
         /></CardHeader>
         <CardContent>
-          <h2 className="text-xl font-semibold">Luxury villa in Texas</h2>
+          <h2 className="text-xl font-semibold">{title}</h2>
           <p className="text-muted-foreground">
-            Houses recommended by our partners that have been curated to become.....
+            {description}
           </p>
           <Link href="#" className="text-blue-500 font-semibold text-[18px]" prefetch={false}>
             House Details
@@ -50,7 +56,7 @@ export default function NewProp() {
           </div>
         </CardContent>
         <CardFooter className="flex justify-between gap-4 md:gap-0 items-center">
-          <span className="text-[25px] font-bold">$8,50,000</span>
+          <span className="text-[25px] font-bold">${price}</span>
           <Button variant="default" className="ml-auto bg-[#0874DE] rounded-[50px]">
             VIEW DETAILS
           </Button>

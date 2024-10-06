@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/chart";
 import NewProp from "@/components/new-home/NewProp";
 import { FaAlignRight } from "react-icons/fa6";
+import { useState } from "react";
+
 export default function details() {
   const chartData = [
     { month: "January", desktop: 186 },
@@ -31,6 +33,7 @@ export default function details() {
       color: "#0874de",
     },
   } satisfies ChartConfig;
+  const [currentImage, setCurrentImage] = useState("/images/new-prop-img.jpeg");
   return (
     <main>
       <section className="h-[10vh] xl:h-[12vh] 2xl:h-[8vh] min-w-[100vw] overflow-hidden bg-black">
@@ -41,74 +44,82 @@ export default function details() {
           <div className="flex flex-col items-center space-y-12 md:w-1/2 md:overflow-y-auto">
             <div className="flex flex-col items-center space-y-4">
               <img
-                src="/images/new-prop-img.jpeg"
+                src={currentImage}
                 alt="Luxury villa in Texas"
                 className="rounded-[40px]  md:h-[500px] w-[894px] object-cover aspect-auto"
               />
               <div className="flex space-x-2 overflow-scroll">
                 <img
-                  src="/images/new-prop-img.jpeg"
+                  src="/images/house-carousal-1.png"
                   alt="Thumbnail 1"
-                  className="rounded-lg"
+                  className="rounded-lg hover:cursor-pointer"
                   width="100"
                   height="100"
                   style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-1.png")}
                 />
                 <img
-                  src="/images/new-prop-img.jpeg"
+                  src="/images/house-carousal-2.png"
                   alt="Thumbnail 2"
-                  className="rounded-lg"
+                  className="rounded-lg hover:cursor-pointer"
                   width="100"
                   height="100"
                   style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-2.png")}
                 />
                 <img
-                  src="/images/new-prop-img.jpeg"
+                  src="/images/house-carousal-3.png"
                   alt="Thumbnail 3"
-                  className="rounded-lg"
+                  className="rounded-lg hover:cursor-pointer"
                   width="100"
                   height="100"
                   style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-3.png")}
+                />
+                <img
+                  src="/images/house-carousal-4.png"
+                  alt="Thumbnail 4"
+                  className="rounded-lg hover:cursor-pointer"
+                  width="100"
+                  height="100"
+                  style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-4.png")}
+                />
+                <img
+                  src="/images/house-carousal-5.png"
+                  alt="Thumbnail 4"
+                  className="rounded-lg hover:cursor-pointer"
+                  width="100"
+                  height="100"
+                  style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-5.png")}
                 />
                 <img
                   src="/images/new-prop-img.jpeg"
                   alt="Thumbnail 4"
-                  className="rounded-lg"
+                  className="rounded-lg hover:cursor-pointer"
                   width="100"
                   height="100"
                   style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/new-prop-img.jpeg")}
                 />
                 <img
-                  src="/images/new-prop-img.jpeg"
+                  src="/images/house-carousal-1.png"
                   alt="Thumbnail 4"
-                  className="rounded-lg"
+                  className="rounded-lg hover:cursor-pointer"
                   width="100"
                   height="100"
                   style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-1.png")}
                 />
                 <img
-                  src="/images/new-prop-img.jpeg"
+                  src="/images/house-carousal-2.png"
                   alt="Thumbnail 4"
-                  className="rounded-lg"
+                  className="rounded-lg hover:cursor-pointer"
                   width="100"
                   height="100"
                   style={{ aspectRatio: "100/100", objectFit: "cover" }}
-                />
-                <img
-                  src="/images/new-prop-img.jpeg"
-                  alt="Thumbnail 4"
-                  className="rounded-lg"
-                  width="100"
-                  height="100"
-                  style={{ aspectRatio: "100/100", objectFit: "cover" }}
-                />
-                <img
-                  src="/images/new-prop-img.jpeg"
-                  alt="Thumbnail 4"
-                  className="rounded-lg"
-                  width="100"
-                  height="100"
-                  style={{ aspectRatio: "100/100", objectFit: "cover" }}
+                  onClick={() => setCurrentImage("/images/house-carousal-2.png")}
                 />
               </div>
             </div>
@@ -1248,9 +1259,9 @@ export default function details() {
               </div>
             </div>
             <div className="flex flex-wrap gap-10 justify-center mt-10">
-              <NewProp />
-              <NewProp />
-              <NewProp />
+        <NewProp image="/images/house-carousal-1.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
+        <NewProp image="/images/house-carousal-2.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
+        <NewProp image="/images/house-carousal-3.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
             </div>
           </section>
         </div>

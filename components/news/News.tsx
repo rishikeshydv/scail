@@ -6,7 +6,16 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 
-export default function News() {
+interface NewsProps {
+  image:string
+  title:string
+  content:string
+  readTime:string
+  date:string
+  writer:string
+  writerImage:string
+}
+export default function News({image,title,content,readTime,date,writer,writerImage}:NewsProps) {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="flex items-center justify-center w-full max-w-7xl">
@@ -15,7 +24,7 @@ export default function News() {
         </button>
         <div className="flex flex-col md:flex-row overflow-hidden ml-6 mr-14 md:mx-4 ">
           <img
-            src="/images/new-prop-img.jpeg"
+            src={image}
             alt="Property"
             className="w-full md:w-1/2 object-cover rounded-3xl"
             width="600"
@@ -25,23 +34,22 @@ export default function News() {
           <div className="p-6 md:w-1/2">
             <div className="flex items-center mb-4">
               <Avatar>
-                <AvatarImage src="/placeholder-user.jpg" alt="Cameron Williamson" />
+                <AvatarImage src={writerImage} alt="Cameron Williamson" />
                 <AvatarFallback>CW</AvatarFallback>
               </Avatar>
               <div className="ml-3">
-                <p className="text-sm font-medium">Cameron Williamson</p>
+                <p className="text-sm font-medium">{writer}</p>
               </div>
             </div>
-            <h2 className="text-[40px] font-bold mb-4">12 Things To Know Before Buying A House</h2>
+            <h2 className="text-[40px] font-bold mb-4">{title}</h2>
             <p className="text-gray-600 mb-4 text-[18px]">
-              Want to buy a house but are unsure about what we should know, here I will try to explain what we should
-              know and check when we want to buy a house
+              {content}
             </p>
             <div className="flex items-center text-gray-500 mb-4">
               <ClockIcon className="w-4 h-4 mr-2 text-[#0874de]" />
-              <span className="text-md font-semibold text-black">8 min read</span>
+              <span className="text-md font-semibold text-black">{readTime}</span>
               <span className="mx-2">/</span>
-              <span className="text-md font-semibold text-black">25 Sep 2024</span>
+              <span className="text-md font-semibold text-black">{date}</span>
             </div>
             <Button className="mt-auto rounded-[50px] bg-[#0874de]">
               READ MORE <ArrowRightIcon className="ml-2 w-4 h-4" />

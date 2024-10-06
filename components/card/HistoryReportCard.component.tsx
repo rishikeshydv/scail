@@ -1,6 +1,5 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
-import MobilePhoneImage from "@/assets/images/mobile-phone.png";
 import { Button } from "antd";
 import { MoveRight } from "lucide-react";
 
@@ -8,12 +7,14 @@ interface HistoryReportCardProps {
   position: number;
   title: string;
   description: string;
+  image: StaticImageData;
 }
 
 export const HistoryReportCard = ({
   position,
   title,
   description,
+  image,
 }: HistoryReportCardProps) => {
   return (
     <div className="rounded-[40px] bg-[#F5F5F5] px-[40px] py-[15px] flex border border-[#0000000D]">
@@ -40,7 +41,7 @@ export const HistoryReportCard = ({
         </div>
       </div>
       <div className="flex-[0.3]">
-        <Image src={MobilePhoneImage} alt="mobile phone image" />
+        <Image src={image} alt="mobile phone image" />
       </div>
     </div>
   );
