@@ -239,7 +239,6 @@ const Buy = () => {
               Properties
             </span>
           </div>
-
           <div>
             <Button className="bg-[#0874DE] text-[16px] rounded-3xl">
               View More&nbsp;&nbsp;

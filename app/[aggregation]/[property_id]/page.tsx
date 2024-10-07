@@ -14,7 +14,10 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+//loading environment variables
+
 export default function Aggregation() {
+
   const data = [
     {
       "name": "Page A",

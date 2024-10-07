@@ -17,7 +17,18 @@ import {
 import NewProp from "@/components/new-home/NewProp";
 import { FaAlignRight } from "react-icons/fa6";
 import { useState } from "react";
-
+import { FaChartLine } from "react-icons/fa";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { IoIosClose } from "react-icons/io";
 export default function details() {
   const chartData = [
     { month: "January", desktop: 186 },
@@ -39,7 +50,7 @@ export default function details() {
       <section className="h-[10vh] xl:h-[12vh] 2xl:h-[8vh] min-w-[100vw] overflow-hidden bg-black">
         <Navbar />
       </section>
-      <section className="px-[40px] mt-6 md:mt-10">
+      <section className="px-[40px] mt-6">
         <div className="flex flex-col items-center p-4 md:flex-row md:items-start md:space-x-16">
           <div className="flex flex-col items-center space-y-12 md:w-1/2 md:overflow-y-auto">
             <div className="flex flex-col items-center space-y-4">
@@ -339,15 +350,16 @@ export default function details() {
                 <div className="container mx-auto px-4 md:px-6 lg:px-8">
                   <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                      PropAI Price Estimator
+                      PropAI Best Offer
                     </h2>
                     <p className="mt-2 text-muted-foreground md:text-md">
-                      Get your personalized price estimate for this property.
+                    Based on real-time market data.
                     </p>
                     <div className="mt-2">
                       <span className="block text-5xl font-bold text-[#0874de]">
                         $725,000
                       </span>
+
                     </div>
                   </div>
                 </div>
@@ -876,13 +888,13 @@ export default function details() {
             </div>
             {/* large screens */}
             <div className="bg-prop-ai bg-no-repeat bg-cover py-6 rounded-[16px]">
-              <div className="container mx-auto px-4 md:px-6 lg:px-8">
+              <div className="container mx-auto px-4 md:px-6 lg:px-8 relative">
                 <div className="mx-auto max-w-2xl text-center">
                   <h2 className="text-2xl font-bold tracking-tight text-foreground">
-                    PropAI Price Estimator
+                    PropAI Best Offer
                   </h2>
                   <p className="mt-2 text-muted-foreground md:text-md">
-                    Get your personalized price estimate for this property.
+                  Based on real-time market data.
                   </p>
                   <div className="mt-2">
                     <span className="block text-5xl font-bold text-[#0874de]">
@@ -890,6 +902,87 @@ export default function details() {
                     </span>
                   </div>
                 </div>
+
+
+                <Drawer>
+  <DrawerTrigger>                
+    <FaChartLine className="absolute top-0 right-5 text-[#0874de] h-[25px] w-[25px] hover:pointer-cursor"/></DrawerTrigger>
+  <DrawerContent>
+    <DrawerHeader>
+      <DrawerTitle className="relative">
+        <p className="text-center text-[50px] font-bold text-[#0874de]">PropAI Future Proofing</p>
+        <DrawerClose className="absolute top-0 right-3">
+      <IoIosClose className="w-[30px] h-[30px] text-[#0874de]"/>
+      </DrawerClose>
+        </DrawerTitle>
+      <DrawerDescription>
+      <ChartContainer config={chartConfig} className="border-1 p-4 w-full h-[500px]">
+                    <AreaChart
+                      accessibilityLayer
+                      data={chartData}
+                      margin={{
+                        left: 12,
+                        right: 12,
+                      }}
+                    >
+                      <CartesianGrid vertical={false} />
+                      <XAxis
+                        dataKey="month"
+                        tickLine={false}
+                        axisLine={false}
+                        tickMargin={8}
+                        tickFormatter={(value) => value.slice(0, 3)}
+                      />
+                      <ChartTooltip
+                        cursor={false}
+                        content={<ChartTooltipContent indicator="line" />}
+                      />
+                      <defs>
+                        <linearGradient
+                          id="fillDesktop"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            offset="5%"
+                            stopColor="var(--color-desktop)"
+                            stopOpacity={0.8}
+                          />
+                          <stop
+                            offset="95%"
+                            stopColor="var(--color-desktop)"
+                            stopOpacity={0.1}
+                          />
+                        </linearGradient>
+                      </defs>
+                      <Area
+                        dataKey="desktop"
+                        type="natural"
+                        fill="url(#fillDesktop)"
+                        fillOpacity={0.4}
+                        stroke="var(--color-desktop)"
+                      />
+                    </AreaChart>
+      </ChartContainer>
+      </DrawerDescription>
+    </DrawerHeader>
+    {/* <DrawerFooter>
+
+    </DrawerFooter> */}
+  </DrawerContent>
+</Drawer>
+
+
+            
+
+
+
+
+
+
+
               </div>
             </div>
           </div>

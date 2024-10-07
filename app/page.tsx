@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { FilterBar } from "@/components/filters";
 import { Navbar } from "@/components/navigation";
 import { Button } from "antd";
 import {
@@ -21,10 +20,18 @@ import MobilePhoneImage1 from "@/assets/images/mobile-phone1.png";
 import MobilePhoneImage2 from "@/assets/images/mobile-phone2.png";
 import MobilePhoneImage3 from "@/assets/images/mobile-phone3.png";
 import MobilePhoneImage4 from "@/assets/images/mobile-phone4.png";
-
+import { HomeFilterBar } from "@/components/filters/HomeFilterBar.component copy";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownSection,
+  DropdownItem,
+} from "@nextui-org/dropdown";
 export default function Home() {
   const router = useRouter();
   const [searched, setSearched] = React.useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   return (
     <main>
       <section className="h-[135vh] md:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
@@ -50,10 +57,18 @@ export default function Home() {
                 icon={<FileText width={20} />}
                 iconPosition="end"
                 className="p-6 text-lg"
+                onClick={() => router.push("/reports")}
               >
                 Home Report
               </Button>
-              <Button
+
+              <Dropdown
+                isOpen={isDropdownOpen}
+                className="bg-[#262626] text-[#777777]"
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <DropdownTrigger className="" onMouseEnter={() => setIsDropdownOpen(true)}>
+                  <Button
                 shape="round"
                 size="large"
                 icon={<MapPinHouse width={20} />}
@@ -62,6 +77,31 @@ export default function Home() {
               >
                 Buy a Home
               </Button>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownItem
+                    key="pre-owned"
+                    className="text-[16px]"
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      router.push("/pre-owned");
+                    }}
+                  >
+                    Pre-Owned Homes
+                  </DropdownItem>
+                  <DropdownItem
+                    key="new-homes"
+                    className="text-[16px]"
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      router.push("/new-homes");
+                    }}
+                  >
+                    New Homes
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown> 
+
             </div>
           </div>
 
@@ -74,7 +114,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <FilterBar
+      <HomeFilterBar
         className="mx-8 md:mx-20 mt-[-100px]"
         searched={searched}
         setSearched={setSearched}
