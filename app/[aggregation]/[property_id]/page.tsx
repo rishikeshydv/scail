@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "@/public/logo/propfax-logo.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,10 +14,18 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-//loading environment variables
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { FcIdea } from "react-icons/fc";
 export default function Aggregation() {
 
+  //chart info
   const data = [
     {
       "name": "Page A",
@@ -68,6 +76,65 @@ export default function Aggregation() {
       color: "#0874de",
     },
   } satisfies ChartConfig;
+
+  //state variables for different messages
+  const [propertyHistoryMsg, setPropertyHistoryMsg] = React.useState<string>("");
+  const [maintenanceHistoryMsg1, setMaintenanceHistoryMsg1] = React.useState<string>("");
+  const [maintenanceHistoryMsg2, setMaintenanceHistoryMsg2] = React.useState<string>("");
+  const [ownershipHistoryMsg, setOwnershipHistoryMsg] = React.useState<string>("");
+  const [marketTrendMsg, setMarketTrendMsg] = React.useState<string>("");
+  const [neighbourhoodMsg, setNeighbourhoodMsg] = React.useState<string>("");
+
+  //info on different sections
+  //property history section
+  const propertyHistory = {
+  address:"1000 TESTING DR",
+  city: "Arlington",
+  state: "TX",
+  zip: "76016",
+  builtIn: 1985,
+  propertyType: "Single Family Home",
+  bedrooms: 3,
+  bathrooms: 2,
+  livingArea: "2,000"
+  };
+  const propertyHistoryMsgPattern = `Please provide a concise analysis of a real estate property with the following information: 
+  The property is located in ${propertyHistory.address}, ${propertyHistory.city}, ${propertyHistory.state}, ${propertyHistory.zip}, 
+  built in ${propertyHistory.builtIn}, and is a ${propertyHistory.propertyType} with ${propertyHistory.bedrooms} bedrooms 
+  and ${propertyHistory.bathrooms} bathrooms, covering ${propertyHistory.livingArea} square feet. The response should be 
+  1-2 sentences long, focused strictly on analysis (e.g., market trends, investment potential, condition). Do not repeat 
+  any of the input details, and ensure the response is text-based without any headers or subheaders.`;
+
+  //function to get response from the model
+  const getResponse = async (msg:string) => {
+    const response = await fetch("/api/v1/insights-model", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        role: "user",
+        message: msg,
+      }),
+    });
+    const data = await response.json();
+    return data
+  };  
+
+  //use effect
+  useEffect(() => {
+    //fetching data for property history
+    const fetchData = async () => {
+      const res = await getResponse(propertyHistoryMsgPattern);
+      setPropertyHistoryMsg(res.result.content);
+      // console.log(res.result.content);
+    }
+    fetchData();
+
+
+
+  }, []);
+
   return (
     <main className="overflow-hidden">
       <section className="bg-[#0f0f0f] md:h-[100px] md:relative w-full flex flex-col py-[20px] md:py-0 gap-[21px] md:gap-0 md:flex-row items-center">
@@ -158,16 +225,27 @@ export default function Aggregation() {
         {/* Right Section */}
         <div className="w-full border-l-1 md:h-screen md:overflow-y-auto">
           {/* Header */}
-          <div className="h-[80px] text-center md:text-left bg-[#0874de] py-[20px] text-[30px] text-white font-semibold md:px-[30px]">
-            Property History
+          <div className="h-[80px] flex items-center justify-center gap-2 md:justify-start bg-[#0874de] py-[20px] text-[30px] text-white font-semibold md:px-[30px]">
+            Property History&nbsp;
+            <Dialog>
+  <DialogTrigger><FcIdea className="mt-0.5 hover:cursor-pointer"/></DialogTrigger>
+  <DialogContent className="bg-gray-100">
+    <DialogHeader>
+      <DialogTitle className="text-[#0874de] text-[26px] font-semibold text-center underline">PropAI Insights</DialogTitle>
+      <DialogDescription className="text-[18px] text-black">
+        {propertyHistoryMsg}
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
           </div>
           {/* First Section */}
           <div className="flex md:flex-row flex-col border-b-1">
             {/* First Left Section */}
             <div className="flex md:flex-[0.35] flex-col gap-[30px] md:gap-[60px] p-[20px] md:p-[40px]">
               <div className="text-[22px]">
-                <p className="font-semibold">1000 TESTING DR</p>
-                <p>Arlington, TX, 76016</p>
+                <p className="font-semibold">{propertyHistory.address}</p>
+                <p>{propertyHistory.city}, {propertyHistory.state}, {propertyHistory.zip}</p>
               </div>
               <div>
                 <p className="text-[18px]">
@@ -219,7 +297,7 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Built in <span className="font-semibold">1985</span>
+                Built in <span className="font-semibold">{propertyHistory.builtIn}</span>
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] items-center border-1">
                 <svg
@@ -234,7 +312,7 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Property Type: Single Family Home
+                Property Type: {propertyHistory.propertyType}
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center border-1">
                 <svg
@@ -249,7 +327,7 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Number of Bedrooms: <span className="font-semibold">3</span>{" "}
+                Number of Bedrooms: <span className="font-semibold">{propertyHistory.bedrooms}</span>{" "}
                 Bedroooms
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] items-center  border-1">
@@ -265,7 +343,7 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Number of Bathrooms: <span className="font-semibold">2</span>{" "}
+                Number of Bathrooms: <span className="font-semibold">{propertyHistory.bathrooms}</span>{" "}
                 Bathrooms
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center  border-1 ">
@@ -282,7 +360,7 @@ export default function Aggregation() {
                   />
                 </svg>
                 Total Living Area of{" "}
-                <span className="font-semibold">2,000</span> square feets
+                <span className="font-semibold">{propertyHistory.livingArea}</span> square feets
               </p>
             </div>
           </div>
