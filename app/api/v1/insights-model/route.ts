@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import OpenAI from "openai";
 const openai = new OpenAI({apiKey:process.env.NEXT_PUBLIC_OPENAI_API_KEY});
-
-export async function POST(request:NextRequest){
+//the return type should be NextResponse
+export async function POST(request:NextRequest): Promise<NextResponse>{
   try {
     const userMessage = await request.json();
     const res = openai.chat.completions.create({
@@ -23,7 +23,10 @@ export async function POST(request:NextRequest){
     });
   }
   catch (error){
-    return error
+    return NextResponse.json(
+      { status: 500, error: 'Internal Server Error' },
+      { status: 500 }
+    );
   }
 }
 

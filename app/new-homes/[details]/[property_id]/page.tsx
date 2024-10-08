@@ -29,7 +29,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { IoIosClose } from "react-icons/io";
-export default function details() {
+export default function Details() {
   const chartData = [
     { month: "January", desktop: 186 },
     { month: "February", desktop: 305 },
@@ -346,7 +346,7 @@ export default function details() {
                 </Button>
               </div>
               {/* Mobile Screens */}
-              <div className="bg-bg-prop-ai py-6 rounded-[16px]">
+              <div className="bg-prop-ai py-6 rounded-[16px]">
                 <div className="container mx-auto px-4 md:px-6 lg:px-8">
                   <div className="mx-auto max-w-2xl text-center">
                     <h2 className="text-2xl font-bold tracking-tight text-foreground">

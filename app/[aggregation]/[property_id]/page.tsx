@@ -21,55 +21,61 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { FcIdea } from "react-icons/fc";
-export default function Aggregation() {
+import { SiMusicbrainz } from "react-icons/si";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
+export default function Aggregation() {
   //chart info
   const data = [
     {
-      "name": "Page A",
-      "uv": 4000,
-      "pv": 2400,
-      "amt": 2400
+      name: "Page A",
+      uv: 4000,
+      pv: 2400,
+      amt: 2400,
     },
     {
-      "name": "Page B",
-      "uv": 3000,
-      "pv": 1398,
-      "amt": 2210
+      name: "Page B",
+      uv: 3000,
+      pv: 1398,
+      amt: 2210,
     },
     {
-      "name": "Page C",
-      "uv": 2000,
-      "pv": 9800,
-      "amt": 2290
+      name: "Page C",
+      uv: 2000,
+      pv: 9800,
+      amt: 2290,
     },
     {
-      "name": "Page D",
-      "uv": 2780,
-      "pv": 3908,
-      "amt": 2000
+      name: "Page D",
+      uv: 2780,
+      pv: 3908,
+      amt: 2000,
     },
     {
-      "name": "Page E",
-      "uv": 1890,
-      "pv": 4800,
-      "amt": 2181
+      name: "Page E",
+      uv: 1890,
+      pv: 4800,
+      amt: 2181,
     },
     {
-      "name": "Page F",
-      "uv": 2390,
-      "pv": 3800,
-      "amt": 2500
+      name: "Page F",
+      uv: 2390,
+      pv: 3800,
+      amt: 2500,
     },
     {
-      "name": "Page G",
-      "uv": 3490,
-      "pv": 4300,
-      "amt": 2100
-    }
-  ]
+      name: "Page G",
+      uv: 3490,
+      pv: 4300,
+      amt: 2100,
+    },
+  ];
   const chartConfig = {
     desktop: {
       label: "Desktop",
@@ -78,25 +84,27 @@ export default function Aggregation() {
   } satisfies ChartConfig;
 
   //state variables for different messages
-  const [propertyHistoryMsg, setPropertyHistoryMsg] = React.useState<string>("");
-  const [maintenanceHistoryMsg1, setMaintenanceHistoryMsg1] = React.useState<string>("");
-  const [maintenanceHistoryMsg2, setMaintenanceHistoryMsg2] = React.useState<string>("");
-  const [ownershipHistoryMsg, setOwnershipHistoryMsg] = React.useState<string>("");
+  const [propertyHistoryMsg, setPropertyHistoryMsg] =
+    React.useState<string>("");
+  const [maintenanceHistoryMsg1, setMaintenanceHistoryMsg1] =
+    React.useState<string>("");
+  const [ownershipHistoryMsg, setOwnershipHistoryMsg] =
+    React.useState<string>("");
   const [marketTrendMsg, setMarketTrendMsg] = React.useState<string>("");
   const [neighbourhoodMsg, setNeighbourhoodMsg] = React.useState<string>("");
 
   //info on different sections
   //property history section
   const propertyHistory = {
-  address:"1000 TESTING DR",
-  city: "Arlington",
-  state: "TX",
-  zip: "76016",
-  builtIn: 1985,
-  propertyType: "Single Family Home",
-  bedrooms: 3,
-  bathrooms: 2,
-  livingArea: "2,000"
+    address: "634 Summit Ave",
+    city: "Westfield",
+    state: "NJ",
+    zip: "07090",
+    builtIn: 1935,
+    propertyType: "Single Family Home",
+    bedrooms: 3,
+    bathrooms: 2,
+    livingArea: "1,350",
   };
   const propertyHistoryMsgPattern = `Please provide a concise analysis of a real estate property with the following information: 
   The property is located in ${propertyHistory.address}, ${propertyHistory.city}, ${propertyHistory.state}, ${propertyHistory.zip}, 
@@ -105,8 +113,51 @@ export default function Aggregation() {
   1-2 sentences long, focused strictly on analysis (e.g., market trends, investment potential, condition). Do not repeat 
   any of the input details, and ensure the response is text-based without any headers or subheaders.`;
 
+  //Maintenance History Section
+  const maintenanceHistory = {
+    numberOfOwners: 3,
+    electricity_owner1: "No Issues Reported",
+    electricity_owner2: "No Issues Reported",
+    electricity_owner3: "No Issues Reported",
+    plumbing_owner1: "No Issues Reported",
+    plumbing_owner2: "No Issues Reported",
+    plumbing_owner3: "No Issues Reported",
+    roofing_owner1: "No Issues Reported",
+    roofing_owner2: "No Issues Reported",
+    roofing_owner3: "No Issues Reported",
+    hvac_owner1: "No Issues Reported",
+    hvac_owner2: "No Issues Reported",
+    hvac_owner3: "No Issues Reported",
+    insurance_owner1: "No Issues Reported",
+    insurance_owner2: "No Issues Reported",
+    insurance_owner3: "No Issues Reported",
+    crime_owner1: "No Issues Reported",
+    crime_owner2: "No Issues Reported",
+    crime_owner3: "No Issues Reported",
+    fire_owner1: "No Issues Reported",
+    fire_owner2: "No Issues Reported",
+    fire_owner3: "No Issues Reported",
+    flood_owner1: "No Issues Reported",
+    flood_owner2: "No Issues Reported",
+    flood_owner3: "No Issues Reported",
+  };
+  const maintenanceHistoryMsgPattern = `Please provide a concise analysis of the maintenance history of a real estate property with the following information:
+  The property has had ${maintenanceHistory.numberOfOwners} owners. The maintenance history of the property is as follows:
+  Owner 1 - Electricity: ${maintenanceHistory.electricity_owner1}, Plumbing: ${maintenanceHistory.plumbing_owner1}, Roofing: ${maintenanceHistory.roofing_owner1}, HVAC: ${maintenanceHistory.hvac_owner1}, Insurance: ${maintenanceHistory.insurance_owner1}, Crime: ${maintenanceHistory.crime_owner1}, Fire: ${maintenanceHistory.fire_owner1}, Flood: ${maintenanceHistory.flood_owner1}
+  Owner 2 - Electricity: ${maintenanceHistory.electricity_owner2}, Plumbing: ${maintenanceHistory.plumbing_owner2}, Roofing: ${maintenanceHistory.roofing_owner2}, HVAC: ${maintenanceHistory.hvac_owner2}, Insurance: ${maintenanceHistory.insurance_owner2}, Crime: ${maintenanceHistory.crime_owner2}, Fire: ${maintenanceHistory.fire_owner2}, Flood: ${maintenanceHistory.flood_owner2}
+  Owner 3 - Electricity: ${maintenanceHistory.electricity_owner3}, Plumbing: ${maintenanceHistory.plumbing_owner3}, Roofing: ${maintenanceHistory.roofing_owner3}, HVAC: ${maintenanceHistory.hvac_owner3}, Insurance: ${maintenanceHistory.insurance_owner3}, Crime: ${maintenanceHistory.crime_owner3}, Fire: ${maintenanceHistory.fire_owner3}, Flood: ${maintenanceHistory.flood_owner3}
+  The response should be 1-2 sentences long, focused strictly on analysis (e.g., market trends, investment potential, condition). Do not repeat any of the input details, and ensure the response is text-based without any headers or subheaders.`;
+
+
+  //ownership history section
+  const ownershipHistory = {
+    numberOfOwners: 3,
+    ownershipDuration: [5, 10, 15],
+    ownershipType: ["Primary Residence", "Rental Property", "Vacation Home"],
+  }
+
   //function to get response from the model
-  const getResponse = async (msg:string) => {
+  const getResponse = async (msg: string) => {
     const response = await fetch("/api/v1/insights-model", {
       method: "POST",
       headers: {
@@ -118,25 +169,28 @@ export default function Aggregation() {
       }),
     });
     const data = await response.json();
-    return data
-  };  
+    return data;
+  };
 
   //use effect
   useEffect(() => {
     //fetching data for property history
-    const fetchData = async () => {
+    const fetchPropertyData = async () => {
       const res = await getResponse(propertyHistoryMsgPattern);
       setPropertyHistoryMsg(res.result.content);
-      // console.log(res.result.content);
-    }
-    fetchData();
+    };
+    fetchPropertyData();
 
-
-
+    //fetching data for maintenance history
+    const fetchMaintenanceData = async () => {
+      const res1 = await getResponse(maintenanceHistoryMsgPattern);
+      setMaintenanceHistoryMsg1(res1.result.content);
+    };
+    fetchMaintenanceData();
   }, []);
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-x-hidden">
       <section className="bg-[#0f0f0f] md:h-[100px] md:relative w-full flex flex-col py-[20px] md:py-0 gap-[21px] md:gap-0 md:flex-row items-center">
         <Link
           href={"/"}
@@ -228,16 +282,21 @@ export default function Aggregation() {
           <div className="h-[80px] flex items-center justify-center gap-2 md:justify-start bg-[#0874de] py-[20px] text-[30px] text-white font-semibold md:px-[30px]">
             Property History&nbsp;
             <Dialog>
-  <DialogTrigger><FcIdea className="mt-0.5 hover:cursor-pointer"/></DialogTrigger>
-  <DialogContent className="bg-gray-100">
-    <DialogHeader>
-      <DialogTitle className="text-[#0874de] text-[26px] font-semibold text-center underline">PropAI Insights</DialogTitle>
-      <DialogDescription className="text-[18px] text-black">
-        {propertyHistoryMsg}
-      </DialogDescription>
-    </DialogHeader>
-  </DialogContent>
-</Dialog>
+              <DialogTrigger>
+                <FcIdea className="mt-0.5 hover:cursor-pointer" />
+              </DialogTrigger>
+              <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
+                <DialogHeader>
+                  <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
+                    <p>PropAI Insights</p>{" "}
+                    <SiMusicbrainz className="mt-[-4px] hover:cursor-pointer" />
+                  </DialogTitle>
+                  <DialogDescription className="text-[18px] text-gray-600">
+                    {propertyHistoryMsg}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
           </div>
           {/* First Section */}
           <div className="flex md:flex-row flex-col border-b-1">
@@ -245,7 +304,10 @@ export default function Aggregation() {
             <div className="flex md:flex-[0.35] flex-col gap-[30px] md:gap-[60px] p-[20px] md:p-[40px]">
               <div className="text-[22px]">
                 <p className="font-semibold">{propertyHistory.address}</p>
-                <p>{propertyHistory.city}, {propertyHistory.state}, {propertyHistory.zip}</p>
+                <p>
+                  {propertyHistory.city}, {propertyHistory.state},{" "}
+                  {propertyHistory.zip}
+                </p>
               </div>
               <div>
                 <p className="text-[18px]">
@@ -297,7 +359,8 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Built in <span className="font-semibold">{propertyHistory.builtIn}</span>
+                Built in{" "}
+                <span className="font-semibold">{propertyHistory.builtIn}</span>
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] items-center border-1">
                 <svg
@@ -327,7 +390,10 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Number of Bedrooms: <span className="font-semibold">{propertyHistory.bedrooms}</span>{" "}
+                Number of Bedrooms:{" "}
+                <span className="font-semibold">
+                  {propertyHistory.bedrooms}
+                </span>{" "}
                 Bedroooms
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] items-center  border-1">
@@ -343,7 +409,10 @@ export default function Aggregation() {
                     fill="#0874DE"
                   />
                 </svg>
-                Number of Bathrooms: <span className="font-semibold">{propertyHistory.bathrooms}</span>{" "}
+                Number of Bathrooms:{" "}
+                <span className="font-semibold">
+                  {propertyHistory.bathrooms}
+                </span>{" "}
                 Bathrooms
               </p>
               <p className="flex gap-2 px-[30px] h-[70px] bg-gray-100 items-center  border-1 ">
@@ -360,23 +429,42 @@ export default function Aggregation() {
                   />
                 </svg>
                 Total Living Area of{" "}
-                <span className="font-semibold">{propertyHistory.livingArea}</span> square feets
+                <span className="font-semibold">
+                  {propertyHistory.livingArea}
+                </span>{" "}
+                square feets
               </p>
             </div>
           </div>
           {/* Second Section */}
-          <div className="py-[30px] border-1  overflow-scroll">
+          <div className="pt-[30px] border-1  overflow-scroll">
             {/* Table 1 */}
             <table className="w-full border-collapse">
               <thead className="bg-blue-100">
                 <tr className="border-t">
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <h2 className="text-[30px] font-bold text-[#0874de]">
+                  <td className="p-4 border-[#00000010] border-r-1 flex items-center justify-center md:justify-start gap-3">
+                    <h2 className="text-[30px] font-bold text-[#0874de] text-center">
                       Maintenance History
                     </h2>
+                    <Dialog>
+                      <DialogTrigger>
+                        <FcIdea className="mt-0.5 hover:cursor-pointer text-[30px]" />
+                      </DialogTrigger>
+                      <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
+                        <DialogHeader>
+                          <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
+                            <p>PropAI Insights</p>{" "}
+                            <SiMusicbrainz className="mt-[-4px] hover:cursor-pointer" />
+                          </DialogTitle>
+                          <DialogDescription className="text-[18px] text-gray-600">
+                            {maintenanceHistoryMsg1}
+                          </DialogDescription>
+                        </DialogHeader>
+                      </DialogContent>
+                    </Dialog>
                   </td>
                   <td className="p-4 border-[#00000010] border-r-1 text-[20px] font-semibold">
-                    <div className="flex justify-center items-center space-x-2">
+                    <div className="flex flex-col md:flex-row justify-center items-center space-x-2">
                       <svg
                         width="20"
                         height="20"
@@ -390,11 +478,11 @@ export default function Aggregation() {
                         />
                       </svg>
 
-                      <span>Owner 1</span>
+                      <span className="text-center">Owner 1</span>
                     </div>
                   </td>
                   <td className="p-4 border-[#00000010] border-r-1 text-[20px] font-semibold">
-                    <div className="flex items-center justify-center space-x-2">
+                    <div className="flex flex-col md:flex-row items-center justify-center space-x-2">
                       <svg
                         width="20"
                         height="20"
@@ -407,11 +495,11 @@ export default function Aggregation() {
                           fill="#0874DE"
                         />
                       </svg>
-                      <span>Owner 2</span>
+                      <span className="text-center">Owner 2</span>
                     </div>
                   </td>
                   <td className="p-4 border-[#00000010] border-r-1 text-[20px] font-semibold">
-                    <div className="flex items-center justify-center space-x-2">
+                    <div className="flex flex-col md:flex-row items-center justify-center space-x-2">
                       <svg
                         width="20"
                         height="20"
@@ -424,7 +512,7 @@ export default function Aggregation() {
                           fill="#0874DE"
                         />
                       </svg>
-                      <span>Owner 3</span>
+                      <span className="text-center">Owner 3</span>
                     </div>
                   </td>
                 </tr>
@@ -438,6 +526,7 @@ export default function Aggregation() {
                       viewBox="0 0 32 32"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
                     >
                       <path
                         fill-rule="evenodd"
@@ -457,18 +546,49 @@ export default function Aggregation() {
                         <span className="text-[20px] font-semibold">
                           Electrical
                         </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            {" "}
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Electrical Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A summary of all inspections, repairs, and
+                                upgrades to the property&apos;s electrical systems,
+                                ensuring safety and compliance with standards.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         No issues reported to PROPFAX
@@ -547,6 +667,7 @@ export default function Aggregation() {
                       viewBox="0 0 32 32"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
                     >
                       <g clip-path="url(#clip0_1294_2023)">
                         <mask
@@ -627,18 +748,47 @@ export default function Aggregation() {
                         <span className="text-[20px] font-semibold">
                           Plumbing
                         </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Plumbing Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A record of inspections, repairs, and updates to
+                                the property&apos;s plumbing system, ensuring
+                                functionality and code compliance.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         No reported crimes associated with the property.
@@ -717,6 +867,7 @@ export default function Aggregation() {
                       viewBox="0 0 32 32"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
                     >
                       <g clip-path="url(#clip0_1294_2073)">
                         <mask
@@ -845,18 +996,48 @@ export default function Aggregation() {
                         <span className="text-[20px] font-semibold">
                           Roofing
                         </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Roofing Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A summary of inspections, repairs, and
+                                replacements for the property&apos;s roof, ensuring
+                                durability and weather protection.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         No issues reported to PROPFAX
@@ -935,6 +1116,7 @@ export default function Aggregation() {
                       viewBox="0 0 32 32"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
                     >
                       <mask
                         id="mask0_1294_2104"
@@ -1026,18 +1208,593 @@ export default function Aggregation() {
                     <div>
                       <div className="flex items-center space-x-2">
                         <span className="text-[20px] font-semibold">HVAC</span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            {" "}
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                HVAC Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A record of all inspections, repairs, and
+                                updates to the heating, ventilation, and air
+                                conditioning systems, ensuring efficiency and
+                                comfort.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        No issues reported to PROPFAX
+                      </p>
+                    </div>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                </tr>
+                <tr className="border-t bg-[#00000010]">
+                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
+                    <svg
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
+                    >
+                      <path
+                        d="M4 6.66012C4 5.19097 5.19016 4 6.66012 4H25.3399C26.8091 4 28 5.19016 28 6.66012V25.3399C28 26.8091 26.8099 28 25.3399 28H6.66012C5.19097 28 4 26.8099 4 25.3399V6.66012ZM6.66667 6.66667V25.3333H25.3333V6.66667H6.66667ZM10.6295 24.2411C9.80463 23.8839 9.02292 23.4457 8.29444 22.9365C9.95697 20.3671 12.848 18.6667 16.1363 18.6667C19.3353 18.6667 22.1585 20.2761 23.8401 22.7296C23.1251 23.2581 22.3552 23.7169 21.5407 24.0957C20.3296 22.4221 18.36 21.3333 16.1363 21.3333C13.8487 21.3333 11.8303 22.4855 10.6295 24.2411ZM16 17.3333C13.4227 17.3333 11.3333 15.244 11.3333 12.6667C11.3333 10.0893 13.4227 8 16 8C18.5773 8 20.6667 10.0893 20.6667 12.6667C20.6667 15.244 18.5773 17.3333 16 17.3333ZM16 14.6667C17.1045 14.6667 18 13.7712 18 12.6667C18 11.5621 17.1045 10.6667 16 10.6667C14.8955 10.6667 14 11.5621 14 12.6667C14 13.7712 14.8955 14.6667 16 14.6667Z"
+                        fill="#0874DE"
+                      />
+                    </svg>
+
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[20px] font-semibold">
+                          Insurance Records
+                        </span>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            {" "}
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Insurance Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A history of the property&apos;s insurance policies
+                                and claims, ensuring proper coverage for any
+                                potential risks or damages.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        2 Previous Owner
+                      </p>
+                    </div>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                </tr>
+                <tr className="border-t">
+                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
+                    >
+                      <path
+                        d="M20.6717 26.6731C19.7935 28.7788 18.1085 30.464 16.0026 31.3421C13.8967 30.464 12.2117 28.7788 11.3335 26.6731H14.3459C14.781 27.3245 15.3427 27.8895 16.0026 28.3307C16.6625 27.8895 17.2242 27.3245 17.6593 26.6731H20.6717ZM24.0026 19.746L26.6693 22.7703V25.3397H5.33594V22.7703L8.0026 19.746V12.0064C8.0026 7.36204 11.3418 3.41096 16.0026 1.94666C20.6634 3.41096 24.0026 7.36204 24.0026 12.0064V19.746ZM23.0282 22.6731L21.3359 20.7537V12.0064C21.3359 8.91592 19.2415 6.09908 16.0026 4.77846C12.7636 6.09908 10.6693 8.91592 10.6693 12.0064V20.7537L8.97695 22.6731H23.0282ZM16.0026 14.6731C14.5298 14.6731 13.3359 13.4791 13.3359 12.0064C13.3359 10.5336 14.5298 9.33971 16.0026 9.33971C17.4754 9.33971 18.6693 10.5336 18.6693 12.0064C18.6693 13.4791 17.4754 14.6731 16.0026 14.6731Z"
+                        fill="#0874DE"
+                      />
+                    </svg>
+
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[20px] font-semibold">
+                          Crime Reports
+                        </span>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            {" "}
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Crime Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A record of any reported criminal activities in
+                                the area, providing insight into local safety
+                                and security.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        No reported crimes associated with the property.
+                      </p>
+                    </div>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                </tr>
+                <tr className="border-t bg-[#00000010]">
+                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
+                    >
+                      <path
+                        d="M13.883 4L16.5497 6.66667H27.9974C28.7338 6.66667 29.3307 7.26363 29.3307 8V26.6667C29.3307 27.4031 28.7338 28 27.9974 28H3.9974C3.26102 28 2.66406 27.4031 2.66406 26.6667V5.33333C2.66406 4.59696 3.26102 4 3.9974 4H13.883ZM12.7784 6.66667H5.33073V25.3333H26.6641V9.33333H15.4451L12.7784 6.66667ZM17.3307 12V17.3333H21.3307V20H14.6641V12H17.3307Z"
+                        fill="#0874DE"
+                      />
+                    </svg>
+
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[20px] font-semibold">
+                          Fire Records
+                        </span>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            {" "}
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Fire Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A summary of any fire-related incidents or
+                                inspections at the property, ensuring compliance
+                                with fire safety regulations.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        No issues reported to PROPFAX
+                      </p>
+                    </div>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                  <td className="p-4 border-[#00000010] border-r-1">
+                    <div className="flex justify-center">
+                      <svg
+                        className="flex"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="40" height="40" rx="8" fill="#009E3D" />
+                        <path
+                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-center py-2">
+                      No Issues Reported
+                    </p>
+                  </td>
+                </tr>
+                <tr className="border-t">
+                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
+                    <svg
+                      width="30"
+                      height="30"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="hidden md:flex"
+                    >
+                      <path
+                        d="M15.9974 2.66675C23.3611 2.66675 29.3307 8.63628 29.3307 16.0001C29.3307 23.3638 23.3611 29.3334 15.9974 29.3334C8.6336 29.3334 2.66406 23.3638 2.66406 16.0001H5.33073C5.33073 21.8911 10.1064 26.6667 15.9974 26.6667C21.8885 26.6667 26.6641 21.8911 26.6641 16.0001C26.6641 10.109 21.8885 5.33341 15.9974 5.33341C12.331 5.33341 9.09669 7.1832 7.17674 10.0004L10.6641 10.0001V12.6667H2.66406V4.66675H5.33073L5.33058 7.99899C7.76318 4.76108 11.6357 2.66675 15.9974 2.66675ZM17.3307 9.33341L17.3305 15.4467L21.6542 19.7713L19.7686 21.6569L14.6638 16.5507L14.6641 9.33341H17.3307Z"
+                        fill="#0874DE"
+                      />
+                    </svg>
+
+                    <div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[20px] font-semibold">
+                          Flood Records
+                        </span>
+                        <HoverCard>
+                          <HoverCardTrigger className="hover:cursor-pointer">
+                            {" "}
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 26 26"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                          </HoverCardTrigger>
+                          <HoverCardContent className="flex justify-center gap-4">
+                            <svg
+                              width="25"
+                              height="25"
+                              viewBox="0 0 32 32"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M17.9223 7.16005C17.9476 6.95338 17.8249 6.75605 17.6276 6.68938C17.4303 6.62271 17.2129 6.70405 17.1076 6.88405C15.3676 9.86671 12.0263 15.5947 10.8956 17.5334C10.8169 17.6694 10.8156 17.8374 10.8943 17.9734C10.9716 18.1094 11.1169 18.1934 11.2743 18.1934H14.8969C14.8969 18.1934 14.3916 22.244 14.0663 24.84C14.0409 25.0467 14.1636 25.244 14.3609 25.3107C14.5583 25.3774 14.7756 25.296 14.8809 25.116C16.6209 22.1334 19.9623 16.4054 21.0929 14.4667C21.1716 14.3307 21.1729 14.1627 21.0943 14.0267C21.0169 13.8907 20.8716 13.8067 20.7143 13.8067C19.4569 13.8067 17.0916 13.8067 17.0916 13.8067C17.0916 13.8067 17.5969 9.75605 17.9223 7.16005Z"
+                                fill="#0874DE"
+                              />
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M15.9974 1.66669C23.9081 1.66669 30.3307 8.08935 30.3307 16C30.3307 23.9107 23.9081 30.3334 15.9974 30.3334C8.08673 30.3334 1.66406 23.9107 1.66406 16C1.66406 8.08935 8.08673 1.66669 15.9974 1.66669ZM15.9974 3.66669C9.19073 3.66669 3.66406 9.19335 3.66406 16C3.66406 22.8067 9.19073 28.3334 15.9974 28.3334C22.8041 28.3334 28.3307 22.8067 28.3307 16C28.3307 9.19335 22.8041 3.66669 15.9974 3.66669Z"
+                                fill="#0874DE"
+                              />
+                            </svg>
+                            <div>
+                              <p className="font-bold text-[16px] underline">
+                                Flood Info
+                              </p>
+                              <p className="text-[14px]">
+                                {" "}
+                                A history of flood-related incidents, risks, or
+                                preventative measures affecting the property,
+                                ensuring awareness of potential flood hazards.
+                              </p>
+                            </div>
+                          </HoverCardContent>
+                        </HoverCard>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         No issues reported to PROPFAX
@@ -1112,7 +1869,7 @@ export default function Aggregation() {
             </table>
 
             {/* Table 2 */}
-            <table className="w-full border-collapse">
+            {/* <table className="w-full border-collapse">
               <thead className="bg-blue-100">
                 <tr className="border-t">
                   <td className="p-4">
@@ -1584,15 +2341,31 @@ export default function Aggregation() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> */}
           </div>
           {/* Third Section */}
           <div className=" overflow-scroll">
             <div className="border-t bg-blue-100">
-              <div className="p-4">
-                <h2 className="text-[30px] font-bold text-[#0874de]">
+              <div className="p-4 text-[30px] flex items-center justify-center gap-2 md:justify-start">
+                <h2 className="font-bold text-[#0874de]">
                   Ownership History
                 </h2>
+                <Dialog>
+              <DialogTrigger>
+                <FcIdea className="mt-0.5 hover:cursor-pointer" />
+              </DialogTrigger>
+              <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
+                <DialogHeader>
+                  <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
+                    <p>PropAI Insights</p>{" "}
+                    <SiMusicbrainz className="mt-[-4px] hover:cursor-pointer" />
+                  </DialogTitle>
+                  <DialogDescription className="text-[18px] text-gray-600">
+                    {ownershipHistoryMsg}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+            </Dialog>
               </div>
             </div>
             <div className="">
@@ -1951,11 +2724,11 @@ export default function Aggregation() {
             {/* Last 30 Days */}
             {/*  Graph Part */}
             <div className=" mx-auto p-4 space-y-6">
-            <div className="bg-[#0874de] text-[20px] text-white px-3 py-2 rounded-[10px] font-semibold">
+              <div className="bg-[#0874de] text-[20px] text-white px-3 py-2 rounded-[10px] font-semibold">
                 City, State Snapshot (Last 30 Days)
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] px-[122px]">
+                <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] px-[122px]">
                   <CardTitle className="text-center">New Listings</CardTitle>
                   <div className="text-[80px] font-bold text-[#0874de]">15</div>
                   <p className="text-green-600">
@@ -1973,32 +2746,60 @@ export default function Aggregation() {
               <div className="flex justify-between">
                 <p className="md:text-[29px]">Total Sales</p>
                 <div className="text-[#748194] flex gap-[20px]">
-                  <p className="flex items-center gap-2 md:text-[25px]"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.945312" y="0.649414" width="20" height="20" rx="10" fill="#2C7BE5"/>
-</svg>
-Median List Price</p>
-<p className="flex items-center gap-2 md:text-[25px]"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.945312" y="0.649414" width="20" height="20" rx="10" fill="#F5803E"/>
-</svg>
-
-Median List Price</p>
+                  <p className="flex items-center gap-2 md:text-[25px]">
+                    <svg
+                      width="21"
+                      height="21"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.945312"
+                        y="0.649414"
+                        width="20"
+                        height="20"
+                        rx="10"
+                        fill="#2C7BE5"
+                      />
+                    </svg>
+                    Median List Price
+                  </p>
+                  <p className="flex items-center gap-2 md:text-[25px]">
+                    <svg
+                      width="21"
+                      height="21"
+                      viewBox="0 0 21 21"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect
+                        x="0.945312"
+                        y="0.649414"
+                        width="20"
+                        height="20"
+                        rx="10"
+                        fill="#F5803E"
+                      />
+                    </svg>
+                    Median List Price
+                  </p>
                 </div>
               </div>
               <ChartContainer config={chartConfig}>
-
-                    <LineChart width={730} height={250} data={data}>
-  <CartesianGrid strokeDasharray="3 3" />
-  <XAxis dataKey="name" />
-  <YAxis />
-  <ChartTooltip
-                        cursor={false}
-                        content={<ChartTooltipContent indicator="line" />}
-                      />
-  <Legend />
-  <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-  <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-</LineChart>
-                  </ChartContainer>
+                <LineChart width={730} height={250} data={data}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent indicator="line" />}
+                  />
+                  <Legend />
+                  <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+                  <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                </LineChart>
+              </ChartContainer>
             </div>
 
             {/* Non Graph Part */}
@@ -2009,7 +2810,9 @@ Median List Price</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px]  md:px-[122px]">
                   <CardTitle className="text-center">Homes Sold</CardTitle>
-                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">31</div>
+                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">
+                    31
+                  </div>
                   <p className="text-green-600">
                     ▲ <span className="text-[#808080]">1,450%</span>
                   </p>
@@ -2036,7 +2839,9 @@ Median List Price</p>
                 </Card>
                 <Card className="flex flex-col items-center justify-center gap-[10px] py-[60px] md:px-[122px]">
                   <CardTitle className="text-center">Avg. Age</CardTitle>
-                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">35</div>
+                  <div className="text-[60px] md:text-[80px] font-bold text-[#0874de]">
+                    35
+                  </div>
                   <p className="text-red-600">
                     ▼ <span className="text-[#808080]">29</span>
                   </p>
@@ -2341,12 +3146,15 @@ Median List Price</p>
                             <div className="flex-1 mx-4">
                               <div className="flex items-center space-x-2">
                                 <div className="flex items-center justify-center w-10 h-10 bg-[#00875D] text-white rounded-full">
-                                  <span className="font-semibold text-[20px]">4</span>/10
+                                  <span className="font-semibold text-[20px]">
+                                    4
+                                  </span>
+                                  /10
                                 </div>
-                                  <p className="text-[20px] text-[#808080] font-medium">
-                                    GreatSchools Summary Rating
-                                  </p>
-                                  <InfoIcon className="w-5 h-5 text-gray-400" />
+                                <p className="text-[20px] text-[#808080] font-medium">
+                                  GreatSchools Summary Rating
+                                </p>
+                                <InfoIcon className="w-5 h-5 text-gray-400" />
                               </div>
                               <a
                                 href="#"
@@ -2356,13 +3164,13 @@ Median List Price</p>
                               </a>
                               <p className=" text-[18px]">800 IRELAN AVENUE</p>
                               <div className="flex justify-between">
-                              <p className="text-[15px] text-gray-500">
-                                PK,KG,1,2,3,4,UG
-                              </p>
-                              <div className="flex items-center space-x-2 mt-[-5px]">
-                              <CompassIcon className="w-5 h-5 text-gray-400" />
-                              <GlobeIcon className="w-5 h-5 text-gray-400" />
-                            </div>
+                                <p className="text-[15px] text-gray-500">
+                                  PK,KG,1,2,3,4,UG
+                                </p>
+                                <div className="flex items-center space-x-2 mt-[-5px]">
+                                  <CompassIcon className="w-5 h-5 text-gray-400" />
+                                  <GlobeIcon className="w-5 h-5 text-gray-400" />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2390,12 +3198,15 @@ Median List Price</p>
                             <div className="flex-1 mx-4">
                               <div className="flex items-center space-x-2">
                                 <div className="flex items-center justify-center w-10 h-10 bg-[#00875D] text-white rounded-full">
-                                  <span className="font-semibold text-[20px]">4</span>/10
+                                  <span className="font-semibold text-[20px]">
+                                    4
+                                  </span>
+                                  /10
                                 </div>
-                                  <p className="text-[20px] text-[#808080] font-medium">
-                                    GreatSchools Summary Rating
-                                  </p>
-                                  <InfoIcon className="w-5 h-5 text-gray-400" />
+                                <p className="text-[20px] text-[#808080] font-medium">
+                                  GreatSchools Summary Rating
+                                </p>
+                                <InfoIcon className="w-5 h-5 text-gray-400" />
                               </div>
                               <a
                                 href="#"
@@ -2405,13 +3216,13 @@ Median List Price</p>
                               </a>
                               <p className=" text-[18px]">800 IRELAN AVENUE</p>
                               <div className="flex justify-between">
-                              <p className="text-[15px] text-gray-500">
-                                PK,KG,1,2,3,4,UG
-                              </p>
-                              <div className="flex items-center space-x-2 mt-[-5px]">
-                              <CompassIcon className="w-5 h-5 text-gray-400" />
-                              <GlobeIcon className="w-5 h-5 text-gray-400" />
-                            </div>
+                                <p className="text-[15px] text-gray-500">
+                                  PK,KG,1,2,3,4,UG
+                                </p>
+                                <div className="flex items-center space-x-2 mt-[-5px]">
+                                  <CompassIcon className="w-5 h-5 text-gray-400" />
+                                  <GlobeIcon className="w-5 h-5 text-gray-400" />
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -2428,297 +3239,394 @@ Median List Price</p>
                   </div>
                 </div>
 
-       <div className=" mx-auto  overflow-scroll">
-      <h1 className="text-2xl font-bold mb-6">Transit Scores</h1>
-      <div className="flex md:justify-evenly md:gap-20 mb-8">
-        <div className="flex flex-col items-center justify-center">
-        <CircularProgress
-          classNames={{
-            svg: "w-[200px] h-[200px] drop-shadow-md",
-            indicator: "stroke-[#0874de]",
-            track: "stroke-[#d9d9d919]",
-            value: "text-[48px] font-bold text-black",
-          }}
-          value={70}
-          strokeWidth={4}
-          showValueLabel={true}
-        />
-          <p className="mt-2 font-semibold text-[24px]">Walk Score</p>
-        </div>
-        <div className="flex flex-col items-center">
-        <CircularProgress
-          classNames={{
-            svg: "w-[200px] h-[200px] drop-shadow-md",
-            indicator: "stroke-[#009E3D]",
-            track: "stroke-[#d9d9d919]",
-            value: "text-[48px] font-bold text-black",
-          }}
-          value={70}
-          strokeWidth={4}
-          showValueLabel={true}
-        />
-          <p className="mt-2 font-semibold text-[24px]">Transit Score</p>
-        </div>
-        <div className="flex flex-col items-center">
-        <CircularProgress
-          classNames={{
-            svg: "w-[200px] h-[200px] drop-shadow-md",
-            indicator: "stroke-[#E78E00]",
-            track: "stroke-[#d9d9d919]",
-            value: "text-[48px] font-bold text-black",
-          }}
-          value={70}
-          strokeWidth={4}
-          showValueLabel={true}
-        />
-          <p className="mt-2 font-semibold text-[24px]">Bike Score</p>
-        </div>
-      </div>
-      <div className="grid grid-cols-3 gap-[200px] md:gap-4">
-        <div className="border rounded-2xl overflow-visible md:overflow-hidden">
-          <table className="w-full text-left">
-            <thead className="bg-[#0874de] text-white">
-              <tr>
-                <th className="p-4 w-[115px] text-[16px]">Walk Score</th>
-                <th className="p-4 text-[16px]">Description</th>
-              </tr>
-            </thead>
-            <tbody className="h-full">
-              <tr className="border-b">
-                <td className="px-2 py-3 text-[18px] flex justify-center">90-100</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold ">Walker&apos;s Paradise</span>
-                  <br />
-                  <p className="text-[16px]">Daily errands do not require a car.</p>
-                </td>
-              </tr>
-              <tr className="border-b bg-[#00000015]">
-                <td className="px-2 py-3 text-[18px] flex justify-center">70-89</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Very Walkable</span>
-                  <br />
-                  <p className="text-[16px] w-full">Most errands can be done on foot.</p>
-                </td>
-              </tr>
-              <tr className="border-b">
-                <td className="px-2 py-3 text-[18px] flex justify-center">50-69</td>
-                <td className="p-2">
-                  <span className="text-[20px] font-semibold">Somewhat Walkable</span>
-                  <br />
-                  <p className="text-[16px]">Some errands can be done on foot.</p>
-                  
-                </td>
-              </tr>
-              <tr className="border-b bg-[#00000015]">
-                <td className="px-2 py-3 text-[18px] flex justify-center">25-49</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Car Dependent</span>
-                  <br />
-                  <p className="text-[16px]">Most errands require a car.</p>
-                  
-                </td>
-              </tr>
-              <tr className="">
-                <td className="px-2 py-3 text-[18px] flex justify-center">0-24</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Train Dependent</span>
-                  <br />
-                  <p className="text-[16px]">Most errands require a train.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="border rounded-2xl overflow-visible md:overflow-hidden">
-          <table className="w-full text-left">
-            <thead className="bg-[#009E3D] text-white">
-              <tr>
-                <th className="p-4 w-[130px]">Transit Score</th>
-                <th className="p-4">Description</th>
-              </tr>
-            </thead>
-            <tbody className="h-full">
-              <tr className="border-b">
-                <td className="px-2 py-3 text-[18px] flex justify-center">90-100</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold ">Walker&apos;s Paradise</span>
-                  <br />
-                  <p className="text-[16px]">Daily errands do not require a car.</p>
-                </td>
-              </tr>
-              <tr className="border-b bg-[#00000015]">
-                <td className="px-2 py-3 text-[18px] flex justify-center">70-89</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Very Walkable</span>
-                  <br />
-                  <p className="text-[16px] w-full">Most errands can be done on foot.</p>
-                </td>
-              </tr>
-              <tr className="border-b">
-                <td className="px-2 py-3 text-[18px] flex justify-center">50-69</td>
-                <td className="p-2">
-                  <span className="text-[20px] font-semibold">Somewhat Walkable</span>
-                  <br />
-                  <p className="text-[16px]">Some errands can be done on foot.</p>
-                  
-                </td>
-              </tr>
-              <tr className="border-b bg-[#00000015]">
-                <td className="px-2 py-3 text-[18px] flex justify-center">25-49</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Car Dependent</span>
-                  <br />
-                  <p className="text-[16px]">Most errands require a car.</p>
-                  
-                </td>
-              </tr>
-              <tr className="">
-                <td className="px-2 py-3 text-[18px] flex justify-center">0-24</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Train Dependent</span>
-                  <br />
-                  <p className="text-[16px]">Most errands require a train.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="border rounded-2xl overflow-visible md:overflow-hidden">
-          <table className="w-full text-left">
-            <thead className="bg-[#E78E00] text-white">
-              <tr>
-                <th className="p-4 w-[115px]">Bike Score</th>
-                <th className="p-4">Description</th>
-              </tr>
-            </thead>
-            <tbody className="h-full">
-              <tr className="border-b">
-                <td className="px-2 py-3 text-[18px] flex justify-center">90-100</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold ">Walker&apos;s Paradise</span>
-                  <br />
-                  <p className="text-[16px]">Daily errands do not require a car.</p>
-                </td>
-              </tr>
-              <tr className="border-b bg-[#00000015]">
-                <td className="px-2 py-3 text-[18px] flex justify-center">70-89</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Very Walkable</span>
-                  <br />
-                  <p className="text-[16px] w-full">Most errands can be done on foot.</p>
-                </td>
-              </tr>
-              <tr className="border-b">
-                <td className="px-2 py-3 text-[18px] flex justify-center">50-69</td>
-                <td className="p-2">
-                  <span className="text-[20px] font-semibold">Somewhat Walkable</span>
-                  <br />
-                  <p className="text-[16px]">Some errands can be done on foot.</p>
-                  
-                </td>
-              </tr>
-              <tr className="border-b bg-[#00000015]">
-                <td className="px-2 py-3 text-[18px] flex justify-center">25-49</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Car Dependent</span>
-                  <br />
-                  <p className="text-[16px]">Most errands require a car.</p>
-                  
-                </td>
-              </tr>
-              <tr className="">
-                <td className="px-2 py-3 text-[18px] flex justify-center">0-24</td>
-                <td className="p-2">
-                  <span className="text-[18px] font-semibold">Train Dependent</span>
-                  <br />
-                  <p className="text-[16px]">Most errands require a train.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+                <div className=" mx-auto  overflow-scroll">
+                  <h1 className="text-2xl font-bold mb-6">Transit Scores</h1>
+                  <div className="flex md:justify-evenly md:gap-20 mb-8">
+                    <div className="flex flex-col items-center justify-center">
+                      <CircularProgress
+                        classNames={{
+                          svg: "w-[200px] h-[200px] drop-shadow-md",
+                          indicator: "stroke-[#0874de]",
+                          track: "stroke-[#d9d9d919]",
+                          value: "text-[48px] font-bold text-black",
+                        }}
+                        value={70}
+                        strokeWidth={4}
+                        showValueLabel={true}
+                      />
+                      <p className="mt-2 font-semibold text-[24px]">
+                        Walk Score
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <CircularProgress
+                        classNames={{
+                          svg: "w-[200px] h-[200px] drop-shadow-md",
+                          indicator: "stroke-[#009E3D]",
+                          track: "stroke-[#d9d9d919]",
+                          value: "text-[48px] font-bold text-black",
+                        }}
+                        value={70}
+                        strokeWidth={4}
+                        showValueLabel={true}
+                      />
+                      <p className="mt-2 font-semibold text-[24px]">
+                        Transit Score
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <CircularProgress
+                        classNames={{
+                          svg: "w-[200px] h-[200px] drop-shadow-md",
+                          indicator: "stroke-[#E78E00]",
+                          track: "stroke-[#d9d9d919]",
+                          value: "text-[48px] font-bold text-black",
+                        }}
+                        value={70}
+                        strokeWidth={4}
+                        showValueLabel={true}
+                      />
+                      <p className="mt-2 font-semibold text-[24px]">
+                        Bike Score
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3 gap-[200px] md:gap-4">
+                    <div className="border rounded-2xl overflow-visible md:overflow-hidden">
+                      <table className="w-full text-left">
+                        <thead className="bg-[#0874de] text-white">
+                          <tr>
+                            <th className="p-4 w-[115px] text-[16px]">
+                              Walk Score
+                            </th>
+                            <th className="p-4 text-[16px]">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody className="h-full">
+                          <tr className="border-b">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              90-100
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold ">
+                                Walker&apos;s Paradise
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Daily errands do not require a car.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b bg-[#00000015]">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              70-89
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Very Walkable
+                              </span>
+                              <br />
+                              <p className="text-[16px] w-full">
+                                Most errands can be done on foot.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              50-69
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[20px] font-semibold">
+                                Somewhat Walkable
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Some errands can be done on foot.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b bg-[#00000015]">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              25-49
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Car Dependent
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Most errands require a car.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              0-24
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Train Dependent
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Most errands require a train.
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="border rounded-2xl overflow-visible md:overflow-hidden">
+                      <table className="w-full text-left">
+                        <thead className="bg-[#009E3D] text-white">
+                          <tr>
+                            <th className="p-4 w-[130px]">Transit Score</th>
+                            <th className="p-4">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody className="h-full">
+                          <tr className="border-b">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              90-100
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold ">
+                                Walker&apos;s Paradise
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Daily errands do not require a car.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b bg-[#00000015]">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              70-89
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Very Walkable
+                              </span>
+                              <br />
+                              <p className="text-[16px] w-full">
+                                Most errands can be done on foot.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              50-69
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[20px] font-semibold">
+                                Somewhat Walkable
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Some errands can be done on foot.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b bg-[#00000015]">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              25-49
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Car Dependent
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Most errands require a car.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              0-24
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Train Dependent
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Most errands require a train.
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="border rounded-2xl overflow-visible md:overflow-hidden">
+                      <table className="w-full text-left">
+                        <thead className="bg-[#E78E00] text-white">
+                          <tr>
+                            <th className="p-4 w-[115px]">Bike Score</th>
+                            <th className="p-4">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody className="h-full">
+                          <tr className="border-b">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              90-100
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold ">
+                                Walker&apos;s Paradise
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Daily errands do not require a car.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b bg-[#00000015]">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              70-89
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Very Walkable
+                              </span>
+                              <br />
+                              <p className="text-[16px] w-full">
+                                Most errands can be done on foot.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              50-69
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[20px] font-semibold">
+                                Somewhat Walkable
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Some errands can be done on foot.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="border-b bg-[#00000015]">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              25-49
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Car Dependent
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Most errands require a car.
+                              </p>
+                            </td>
+                          </tr>
+                          <tr className="">
+                            <td className="px-2 py-3 text-[18px] flex justify-center">
+                              0-24
+                            </td>
+                            <td className="p-2">
+                              <span className="text-[18px] font-semibold">
+                                Train Dependent
+                              </span>
+                              <br />
+                              <p className="text-[16px]">
+                                Most errands require a train.
+                              </p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className=" mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Nearby Properties</h2>
-      <div className="w-full h-64 bg-gray-200 rounded-lg mb-6">
-        <img
-          src="/images/map-placeholder.png"
-          alt="Map"
-          className="w-full h-full object-cover rounded-lg"
-          width="1024"
-          height="256"
-          style={{ aspectRatio: "1024/256", objectFit: "cover" }}
-        />
-      </div>
-      <div className="overflow-x-scroll border p-4 rounded-xl">
-        <table className="min-w-full bg-white text-[16px]">
-          <thead className="bg-[#00000010]">
-            <tr className="border-b">
-              <th className="px-4 py-4 text-left">
-                Address <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
-              </th>
-              <th className="px-4 py-4 text-left">
-                Sale Price <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
-              </th>
-              <th className="px-4 py-4 text-left">
-                Sales Date <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
-              </th>
-              <th className="px-4 py-4 text-left">
-                Sq.ft <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
-              </th>
-              <th className="px-4 py-4 text-left">
-                Price per Sq. Ft. <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-b">
-              <td className="px-4 py-4 flex items-center">
-                <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
-                366 Upland Ave
-              </td>
-              <td className="px-4 py-4">-</td>
-              <td className="px-4 py-4">01/01/2000</td>
-              <td className="px-4 py-4">2,236</td>
-              <td className="px-4 py-4">-</td>
-            </tr>
-            <tr className="border-b bg-[#00000010]">
-              <td className="px-4 py-4 flex items-center">
-                <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
-                Upland Ave
-              </td>
-              <td className="px-4 py-4">$57,600</td>
-              <td className="px-4 py-4">03/31/1984</td>
-              <td className="px-4 py-4">0</td>
-              <td className="px-4 py-4">-</td>
-            </tr>
-            <tr className="border-b">
-              <td className="px-4 py-4 flex items-center">
-                <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
-                135 Tenth Ave
-              </td>
-              <td className="px-4 py-4">$335,000</td>
-              <td className="px-4 py-4">12/28/2022</td>
-              <td className="px-4 py-4">2,060</td>
-              <td className="px-4 py-4">$162.62</td>
-            </tr>
-            <tr className="bg-[#00000010]">
-              <td className="px-4 py-4 flex items-center">
-                <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
-                134 Tenth Ave
-              </td>
-              <td className="px-4 py-4">$309,000</td>
-              <td className="px-4 py-4">08/15/2005</td>
-              <td className="px-4 py-4">1,736</td>
-              <td className="px-4 py-4">$178.28</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+                <h2 className="text-2xl font-bold mb-4">Nearby Properties</h2>
+                <div className="w-full h-64 bg-gray-200 rounded-lg mb-6">
+                  <img
+                    src="/images/map-placeholder.png"
+                    alt="Map"
+                    className="w-full h-full object-cover rounded-lg"
+                    width="1024"
+                    height="256"
+                    style={{ aspectRatio: "1024/256", objectFit: "cover" }}
+                  />
+                </div>
+                <div className="overflow-x-scroll border p-4 rounded-xl">
+                  <table className="min-w-full bg-white text-[16px]">
+                    <thead className="bg-[#00000010]">
+                      <tr className="border-b">
+                        <th className="px-4 py-4 text-left">
+                          Address{" "}
+                          <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
+                        </th>
+                        <th className="px-4 py-4 text-left">
+                          Sale Price{" "}
+                          <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
+                        </th>
+                        <th className="px-4 py-4 text-left">
+                          Sales Date{" "}
+                          <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
+                        </th>
+                        <th className="px-4 py-4 text-left">
+                          Sq.ft{" "}
+                          <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
+                        </th>
+                        <th className="px-4 py-4 text-left">
+                          Price per Sq. Ft.{" "}
+                          <ArrowDownIcon className="inline-block w-4 h-4 text-[#0874de]" />
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr className="border-b">
+                        <td className="px-4 py-4 flex items-center">
+                          <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
+                          366 Upland Ave
+                        </td>
+                        <td className="px-4 py-4">-</td>
+                        <td className="px-4 py-4">01/01/2000</td>
+                        <td className="px-4 py-4">2,236</td>
+                        <td className="px-4 py-4">-</td>
+                      </tr>
+                      <tr className="border-b bg-[#00000010]">
+                        <td className="px-4 py-4 flex items-center">
+                          <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
+                          Upland Ave
+                        </td>
+                        <td className="px-4 py-4">$57,600</td>
+                        <td className="px-4 py-4">03/31/1984</td>
+                        <td className="px-4 py-4">0</td>
+                        <td className="px-4 py-4">-</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="px-4 py-4 flex items-center">
+                          <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
+                          135 Tenth Ave
+                        </td>
+                        <td className="px-4 py-4">$335,000</td>
+                        <td className="px-4 py-4">12/28/2022</td>
+                        <td className="px-4 py-4">2,060</td>
+                        <td className="px-4 py-4">$162.62</td>
+                      </tr>
+                      <tr className="bg-[#00000010]">
+                        <td className="px-4 py-4 flex items-center">
+                          <MapPinIcon className="w-6 h-6 mr-2 fill-[#469D62] text-[white]" />
+                          134 Tenth Ave
+                        </td>
+                        <td className="px-4 py-4">$309,000</td>
+                        <td className="px-4 py-4">08/15/2005</td>
+                        <td className="px-4 py-4">1,736</td>
+                        <td className="px-4 py-4">$178.28</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2809,7 +3717,7 @@ function InfoIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function ArrowDownIcon(props:React.SVGProps<SVGSVGElement>) {
+function ArrowDownIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -2826,11 +3734,10 @@ function ArrowDownIcon(props:React.SVGProps<SVGSVGElement>) {
       <path d="M12 5v14" />
       <path d="m19 12-7 7-7-7" />
     </svg>
-  )
+  );
 }
 
-
-function MapPinIcon(props:React.SVGProps<SVGSVGElement>) {
+function MapPinIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -2847,5 +3754,5 @@ function MapPinIcon(props:React.SVGProps<SVGSVGElement>) {
       <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
-  )
+  );
 }

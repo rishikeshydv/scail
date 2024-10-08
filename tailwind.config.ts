@@ -99,6 +99,7 @@ const config = {
 			"reports-hero": "url('/images/reports-hero-bg.png')",
 			'custom-gradient': 'linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 0%, rgba(8, 116, 222, 0.15) 110%)',
 			'prop-ai':"url('/images/prop-ai-bg.png')",
+			'prop-ai-dark':"url('/images/prop-bg-2.png')",
 
   		}
   	}
