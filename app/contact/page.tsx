@@ -1,11 +1,21 @@
+"use client"
+import ChatUI from "@/components/chat/ChatUI";
 import { Navbar } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
-import { MoveRight } from "lucide-react";
-import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 export default function ContactPage() {
+  const [chatOpen, setChatOpen] = useState(false);
   return (
-    <main>
+    <main className="relative">
       <section className="min-h-[20vh] min-w-[100vw] overflow-hidden bg-black-grid">
         <Navbar className=" bg-black-grid" />
         <div className="flex flex-col justify-center items-center">
@@ -35,7 +45,7 @@ export default function ContactPage() {
           </div>
 
           <div className="w-[85%] min-h-[35vh] rounded-[30px] border border-[#00000026] shadow-md px-[50px] pt-[40px]">
-            <div className="font-bold text-[24px]">Your Information</div>
+            <div className="font-bold text-[24px] text-center md:text-start">Your Information</div>
 
             <div className="grid grid-cols-1  md:grid-cols-2 gap-4 py-10">
               <div className="flex flex-col gap-y-3">
@@ -88,7 +98,7 @@ export default function ContactPage() {
               />
             </div>
 
-            <div className="py-8">
+            <div className="py-8 flex justify-center md:justify-start items-center">
               <Button className="px-[18px] py-[15px] w-[180px] h-[60px] text-lg rounded-3xl bg-[#0874DE]">
                 SUBMIT
               </Button>
@@ -130,6 +140,17 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <svg className="fixed bottom-5 right-[-4px] bg-[#0874de] p-3 rounded-tl-xl rounded-bl-xl hover:cursor-pointer" onClick={()=>setChatOpen(!chatOpen)} width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.66406 11.9917C2.66406 7.57799 6.23278 4 10.6649 4H21.3298C25.7486 4 29.3307 7.59304 29.3307 11.9917V28H10.6649C6.24618 28 2.66406 24.4069 2.66406 20.0084V11.9917ZM26.6641 25.3333V11.9917C26.6641 9.06052 24.2706 6.66667 21.3298 6.66667H10.6649C7.71017 6.66667 5.33073 9.04611 5.33073 11.9917V20.0084C5.33073 22.9395 7.72422 25.3333 10.6649 25.3333H26.6641ZM18.6641 14.6667H21.3307V17.3333H18.6641V14.6667ZM10.6641 14.6667H13.3307V17.3333H10.6641V14.6667Z" fill="white"/>
+      </svg>
+
+{
+  chatOpen && (
+    <ChatUI className="fixed bottom-5 md:right-16" setChatOpen={setChatOpen}/>
+  )
+}
+
     </main>
   );
 }
