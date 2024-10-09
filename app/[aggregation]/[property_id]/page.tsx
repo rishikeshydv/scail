@@ -23,7 +23,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { FcIdea } from "react-icons/fc";
-import { SiMusicbrainz } from "react-icons/si";
 import {
   HoverCard,
   HoverCardContent,
@@ -88,10 +87,11 @@ export default function Aggregation() {
     React.useState<string>("");
   const [maintenanceHistoryMsg1, setMaintenanceHistoryMsg1] =
     React.useState<string>("");
-  const [ownershipHistoryMsg, setOwnershipHistoryMsg] =
+  const [ownershipHistoryMsg1, setOwnershipHistoryMsg1] =
     React.useState<string>("");
-  const [marketTrendMsg, setMarketTrendMsg] = React.useState<string>("");
-  const [neighbourhoodMsg, setNeighbourhoodMsg] = React.useState<string>("");
+    const [ownershipHistoryMsg2, setOwnershipHistoryMsg2] =
+    React.useState<string>("");
+  const [transitScoresMsg,setTransitScoresMsg] = React.useState<string>("");
 
   //info on different sections
   //property history section
@@ -150,11 +150,76 @@ export default function Aggregation() {
 
 
   //ownership history section
-  const ownershipHistory = {
-    numberOfOwners: 3,
-    ownershipDuration: [5, 10, 15],
-    ownershipType: ["Primary Residence", "Rental Property", "Vacation Home"],
-  }
+  const ownershipHistory1 = {
+    purchaseDate: '03/15/2015',
+    typeOfOwnership: 'Joint Ownership (Spousal)',
+    lengthOfOwnership: '8 years',
+    purchasePrice: 350000,
+    salesPrice: 475000,
+    modifications: [
+      'Kitchen remodel (2017)',
+      'New roof installed (2019)',
+      'Backyard patio addition (2021)',
+    ],
+    policeReportFiled: true,
+    fireReportFiled: true,
+    issuesReported: [
+      'Minor water damage in the basement in April 2018 (Repaired)',
+    ],
+    reasonForSale: 'Owners are relocating to another state for job opportunities',
+  };
+
+  const ownershipHistoryMsgPattern1 = `Please provide a concise analysis of the ownership history of a real estate property with the following information:
+  The property was purchased on ${ownershipHistory1.purchaseDate} for $${ownershipHistory1.purchasePrice} and 
+  sold after ${ownershipHistory1.lengthOfOwnership} years for $${ownershipHistory1.salesPrice}. The property was under 
+  ${ownershipHistory1.typeOfOwnership}. The property has undergone the following modifications: ${ownershipHistory1.modifications.join(', ')}. 
+  The property has had the following issues: ${ownershipHistory1.issuesReported.join(', ')}. 
+  The property has filed a police report: ${ownershipHistory1.policeReportFiled ? 'Yes' : 'No'}. 
+  The property has filed a fire report: ${ownershipHistory1.fireReportFiled ? 'Yes' : 'No'}. 
+  The reason for sale is: ${ownershipHistory1.reasonForSale}.
+  The response should be 1-2 sentences long, focused strictly on analysis (e.g., market trends, investment potential, condition). Do not repeat any of the input details, and ensure the response is text-based without any headers or subheaders.`;
+
+  
+  const ownershipHistory2 = {
+    purchaseDate: '09/10/2000',
+    typeOfOwnership: 'Single Ownership',
+    lengthOfOwnership: '15 years',
+    purchasePrice: 275000,
+    salesPrice: 400000,
+    modifications: [
+      'Bathroom renovation (2007)',
+      'Added solar panels (2008)',
+      'New garage door installed (2009)',
+    ],
+    policeReportFiled: true,
+    fireReportFiled: true,
+    issuesReported: [
+      'Minor leak in roof after storm in July 2011 (Repaired)',
+    ],
+    reasonForSale: 'Downsizing after children moved out, looking for a smaller home',
+  };
+  
+  const ownershipHistoryMsgPattern2 = `Please provide a concise analysis of the ownership history of a real estate property with the following information:
+  The property was purchased on ${ownershipHistory2.purchaseDate} for $${ownershipHistory2.purchasePrice} and
+  sold after ${ownershipHistory2.lengthOfOwnership} years for $${ownershipHistory2.salesPrice}. The property was under
+  ${ownershipHistory2.typeOfOwnership}. The property has undergone the following modifications: ${ownershipHistory2.modifications.join(', ')}.
+  The property has had the following issues: ${ownershipHistory2.issuesReported.join(', ')}.
+  The property has filed a police report: ${ownershipHistory2.policeReportFiled ? 'Yes' : 'No'}.
+  The property has filed a fire report: ${ownershipHistory2.fireReportFiled ? 'Yes' : 'No'}.
+  The reason for sale is: ${ownershipHistory2.reasonForSale}.
+  The response should be 1-2 sentences long, focused strictly on analysis (e.g., market trends, investment potential, condition). Do not repeat any of the input details, and ensure the response is text-based without any headers or subheaders.`;
+
+  //transit scores sections
+  const transitScores = {
+    walkScore: 80,
+    bikeScore: 70,
+    transitScore: 60,
+  };
+
+  const transitScoresMsgPattern = `Please provide a concise analysis of the transit scores of a real estate property with the following information:
+  The property has a Walk Score of ${transitScores.walkScore}, a Bike Score of ${transitScores.bikeScore}, and a Transit Score.
+  The response should be 1-2 sentences long, focused strictly on analysis (e.g., market trends, investment potential, condition). Do not repeat any of the input details, and ensure the response is text-based without any headers or subheaders.`;
+
 
   //function to get response from the model
   const getResponse = async (msg: string) => {
@@ -187,6 +252,27 @@ export default function Aggregation() {
       setMaintenanceHistoryMsg1(res1.result.content);
     };
     fetchMaintenanceData();
+
+    //fetching data for ownership history for owner 1
+    const fetchOwnershipData1 = async () => {
+      const res2 = await getResponse(ownershipHistoryMsgPattern1);
+      setOwnershipHistoryMsg1(res2.result.content);
+    };
+    fetchOwnershipData1();
+
+    //fetching data for ownership history for owner 2
+    const fetchOwnershipData2 = async () => {
+      const res3 = await getResponse(ownershipHistoryMsgPattern2);
+      setOwnershipHistoryMsg2(res3.result.content);
+    };
+    fetchOwnershipData2();
+
+    //fetching data for transit scores
+    const fetchTransitData = async () => {
+      const res4 = await getResponse(transitScoresMsgPattern);
+      setTransitScoresMsg(res4.result.content);
+    };
+    fetchTransitData();
   }, []);
 
   return (
@@ -289,7 +375,6 @@ export default function Aggregation() {
                 <DialogHeader>
                   <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
                     <p>PropAI Insights</p>{" "}
-                    <SiMusicbrainz className="mt-[-4px] hover:cursor-pointer" />
                   </DialogTitle>
                   <DialogDescription className="text-[18px] text-gray-600">
                     {propertyHistoryMsg}
@@ -454,7 +539,6 @@ export default function Aggregation() {
                         <DialogHeader>
                           <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
                             <p>PropAI Insights</p>{" "}
-                            <SiMusicbrainz className="mt-[-4px] hover:cursor-pointer" />
                           </DialogTitle>
                           <DialogDescription className="text-[18px] text-gray-600">
                             {maintenanceHistoryMsg1}
@@ -1868,480 +1952,6 @@ export default function Aggregation() {
               </tbody>
             </table>
 
-            {/* Table 2 */}
-            {/* <table className="w-full border-collapse">
-              <thead className="bg-blue-100">
-                <tr className="border-t">
-                  <td className="p-4">
-                    <h2 className="text-[30px] font-bold text-[#0874de]">
-                      Maintenance History
-                    </h2>
-                  </td>
-                  <td className="p-4 text-[20px] font-semibold">
-                    <div className="flex justify-center items-center space-x-2">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 23 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.835938 28C0.835938 22.1089 5.61156 17.3333 11.5026 17.3333C17.3937 17.3333 22.1693 22.1089 22.1693 28H0.835938ZM11.5026 16C7.0826 16 3.5026 12.42 3.5026 8C3.5026 3.58 7.0826 0 11.5026 0C15.9226 0 19.5026 3.58 19.5026 8C19.5026 12.42 15.9226 16 11.5026 16Z"
-                          fill="#0874DE"
-                        />
-                      </svg>
-
-                      <span>Owner 1</span>
-                    </div>
-                  </td>
-                  <td className="p-4 text-[20px] font-semibold">
-                    <div className="flex items-center justify-center space-x-2">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 23 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.835938 28C0.835938 22.1089 5.61156 17.3333 11.5026 17.3333C17.3937 17.3333 22.1693 22.1089 22.1693 28H0.835938ZM11.5026 16C7.0826 16 3.5026 12.42 3.5026 8C3.5026 3.58 7.0826 0 11.5026 0C15.9226 0 19.5026 3.58 19.5026 8C19.5026 12.42 15.9226 16 11.5026 16Z"
-                          fill="#0874DE"
-                        />
-                      </svg>
-                      <span>Owner 2</span>
-                    </div>
-                  </td>
-                  <td className="p-4 text-[20px] font-semibold">
-                    <div className="flex items-center justify-center space-x-2">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 23 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.835938 28C0.835938 22.1089 5.61156 17.3333 11.5026 17.3333C17.3937 17.3333 22.1693 22.1089 22.1693 28H0.835938ZM11.5026 16C7.0826 16 3.5026 12.42 3.5026 8C3.5026 3.58 7.0826 0 11.5026 0C15.9226 0 19.5026 3.58 19.5026 8C19.5026 12.42 15.9226 16 11.5026 16Z"
-                          fill="#0874DE"
-                        />
-                      </svg>
-                      <span>Owner 3</span>
-                    </div>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-t bg-[#00000010]">
-                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
-                    <svg
-                      width="32"
-                      height="32"
-                      viewBox="0 0 32 32"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 6.66012C4 5.19097 5.19016 4 6.66012 4H25.3399C26.8091 4 28 5.19016 28 6.66012V25.3399C28 26.8091 26.8099 28 25.3399 28H6.66012C5.19097 28 4 26.8099 4 25.3399V6.66012ZM6.66667 6.66667V25.3333H25.3333V6.66667H6.66667ZM10.6295 24.2411C9.80463 23.8839 9.02292 23.4457 8.29444 22.9365C9.95697 20.3671 12.848 18.6667 16.1363 18.6667C19.3353 18.6667 22.1585 20.2761 23.8401 22.7296C23.1251 23.2581 22.3552 23.7169 21.5407 24.0957C20.3296 22.4221 18.36 21.3333 16.1363 21.3333C13.8487 21.3333 11.8303 22.4855 10.6295 24.2411ZM16 17.3333C13.4227 17.3333 11.3333 15.244 11.3333 12.6667C11.3333 10.0893 13.4227 8 16 8C18.5773 8 20.6667 10.0893 20.6667 12.6667C20.6667 15.244 18.5773 17.3333 16 17.3333ZM16 14.6667C17.1045 14.6667 18 13.7712 18 12.6667C18 11.5621 17.1045 10.6667 16 10.6667C14.8955 10.6667 14 11.5621 14 12.6667C14 13.7712 14.8955 14.6667 16 14.6667Z"
-                        fill="#0874DE"
-                      />
-                    </svg>
-
-                    <div>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-[20px] font-semibold">
-                          Owner Count
-                        </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        2 Previous Owner
-                      </p>
-                    </div>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
-                    <svg
-                      width="30"
-                      height="30"
-                      viewBox="0 0 32 32"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20.6717 26.6731C19.7935 28.7788 18.1085 30.464 16.0026 31.3421C13.8967 30.464 12.2117 28.7788 11.3335 26.6731H14.3459C14.781 27.3245 15.3427 27.8895 16.0026 28.3307C16.6625 27.8895 17.2242 27.3245 17.6593 26.6731H20.6717ZM24.0026 19.746L26.6693 22.7703V25.3397H5.33594V22.7703L8.0026 19.746V12.0064C8.0026 7.36204 11.3418 3.41096 16.0026 1.94666C20.6634 3.41096 24.0026 7.36204 24.0026 12.0064V19.746ZM23.0282 22.6731L21.3359 20.7537V12.0064C21.3359 8.91592 19.2415 6.09908 16.0026 4.77846C12.7636 6.09908 10.6693 8.91592 10.6693 12.0064V20.7537L8.97695 22.6731H23.0282ZM16.0026 14.6731C14.5298 14.6731 13.3359 13.4791 13.3359 12.0064C13.3359 10.5336 14.5298 9.33971 16.0026 9.33971C17.4754 9.33971 18.6693 10.5336 18.6693 12.0064C18.6693 13.4791 17.4754 14.6731 16.0026 14.6731Z"
-                        fill="#0874DE"
-                      />
-                    </svg>
-
-                    <div>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-[20px] font-semibold">
-                          Crime Reports
-                        </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        No reported crimes associated with the property.
-                      </p>
-                    </div>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                </tr>
-                <tr className="border-t bg-[#00000010]">
-                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
-                    <svg
-                      width="30"
-                      height="30"
-                      viewBox="0 0 32 32"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M13.883 4L16.5497 6.66667H27.9974C28.7338 6.66667 29.3307 7.26363 29.3307 8V26.6667C29.3307 27.4031 28.7338 28 27.9974 28H3.9974C3.26102 28 2.66406 27.4031 2.66406 26.6667V5.33333C2.66406 4.59696 3.26102 4 3.9974 4H13.883ZM12.7784 6.66667H5.33073V25.3333H26.6641V9.33333H15.4451L12.7784 6.66667ZM17.3307 12V17.3333H21.3307V20H14.6641V12H17.3307Z"
-                        fill="#0874DE"
-                      />
-                    </svg>
-
-                    <div>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-[20px] font-semibold">
-                          Fire Records
-                        </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        No issues reported to PROPFAX
-                      </p>
-                    </div>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                </tr>
-                <tr className="border-t">
-                  <td className="p-4 flex items-center space-x-4 border-[#00000010] border-r-1">
-                    <svg
-                      width="30"
-                      height="30"
-                      viewBox="0 0 32 32"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M15.9974 2.66675C23.3611 2.66675 29.3307 8.63628 29.3307 16.0001C29.3307 23.3638 23.3611 29.3334 15.9974 29.3334C8.6336 29.3334 2.66406 23.3638 2.66406 16.0001H5.33073C5.33073 21.8911 10.1064 26.6667 15.9974 26.6667C21.8885 26.6667 26.6641 21.8911 26.6641 16.0001C26.6641 10.109 21.8885 5.33341 15.9974 5.33341C12.331 5.33341 9.09669 7.1832 7.17674 10.0004L10.6641 10.0001V12.6667H2.66406V4.66675H5.33073L5.33058 7.99899C7.76318 4.76108 11.6357 2.66675 15.9974 2.66675ZM17.3307 9.33341L17.3305 15.4467L21.6542 19.7713L19.7686 21.6569L14.6638 16.5507L14.6641 9.33341H17.3307Z"
-                        fill="#0874DE"
-                      />
-                    </svg>
-
-                    <div>
-                      <div className="flex items-center space-x-2">
-                        <span className="text-[20px] font-semibold">
-                          Flood Records
-                        </span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 26 26"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M12.9974 23.8333C7.01431 23.8333 2.16406 18.983 2.16406 13C2.16406 7.01687 7.01431 2.16663 12.9974 2.16663C18.9804 2.16663 23.8307 7.01687 23.8307 13C23.8307 18.983 18.9804 23.8333 12.9974 23.8333ZM12.9974 21.6666C17.7839 21.6666 21.6641 17.7865 21.6641 13C21.6641 8.21349 17.7839 4.33329 12.9974 4.33329C8.21093 4.33329 4.33073 8.21349 4.33073 13C4.33073 17.7865 8.21093 21.6666 12.9974 21.6666ZM11.9141 7.58329H14.0807V9.74996H11.9141V7.58329ZM11.9141 11.9166H14.0807V18.4166H11.9141V11.9166Z"
-                            fill="#0874DE"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-sm text-muted-foreground">
-                        No issues reported to PROPFAX
-                      </p>
-                    </div>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                  <td className="p-4 border-[#00000010] border-r-1">
-                    <div className="flex justify-center">
-                      <svg
-                        className="flex"
-                        width="28"
-                        height="28"
-                        viewBox="0 0 40 40"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="40" height="40" rx="8" fill="#009E3D" />
-                        <path
-                          d="M17.9968 23.1709L27.1892 13.9785L28.6034 15.3927L17.9968 25.9993L11.6328 19.6354L13.047 18.2212L17.9968 23.1709Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-center py-2">
-                      No Issues Reported
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table> */}
           </div>
           {/* Third Section */}
           <div className=" overflow-scroll">
@@ -2350,22 +1960,6 @@ export default function Aggregation() {
                 <h2 className="font-bold text-[#0874de]">
                   Ownership History
                 </h2>
-                <Dialog>
-              <DialogTrigger>
-                <FcIdea className="mt-0.5 hover:cursor-pointer" />
-              </DialogTrigger>
-              <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
-                <DialogHeader>
-                  <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
-                    <p>PropAI Insights</p>{" "}
-                    <SiMusicbrainz className="mt-[-4px] hover:cursor-pointer" />
-                  </DialogTitle>
-                  <DialogDescription className="text-[18px] text-gray-600">
-                    {ownershipHistoryMsg}
-                  </DialogDescription>
-                </DialogHeader>
-              </DialogContent>
-            </Dialog>
               </div>
             </div>
             <div className="">
@@ -2401,11 +1995,29 @@ export default function Aggregation() {
                 </div>
               </div>
             </div>
+
+
+            {/* Owner 1 */}
             <div className="">
               <div className="mx-auto p-6">
                 <div className="bg-white rounded-lg p-4 border-1">
-                  <div className="bg-[#0874de] text-[20px] text-white px-3 py-2 rounded-[10px] font-semibold">
-                    Owner 1
+                  <div className="flex justify-center md:justify-start items-center gap-3 bg-[#0874de] text-[20px] text-white px-3 py-2 rounded-[10px] font-semibold">
+                    <p>Owner 1</p>
+                    <Dialog>
+              <DialogTrigger className="mt-[-4px]">
+                <FcIdea className="mt-0.5 hover:cursor-pointer" />
+              </DialogTrigger>
+              <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
+                <DialogHeader>
+                  <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
+                    <p>PropAI Insights</p>{" "}
+                  </DialogTitle>
+                  <DialogDescription className="text-[18px] text-gray-600">
+                    {ownershipHistoryMsg2}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+                    </Dialog>
                   </div>
                   <div className="overflow-x-auto mt-6">
                     <table className="min-w-full bg-white border">
@@ -2425,7 +2037,7 @@ export default function Aggregation() {
                       <tbody>
                         <tr>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            09/26/2024
+                            {ownershipHistory2.purchaseDate}
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
                             Purchase Date
@@ -2468,7 +2080,7 @@ export default function Aggregation() {
                             Type of Ownership
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            Personal
+                            {ownershipHistory2.typeOfOwnership}
                           </td>
                         </tr>
                         <tr>
@@ -2477,7 +2089,7 @@ export default function Aggregation() {
                             Length of Ownership
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            7 years
+                            {ownershipHistory2.lengthOfOwnership}
                           </td>
                         </tr>
                         <tr>
@@ -2486,7 +2098,7 @@ export default function Aggregation() {
                             Purchase Price
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            $180,000
+                            ${ownershipHistory2.purchasePrice}
                           </td>
                         </tr>
                         <tr>
@@ -2495,12 +2107,12 @@ export default function Aggregation() {
                             Sale Price
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            $220,000
+                            ${ownershipHistory2.salesPrice}
                           </td>
                         </tr>
                         <tr>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            09/26/2024
+                            09/26/2001
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
                             Modifications/Improvements
@@ -2510,7 +2122,7 @@ export default function Aggregation() {
                             <div className="text-sm text-gray-500 mt-2">
                               Source{" "}
                               <span className="text-green-600">
-                                Home Inspection Report
+                                {ownershipHistory2.modifications[0]}
                               </span>
                             </div>
                             <div className="mt-2">
@@ -2539,13 +2151,13 @@ export default function Aggregation() {
                         </tr>
                         <tr>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            09/26/2024
+                            04/10/2005
                           </td>
                           <td className="px-6 py-4 border-b text-[#0874de] border-[#00000010] border-r-1">
                             Police Report Filed
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            <div>Attempted Robbery</div>
+                            <div>{ownershipHistory2.policeReportFiled ? 'Attempted Robbery' : 'Clean History'}</div>
                             <div className="text-sm text-gray-500 mt-2">
                               Source{" "}
                               <span className="text-green-600">
@@ -2578,13 +2190,13 @@ export default function Aggregation() {
                         </tr>
                         <tr>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            09/26/2024
+                            01/13/2008
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
                             Modifications/Improvements
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            <div>Upgraded kitchen appliances</div>
+                            <div>{ownershipHistory2.modifications[1]}</div>
                             <div className="text-sm text-gray-500 mt-2">
                               Source{" "}
                               <span className="text-green-600">
@@ -2617,13 +2229,13 @@ export default function Aggregation() {
                         </tr>
                         <tr>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            09/26/2024
+                            07/03/2009
                           </td>
                           <td className="px-6 py-4 border-b text-[#0874de] border-[#00000010] border-r-1">
                             Fire Report Filed
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            <div>Minor Fire</div>
+                            <div>{ownershipHistory2.fireReportFiled ? 'Minor Fire' : 'Clean History'}</div>
                             <div className="text-sm text-gray-500 mt-2">
                               Source{" "}
                               <span className="text-green-600">
@@ -2656,13 +2268,13 @@ export default function Aggregation() {
                         </tr>
                         <tr>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            09/26/2024
+                            12/21/2011
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
                             Issues Reported
                           </td>
                           <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
-                            <div>Minor water damage in basement, repaired</div>
+                            <div>{ownershipHistory2.issuesReported[0]}</div>
                             <div className="text-sm text-gray-500 mt-2">
                               Source{" "}
                               <span className="text-green-600">
@@ -2695,13 +2307,338 @@ export default function Aggregation() {
                         </tr>
                         <tr>
                           <td className="px-6 py-4 border-[#00000010] border-r-1">
-                            09/26/2024
+                            01/26/2015
                           </td>
                           <td className="px-6 py-4 border-[#00000010] border-r-1">
                             Listed for Sale
                           </td>
                           <td className="px-6 py-4 border-[#00000010] border-r-1">
-                            <div>Relocated due to new job</div>
+                            <div>{ownershipHistory2.reasonForSale}</div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Owner 2 */}
+            <div className="">
+              <div className="mx-auto p-6">
+                <div className="bg-white rounded-lg p-4 border-1">
+                <div className="flex justify-center md:justify-start items-center gap-3 bg-[#0874de] text-[20px] text-white px-3 py-2 rounded-[10px] font-semibold">
+                    <p>Owner 2</p>
+                    <Dialog>
+              <DialogTrigger className="mt-[-4px]">
+                <FcIdea className="mt-0.5 hover:cursor-pointer" />
+              </DialogTrigger>
+              <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
+                <DialogHeader>
+                  <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
+                    <p>PropAI Insights</p>{" "}
+                  </DialogTitle>
+                  <DialogDescription className="text-[18px] text-gray-600">
+                    {ownershipHistoryMsg1}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+                    </Dialog>
+                  </div>
+                  <div className="overflow-x-auto mt-6">
+                    <table className="min-w-full bg-white border">
+                      <thead className="bg-[#00000010]">
+                        <tr>
+                          <th className="px-6 py-3 text-center text-[20px] font-medium border-b  border-[#00000010] border-r-1">
+                            Date
+                          </th>
+                          <th className="px-6 py-3 text-center text-[20px] font-medium border-b border-[#00000010] border-r-1">
+                            Details
+                          </th>
+                          <th className="px-6 py-3 text-center text-[20px] font-medium border-b border-[#00000010] border-r-1">
+                            Information
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            {ownershipHistory1.purchaseDate}
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Purchase Date
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            <div>Purchased property</div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              Source{" "}
+                              <span className="text-green-600">
+                                County Property Records
+                              </span>
+                            </div>
+                            <div className="mt-2">
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Star
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">3.8</span>
+                                <span className="ml-2 text-[#0874de]">
+                                  46 Verified Reviews
+                                </span>
+                                <ShieldCheckIcon className="w-4 h-4 ml-1 text-[#0874de]" />
+                              </div>
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Heart
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">
+                                  538 Customer Favorites
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1" />
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Type of Ownership
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            {ownershipHistory1.typeOfOwnership}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1" />
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Length of Ownership
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            {ownershipHistory1.lengthOfOwnership}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1" />
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Purchase Price
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            ${ownershipHistory1.purchasePrice}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1" />
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Sale Price
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            ${ownershipHistory1.salesPrice}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            09/26/2017
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Modifications/Improvements
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            <div>Repainted entire exterior</div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              Source{" "}
+                              <span className="text-green-600">
+                                {ownershipHistory1.modifications[0]}
+                              </span>
+                            </div>
+                            <div className="mt-2">
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Star
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">3.8</span>
+                                <span className="ml-2 text-[#0874de]">
+                                  46 Verified Reviews
+                                </span>
+                                <ShieldCheckIcon className="w-4 h-4 ml-1 text-[#0874de]" />
+                              </div>
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Heart
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">
+                                  538 Customer Favorites
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            01/07/2018
+                          </td>
+                          <td className="px-6 py-4 border-b text-[#0874de] border-[#00000010] border-r-1">
+                            Police Report Filed
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            <div>{ownershipHistory1.policeReportFiled ? 'Attempted Robbery' : 'Clean History'}</div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              Source{" "}
+                              <span className="text-green-600">
+                                Arlington Police Department
+                              </span>
+                            </div>
+                            <div className="mt-2">
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Star
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">3.8</span>
+                                <span className="ml-2 text-[#0874de]">
+                                  46 Verified Reviews
+                                </span>
+                                <ShieldCheckIcon className="w-4 h-4 ml-1 text-[#0874de]" />
+                              </div>
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Heart
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">
+                                  538 Customer Favorites
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            05/16/2019
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Modifications/Improvements
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            <div>{ownershipHistory1.modifications[1]}</div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              Source{" "}
+                              <span className="text-green-600">
+                                Home Inspection Report
+                              </span>
+                            </div>
+                            <div className="mt-2">
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Star
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">3.8</span>
+                                <span className="ml-2 text-[#0874de]">
+                                  46 Verified Reviews
+                                </span>
+                                <ShieldCheckIcon className="w-4 h-4 ml-1 text-[#0874de]" />
+                              </div>
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Heart
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">
+                                  538 Customer Favorites
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            09/26/2020
+                          </td>
+                          <td className="px-6 py-4 border-b text-[#0874de] border-[#00000010] border-r-1">
+                            Fire Report Filed
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            <div>{ownershipHistory1.fireReportFiled ? 'Minor Fire' : 'Clean History'}</div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              Source{" "}
+                              <span className="text-green-600">
+                                Arlington Fire Department
+                              </span>
+                            </div>
+                            <div className="mt-2">
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Star
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">3.8</span>
+                                <span className="ml-2 text-[#0874de]">
+                                  46 Verified Reviews
+                                </span>
+                                <ShieldCheckIcon className="w-4 h-4 ml-1 text-[#0874de]" />
+                              </div>
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Heart
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">
+                                  538 Customer Favorites
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            09/26/2021
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            Issues Reported
+                          </td>
+                          <td className="px-6 py-4 border-b border-[#00000010] border-r-1">
+                            <div>{ownershipHistory1.issuesReported[0]}</div>
+                            <div className="text-sm text-gray-500 mt-2">
+                              Source{" "}
+                              <span className="text-green-600">
+                                County Property Records
+                              </span>
+                            </div>
+                            <div className="mt-2">
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Star
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">3.8</span>
+                                <span className="ml-2 text-[#0874de]">
+                                  46 Verified Reviews
+                                </span>
+                                <ShieldCheckIcon className="w-4 h-4 ml-1 text-[#0874de]" />
+                              </div>
+                              <div className="flex items-center text-sm text-gray-500">
+                                <Heart
+                                  className="text-[#0874de] w-[16px] h-[16px]"
+                                  fill="#0874de"
+                                />
+                                <span className="ml-1">
+                                  538 Customer Favorites
+                                </span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="px-6 py-4 border-[#00000010] border-r-1">
+                            09/26/2023
+                          </td>
+                          <td className="px-6 py-4 border-[#00000010] border-r-1">
+                            Listed for Sale
+                          </td>
+                          <td className="px-6 py-4 border-[#00000010] border-r-1">
+                            <div>{ownershipHistory1.reasonForSale}</div>
                           </td>
                         </tr>
                       </tbody>
@@ -3238,9 +3175,26 @@ export default function Aggregation() {
                     </div>
                   </div>
                 </div>
-
+                {/* Transit Scores */}
                 <div className=" mx-auto  overflow-scroll">
-                  <h1 className="text-2xl font-bold mb-6">Transit Scores</h1>
+                  <div className="text-2xl flex justify-center md:justify-start items-center mb-6 gap-2">
+                  <h1 className="font-bold">Transit Scores</h1>
+                  <Dialog>
+              <DialogTrigger>
+                <FcIdea className="mt-[-2px] hover:cursor-pointer text-[25px]" />
+              </DialogTrigger>
+              <DialogContent className="bg-prop-ai bg-no-repeat bg-cover w-[800px]">
+                <DialogHeader>
+                  <DialogTitle className="text-[#0874de] text-[30px] font-bold text-center underline flex gap-4 justify-center items-center">
+                    <p>PropAI Insights</p>{" "}
+                  </DialogTitle>
+                  <DialogDescription className="text-[18px] text-gray-600">
+                    {transitScoresMsg}
+                  </DialogDescription>
+                </DialogHeader>
+              </DialogContent>
+                 </Dialog>
+                  </div>
                   <div className="flex md:justify-evenly md:gap-20 mb-8">
                     <div className="flex flex-col items-center justify-center">
                       <CircularProgress
@@ -3250,7 +3204,7 @@ export default function Aggregation() {
                           track: "stroke-[#d9d9d919]",
                           value: "text-[48px] font-bold text-black",
                         }}
-                        value={70}
+                        value={transitScores.walkScore}
                         strokeWidth={4}
                         showValueLabel={true}
                       />
@@ -3266,7 +3220,7 @@ export default function Aggregation() {
                           track: "stroke-[#d9d9d919]",
                           value: "text-[48px] font-bold text-black",
                         }}
-                        value={70}
+                        value={transitScores.transitScore}
                         strokeWidth={4}
                         showValueLabel={true}
                       />
@@ -3282,7 +3236,7 @@ export default function Aggregation() {
                           track: "stroke-[#d9d9d919]",
                           value: "text-[48px] font-bold text-black",
                         }}
-                        value={70}
+                        value={transitScores.bikeScore}
                         strokeWidth={4}
                         showValueLabel={true}
                       />
