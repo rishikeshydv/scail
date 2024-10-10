@@ -1,5 +1,6 @@
-import { USDollar } from "@/lib/price";
+"use client";
 
+import { USDollar } from "@/lib/price";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -7,6 +8,7 @@ import BedroomIcon from "@/assets/icons/hotel-bed.svg";
 import DirectionIcon from "@/assets/icons/direction.svg";
 import CloudIcon from "@/assets/icons/cloud.svg";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 interface PropertyCardProps {
   name: string;
@@ -30,6 +32,7 @@ export const PropertyCard = ({
   area,
 }: PropertyCardProps) => {
   const badgeColor = isNew ? "#0874DE" : "#FFA800";
+  const router = useRouter();
   return (
 <div className="rounded-2xl h-[550px] w-[400px] bg-gray-100 flex flex-col">
   <div className="flex-[0.5] bg-green-700 relative rounded-t-2xl overflow-hidden">
@@ -69,7 +72,7 @@ export const PropertyCard = ({
     </div>
 
     <div className="flex items-center justify-between pt-8">
-      <Button className="bg-[#0874de] rounded-[50px]">
+      <Button className="bg-[#0874de] rounded-[50px]"  onClick={()=>router.push("/new-homes/details/uuidv3")}>
         View Details&nbsp;<MoveRight width={15} />
       </Button>
       <div className="text-xl font-semibold">{USDollar.format(price)}</div>

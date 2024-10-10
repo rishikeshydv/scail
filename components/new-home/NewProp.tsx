@@ -1,7 +1,9 @@
+"use client";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation";
 
 interface NewPropProps {
   image:string,
@@ -15,6 +17,7 @@ interface NewPropProps {
   carports:number
 }
 export default function NewProp({image,title,description,price,beds,baths,area,floors,carports}:NewPropProps) {
+  const router = useRouter();
   return (
       <Card className="w-[400px] bg-[#f5f5f5] shadow-none border-none">
         <CardHeader className="flex justify-between items-center overflow-hidden">
@@ -57,7 +60,7 @@ export default function NewProp({image,title,description,price,beds,baths,area,f
         </CardContent>
         <CardFooter className="flex justify-between gap-4 md:gap-0 items-center">
           <span className="text-[25px] font-bold">${price}</span>
-          <Button variant="default" className="ml-auto bg-[#0874DE] rounded-[50px]">
+          <Button variant="default" className="ml-auto bg-[#0874DE] rounded-[50px]" onClick={()=>router.push("/new-homes/details/uuidv3")}>
             VIEW DETAILS
           </Button>
         </CardFooter>

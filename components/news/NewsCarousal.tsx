@@ -4,8 +4,8 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useState, useEffect, useCallback } from "react";
 import News from './News';
 
-
 export default function NewsCarousal() {
+
   const [emblaRef, embla] = useEmblaCarousel({
     align: "start",
     loop: false, // No loop to easily manage sets of 3 reviews

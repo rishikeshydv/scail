@@ -29,12 +29,12 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { IoIosClose } from "react-icons/io";
-
+import { FileText } from 'lucide-react';
+import { useRouter } from "next/navigation";
 interface LocationData {
   lat: number;
   lng: number;
 }
-
 export default function Details() {
   const chartData = [
     { month: "January", desktop: 186 },
@@ -51,6 +51,7 @@ export default function Details() {
     },
   } satisfies ChartConfig;
   const [currentImage, setCurrentImage] = useState("/images/new-prop-img.jpeg");
+  const router = useRouter();
   
   //maps configuration
   const address = "123 Main St, Arlington, TX";
@@ -425,6 +426,14 @@ export default function Details() {
                       fill="white"
                     />
                   </svg>
+                </Button>
+                <Button
+                  variant="default"
+                  className="bg-black text-white rounded-[50px]"
+                  onClick={()=>router.push("/payment")}
+                >
+                  Buy Reports&nbsp;
+                  <FileText className="w-[16px] h-[16px]"/>
                 </Button>
               </div>
               {/* Mobile Screens */}
@@ -962,6 +971,14 @@ export default function Details() {
                   />
                 </svg>
               </Button>
+              <Button
+                  variant="default"
+                  className="bg-black text-white rounded-[50px]"
+                  onClick={()=>router.push("/payment")}
+                >
+                  Buy Reports&nbsp;
+                  <FileText className="w-[16px] h-[16px]"/>
+                </Button>
             </div>
             {/* large screens */}
             <div className="bg-prop-ai bg-no-repeat bg-cover py-6 rounded-[16px]">

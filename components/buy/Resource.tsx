@@ -18,7 +18,7 @@ const Resource:React.FC<ResourceProps> =  ({image,header,content, variant = 'pri
         <div className='p-6'>
         <p className='mb-2 text-xl font-bold'>{header}</p>
         <p className='mb-2 text-md tracking-wide'>{content}</p>
-        <Link href={"/help"}><Button className='bg-[#0874DE] rounded-[50px] my-5' >Read More <ChevronRight/></Button></Link>
+        <Link href={"/project/on-progress"}><Button className='bg-[#0874DE] rounded-[50px] my-5' >Read More <ChevronRight/></Button></Link>
         
         </div>
 

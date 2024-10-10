@@ -1,11 +1,7 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/ERffZSlmeVE
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+"use client";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-
+import { useRouter } from 'next/navigation';
 interface NewsProps {
   image:string
   title:string
@@ -16,6 +12,7 @@ interface NewsProps {
   writerImage:string
 }
 export default function News({image,title,content,readTime,date,writer,writerImage}:NewsProps) {
+  const router = useRouter();
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="flex items-center justify-center w-full max-w-7xl">
@@ -51,7 +48,7 @@ export default function News({image,title,content,readTime,date,writer,writerIma
               <span className="mx-2">/</span>
               <span className="text-md font-semibold text-black">{date}</span>
             </div>
-            <Button className="mt-auto rounded-[50px] bg-[#0874de]">
+            <Button className="mt-auto rounded-[50px] bg-[#0874de]" onClick={()=>router.push("/project/on-progress")}>
               READ MORE <ArrowRightIcon className="ml-2 w-4 h-4" />
             </Button>
           </div>
