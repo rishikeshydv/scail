@@ -1,9 +1,5 @@
 import { Navbar } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
 import React from "react"
 import {
     Avatar,

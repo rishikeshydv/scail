@@ -9,10 +9,13 @@ import { GrLinkedinOption } from "react-icons/gr";
 import { CiYoutube } from "react-icons/ci";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+
 export const Footer = () => {
   const [email, setEmail] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [textColor, setTextColor] = useState("text-red-400");
+  const router = useRouter();
   return (
     <div className="min-h-[40vh] w-[100vw] overflow-clip bg-[#0F0F0F] text-white">
       <div className="w-full flex items-start justify-start font-semibold text-[50px] py-10 px-10 md:px-20">
@@ -24,9 +27,9 @@ export const Footer = () => {
   <Link href={"/about-us"} className="text-center py-2 hover:bg-custom-gradient">About Us</Link>
   <Link href={"/policies"} className="text-center py-2 hover:bg-custom-gradient">Privacy Policy</Link>
   <Link href={"/policies"} className="text-center py-2 hover:bg-custom-gradient">Terms & Conditions</Link>
-  <Link href={"/payment"} className="text-center py-2 hover:bg-custom-gradient">Payment Policy</Link>
+  <Link href={"/contact"} className="text-center py-2 hover:bg-custom-gradient">Contact Us</Link>
   <Link href={"/auth/login"} className="text-center py-2 hover:bg-custom-gradient">Login & Register</Link>
-  <Link href={"/payment"} className="text-center py-2 hover:bg-custom-gradient">Secure Payment</Link>
+  <Link href={"/payment"} className="text-center py-2 hover:bg-custom-gradient">Need Help?</Link>
 </div>
 
 
@@ -85,56 +88,57 @@ export const Footer = () => {
         <div className="flex-[0.5] flex flex-wrap items-center justify-between xl:justify-around gap-4 mx-6 lg:mx-20 md:ml-10">
           <div className="flex flex-col gap-y-3">
             <div className="font-semibold text-[24px]">Products</div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              Used House For Sale
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/new-homes")}>
+              New Properties
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              House Value
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/pre-owned")}>
+              Pre-Owned Properties
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              House Reports
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/reports")}>
+              Property Reports
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              Sell My House
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/aggregation/123")}>
+              Data Aggregation
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-             Dealer Support
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/contractors")}>
+             Contractors Support
             </div>
           </div>
           <div className="flex flex-col gap-y-3">
             <div className="font-semibold text-[24px]">Resources</div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              Used House For Sale
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
+            Tax Assessments
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              House Value
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
+            Real Estate Investment
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              House Reports
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
+              Property Guides
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              Sell My House
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
+             AI Estimators
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-             Dealer Support
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
+            Mortgages
             </div>
           </div>
           <div className="flex flex-col gap-y-3">
             <div className="font-semibold text-[24px]">Learn More</div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              Used House For Sale
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/contact")}>
+              Contact Us
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              House Value
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/help")}>
+              Need Help?
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              House Reports
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/blog")}>
+              Blog
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-              Sell My House
+            {/* Needs Propfax Analytics Dev */}
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/")}>
+              Propfax Analytics
             </div>
-            <div className="font-medium text-[18px] text-[#808080]">
-             Dealer Support
+            <div className="font-medium text-[18px] text-[#808080] hover:cursor-pointer" onClick={()=>router.push("/contact")}>
+              FAQs
             </div>
           </div>
 
