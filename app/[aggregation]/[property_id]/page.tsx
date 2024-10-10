@@ -108,36 +108,28 @@ export default function Aggregation() {
       address: "123 Main St",
       city: "Arlington",
       state: "TX",
-      zip: "76001",
-      soldPrice: 300000,
-      soldDate: "03/15/2021",
-      bedrooms: 3,
-      bathrooms: 2,
-      livingArea: "1,500",
+      zip: "76010",
+      lat: 32.705002,
+      lng: -97.122780,
     },
     {
       address: "456 Elm St",
       city: "Arlington",
       state: "TX",
-      zip: "76002",
-      soldPrice: 350000,
-      soldDate: "03/15/2021",
-      bedrooms: 4,
-      bathrooms: 3,
-      livingArea: "2,000",
+      zip: "76010",
+      lat: 32.705002,
+      lng: -97.122780,
     },
     {
       address: "789 Oak St",
       city: "Arlington",
       state: "TX",
-      zip: "76003",
-      soldPrice: 400000,
-      soldDate: "03/15/2021",
-      bedrooms: 5,
-      bathrooms: 4,
-      livingArea: "2,500",
+      zip: "76010",
+      lat: 32.705002,
+      lng: -97.122780,
     },
   ];
+  
 
   //info on different sections
   //property history section
@@ -405,9 +397,8 @@ export default function Aggregation() {
 
         //we can add more markers for nearby places
         nearbySoldProperties.forEach((property) => {
-          const location = `${property.address}, ${property.city}, ${property.state}, ${property.zip}`;
           const marker = new google.maps.Marker({
-            position: location,
+            position: { lat: property.lat, lng: property.lng },
             map: mapNearby,
           });
         });
