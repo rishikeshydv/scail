@@ -1,17 +1,13 @@
 "use client";
-import { Avatar, Badge, Input } from "antd";
+import { Avatar, Badge} from "antd";
 import {
-  MoveRight,
-  Search,
   LogIn,
-  MapPinHouse,
   User,
   Globe,
   MenuIcon,
 } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import ProfaxLogo from "@/assets/logo/profax-logo.png";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { auth } from "@/firebase/config";
@@ -26,13 +22,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
-import { FaAngleRight } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
 } from "@nextui-org/dropdown";
 interface NavbarProps {
@@ -47,7 +41,11 @@ export const Navbar = ({ className }: NavbarProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   useEffect(() => {
     if (user && user.email) {
-      setLoggedIn(true);
+    setLoggedIn(true);
+    // console.log(user.email)
+    }
+    else{
+      console.log("no user")
     }
   }, [user]);
 
@@ -160,16 +158,22 @@ export const Navbar = ({ className }: NavbarProps) => {
             <div className="flex w-full items-center justify-center gap-x-5  flex-[0.2]">
               <Badge dot color="green">
                 <Avatar
+                
                   icon={<User />}
                   style={{ backgroundColor: "#f56a00" }}
-                  size={"large"}
+                  size={40}
                 />
               </Badge>
-              <Link href={"/auth"}>
-                <Button className="font-semibold" onClick={logout}>
-                  <LogIn width={20} />
+                <Button className="font-semibold hover:cursor-pointer bg-[#0874de] rounded-full p-3" onClick={()=>{
+                  logout();
+                  router.push("/")
+                }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 15H6V20H18V4H6V9H4V3C4 2.44772 4.44772 2 5 2H19C19.5523 2 20 2.44772 20 3V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V15ZM10 11V8L15 12L10 16V13H2V11H10Z" fill="white"/>
+</svg>
+
                 </Button>
-              </Link>
+
             </div>
           ) : (
             <div className="flex flex-[0.5] lg:flex-[0.3] justify-end">
