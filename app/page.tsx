@@ -151,7 +151,10 @@ export default function Home() {
                 adddress="1261 Sampson street senver"
                 price={800000}
                 isNew={false}
-              />
+                beds={4}
+                baths={3}
+                area={2500}
+/>
             </li>
             <li>
               <PropertyCard
@@ -160,6 +163,9 @@ export default function Home() {
                 adddress="50 Park Avenue, Manhattan"
                 price={1250000}
                 isNew={true}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>
             <li>
@@ -169,6 +175,9 @@ export default function Home() {
                 adddress="78 Pine Ridge Road, Burlington"
                 price={450000}
                 isNew={true}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>{" "}
             <li>
@@ -178,6 +187,9 @@ export default function Home() {
                 adddress="235 Ocean View Drive, Malibu"
                 price={3200000}
                 isNew={true}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>
           </ul>
@@ -193,6 +205,9 @@ export default function Home() {
                 adddress="345 Elm Street, Austin"
                 price={600000}
                 isNew={false}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>
             <li>
@@ -202,6 +217,9 @@ export default function Home() {
                 adddress="101 Biscayne Blvd, Miami"
                 price={2100000}
                 isNew={true}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>
             <li>
@@ -211,6 +229,9 @@ export default function Home() {
                 adddress="897 River Bend Road, Aspen"
                 price={900000}                
                 isNew={true}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>{" "}
             <li>
@@ -219,8 +240,10 @@ export default function Home() {
                 name="Modern Condo in Seattle"
                 adddress="789 Pine Street, Downtown Seattle"
                 price={700000}
-                
                 isNew={true}
+                beds={4}
+                baths={3}
+                area={2500}
               />
             </li>
           </ul>

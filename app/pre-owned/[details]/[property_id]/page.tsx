@@ -52,6 +52,7 @@ export default function Details() {
   } satisfies ChartConfig;
   const [currentImage, setCurrentImage] = useState("/images/new-prop-img.jpeg");
   
+  //maps configuration
   const address = "123 Main St, Arlington, TX";
   const lnglat = useRef<LocationData>({ lat: 32.705002, lng: -97.122780 });
   const googlemap = useRef<HTMLDivElement>();
@@ -102,6 +103,12 @@ export default function Details() {
       const map = new google.maps.Map(googlemap.current as HTMLDivElement, {
         zoom: 6,
         center: lnglat.current,
+      });
+
+      //add marker 
+      const marker = new google.maps.Marker({
+        position: lnglat.current,
+        map: map,
       });
 
       map_.current = map;
@@ -1422,9 +1429,9 @@ export default function Details() {
               </div>
             </div>
             <div className="flex flex-wrap gap-10 justify-center mt-10">
-        <NewProp image="/images/house-carousal-1.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
-        <NewProp image="/images/house-carousal-2.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
-        <NewProp image="/images/house-carousal-3.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
+        <NewProp image="/images/house-carousal-1.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"  beds={4} baths={2} area={1500} carports={2} floors={2}/>
+        <NewProp image="/images/house-carousal-2.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"  beds={4} baths={2} area={1500} carports={2} floors={2}/>
+        <NewProp image="/images/house-carousal-3.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"  beds={4} baths={2} area={1500} carports={2} floors={2}/>
             </div>
           </section>
         </div>

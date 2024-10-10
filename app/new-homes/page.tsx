@@ -247,9 +247,9 @@ const Buy = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-10 mx-10 justify-center mt-10 md:mt-20">
-        <NewProp image="/images/house-carousal-1.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
-        <NewProp image="/images/house-carousal-2.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
-        <NewProp image="/images/house-carousal-3.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000"/>
+        <NewProp image="/images/house-carousal-1.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000" beds={4} baths={2} area={1500} carports={2} floors={2}/>
+        <NewProp image="/images/house-carousal-2.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000" beds={4} baths={2} area={1500} carports={2} floors={2}/>
+        <NewProp image="/images/house-carousal-3.png" title="Luxury villa in Texas" description="Houses recommended by our partners that have been curated to become....." price="8,50,000" beds={4} baths={2} area={1500} carports={2} floors={2}/>
         </div>
       </section>
 

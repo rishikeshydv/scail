@@ -143,19 +143,19 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-y-3">
-            <div className="font-medium text-[18px] rounded-lg bg-[#0874DE] p-2">
+            <div className="font-medium text-[18px] rounded-lg bg-[#0874DE] p-2 hover:cursor-pointer" onClick={()=>router.push("/")}>
              <FaFacebookF className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2 hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
               <FaInstagram className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2 hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
               <FaXTwitter className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2 hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
               <GrLinkedinOption className="text-[#ffffff]"/>
             </div>
-            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2">
+            <div className="font-medium text-[18px] text-[#ffffff] rounded-lg bg-[#0874DE] p-2 hover:cursor-pointer" onClick={()=>router.push("/project/on-progress")}>
               <CiYoutube className="text-[#ffffff]"/>
             </div>
           </div>

@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/Rv9uQXz5ZOn
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
@@ -13,8 +8,13 @@ interface NewPropProps {
   title:string,
   description:string,
   price:string
+  beds:number,
+  baths:number,
+  area:number,
+  floors:number
+  carports:number
 }
-export default function NewProp({image,title,description,price}:NewPropProps) {
+export default function NewProp({image,title,description,price,beds,baths,area,floors,carports}:NewPropProps) {
   return (
       <Card className="w-[400px] bg-[#f5f5f5] shadow-none border-none">
         <CardHeader className="flex justify-between items-center overflow-hidden">
@@ -35,23 +35,23 @@ export default function NewProp({image,title,description,price}:NewPropProps) {
           <div className="grid grid-cols-3 gap-2 mt-4">
             <Badge variant="default" className="flex items-center gap-1 bg-white text-black md:px-4 py-2 rounded-lg">
               <BedIcon className="w-4 h-4 text-[#0874DE] hidden md:flex" />
-              Bedrooms
+              {beds}&nbsp;Bedrooms
             </Badge>
             <Badge variant="default" className="flex items-center gap-1 bg-white text-black md:px-4 py-2 rounded-lg">
               <CarIcon className="w-4 h-4 text-[#0874DE] hidden md:flex" />
-              1 Carport
+              {carports}&nbsp;Carport
             </Badge>
             <Badge variant="default" className="flex items-center gap-1 bg-white text-black md:px-2 py-2 rounded-lg">
               <HomeIcon className="w-4 h-4 text-[#0874DE] hidden md:flex" />
-              Living Area
+              {area}&nbsp;Area
             </Badge>
             <Badge variant="default" className="flex items-center gap-1 bg-white text-black md:px-4 py-2 rounded-lg">
               <BathIcon className="w-4 h-4 text-[#0874DE] hidden md:flex" />
-              Bathrooms
+              {baths}&nbsp;Bathrooms
             </Badge>
             <Badge variant="default" className="flex items-center gap-1 bg-white text-black md:px-4 py-2 rounded-lg">
               <BuildingIcon className="w-4 h-4 text-[#0874DE] hidden md:flex" />
-              2 Floors
+              {floors}&nbsp;Floors
             </Badge>
           </div>
         </CardContent>

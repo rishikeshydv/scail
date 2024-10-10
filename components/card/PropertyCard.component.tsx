@@ -14,6 +14,9 @@ interface PropertyCardProps {
   price: number;
   isNew: boolean;
   image: string;
+  beds: number;
+  baths: number;
+  area: number;
 }
 
 export const PropertyCard = ({
@@ -22,6 +25,9 @@ export const PropertyCard = ({
   adddress,
   price,
   isNew,
+  beds,
+  baths,
+  area,
 }: PropertyCardProps) => {
   const badgeColor = isNew ? "#0874DE" : "#FFA800";
   return (
@@ -50,15 +56,15 @@ export const PropertyCard = ({
     <div className="flex justify-between gap-3 pt-5">
       <div className="flex flex-col items-center justify-center bg-white rounded-lg p-3 w-full">
         <Image height={30} width={30} src={BedroomIcon} alt="Bedroom icon" />
-        <div className="font-semibold text-sm">Bedrooms</div>
+        <div className="font-semibold text-sm mt-1">{beds}&nbsp;Bedrooms</div>
       </div>
       <div className="flex flex-col items-center justify-center bg-white rounded-lg p-3 w-full">
         <Image height={30} width={30} src={CloudIcon} alt="Bathroom icon" />
-        <div className="font-semibold text-sm">Bathrooms</div>
+        <div className="font-semibold text-sm mt-1">{baths}&nbsp;Bathrooms</div>
       </div>
       <div className="flex flex-col items-center justify-center bg-white rounded-lg p-3 w-full">
         <Image height={30} width={30} src={DirectionIcon} alt="Living area icon" />
-        <div className="font-semibold text-sm">Living Area</div>
+        <div className="font-semibold text-sm mt-1">{area}ft. Area</div>
       </div>
     </div>
 
