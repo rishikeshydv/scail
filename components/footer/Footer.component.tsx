@@ -21,7 +21,7 @@ export const Footer = () => {
       {/* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(8, 116, 222, 0.15) 100%); */}
 
       <div className="w-full grid grid-cols-2 border-t border-b border-[#FFFFFF26] font-semibold text-lg text-white md:grid-cols-6">
-  <Link href={"/contact"} className="text-center py-2 hover:bg-custom-gradient">About Us</Link>
+  <Link href={"/about-us"} className="text-center py-2 hover:bg-custom-gradient">About Us</Link>
   <Link href={"/policies"} className="text-center py-2 hover:bg-custom-gradient">Privacy Policy</Link>
   <Link href={"/policies"} className="text-center py-2 hover:bg-custom-gradient">Terms & Conditions</Link>
   <Link href={"/payment"} className="text-center py-2 hover:bg-custom-gradient">Payment Policy</Link>
