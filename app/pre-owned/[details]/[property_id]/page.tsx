@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/chart";
 import NewProp from "@/components/new-home/NewProp";
 import { FaAlignRight } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaChartLine } from "react-icons/fa";
 import {
   Drawer,
@@ -29,6 +29,12 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import { IoIosClose } from "react-icons/io";
+
+interface LocationData {
+  lat: number;
+  lng: number;
+}
+
 export default function Details() {
   const chartData = [
     { month: "January", desktop: 186 },
@@ -45,6 +51,75 @@ export default function Details() {
     },
   } satisfies ChartConfig;
   const [currentImage, setCurrentImage] = useState("/images/new-prop-img.jpeg");
+  
+  const address = "123 Main St, Arlington, TX";
+  const lnglat = useRef<LocationData>({ lat: 32.705002, lng: -97.122780 });
+  const googlemap = useRef<HTMLDivElement>();
+  const map_ = useRef<google.maps.Map>();
+
+  useEffect(() => {
+    const geocodeAddress = async (address: any): Promise<LocationData> => {
+      const myGeocoder = new google.maps.Geocoder();
+      return new Promise<LocationData>((resolve, reject) => {
+        myGeocoder.geocode({ address }, (results, status) => {
+          if (status === "OK" && results) {
+            const destinationLocation = {
+              lat: results[0].geometry.location.lat(),
+              lng: results[0].geometry.location.lng(),
+            };
+            resolve(destinationLocation);
+          } else {
+            reject(new Error("Geocode request failed."));
+          }
+        });
+      });
+    };
+
+    const convertAddress = async () => {
+      if (address) {
+        try {
+          const location = await geocodeAddress(address);
+          lnglat.current = { lat: location.lat, lng: location.lng };
+        } catch (error) {
+          console.error("Error updating destination marker:", error);
+        }
+      }
+    };
+
+    convertAddress(); // Call function to update the destination marker when the address changes
+  }, [address]);
+
+
+  useEffect(() => {
+
+    const initializeMap = () => {
+      if (!google.maps.Map){
+        return; 
+      }
+
+      if(!googlemap.current) return;
+
+      const map = new google.maps.Map(googlemap.current as HTMLDivElement, {
+        zoom: 6,
+        center: lnglat.current,
+      });
+
+      map_.current = map;
+
+    };
+    if (!window.google) {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = `https://maps.googleapis.com/maps/api/js?v=3.57&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      script.addEventListener("load", initializeMap); 
+      document.body.appendChild(script);
+    } else {
+        initializeMap(); // If Google Maps is already loaded
+    }
+  }, [lnglat.current]);
+
   return (
     <main>
       <section className="h-[10vh] xl:h-[12vh] 2xl:h-[8vh] min-w-[100vw] overflow-hidden bg-black">
@@ -136,7 +211,7 @@ export default function Details() {
             </div>
             {/* Mobile Screens */}
             <div className="md:hidden flex flex-col space-y-3 md:w-1/2 md:sticky md:top-0">
-              <h1 className="text-[40px] font-bold mt-[-30px] md:mt-0 text-center">Luxury villa in Texas</h1>
+              <h1 className="text-[40px] font-bold mt-[-30px] md:mt-0 text-center">{address}</h1>
               <div className="text-[30px] font-bold text-[#0874de] text-center">
                 $6,89,000
               </div>
@@ -371,21 +446,16 @@ export default function Details() {
                 <h2 className="text-[30px] md:text-[40px] font-bold">Suggested Properties</h2>
                 <h3 className="text-[25px] font-semibold">Local Information</h3>
                 <div className="relative w-full bg-gray-200">
-                  <img
-                    src="/images/map-placeholder.png"
-                    alt="Map"
-                    className="rounded-[10px] h-[400px] w-[894px] object-cover aspect-auto"
-                  />
+                  <div className=" h-[400px] w-full object-cover aspect-auto rounded-[10px]" ref={googlemap as React.RefObject<HTMLDivElement>}>
+                  </div>
+{/* 
                   <div className="absolute bottom-4 px-2 grid grid-cols-3 md:grid-cols-6 items-center gap-2">
-                    <Button variant="outline" className="bg-[#0874de]">
-                      Map
-                    </Button>
+                    <Button variant="outline" className="bg-[#0874de]">Map</Button>
                     <Button variant="outline">Schools</Button>
                     <Button variant="outline">Shop & Eat</Button>
                     <Button variant="outline">Map</Button>
                     <Button variant="outline">Schools</Button>
-                    <Button variant="outline">Shop & Eat</Button>
-                  </div>
+                  </div> */}
                 </div>
                 <p className="text-base text-[18px] text-[#808080]">
                   Spacious and Bright Townhouse 1 Bedroom, 1 LOFT/Den, 1 FULL
@@ -677,7 +747,7 @@ export default function Details() {
           </div>
           {/* Large Screens */}
           <div className="hidden md:flex flex-col space-y-3 md:w-1/2 md:sticky md:top-20">
-            <h1 className="text-[40px] font-bold">Luxury villa in Texas</h1>
+            <h1 className="text-[40px] font-bold">{address}</h1>
             <div className="text-[30px] font-bold text-[#0874de]">
               $6,89,000
             </div>

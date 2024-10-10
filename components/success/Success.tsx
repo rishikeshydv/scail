@@ -1,6 +1,4 @@
 "use client"
-
-import { useState, useEffect } from "react"
 import { CheckCircle, X } from "lucide-react"
 import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
@@ -25,12 +23,6 @@ export default function Success({ message, isOpen,setIsOpen }: SuccessProps) {
             Close
           </Button>
         </div>
-        {/* <button
-          onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-        >
-          <X className="w-6 h-6" />
-        </button> */}
       </DialogContent>
     </Dialog>
   )

@@ -29,7 +29,6 @@ import {
 } from "@/components/ui/select";
 import HumanImage from "@/assets/images/jumping-man.jpeg";
 import GirlSmilingImage from "@/assets/images/girl-smiling.png";
-import GoogleMapReact from "google-map-react";
 import React from "react";
 import { useRouter } from "next/navigation";
 interface ReviewCardProps {
@@ -223,13 +222,13 @@ const HomeCenterPage = () => {
               </div>
             </div>
             <div className="flex-[1] lg:flex-[0.5] mx-10 lg:mr-10 my-10 border border-gray-400 overflow-hidden rounded-3xl flex items-center justify-center">
-              <GoogleMapReact
+              {/* <GoogleMapReact
                 bootstrapURLKeys={{
                   key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY!,
                 }}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
-              />
+              /> */}
             </div>
           </section>
         </div>

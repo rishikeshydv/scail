@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import logo from "@/public/logo/propfax-logo.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -28,7 +28,13 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { map } from "zod";
+import { title } from "process";
 
+interface LocationData {
+  lat: number;
+  lng: number;
+}
 export default function Aggregation() {
   //chart info
   const data = [
@@ -92,6 +98,46 @@ export default function Aggregation() {
     const [ownershipHistoryMsg2, setOwnershipHistoryMsg2] =
     React.useState<string>("");
   const [transitScoresMsg,setTransitScoresMsg] = React.useState<string>("");
+
+  //storing nearby school names from the google maps api
+  const [schoolNames, setSchoolNames] = React.useState<string[]>([]);
+
+  //list of nearby sold properties, make sure the properties are around the  arlington tx
+  const nearbySoldProperties = [
+    {
+      address: "123 Main St",
+      city: "Arlington",
+      state: "TX",
+      zip: "76001",
+      soldPrice: 300000,
+      soldDate: "03/15/2021",
+      bedrooms: 3,
+      bathrooms: 2,
+      livingArea: "1,500",
+    },
+    {
+      address: "456 Elm St",
+      city: "Arlington",
+      state: "TX",
+      zip: "76002",
+      soldPrice: 350000,
+      soldDate: "03/15/2021",
+      bedrooms: 4,
+      bathrooms: 3,
+      livingArea: "2,000",
+    },
+    {
+      address: "789 Oak St",
+      city: "Arlington",
+      state: "TX",
+      zip: "76003",
+      soldPrice: 400000,
+      soldDate: "03/15/2021",
+      bedrooms: 5,
+      bathrooms: 4,
+      livingArea: "2,500",
+    },
+  ];
 
   //info on different sections
   //property history section
@@ -274,6 +320,142 @@ export default function Aggregation() {
     };
     fetchTransitData();
   }, []);
+
+    //maps configuration
+    const address = "634 Summit Ave, Westfield, NJ, 07090";
+    const lnglat = useRef<LocationData>({ lat: 32.705002, lng: -97.122780 });
+    const googlemap = useRef<HTMLDivElement>();
+    const googlemapNearby = useRef<HTMLDivElement>();
+    const map_ = useRef<google.maps.Map>();
+  
+    useEffect(() => {
+      const geocodeAddress = async (address: any): Promise<LocationData> => {
+        const myGeocoder = new google.maps.Geocoder();
+        return new Promise<LocationData>((resolve, reject) => {
+          myGeocoder.geocode({ address }, (results, status) => {
+            if (status === "OK" && results) {
+              const destinationLocation = {
+                lat: results[0].geometry.location.lat(),
+                lng: results[0].geometry.location.lng(),
+              };
+              resolve(destinationLocation);
+            } else {
+              reject(new Error("Geocode request failed."));
+            }
+          });
+        });
+      };
+  
+      const convertAddress = async () => {
+        if (address) {
+          try {
+            const location = await geocodeAddress(address);
+            lnglat.current = { lat: location.lat, lng: location.lng };
+          } catch (error) {
+            console.error("Error updating destination marker:", error);
+          }
+        }
+      };
+  
+      convertAddress(); // Call function to update the destination marker when the address changes
+    }, [address]);
+  
+  
+    useEffect(() => {
+  
+      const initializeMap = async () => {
+        if (!google.maps.Map){
+          return; 
+        }
+  
+        if(!googlemap.current) return;
+  
+        //first map for the schools
+        const map = new google.maps.Map(googlemap.current as HTMLDivElement, {
+          zoom: 15,
+          center: lnglat.current,
+        });
+      //add marker 
+      const marker1 = new google.maps.Marker({
+        position: lnglat.current,
+        map: map,
+      });
+
+      map_.current = map;
+
+      var request = {
+        location: lnglat.current,
+        radius: 500,
+        type: 'school'
+      };
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch(request, callback);
+
+
+        //second map for the nearby places
+        const mapNearby = new google.maps.Map(googlemapNearby.current as HTMLDivElement, {
+          zoom: 6,
+          center: lnglat.current,
+        });
+
+        const marker2 = new google.maps.Marker({
+          position: lnglat.current,
+          map: mapNearby,
+        });
+
+        //we can add more markers for nearby places
+        nearbySoldProperties.forEach((property) => {
+          const location = `${property.address}, ${property.city}, ${property.state}, ${property.zip}`;
+          const marker = new google.maps.Marker({
+            position: location,
+            map: mapNearby,
+          });
+        });
+  
+      
+      };
+
+      function callback(results: google.maps.places.PlaceResult[], status: google.maps.places.PlacesServiceStatus) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(place);
+            //storing the school names
+            setSchoolNames((prev) => [...prev, place.name]);
+          }
+        }
+      }
+
+      function createMarker(place: google.maps.places.PlaceResult) {
+        var marker = new google.maps.Marker({
+          map: map_.current,
+          position: place?.geometry?.location,
+          label: {
+            text: place.name
+          }
+        });
+  
+        google.maps.event.addListener(marker, 'click', function() {
+          console.log(place);
+        });
+      }
+
+
+
+
+      if (!window.google) {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = `https://maps.googleapis.com/maps/api/js?v=3.57&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&libraries=places`;
+        script.async = true;
+        script.defer = true;
+        script.addEventListener("load", initializeMap); 
+        document.body.appendChild(script);
+      } else {
+          initializeMap(); // If Google Maps is already loaded
+      }
+    }, [lnglat.current]);
+    
 
   return (
     <main className="overflow-x-hidden">
@@ -3097,7 +3279,7 @@ export default function Aggregation() {
                                 href="#"
                                 className="block mt-2 text-[#0874de] font-semibold text-[20px]"
                               >
-                                H. Ashton Marsh Elementary School
+                              {schoolNames[3]}
                               </a>
                               <p className=" text-[18px]">800 IRELAN AVENUE</p>
                               <div className="flex justify-between">
@@ -3149,7 +3331,7 @@ export default function Aggregation() {
                                 href="#"
                                 className="block mt-2 text-[#0874de] font-semibold text-[20px]"
                               >
-                                H. Ashton Marsh Elementary School
+                               {schoolNames[1]}
                               </a>
                               <p className=" text-[18px]">800 IRELAN AVENUE</p>
                               <div className="flex justify-between">
@@ -3165,12 +3347,11 @@ export default function Aggregation() {
                           </div>
                         </div>
                       </div>
+                      {/* Map Section */}
                       <div className="flex-[0.5]">
-                        <img
-                          src="/images/map-placeholder.png"
-                          alt="Map"
-                          className="rounded-lg w-[653px] min-h-[455px] object-cover"
-                        />
+                        <div className="min-h-[455px] w-full rounded-lg object-cover" ref={googlemap as React.RefObject<HTMLDivElement>}>
+
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3501,14 +3682,17 @@ export default function Aggregation() {
               <div className=" mx-auto">
                 <h2 className="text-2xl font-bold mb-4">Nearby Properties</h2>
                 <div className="w-full h-64 bg-gray-200 rounded-lg mb-6">
-                  <img
+                  {/* <img
                     src="/images/map-placeholder.png"
                     alt="Map"
                     className="w-full h-full object-cover rounded-lg"
                     width="1024"
                     height="256"
                     style={{ aspectRatio: "1024/256", objectFit: "cover" }}
-                  />
+                  /> */}
+                  <div className="w-full h-full object-cover rounded-lg" style={{ aspectRatio: "1024/256", objectFit: "cover" }} ref={googlemapNearby as React.RefObject<HTMLDivElement>}>
+
+                  </div>
                 </div>
                 <div className="overflow-x-scroll border p-4 rounded-xl">
                   <table className="min-w-full bg-white text-[16px]">
