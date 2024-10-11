@@ -25,7 +25,7 @@ export default function Filters() {
         <Filter size={18} className='text-[#0874DE]'/>
         <h1 className='text-[20px]'>Filters</h1>
         </div>
-        <Button className='text-[#0874DE] text-[18px] font-semibold border-none bg-transparent'>Clear All</Button>
+        <Button className='text-[#0874DE] text-[18px] font-semibold border-none bg-transparent hover:bg-gray-100'>Clear All</Button>
         </div>
         {/* Location */}
         <Accordion type="single" collapsible className="w-full border-b-1">
@@ -38,15 +38,15 @@ export default function Filters() {
         <AccordionContent className='flex justify-evenly items-center gap-2 px-4'>
         <Select>
   <SelectTrigger className="w-[120px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="5 Miles" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="5m">5 Miles</SelectItem>
+    <SelectItem value="10m">10 Miles</SelectItem>
+    <SelectItem value="15m">15 Miles</SelectItem>
   </SelectContent>
 </Select>
-<span className='text-[18px]'>miles of</span>
+<span className='text-[16px]'>from</span>
 <Input
       variant="bordered"
       placeholder="ZIP Code"
@@ -70,12 +70,12 @@ export default function Filters() {
         <AccordionContent className='flex justify-evenly items-center gap-2 px-4'>
         <Select>
   <SelectTrigger className="w-full text-[#808080]">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="Choose a Color" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="gray">Gray</SelectItem>
+    <SelectItem value="aqua">Aqua</SelectItem>
+    <SelectItem value="blonde">Blonde</SelectItem>
   </SelectContent>
 </Select>
         </AccordionContent>
@@ -92,12 +92,12 @@ export default function Filters() {
         <AccordionContent className='flex justify-evenly items-center gap-2 px-4'>
         <Select>
   <SelectTrigger className="w-full text-[#808080]">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="Choose a Color" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+  <SelectItem value="red">Red</SelectItem>
+    <SelectItem value="blue">Blue</SelectItem>
+    <SelectItem value="white">White</SelectItem>
   </SelectContent>
 </Select>
         </AccordionContent>
@@ -116,12 +116,15 @@ export default function Filters() {
           <Label>Min.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="$0" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="min0">$0</SelectItem>
+    <SelectItem value="min1">$100,000</SelectItem>
+    <SelectItem value="min2">$250,000</SelectItem>
+    <SelectItem value="min3">$400,000</SelectItem>
+    <SelectItem value="min4">$600,000</SelectItem>
+    <SelectItem value="min5">$1,000,000+</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -129,12 +132,14 @@ export default function Filters() {
           <Label>Max.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="$1,000,000" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="max1">$100,000</SelectItem>
+    <SelectItem value="max2">$250,000</SelectItem>
+    <SelectItem value="max3">$400,000</SelectItem>
+    <SelectItem value="max4">$600,000</SelectItem>
+    <SelectItem value="max5">$1,000,000+</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -155,12 +160,15 @@ export default function Filters() {
           <Label>Min.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="0" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="minbed0">0</SelectItem>
+    <SelectItem value="minbed1">1</SelectItem>
+    <SelectItem value="minbed2">2</SelectItem>
+    <SelectItem value="minbed3">3</SelectItem>
+    <SelectItem value="minbed4">4</SelectItem>
+    <SelectItem value="minbed5+">5+</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -168,12 +176,58 @@ export default function Filters() {
           <Label>Max.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="5+" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="maxbed1">1</SelectItem>
+    <SelectItem value="maxbed2">2</SelectItem>
+    <SelectItem value="maxbed3">3</SelectItem>
+    <SelectItem value="maxbed4">4</SelectItem>
+    <SelectItem value="maxbed5+">5+</SelectItem>
+  </SelectContent>
+</Select>
+          </div>
+
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+        {/* Baths */}
+        <Accordion type="single" collapsible className="w-full border-b-1">
+      <AccordionItem value="item-1" className='border-none'>
+        <AccordionTrigger className='flex justify-start space-x-4 text-[20px]'>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29.3327 14.6667V26.6667H26.666V22.6667H5.33268V26.6667H2.66602V5.33337H5.33268V18.6667H15.9993V9.33337H23.9993C26.9448 9.33337 29.3327 11.7212 29.3327 14.6667ZM26.666 18.6667V14.6667C26.666 13.1939 25.4721 12 23.9993 12H18.666V18.6667H26.666ZM10.666 14.6667C11.4024 14.6667 11.9993 14.0698 11.9993 13.3334C11.9993 12.597 11.4024 12 10.666 12C9.92964 12 9.33268 12.597 9.33268 13.3334C9.33268 14.0698 9.92964 14.6667 10.666 14.6667ZM10.666 17.3334C8.45688 17.3334 6.66602 15.5426 6.66602 13.3334C6.66602 11.1242 8.45688 9.33337 10.666 9.33337C12.8751 9.33337 14.666 11.1242 14.666 13.3334C14.666 15.5426 12.8751 17.3334 10.666 17.3334Z" fill="#0874DE"/>
+</svg>
+<p className='text-left'>Baths</p></AccordionTrigger>
+<AccordionContent className='flex justify-evenly items-center gap-2 px-4'>
+          <div className='flex flex-col justify-center gap-1'>
+          <Label>Min.</Label>
+        <Select>
+  <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
+    <SelectValue placeholder="0" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="minbath0">0</SelectItem>
+    <SelectItem value="minbath1">1</SelectItem>
+    <SelectItem value="minbath2">2</SelectItem>
+    <SelectItem value="minbath3">3</SelectItem>
+    <SelectItem value="minbath4">4</SelectItem>
+    <SelectItem value="minbath5+">5+</SelectItem>
+  </SelectContent>
+</Select>
+          </div>
+          <div className='flex flex-col justify-center gap-1'>
+          <Label>Max.</Label>
+        <Select>
+  <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
+    <SelectValue placeholder="5+" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="maxbath1">1</SelectItem>
+    <SelectItem value="maxbath2">2</SelectItem>
+    <SelectItem value="maxbath3">3</SelectItem>
+    <SelectItem value="maxbath4">4</SelectItem>
+    <SelectItem value="maxbath5+">5+</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -185,8 +239,8 @@ export default function Filters() {
     <Accordion type="single" collapsible className="w-full border-b-1">
       <AccordionItem value="item-1" className='border-none'>
         <AccordionTrigger className='flex justify-start space-x-4 text-[20px]'>
-        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5 3.75H25C25.6904 3.75 26.25 4.30965 26.25 5V25C26.25 25.6904 25.6904 26.25 25 26.25H5C4.30965 26.25 3.75 25.6904 3.75 25V5C3.75 4.30965 4.30965 3.75 5 3.75ZM6.25 6.25V23.75H23.75V6.25H6.25Z" fill="#0874DE"/>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29.3327 14.6667V26.6667H26.666V22.6667H5.33268V26.6667H2.66602V5.33337H5.33268V18.6667H15.9993V9.33337H23.9993C26.9448 9.33337 29.3327 11.7212 29.3327 14.6667ZM26.666 18.6667V14.6667C26.666 13.1939 25.4721 12 23.9993 12H18.666V18.6667H26.666ZM10.666 14.6667C11.4024 14.6667 11.9993 14.0698 11.9993 13.3334C11.9993 12.597 11.4024 12 10.666 12C9.92964 12 9.33268 12.597 9.33268 13.3334C9.33268 14.0698 9.92964 14.6667 10.666 14.6667ZM10.666 17.3334C8.45688 17.3334 6.66602 15.5426 6.66602 13.3334C6.66602 11.1242 8.45688 9.33337 10.666 9.33337C12.8751 9.33337 14.666 11.1242 14.666 13.3334C14.666 15.5426 12.8751 17.3334 10.666 17.3334Z" fill="#0874DE"/>
 </svg>
 <p className='text-left'>Square Feet</p></AccordionTrigger>
 <AccordionContent className='flex justify-evenly items-center gap-2 px-4'>
@@ -194,12 +248,15 @@ export default function Filters() {
           <Label>Min.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="0" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="minsqft0">0</SelectItem>
+    <SelectItem value="minsqft1">500</SelectItem>
+    <SelectItem value="minsqft2">1000</SelectItem>
+    <SelectItem value="minsqft3">1500</SelectItem>
+    <SelectItem value="minsqft4">2000</SelectItem>
+    <SelectItem value="minsqft5+">2500+</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -207,12 +264,15 @@ export default function Filters() {
           <Label>Max.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="3000+" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="maxsqft1">500</SelectItem>
+    <SelectItem value="maxsqft2">1000</SelectItem>
+    <SelectItem value="maxsqft3">1500</SelectItem>
+    <SelectItem value="maxsqft4">2000</SelectItem>
+    <SelectItem value="maxsqft5">2500</SelectItem>
+    <SelectItem value="maxsqft6+">3000+</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -229,33 +289,17 @@ export default function Filters() {
 </svg>
 <p className='text-left'>Home Type</p></AccordionTrigger>
 <AccordionContent className='flex justify-evenly items-center gap-2 px-4'>
-          <div className='flex flex-col justify-center gap-1'>
-          <Label>Min.</Label>
         <Select>
-  <SelectTrigger className="w-[160px] text-[#808080]">
-    <SelectValue placeholder="Theme" />
+  <SelectTrigger className="w-full text-[#808080]">
+    <SelectValue placeholder="Choose a Type" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+  <SelectItem value="apartments">Apartments</SelectItem>
+    <SelectItem value="single-family">Single Family</SelectItem>
+    <SelectItem value="condos">Condos</SelectItem>
+    <SelectItem value="commercial">Commercial</SelectItem>
   </SelectContent>
 </Select>
-          </div>
-          <div className='flex flex-col justify-center gap-1'>
-          <Label>Max.</Label>
-        <Select>
-  <SelectTrigger className="w-[160px] text-[#808080]">
-    <SelectValue placeholder="Theme" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
-  </SelectContent>
-</Select>
-          </div>
-
         </AccordionContent>
       </AccordionItem>
     </Accordion>
@@ -272,12 +316,12 @@ export default function Filters() {
           <Label>Min.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="Choose a range" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="min1950">Before 1950</SelectItem>
+    <SelectItem value="min2000">Before 2000</SelectItem>
+    <SelectItem value="min2050">Before 2050</SelectItem>
   </SelectContent>
 </Select>
           </div>
@@ -285,12 +329,11 @@ export default function Filters() {
           <Label>Max.</Label>
         <Select>
   <SelectTrigger className="w-[160px] text-[#808080] shadow-md`wz nm">
-    <SelectValue placeholder="Theme" />
+    <SelectValue placeholder="Choose a range" />
   </SelectTrigger>
   <SelectContent>
-    <SelectItem value="light">Light</SelectItem>
-    <SelectItem value="dark">Dark</SelectItem>
-    <SelectItem value="system">System</SelectItem>
+    <SelectItem value="max2000">Before 2000</SelectItem>
+    <SelectItem value="max2050">Before 2050</SelectItem>
   </SelectContent>
 </Select>
           </div>
