@@ -9,17 +9,23 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 interface FilterBarProps {
   className?: string;
+  newHomes: boolean;
+  setNewHomes: React.Dispatch<React.SetStateAction<boolean>>;
   searched: boolean;
   setSearched: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const HomeFilterBar = ({
   className,
+  newHomes,
+  setNewHomes,
   searched,
   setSearched,
 }: FilterBarProps) => {
+  const router = useRouter();
   return (
     <div className={`${className}`}>
   <div
@@ -136,13 +142,20 @@ export const HomeFilterBar = ({
     </div>
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Search Type</div>
-        <Select>
+        <Select onValueChange={(e)=>{
+          if (e === "new") {
+            setNewHomes(true);
+          }
+          if (e === "pre") {
+            setNewHomes(false);
+          }
+        }}>
           <SelectTrigger className="w-full md:w-[180px] rounded-3xl">
             <SelectValue placeholder="Search Type" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="light">New Homes</SelectItem>
-            <SelectItem value="dark">Pre-Homes</SelectItem>
+            <SelectItem value="new">New Homes</SelectItem>
+            <SelectItem value="pre">Pre-Homes</SelectItem>
           </SelectContent>
         </Select>
     </div>
@@ -150,7 +163,14 @@ export const HomeFilterBar = ({
       <div></div>
       <div className="py-2">
         <Button
-          onClick={() => setSearched(true)}
+          onClick={() => {
+            if (newHomes) {
+              router.push("/new-homes");
+            }
+            if (!newHomes) {
+              router.push("/pre-owned");
+            }
+          }}
           className="w-full md:w-auto bg-[#0874DE] rounded-3xl text-[14px]"
         >
           Search&nbsp;<Search width={15} />

@@ -25,13 +25,13 @@ import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
 } from "@nextui-org/dropdown";
 export default function Home() {
   const router = useRouter();
   const [searched, setSearched] = React.useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const [newHomes, setNewHomes] = React.useState(true);
   return (
     <main>
       <section className="h-[135vh] md:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
@@ -116,6 +116,8 @@ export default function Home() {
       </section>
       <HomeFilterBar
         className="mx-8 md:mx-20 mt-[-100px]"
+        newHomes={newHomes}
+        setNewHomes={setNewHomes}
         searched={searched}
         setSearched={setSearched}
       />

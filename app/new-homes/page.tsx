@@ -154,6 +154,9 @@ const Buy = () => {
       adddress="1261 Sampson street senver"
       price={800000}
       isNew={false}
+      beds={4}
+      baths={3}
+      area={2500}
     />
     <SearchResults
       image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -161,6 +164,9 @@ const Buy = () => {
       adddress="1261 Sampson street senver"
       price={800000}
       isNew={false}
+      beds={4}
+      baths={3}
+      area={2500}
     />
     <SearchResults
       image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -168,6 +174,9 @@ const Buy = () => {
       adddress="1261 Sampson street senver"
       price={800000}
       isNew={false}
+      beds={4}
+      baths={3}
+      area={2500}
     />
     <SearchResults
       image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -175,6 +184,9 @@ const Buy = () => {
       adddress="1261 Sampson street senver"
       price={800000}
       isNew={false}
+      beds={4}
+      baths={3}
+      area={2500}
     />
     <SearchResults
       image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -182,6 +194,9 @@ const Buy = () => {
       adddress="1261 Sampson street senver"
       price={800000}
       isNew={false}
+      beds={4}
+      baths={3}
+      area={2500}
     />
     <SearchResults
       image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -189,6 +204,9 @@ const Buy = () => {
       adddress="1261 Sampson street senver"
       price={800000}
       isNew={false}
+      beds={4}
+      baths={3}
+      area={2500}
     />
   </div>
   <div className="flex flex-col md:flex-row gap-6 md:gap-0 items-center md:justify-evenly w-full max-w-4xl mx-auto p-4">

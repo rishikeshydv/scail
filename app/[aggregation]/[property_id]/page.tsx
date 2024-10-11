@@ -475,6 +475,15 @@ export default function Aggregation() {
       });
     };
 
+    //handle emails
+    const handleEmail = () => {
+      const subject = encodeURIComponent('Check out this page!');
+      const body = encodeURIComponent(`Here's the link to the page: ${window.location.href}`);
+  
+      // Open the user's default email client
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    };
+
   return (
     <div className="overflow-x-hidden">
       <section className="bg-[#0f0f0f] md:h-[100px] md:relative w-full flex flex-col py-[20px] md:py-0 gap-[21px] md:gap-0 md:flex-row items-center">
@@ -485,7 +494,7 @@ export default function Aggregation() {
           <Image src={logo} alt="Logo" className="w-[146px] h[38px]" />
         </Link>
         <div className="md:absolute md:right-10 flex space-x-4">
-          <Button className="px-[30px] py-[18px] bg-[#0874de] text-[16px] rounded-[50px]">
+          <Button className="px-[30px] py-[18px] bg-[#0874de] text-[16px] rounded-[50px]" onClick={handleEmail}>
             <svg
               width="25"
               height="24"
