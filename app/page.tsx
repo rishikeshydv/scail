@@ -34,86 +34,92 @@ export default function Home() {
   const [newHomes, setNewHomes] = React.useState(true);
   return (
     <main>
-      <section className="h-[135vh] md:h-[85vh] min-w-[100vw] overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
-        <Navbar />
-        <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0">
-          <div className="flex-[0.7] lg:flex-[0.40] flex flex-col items-center xl:items-start mt-4 md:mt-16">
-            <div className="font-semibold text-6xl xl:text-[100px] flex justify-end">
-              <span className="text-[#0874DE]">+</span>
-              <span>&nbsp;Property</span>
-            </div>
-            <div className="font-semibold text-6xl xl:text-[100px]  flex justify-end">
-              <span>Reports</span>
-            </div>
-            <div className="font-normal text-[24px] text-[#808080] mt-4">
-              Discover homes for sale in your city and get detailed property
-              reports
-            </div>
-            <div className="flex md:flex-row flex-col gap-y-5 md:gap-y-0 md:gap-x-4 py-6">
-              <Button
-                type="primary"
-                shape="round"
-                size="large"
-                icon={<FileText width={20} />}
-                iconPosition="end"
-                className="p-6 text-lg"
-                onClick={() => router.push("/reports")}
-              >
-                Home Report
-              </Button>
+      <section className="min-h-[135vh] md:min-h-[85vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
+  <Navbar />
+  <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0 mt-0 md:mt-36 xl:mt-0">
+    {/* Left Section - Text and Buttons */}
+    <div className="flex-[0.7] lg:flex-[0.4] flex flex-col items-center xl:items-start mt-4 md:mt-16">
+      <h1 className="font-semibold text-6xl xl:text-[100px] flex justify-end">
+        <span className="text-[#0874DE]">+</span>&nbsp;Property
+      </h1>
+      <h1 className="font-semibold text-6xl xl:text-[100px] flex justify-end">
+        Reports
+      </h1>
+      <p className="font-normal text-[24px] text-[#808080] mt-4">
+        Discover homes for sale in your city and get detailed property reports
+      </p>
 
-              <Dropdown
-                isOpen={isDropdownOpen}
-                className="bg-[#262626] text-[#777777]"
-                onMouseLeave={() => setIsDropdownOpen(false)}
-              >
-                <DropdownTrigger className="" onMouseEnter={() => setIsDropdownOpen(true)}>
-                  <Button
-                shape="round"
-                size="large"
-                icon={<MapPinHouse width={20} />}
-                iconPosition="end"
-                className="bg-[#262626] border-none text-white p-6 text-lg"
-              >
-                Buy a Home
-              </Button>
-                </DropdownTrigger>
-                <DropdownMenu aria-label="Static Actions">
-                  <DropdownItem
-                    key="pre-owned"
-                    className="text-[16px]"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      router.push("/pre-owned");
-                    }}
-                  >
-                    Pre-Owned Homes
-                  </DropdownItem>
-                  <DropdownItem
-                    key="new-homes"
-                    className="text-[16px]"
-                    onClick={() => {
-                      setIsDropdownOpen(false);
-                      router.push("/new-homes");
-                    }}
-                  >
-                    New Homes
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown> 
+      {/* Buttons and Dropdown */}
+      <div className="flex flex-col md:flex-row gap-y-5 md:gap-y-0 md:gap-x-4 py-6">
+        <Button
+          type="primary"
+          shape="round"
+          size="large"
+          icon={<FileText width={20} />}
+          iconPosition="end"
+          className="p-6 text-lg"
+          onClick={() => router.push("/reports")}
+        >
+          Home Report
+        </Button>
 
-            </div>
-          </div>
+        {/* Dropdown Menu */}
+        <Dropdown
+          isOpen={isDropdownOpen}
+          className="bg-[#262626] text-[#777777]"
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <DropdownTrigger
+            onMouseEnter={() => setIsDropdownOpen(true)}
+          >
+            <Button
+              shape="round"
+              size="large"
+              icon={<MapPinHouse width={20} />}
+              iconPosition="end"
+              className="bg-[#262626] border-none text-white p-6 text-lg"
+            >
+              Buy a Home
+            </Button>
+          </DropdownTrigger>
 
-          <div className="flex-[0.3] lg:flex-[0.52] xl:ml-[150px] flex items-center pt-10 md:pt-0">
-            <Image
-              src={HeroHomeImage}
-              alt="Hero home image"
-              className=" h-[300px] xl:h-[70%] object-contain overflow-hidden"
-            />
-          </div>
-        </div>
-      </section>
+          <DropdownMenu aria-label="Static Actions">
+            <DropdownItem
+              key="pre-owned"
+              className="text-[16px]"
+              onClick={() => {
+                setIsDropdownOpen(false);
+                router.push("/pre-owned");
+              }}
+            >
+              Pre-Owned Homes
+            </DropdownItem>
+            <DropdownItem
+              key="new-homes"
+              className="text-[16px]"
+              onClick={() => {
+                setIsDropdownOpen(false);
+                router.push("/new-homes");
+              }}
+            >
+              New Homes
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </div>
+    </div>
+
+    {/* Right Section - Image */}
+    <div className="flex-[0.3] lg:flex-[0.52] xl:ml-[150px] flex justify-center items-center pt-10 md:pt-0">
+      <Image
+        src={HeroHomeImage}
+        alt="Hero home image"
+        className="h-[300px] xl:h-[70%] object-contain overflow-hidden"
+      />
+    </div>
+  </div>
+</section>
+
       <HomeFilterBar
         className="mx-8 md:mx-20 mt-[-100px]"
         newHomes={newHomes}
@@ -121,7 +127,7 @@ export default function Home() {
         searched={searched}
         setSearched={setSearched}
       />
-      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-28 pb-32">
+      <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-28 pb-32">
         <div className="flex justify-between md:mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
           <div className="text-[24px] md:text-[50px] font-normal flex">
             <span>Properties for &nbsp;</span>
@@ -251,9 +257,10 @@ export default function Home() {
           </ul>
         </div>
       </section>
-      <section className="min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-20 lg:gap-x-14 lg:flex-row flex-col gap-y-5">
+
+      <section className="xl:min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-20 lg:gap-x-14 xl:flex-row flex-col justify-center items-center gap-y-5">
         <div className="w-full lg:flex-[0.6]">
-          <Image src={HeroProject100Image} alt="hero image" className="md:h-[650px] md:w-[800px]"/>
+          <Image src={HeroProject100Image} alt="hero image" className="xl:h-[650px] xl:w-[800px]"/>
         </div>
 
         <div className="lg:flex-[0.6] lg:px-4 text-left mt-6 md:mt-0">
@@ -305,7 +312,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
+      <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
         <div className="flex justify-between mx-4 md:mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-3xl md:text-[50px] font-normal flex">
             <span>Insightful &nbsp;</span>

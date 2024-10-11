@@ -32,10 +32,7 @@ export const FilterBar = ({
     <span>Find Property</span>
   </div>
   <div
-    style={{
-      borderRadius: "0px 0px 20px 20px",
-    }}
-    className="bg-white shadow-md flex flex-col md:flex-row items-center justify-between border min-h-[120px] px-[20px] md:px-[35px] py-[10px] md:py-[8px] flex-wrap gap-y-5"
+    className="bg-white md:rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] shadow-md flex flex-col md:flex-row items-center justify-between border min-h-[120px] px-[20px] md:px-[35px] py-[10px] md:py-[8px] flex-wrap gap-y-5"
   >
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Price</div>

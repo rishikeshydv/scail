@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${urbanist.className} overflow-x-hidden`}>
+      <body className={`${urbanist.className} overflow-x-hidden`} suppressHydrationWarning={true}>
         <AntdRegistry>
           {children}
           <Footer />
