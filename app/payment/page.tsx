@@ -27,10 +27,6 @@ const PaymentPage = () => {
               </span>
             </div>
 
-            {/* <div className="w-full flex">
-              <Image src={NewHomeBadge} alt="badge" />
-            </div> */}
-
             <div className="flex flex-col gap-3 text-center md:text-left">
               <span className="font-semibold text-xl md:text-3xl lg:text-[40px] text-[#0874DE]">
                 A Homes history affects its value.
@@ -51,8 +47,7 @@ const PaymentPage = () => {
       </section>
 
       <section className="min-h-[100vh] flex flex-col lg:flex-row">
-        <div className="lg:w-[50vh] min-h-[80vh] border-r border-[#00000026] flex flex-col px-4 mt-28 gap-y-4 pb-10">
-    
+        <div className="md:w-[50vh] md:min-h-[80vh] border-r border-[#00000026] flex flex-col px-4 mt-28 gap-y-4 pb-10">
           <ReviewCarousal />
           <ReviewCarousalMobile />
         </div>
@@ -95,7 +90,7 @@ const ReportPlanList = () => {
   return (
     <Radio.Group onChange={onChange} value={value} className="flex flex-wrap">
       <Radio value={1} className="flex flex-col gap-y-4">
-        <div className="h-[110px] w-[330px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="h-[110px] w-[320px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
           <div className="text-[16px] font-bold">1 Home Report</div>
           <div className="font-bold text-[24px] tracking-tight text-[#0874DE]">
             <div>{USDollar.format(2500000)}</div>
@@ -106,7 +101,7 @@ const ReportPlanList = () => {
         </div>
       </Radio>
       <Radio value={2} className="flex flex-col gap-y-4">
-        <div className="h-[110px] w-[330px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="h-[110px] w-[320px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
           <div className="text-[16px] font-bold">2 Homes Report</div>
           <div className="font-bold text-[24px] tracking-tight text-[#0874DE]">
             <div>{USDollar.format(4800000)}</div>
@@ -117,7 +112,7 @@ const ReportPlanList = () => {
         </div>
       </Radio>
       <Radio value={3} className="flex flex-col gap-y-4">
-        <div className="h-[110px] w-[330px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="h-[110px] w-[320px] rounded-[30px] bg-[#f5f5f5] flex flex-col items-center justify-center relative overflow-hidden">
           <div className="text-[16px] font-bold">3 Homes Report</div>
           <div className="font-bold text-[24px] tracking-tight text-[#0874DE]">
             <div>{USDollar.format(6500000)}</div>

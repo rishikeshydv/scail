@@ -28,9 +28,8 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { map } from "zod";
-import { title } from "process";
-
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 interface LocationData {
   lat: number;
   lng: number;
@@ -448,8 +447,36 @@ export default function Aggregation() {
     }, [lnglat.current]);
     
 
+    //function to download the PDF
+    const pdfRef = useRef<HTMLDivElement>(null);
+    const downloadPDF = () => {
+      const input = pdfRef.current;
+  
+      html2canvas(input as HTMLElement, { scale: 2 }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF("p", "mm", "a4");
+        const imgWidth = 210;
+        const pageHeight = 297;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        let heightLeft = imgHeight;
+        let position = 0;
+  
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+  
+        while (heightLeft >= 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+  
+        pdf.save("property-history.pdf");
+      });
+    };
+
   return (
-    <main className="overflow-x-hidden">
+    <div className="overflow-x-hidden">
       <section className="bg-[#0f0f0f] md:h-[100px] md:relative w-full flex flex-col py-[20px] md:py-0 gap-[21px] md:gap-0 md:flex-row items-center">
         <Link
           href={"/"}
@@ -473,7 +500,7 @@ export default function Aggregation() {
             </svg>
             &nbsp; EMAIL
           </Button>
-          <Button className="px-[30px] py-[18px] bg-[#0874de] text-[16px] rounded-[50px]">
+          <Button className="px-[30px] py-[18px] bg-[#0874de] text-[16px] rounded-[50px]" onClick={downloadPDF}>
             <svg
               width="25"
               height="24"
@@ -536,7 +563,7 @@ export default function Aggregation() {
           </div>
         </div>
         {/* Right Section */}
-        <div className="w-full border-l-1 md:h-screen md:overflow-y-auto">
+        <div className="w-full border-l-1 md:h-screen md:overflow-y-auto" ref={pdfRef}>
           {/* Header */}
           <div className="h-[80px] flex items-center justify-center gap-2 md:justify-start bg-[#0874de] py-[20px] text-[30px] text-white font-semibold md:px-[30px]">
             Property History&nbsp;
@@ -3760,7 +3787,7 @@ export default function Aggregation() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

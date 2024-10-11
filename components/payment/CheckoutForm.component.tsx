@@ -5,24 +5,22 @@ import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import type { FormProps, RadioChangeEvent } from "antd";
 import { Checkbox, Radio } from "antd";
-import { MoveRight } from "lucide-react";
 import CreditCardsImage from "@/assets/images/credit-cards.png";
 import PaypalImage from "@/assets/images/paypal.png";
 import AmzonPayImage from "@/assets/images/amazon-pay.png";
-import { USDollar } from "@/lib/price";
 import Image from "next/image";
 import { Urbanist } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 
 type FieldType = {
   name?: string;
@@ -40,8 +38,8 @@ const formSchema = z.object({
   address: z.string().min(1),
   zip: z.string().min(1),
   email: z.string().min(1),
-  month: z.number().min(1),
-  year: z.number().min(1),
+  month: z.string().min(1), 
+  year: z.string().min(1),
   security_code: z.string().min(1),
 });
 
@@ -56,13 +54,14 @@ const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
 };
 
 export const CheckoutForm = () => {
+  const router = useRouter();
   //define the form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
   //function for submit handler
   function onSubmit(data: z.infer<typeof formSchema>) {
-    console.log(data);
+    router.push("/aggregation/uuidv4");
   }
   return (
     <div className="p-10">
@@ -131,9 +130,6 @@ export const CheckoutForm = () => {
               <FormControl>
                 <Input placeholder="Enter your Email Address..." {...field} className="rounded-2xl text-md"/>
               </FormControl>
-              {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
@@ -153,9 +149,6 @@ export const CheckoutForm = () => {
                       {...field}
                     />
                   </FormControl>
-                  {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -173,9 +166,6 @@ export const CheckoutForm = () => {
                       {...field}
                     />
                   </FormControl>
-                  {/* <FormDescription>
-                This is your public display name.
-              </FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}
