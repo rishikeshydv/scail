@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Scail",
+  title: "Propfax",
   description: "Revolutionizing Real Estate",
   icons:{
     icon:"/logo/propfax.ico",
