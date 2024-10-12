@@ -10,6 +10,9 @@ const urbanist = Urbanist({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Scail",
   description: "Revolutionizing Real Estate",
+  icons:{
+    icon:"/logo/propfax.ico",
+  }
 };
 
 export default function RootLayout({
