@@ -526,11 +526,11 @@ export default function Aggregation() {
           </Button>
         </div>
       </section>
-      <section className="flex flex-col md:flex-row md:h-screen">
+      <section className="flex flex-col xl:flex-row xl:h-screen">
         {/* Left Section */}
-        <div className=" p-[10px] md:p-[30px] md:min-w-[440px] md:sticky md:top-0">
+        <div className="flex justify-center items-center md:hidden xl:flex xl:justify-start xl:items-start py-[10px] xl:p-[30px] xl:min-w-[440px] xl:sticky md:top-0">
           <div className="border-1">
-            <div className="p-[20px] md:p-[60px] ">
+            <div className="p-[40px] xl:p-[60px] ">
               <div className="border-b-1">
                 <p className="text-[18px]">This report is provided by:</p>
                 <p className="text-[25px] font-semibold text-[#0874de]">

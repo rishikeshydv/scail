@@ -44,9 +44,8 @@ const Reports = () => {
     <main>
       <section className="max-h-[145vh] xl:max-h-[75vh] w-[100vw] overflow-clip bg-reports-hero bg-no-repeat bg-cover sm:bg-black-grid-with-gradient">
         <Navbar />
-
-        <div className="text-white mx-10 md:mx-32  flex flex-col xl:flex-row gap-x-10 ">
-          <div className="flex-[0.5] flex flex-col gap-y-6 justify-center py-20 md:py-0">
+        <div className="text-white mx-10 md:mx-32 flex flex-col xl:flex-row gap-x-10 py-0 md:py-20 xl:py-0">
+          <div className="xl:flex-[0.5] flex flex-col gap-y-6 justify-center py-20 md:py-0">
             <div className="text-5xl xl:text-[50px] font-normal flex xl:flex-row flex-col">
               <span>Get Your&nbsp;</span>
               <span
@@ -73,14 +72,7 @@ const Reports = () => {
               </div>
             </div>
           </div>
-          <div className="flex-[0.5] sm:hidden flex justify-center items-center mb-20">
-            <Image
-              src={ReportsHeroMobile}
-              alt="reports hero home image"
-              style={{ width: "500px", height: "300px" }}
-            />
-          </div>
-          <div className="flex-[0.5] hidden md:flex justify-center items-center">
+          <div className="flex-[0.5] hidden xl:flex justify-center items-center">
             <Image
               src={ReportsHeroImage}
               alt="reports hero home image"
@@ -327,7 +319,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="md:min-h-[70vh]  w-[100vw] overflow-clip mt-20 md:mt-40 mb-10">
+      <section className="xl:min-h-[70vh] w-[100vw] overflow-clip mt-20 md:mt-40 mb-10">
         <div className="w-full mb-10">
           <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>Frequently&nbsp;</span>
@@ -387,14 +379,14 @@ Your Property's History"
       </section>
 
       <section className="w-[100vw] overflow-clip">
-        <div className="flex  items-center justify-center min-h-[75vh] bg-blue-grid bg-no-repeat bg-cover md:px-20 py-20">
-          <div className="flex flex-col items-center gap-10 md:gap-20 lg:flex-row">
+        <div className="flex items-center justify-center min-h-[75vh] bg-blue-grid bg-no-repeat bg-cover md:px-20 py-20">
+          <div className="flex flex-col items-center gap-10 md:gap-20 xl:flex-row">
             <Image
               src={FooterHero}
               alt="Modern House"
               className="w-full ml-4 sm:ml-0 max-w-md md:max-w-xl 2xl:max-w-3xl"
             />
-            <div className="flex flex-col justify-center items-center md:items-start md:mt-0 md:ml-8 md:text-left">
+            <div className="flex flex-col justify-center items-center xl:items-start xl:mt-0 xl:ml-8 xl:text-left">
               <div className="text-2xl md:text-4xl lg:text-[48px] font-normal flex text-white">
                 <span>Selling a&nbsp;</span>
                 <span
@@ -408,7 +400,7 @@ Your Property's History"
                   Used Property
                 </span>
               </div>
-              <p className="mt-4 text-gray-100 text-center md:text-left md:pr-24 px-4 md:px-0 text-[20px]">
+              <p className="mt-4 text-gray-100 text-center xl:text-left xl:pr-24 px-4 xl:px-0 text-[20px]">
                 Build trust with potential buyers by providing them with a
                 Property History Report today.
               </p>
