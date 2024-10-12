@@ -2,18 +2,36 @@
 import ChatUI from "@/components/chat/ChatUI";
 import { Navbar } from "@/components/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 export default function ContactPage() {
   const [chatOpen, setChatOpen] = useState(false);
+  const { toast } = useToast()
+  const router = useRouter()
+  //state variables for the form
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [concern, setConcern] = useState("");
+
+  const handleClick = () => {
+
+    if(firstName === "" || lastName === "" || email === "" || confirmEmail === "" || concern === ""){
+      return toast({
+        title: "Error!",
+        description: "Please fill out all the required fields",
+      })
+    }
+    toast({
+      title: "Congratulations!",
+      description: "Your request has been submitted successfully",
+    })
+  }
+
   return (
     <main className="relative">
       <section className="min-h-[20vh] min-w-[100vw] overflow-hidden bg-black-grid">
@@ -54,7 +72,9 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Enter your first name"
-                  className="rounded-[50px] px-[18px] py-[20px] text-md"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md required"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
 
@@ -64,7 +84,9 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Enter your last name"
-                  className="rounded-[50px] px-[18px] py-[20px] text-md"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md required"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
               <div className="flex flex-col gap-y-3">
@@ -73,7 +95,9 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Enter your email address"
-                  className="rounded-[50px] px-[18px] py-[20px] text-md"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md required"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
 
@@ -83,23 +107,29 @@ export default function ContactPage() {
                 </div>
                 <Input
                   placeholder="Confirm email address"
-                  className="rounded-[50px] px-[18px] py-[20px] text-md"
+                  className="rounded-[50px] px-[18px] py-[20px] text-md required"
+                  value={confirmEmail}
+                  onChange={(e) => setConfirmEmail(e.target.value)}
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-y-3">
               <div className="font-semibold text-[18px]">
-                Choose a Concern<sup>*</sup>{" "}
+                Add a Concern<sup>*</sup>{" "}
               </div>
               <Input
                 placeholder="Enter your concern"
-                className="rounded-[50px] px-[18px] py-[20px] text-md"
+                className="rounded-[50px] px-[18px] py-[20px] text-md required"
+                value={concern}
+                onChange={(e) => setConcern(e.target.value)}
               />
             </div>
 
             <div className="py-8 flex justify-center md:justify-start items-center">
-              <Button className="px-[18px] py-[15px] w-[180px] h-[60px] text-lg rounded-3xl bg-[#0874DE]">
+              <Button className="px-[18px] py-[15px] w-[180px] h-[60px] text-lg rounded-3xl bg-[#0874DE]" 
+                    onClick={handleClick}
+              >
                 SUBMIT
               </Button>
             </div>
@@ -115,7 +145,7 @@ export default function ContactPage() {
                   Let us know the details and we’ll look into it and get back to
                   you
                 </div>
-                <Button className="px-[18px] py-[15px] min-w-[180px] h-[60px] bg-[#0874DE] rounded-3xl text-md">
+                <Button className="px-[18px] py-[15px] min-w-[180px] h-[60px] bg-[#0874DE] rounded-3xl text-md" onClick={()=>router.push("/project/on-progress")}>
                   REPORT A CONCERN
                 </Button>
               </div>
@@ -126,7 +156,7 @@ export default function ContactPage() {
                 <div className="font-normal text-[18px] text-[#808080]">
                   Send us a message and read our response at your convenience
                 </div>
-                <Button className="px-[18px] py-[15px] min-w-[180px] h-[60px] bg-[#0874DE] rounded-3xl text-md">
+                <Button className="px-[18px] py-[15px] min-w-[180px] h-[60px] bg-[#0874DE] rounded-3xl text-md" onClick={()=>router.push("/project/on-progress")}>
                   CONTACT US
                 </Button>
               </div>

@@ -40,6 +40,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
           <PropertyCard
             image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -47,6 +50,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
           <PropertyCard
             image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -54,6 +60,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
           <PropertyCard
             image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -61,6 +70,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
           <PropertyCard
             image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -68,6 +80,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
           <PropertyCard
             image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -75,6 +90,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
           <PropertyCard
             image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -82,6 +100,9 @@ export const NewHomesList = () => {
             adddress="1261 Sampson street senver"
             price={800000}
             isNew={false}
+            beds={3}
+            baths={2}
+            area={2000}
           />
         </div>
       </div>

@@ -25,7 +25,7 @@ const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-<section className="h-[90vh] md:h-[85vh] w-full overflow-hidden bg-black-grid-with-gradient">
+<section className="h-[90vh] md:h-[85vh] lg:h-[75vh] xl:h-[85vh] w-full overflow-hidden bg-black-grid-with-gradient">
   <Navbar />
   <div className="text-white flex flex-col xl:flex-row justify-evenly gap-y-10 md:gap-y-20 xl:gap-y-10 pt-10 lg:pt-14 relative">
     {/* Text Section */}
@@ -54,7 +54,7 @@ const Buy = () => {
     </div>
 
     {/* Image Section */}
-    <div className="h-[40vh] lg:h-[68vh] w-full xl:w-1/2 flex justify-center items-center">
+    <div className="h-[40vh] xl:h-[68vh] w-full xl:w-1/2 flex justify-center items-center">
       <Image
         src={PreOwnHeroImage}
         alt="Hero home image"
@@ -280,7 +280,7 @@ const Buy = () => {
       </section>
 
       <section
-        className="min-h-[90vh] w-[100vw] pt-24"
+        className="min-h-[90vh] md:min-h-[90vh] lg:min-h-[82vh] xl:min-h-[90vh] w-[100vw] pt-24"
         style={{ borderTop: "1px solid #00000026" }}
       >
         <div className="flex flex-col md:flex-row mx-20 justify-center items-center text-2xl sm:text-3xl lg:text-[50px] font-normal tracking-tight">
@@ -289,7 +289,7 @@ const Buy = () => {
             Over Pre-Homes?
           </span>
         </div>
-        <div className="px-16 lg:px-28 py-10 grid grid-cols-1 g  md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="px-16 lg:px-28 py-10 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6">
           <Points
             icon={
               <svg

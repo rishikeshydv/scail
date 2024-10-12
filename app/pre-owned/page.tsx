@@ -313,7 +313,7 @@ const Rent = () => {
         className="md:max-h-[100vh] w-[100vw] pt-24"
         style={{ borderTop: "1px solid #00000026" }}
       >
-        <div className="flex flex-col md:flex-row  justify-center items-center text-2xl lg:text-3xl lg:pb-4  xl:text-[50px] font-normal tracking-tight">
+        <div className="flex flex-col md:flex-row  justify-center items-center text-2xl md:text-3xl lg:text-4xl lg:pb-4  xl:text-[50px] font-normal tracking-tight">
           <span>Every Used Homes comes &nbsp;</span>
           <span
             className="font-bold flex flex-col w-fit"
@@ -324,12 +324,12 @@ const Rent = () => {
             with a Free Home Report
           </span>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
-          <div className="lg:pl-20">
+        <div className="grid grid-cols-1 xl:grid-cols-2 w-full">
+          <div className="flex justify-center items-center">
             {/* This is for the image */}
             <Image src={LaptopImg} alt="Hero home image" width={700} />
           </div>
-          <div className="flex flex-col items-center justify-center w-full gap-6  mr-0 ml-10 lg:mr-10 lg:ml-0 pr-24 pb-10 lg:pb-0">
+          <div className="flex flex-col items-center justify-center w-full gap-6  mr-0 ml-10 xl:mr-10 xl:ml-0 pr-24 pb-10 xl:pb-0">
             {/* This is for the text */}
             <FAQ
               logo={

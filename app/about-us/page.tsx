@@ -22,7 +22,7 @@ export default function AboutUs() {
                   About Us
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  We're on a mission to revolutionize the industry with innovative solutions and exceptional service.
+                  We&apos;re on a mission to revolutionize the industry with innovative solutions and exceptional service.
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function AboutUs() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Join Our Team</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                  We're always looking for talented individuals to join our growing team. Check out our open positions and
+                  We&apos;re always looking for talented individuals to join our growing team. Check out our open positions and
                   apply today!
                 </p>
               </div>

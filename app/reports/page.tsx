@@ -19,10 +19,11 @@ import { Button } from "@/components/ui/button";
 import ValueImage from "@/public/images/value.png";
 import React from "react";
 import BrandsCarousal from "@/components/reports/BrandsCarousal";
+import { useRouter } from "next/navigation";
 
 const Reports = () => {
   const { token } = theme.useToken();
-
+  const router = useRouter();
   const panelStyle: React.CSSProperties = {
     marginBottom: 24,
     background: "white",
@@ -65,7 +66,7 @@ const Reports = () => {
                   placeholder="Enter Address"
                   className="rounded-[50px] bg-[#262626] border-none outline-none w-full xl:w-[70%] px-[18px] py-[20px]"
                 />
-                <Button className="px-[18px] py-[15px] h-[60px] w-[100%] md:w-[30%] text-[18px] rounded-[50px] bg-[#0874DE]">
+                <Button className="px-[18px] py-[15px] h-[60px] w-[100%] md:w-[30%] text-[18px] rounded-[50px] bg-[#0874DE]" onClick={()=>router.push("/new-homes/details/123")}>
                   Get Reports&nbsp;
                   <FileText width={20} />
                 </Button>
@@ -407,6 +408,7 @@ Your Property's History"
               <Button
                 size={"lg"}
                 className="mt-8 bg-black text-white px-10 py-4 rounded-full flex items-center"
+                onClick={()=>router.push("/contact")}
               >
                 CONTACT US&nbsp;
                 <Phone

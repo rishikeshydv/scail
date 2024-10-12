@@ -26,7 +26,7 @@ export default function Component() {
       <div className="max-w-md w-full space-y-8 bg-white p-6 rounded-xl shadow-lg">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">Under Development</h1>
-          <p className="text-gray-600 mb-4">Our product is currently in the works. We're working hard to bring you something amazing!</p>
+          <p className="text-gray-600 mb-4">Our product is currently in the works. We&apos;re working hard to bring you something amazing!</p>
         </div>
 
         <div className="space-y-2">

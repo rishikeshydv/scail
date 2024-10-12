@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
                   Our Policies
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  We're committed to protecting your privacy and data.
+                  We&apos;re committed to protecting your privacy and data.
                 </p>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function PrivacyPolicyPage() {
                 <li>
                   To a buyer or other successor in the event of a merger,
                   divestiture, restructuring, reorganization, dissolution, or
-                  other sale or transfer of some or all of [Your Company Name]'s
+                  other sale or transfer of some or all of [Your Company Name]&apos;s
                   assets.
                 </li>
               </ul>
@@ -114,7 +114,7 @@ export default function PrivacyPolicyPage() {
               <p className="mb-4">
                 It is our policy to post any changes we make to our privacy
                 policy on this page. If we make material changes to how we treat
-                our users' personal information, we will notify you through a
+                our users&apos; personal information, we will notify you through a
                 notice on the website home page.
               </p>
             </ScrollArea>
@@ -159,7 +159,7 @@ export default function PrivacyPolicyPage() {
               <p className="mb-4">
                 Our Service allows You to post, link, store, share and otherwise
                 make available certain information, text, graphics, videos, or
-                other material ("Content"). You are responsible for the Content
+                other material (&apos;Content&apos;). You are responsible for the Content
                 that You post to the Service, including its legality,
                 reliability, and appropriateness.
               </p>
@@ -180,8 +180,8 @@ export default function PrivacyPolicyPage() {
                 </li>
                 <li>
                   To transmit, or procure the sending of, any advertising or
-                  promotional material, including any "junk mail", "chain
-                  letter," "spam," or any other similar solicitation.
+                  promotional material, including any &apos;junk mail&apos;, &apos;chain
+                  letter,&apos; &apos;spam,&apos; or any other similar solicitation.
                 </li>
               </ul>
               <h3 className="text-xl font-semibold mb-2">6. Termination</h3>

@@ -3,6 +3,7 @@ import { Urbanist } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Footer } from "@/components/footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${urbanist.className} overflow-x-hidden`} suppressHydrationWarning={true}>
         <AntdRegistry>
           {children}
+          <Toaster />
           <Footer />
         </AntdRegistry>
       </body>
