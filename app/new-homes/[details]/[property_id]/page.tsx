@@ -130,17 +130,17 @@ export default function Details() {
 
   return (
     <main>
-      <section className="h-[10vh] xl:h-[12vh] 2xl:h-[8vh] min-w-[100vw] overflow-hidden bg-black">
+      <section className="h-[12vh] 2xl:h-[8vh] min-w-[100vw] overflow-hidden bg-black">
         <Navbar />
       </section>
-      <section className="px-[40px] mt-6">
-        <div className="flex flex-col items-center p-4 md:flex-row md:items-start md:space-x-16">
-          <div className="flex flex-col items-center space-y-12 md:w-1/2 md:overflow-y-auto">
-            <div className="flex flex-col items-center space-y-4">
+      <section className="px-[40px] md:px-0 xl:px-[40px] mt-6">
+        <div className="flex flex-col items-center p-4 xl:flex-row xl:items-start xl:space-x-16">
+          <div className="flex flex-col items-center space-y-12 xl:w-1/2 xl:overflow-y-auto">
+            <div className="flex flex-col items-center space-y-4 md:px-10 xl:px-0">
               <img
                 src={currentImage}
                 alt="Luxury villa in Texas"
-                className="rounded-[40px]  md:h-[500px] w-[894px] object-cover aspect-auto"
+                className="rounded-[20px] md:rounded-[40px] md:h-auto md:w-[600px]  xl:h-[500px] xl:w-[894px] object-cover aspect-auto"
               />
               <div className="flex space-x-2 overflow-scroll">
                 <img
@@ -218,8 +218,8 @@ export default function Details() {
               </div>
             </div>
             {/* Mobile Screens */}
-            <div className="md:hidden flex flex-col space-y-3 md:w-1/2 md:sticky md:top-0">
-              <h1 className="text-[40px] font-bold mt-[-30px] md:mt-0 text-center">{address}</h1>
+            <div className="xl:hidden flex flex-col space-y-3 xl:w-1/2 xl:sticky xl:top-0">
+              <h1 className="text-[30px] font-bold mt-[-30px] md:mt-0 text-center">{address}</h1>
               <div className="text-[30px] font-bold text-[#0874de] text-center">
                 $6,89,000
               </div>
@@ -241,7 +241,7 @@ export default function Details() {
                   </svg>
                 </span>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 xl:gap-4">
                 <div className="flex flex-col items-center p-4 border rounded-lg">
                   <svg
                     width="35"
@@ -390,7 +390,7 @@ export default function Details() {
                   <div>40+ Amenities</div>
                 </div>
               </div>
-              <div className="flex justify-center space-x-4">
+              <div className="flex md:flex-row flex-col md:justify-center space-y-4 md:space-y-0 md:space-x-4">
                 <Button
                   variant="default"
                   className="bg-[#0874de] text-white rounded-[50px]"
@@ -457,9 +457,9 @@ export default function Details() {
               </div>
             </div>
             {/* Suggested Properties */}
-            <div className="space-y-8">
+            <div className="space-y-8 px-0 md:px-[80px] xl:px-0">
               <div className="space-y-5">
-                <h2 className="text-[30px] md:text-[40px] font-bold">Suggested Properties</h2>
+                <h2 className="text-[30px] md:text-[40px] font-bold">Property Details</h2>
                 <h3 className="text-[25px] font-semibold">Local Information</h3>
                 <div className="relative w-full bg-gray-200">
                   <div className=" h-[400px] w-full object-cover aspect-auto rounded-[10px]" ref={googlemap as React.RefObject<HTMLDivElement>}>
@@ -762,7 +762,7 @@ export default function Details() {
             </div>
           </div>
           {/* Large Screens */}
-          <div className="hidden md:flex flex-col space-y-3 md:w-1/2 md:sticky md:top-20">
+          <div className="hidden xl:flex flex-col space-y-3 xl:w-1/2 xl:sticky xl:top-20">
             <h1 className="text-[40px] font-bold">{address}</h1>
             <div className="text-[30px] font-bold text-[#0874de]">
               $6,89,000
@@ -1066,23 +1066,14 @@ export default function Details() {
 
     </DrawerFooter> */}
   </DrawerContent>
-</Drawer>
-
-
-            
-
-
-
-
-
-
+            </Drawer>
 
               </div>
             </div>
           </div>
         </div>
         <div className="space-y-8 p-4">
-          <section>
+          <section className="px-0 md:px-[80px] xl:px-0">
             <h2 className="text-[25px] font-bold mb-4">Nearby Sales</h2>
             <div className="overflow-x-auto p-[32px] border-1 rounded-[16px]">
               <table className="min-w-full bg-white rounded-[6px]">
@@ -1191,7 +1182,7 @@ export default function Details() {
               </table>
             </div>
           </section>
-          <section className="grid grid-cols-1 md:grid-cols-2 h-full gap-8">
+          <section className="grid grid-cols-1 md:grid-cols-2 h-full gap-8 px-0 md:px-[80px] xl:px-0">
             <div>
               <h2 className="text-[25px] font-bold mb-4">
                 Frequently Asked Questions
@@ -1424,8 +1415,8 @@ export default function Details() {
               </div>
             </div>
           </section>
-          <section className=" w-full py-10">
-            <div className="flex justify-between items-center lg:flex-row flex-col gap-y-5">
+          <section className="w-full py-10 px-0 md:px-[80px] xl:px-0">
+            <div className="flex justify-between items-center md:flex-row flex-col gap-y-5">
               <div className="text-2xl sm:text-3xl md:text-[50px] font-normal flex">
                 <span>Suggested&nbsp;</span>
                 <span

@@ -312,6 +312,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
       <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
         <div className="flex justify-between mx-4 md:mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-3xl md:text-[50px] font-normal flex">
