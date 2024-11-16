@@ -32,7 +32,7 @@ const Rent = () => {
       <section className="min-h-[80vh] xl:h-[85vh] 2xl:h-[65vh] min-w-[100vw] overflow-hidden bg-pre-owned-mobile md:bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
         <div className="text-white flex flex-col gap-y-6 xl:gap-y-10  xl:flex-row md:pt-14">
-          <div className="flex-[0.4] 2xl:flex-[0.4] flex flex-col md:items-center xl:justify-start xl:items-start px-10 lg:pl-36 2xl:pl-72 space-y-6 md:space-y-4 2xl:mt-20">
+          <div className="flex-[0.4] 2xl:flex-[0.4] flex flex-col md:items-center xl:justify-start xl:items-start px-10 lg:pl-36 2xl:pl-[270px] space-y-6 md:space-y-4 2xl:mt-20">
             <div className="font-light text-[20px] 2xl:text-[30px]">
               Pre Owned Homes for Sale
             </div>

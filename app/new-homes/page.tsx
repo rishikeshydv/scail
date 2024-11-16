@@ -29,7 +29,7 @@ const Buy = () => {
   <Navbar />
   <div className="text-white flex flex-col xl:flex-row justify-evenly gap-y-10 md:gap-y-20 xl:gap-y-10 pt-10 lg:pt-14 relative">
     {/* Text Section */}
-    <div className="flex flex-col md:justify-center md:items-center xl:items-start xl:justify-start gap-2 xl:pl-28 w-full xl:w-1/2 2xl:w-full md:pt-14 2xl:pt-40 2xl:pl-60">
+    <div className="flex flex-col md:justify-center md:items-center xl:items-start xl:justify-start gap-2 xl:pl-28 w-full xl:w-1/2 2xl:w-full md:pt-14 2xl:pt-40 2xl:pl-[270px]">
       {/* Breadcrumb */}
       <div className="font-light text-[16px] md:text-[20px] 2xl:text-[30px] flex justify-center md:justify-start items-center gap-3">
         <span>Home</span>
@@ -41,10 +41,10 @@ const Buy = () => {
 
       {/* Heading */}
       <div className="flex flex-row justify-center md:justify-start text-[24px] sm:text-[30px] md:text-[36px] lg:text-[48px] 2xl:text-[65px]">
-        <span className="font-normal">New Homes for</span>&nbsp;
-        <span className="flex flex-col font-bold w-fit border-b-[4px] sm:border-b-[6px] border-[#0874DE80]">
+        <span className="font-normal">New Homes Near Me</span>&nbsp;
+        {/* <span className="flex flex-col font-bold w-fit border-b-[4px] sm:border-b-[6px] border-[#0874DE80]">
           Sale Near Me.
-        </span>
+        </span> */}
       </div>
 
       {/* Subtext */}
