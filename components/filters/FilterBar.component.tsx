@@ -38,7 +38,7 @@ export const FilterBar = ({
       <div className="text-[16px] md:text-[20px] font-semibold">Price</div>
       <div>
         <Select>
-          <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[150px] 2xl:w-[300px] rounded-3xl">
             <SelectValue placeholder="Select a Price" />
           </SelectTrigger>
           <SelectContent>
@@ -54,7 +54,7 @@ export const FilterBar = ({
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Bed</div>
       <Select>
-        <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+        <SelectTrigger className="w-full md:w-[100px]  2xl:w-[180px] rounded-3xl">
           <SelectValue placeholder="0" />
         </SelectTrigger>
         <SelectContent>
@@ -70,7 +70,7 @@ export const FilterBar = ({
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Baths</div>
       <Select>
-        <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+        <SelectTrigger className="w-full md:w-[100px] 2xl:w-[180px] rounded-3xl">
           <SelectValue placeholder="1" />
         </SelectTrigger>
         <SelectContent>
@@ -87,7 +87,7 @@ export const FilterBar = ({
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Home Type</div>
       <Select>
-        <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+        <SelectTrigger className="w-full md:w-[150px] 2xl:w-[300px] rounded-3xl">
           <SelectValue placeholder="Select a Home Type" />
         </SelectTrigger>
         <SelectContent>
@@ -105,7 +105,7 @@ export const FilterBar = ({
       <div className="text-[16px] md:text-[20px] font-semibold">Square feet</div>
       <div className="flex gap-y-3 md:flex-row gap-x-5">
         <Select>
-          <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[100px] 2xl:w-[180px] rounded-3xl">
             <SelectValue placeholder="Min. Sqft" />
           </SelectTrigger>
           <SelectContent>
@@ -118,7 +118,7 @@ export const FilterBar = ({
           </SelectContent>
         </Select>
         <Select>
-          <SelectTrigger className="w-full md:w-[100px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[100px] 2xl:w-[180px] rounded-3xl">
             <SelectValue placeholder="Max. Sqft" />
           </SelectTrigger>
           <SelectContent>
@@ -135,7 +135,7 @@ export const FilterBar = ({
       <div className="text-[16px] md:text-[20px] font-semibold">Year Built</div>
       <div className="flex gap-y-3 md:flex-row gap-x-5">
         <Select>
-          <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[150px] 2xl:w-[200px] rounded-3xl">
             <SelectValue placeholder="Min. Year" />
           </SelectTrigger>
           <SelectContent>
@@ -145,7 +145,7 @@ export const FilterBar = ({
           </SelectContent>
         </Select>
         <Select>
-          <SelectTrigger className="w-full md:w-[150px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[150px] 2xl:w-[200px] rounded-3xl">
             <SelectValue placeholder="Max. Year" />
           </SelectTrigger>
           <SelectContent>

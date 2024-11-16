@@ -8,7 +8,6 @@ import Value from "@/components/reports/Value";
 import Points from "@/components/reports/Points";
 import Review from "@/components/reports/Review";
 import FooterHero from "@/public/images/footer-2.png";
-import ReportsHeroMobile from "@/public/images/house1.png";
 import {
   Accordion,
   AccordionContent,
@@ -75,10 +74,11 @@ const Reports = () => {
           </div>
           <div className="flex-[0.5] hidden xl:flex justify-center items-center">
             <Image
-              src={ReportsHeroImage}
+              src='/images/reports.png'
               alt="reports hero home image"
               className="xl:ml-36 mt-14"
-              style={{ width: "1000px", height: "450px" }}
+              height={600}
+              width={600}
             />
           </div>
         </div>
@@ -320,7 +320,7 @@ Your Property's History"
         </div>
       </section>
 
-      <section className="xl:min-h-[70vh] w-[100vw] overflow-clip mt-20 md:mt-40 mb-10">
+      <section className="xl:min-h-[70vh] 2xl:min-h-[40vh] w-[100vw] overflow-clip mt-20 md:mt-40 mb-10">
         <div className="w-full mb-10">
           <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>Frequently&nbsp;</span>

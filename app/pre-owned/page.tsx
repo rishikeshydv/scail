@@ -29,14 +29,14 @@ const Rent = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="overflow-hidden">
-      <section className="min-h-[80vh] xl:h-[85vh] min-w-[100vw] overflow-hidden bg-pre-owned-mobile md:bg-black-grid-with-gradient bg-no-repeat bg-cover">
+      <section className="min-h-[80vh] xl:h-[85vh] 2xl:h-[65vh] min-w-[100vw] overflow-hidden bg-pre-owned-mobile md:bg-black-grid-with-gradient bg-no-repeat bg-cover">
         <Navbar />
-        <div className="text-white flex flex-col gap-y-6 xl:gap-y-10  xl:flex-row  md:pt-14">
-          <div className="flex-[0.4] flex flex-col md:items-center xl:justify-start xl:items-start px-10 lg:pl-36 space-y-6 md:space-y-4">
-            <div className="font-light text-[20px]">
+        <div className="text-white flex flex-col gap-y-6 xl:gap-y-10  xl:flex-row md:pt-14">
+          <div className="flex-[0.4] 2xl:flex-[0.4] flex flex-col md:items-center xl:justify-start xl:items-start px-10 lg:pl-36 2xl:pl-72 space-y-6 md:space-y-4 2xl:mt-20">
+            <div className="font-light text-[20px] 2xl:text-[30px]">
               Pre Owned Homes for Sale
             </div>
-            <div className="flex flex-col md:flex-row md:gap-4 xl:gap-0 xl:flex-col text-6xl xl:text-[80px]">
+            <div className="flex flex-col md:flex-row md:gap-4 xl:gap-0 xl:flex-col text-6xl xl:text-[80px] 2xl:text-[100px]">
               <span className="font-normal">Buy with</span>
               <span
                 className="flex flex-col font-bold mt-[-8px] md:mt-0 xl:mt-[-8px] w-fit"
@@ -47,16 +47,16 @@ const Rent = () => {
                 confidence.
               </span>
             </div>
-            <div className="font-normal text-[#808080] text-[18px] md:text-center xl:text-start md:w-[70%] pt-5">
+            <div className="font-normal text-[#808080] text-[18px] 2xl:text-[25px] md:text-center xl:text-start md:w-[70%] pt-5">
               Everything you need to browse nearby Homes, all in one place. Used
               listings include a free homes report!
             </div>
           </div>
-          <div className="flex-0.8 xl:h-[68vh] w-full z-10 mb-40 md:mb-20 xl:mx-0 flex justify-center items-center px-6 md:px-10">
+          <div className="flex-0.8 2xl:flex-[0.6] xl:h-[68vh] w-full z-10 mb-40 md:mb-20 2xl:mb-0 xl:mx-0 flex justify-center items-center px-6 md:px-10">
             <Image
               src={PreOwnHeroImage}
               alt="Hero home image"
-              className="h-[40%] md:h-[400px] xl:h-[95%] w-auto xl:object-contain z-10 xl:mb-48"
+              className="h-[40%] md:h-[400px] xl:h-[95%] 2xl:h-[70%] w-auto xl:object-contain z-10 xl:mb-48"
             />
           </div>
         </div>
@@ -64,7 +64,7 @@ const Rent = () => {
 
       {searched && (
         <div className="px-8 md:px-20 mt-[-80px] pb-20">
-          <FilterBar searched={searched} setSearched={setSearched} />
+          <FilterBar searched={searched} setSearched={setSearched} className="2xl:px-[18%]"/>
         </div>
       )}
 
@@ -115,7 +115,7 @@ const Rent = () => {
               </div>
 
               {/* Listings grid */}
-              <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4  gap-10 px-6 lg:px-10 pt-[25px] pb-[60px]">
+              <div className="flex flex-wrap gap-6 px-4 md:px-8 py-6">
                 <SearchResults
                   image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   name="Modern villa in Oregon"
@@ -218,7 +218,7 @@ const Rent = () => {
       >
         {!searched && (
           <div className="mx-8 md:mx-20 mt-[-300px] pb-20">
-            <FilterBar searched={searched} setSearched={setSearched} />
+            <FilterBar searched={searched} setSearched={setSearched} className="2xl:px-[18%]"/>
           </div>
         )}
         {/* End of Search Section */}

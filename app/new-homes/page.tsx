@@ -25,13 +25,13 @@ const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-<section className="h-[90vh] md:h-[85vh] lg:h-[75vh] xl:h-[85vh] w-full overflow-hidden bg-black-grid-with-gradient">
+<section className="h-[90vh] md:h-[85vh] lg:h-[75vh] xl:h-[85vh] w-full overflow-hidden  bg-black-grid-with-gradient bg-no-repeat bg-cover">
   <Navbar />
   <div className="text-white flex flex-col xl:flex-row justify-evenly gap-y-10 md:gap-y-20 xl:gap-y-10 pt-10 lg:pt-14 relative">
     {/* Text Section */}
-    <div className="flex flex-col md:justify-center md:items-center xl:items-start xl:justify-start gap-2 xl:pl-28 w-full xl:w-1/2 md:pt-14">
+    <div className="flex flex-col md:justify-center md:items-center xl:items-start xl:justify-start gap-2 xl:pl-28 w-full xl:w-1/2 2xl:w-full md:pt-14 2xl:pt-40 2xl:pl-60">
       {/* Breadcrumb */}
-      <div className="font-light text-[16px] md:text-[20px] flex justify-center md:justify-start items-center gap-3">
+      <div className="font-light text-[16px] md:text-[20px] 2xl:text-[30px] flex justify-center md:justify-start items-center gap-3">
         <span>Home</span>
         <span>
           <MoveRight className="text-[#0874DE]" />
@@ -40,7 +40,7 @@ const Buy = () => {
       </div>
 
       {/* Heading */}
-      <div className="flex flex-row justify-center md:justify-start text-[24px] sm:text-[30px] md:text-[36px] lg:text-[48px]">
+      <div className="flex flex-row justify-center md:justify-start text-[24px] sm:text-[30px] md:text-[36px] lg:text-[48px] 2xl:text-[65px]">
         <span className="font-normal">New Homes for</span>&nbsp;
         <span className="flex flex-col font-bold w-fit border-b-[4px] sm:border-b-[6px] border-[#0874DE80]">
           Sale Near Me.
@@ -48,26 +48,25 @@ const Buy = () => {
       </div>
 
       {/* Subtext */}
-      <div className="font-normal text-[#808080] text-[14px] sm:text-[16px] md:text-[20px] max-w-full md:max-w-[70%] pt-4 md:pt-5 px-4 md:px-0 text-center xl:text-left">
+      <div className="font-normal text-[#808080] text-[14px] sm:text-[16px] md:text-[20px] 2xl:text-[25px] max-w-full md:max-w-[70%] pt-4 md:pt-5 px-4 md:px-0 text-center xl:text-left">
         Everything you need to browse nearby homes, all in one place. Listings include a free homes report!
       </div>
     </div>
 
     {/* Image Section */}
-    <div className="h-[40vh] xl:h-[68vh] w-full xl:w-1/2 flex justify-center items-center">
+    <div className="h-[40vh] xl:h-[68vh] w-full xl:w-1/2  2xl:w-full flex justify-center items-center">
       <Image
         src={PreOwnHeroImage}
         alt="Hero home image"
-        className="h-[90%] sm:h-[80%] md:h-[95%] object-contain z-10 mb-20 sm:mb-40 lg:mb-48"
+        className="h-[90%] sm:h-[80%] md:h-[95%] 2xl:h-[80%] object-contain z-10 mb-20 sm:mb-40 lg:mb-48"
       />
     </div>
   </div>
 </section>
 
-
       {searched && (
         <div className="px-8 md:px-20 mt-[-80px] pb-20">
-          <FilterBar searched={searched} setSearched={setSearched} />
+          <FilterBar searched={searched} setSearched={setSearched} className="2xl:px-[18%]"/>
         </div>
       )}
       {/* Search Section */}
@@ -117,7 +116,7 @@ const Buy = () => {
               </div>
 
               {/* Listings grid */}
-              <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4  gap-10 px-6 lg:px-10 pt-[25px] pb-[60px]">
+              <div className="flex flex-wrap gap-6 px-4 md:px-8 py-6">
                 <SearchResults
                   image="https://plus.unsplash.com/premium_photo-1661908377130-772731de98f6?q=80&w=3424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   name="Modern villa in Oregon"
@@ -220,7 +219,7 @@ const Buy = () => {
       >
         {!searched && (
           <div className="mx-8 md:mx-20 mt-[-300px] pb-20">
-            <FilterBar searched={searched} setSearched={setSearched} />
+            <FilterBar searched={searched} setSearched={setSearched} className=" 2xl:px-[18%]"/>
           </div>
         )}
         <div className="flex justify-between mx-20 items-center lg:flex-row flex-col gap-y-5">

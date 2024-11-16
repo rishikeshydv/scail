@@ -37,6 +37,7 @@ export const HomeFilterBar = ({
     <HouseIcon size={18} />
     <span>Find Property</span>
   </div>
+  {/* Edits */}
   <div
     className="bg-white md:rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] shadow-md flex flex-col md:flex-row items-center justify-between border min-h-[120px] px-[20px] md:px-[35px] py-[10px] md:py-[8px] flex-wrap gap-y-5"
   >
@@ -44,7 +45,7 @@ export const HomeFilterBar = ({
       <div className="text-[16px] md:text-[20px] font-semibold">Price</div>
       <div>
         <Select>
-          <SelectTrigger className="w-full md:w-[180px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[180px] 2xl:w-[300px] rounded-3xl">
             <SelectValue placeholder="Select a Price" />
           </SelectTrigger>
           <SelectContent>
@@ -60,7 +61,7 @@ export const HomeFilterBar = ({
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Bed</div>
       <Select>
-        <SelectTrigger className="w-full md:w-[120px] rounded-3xl">
+        <SelectTrigger className="w-full md:w-[120px]  2xl:w-[200px] rounded-3xl">
           <SelectValue placeholder="0" />
         </SelectTrigger>
         <SelectContent>
@@ -76,7 +77,7 @@ export const HomeFilterBar = ({
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Baths</div>
       <Select>
-        <SelectTrigger className="w-full md:w-[120px] rounded-3xl">
+        <SelectTrigger className="w-full md:w-[120px] 2xl:w-[200px] rounded-3xl">
           <SelectValue placeholder="1" />
         </SelectTrigger>
         <SelectContent>
@@ -93,7 +94,7 @@ export const HomeFilterBar = ({
     <div className="flex flex-col gap-y-[10px] w-full md:w-auto">
       <div className="text-[16px] md:text-[20px] font-semibold">Home Type</div>
       <Select>
-        <SelectTrigger className="w-full md:w-[180px] rounded-3xl">
+        <SelectTrigger className="w-full md:w-[180px] 2xl:w-[300px] rounded-3xl">
           <SelectValue placeholder="Select a Home Type" />
         </SelectTrigger>
         <SelectContent>
@@ -111,7 +112,7 @@ export const HomeFilterBar = ({
       <div className="text-[16px] md:text-[20px] font-semibold">Square feet</div>
       <div className="flex gap-y-3 md:flex-row gap-x-5">
         <Select>
-          <SelectTrigger className="w-full md:w-[120px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[120px] 2xl:w-[200px] rounded-3xl">
             <SelectValue placeholder="Min. Sqft" />
           </SelectTrigger>
           <SelectContent>
@@ -124,7 +125,7 @@ export const HomeFilterBar = ({
           </SelectContent>
         </Select>
         <Select>
-          <SelectTrigger className="w-full md:w-[120px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[120px] 2xl:w-[200px] rounded-3xl">
             <SelectValue placeholder="Max. Sqft" />
           </SelectTrigger>
           <SelectContent>
@@ -147,7 +148,7 @@ export const HomeFilterBar = ({
             setNewHomes(false);
           }
         }}>
-          <SelectTrigger className="w-full md:w-[180px] rounded-3xl">
+          <SelectTrigger className="w-full md:w-[180px] 2xl:w-[300px] rounded-3xl">
             <SelectValue placeholder="Search Type" />
           </SelectTrigger>
           <SelectContent>

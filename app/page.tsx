@@ -34,15 +34,15 @@ export default function Home() {
   const [newHomes, setNewHomes] = React.useState(true);
   return (
     <main>
-      <section className="min-h-[135vh] md:min-h-[85vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
+      <section className="min-h-[135vh] md:min-h-[85vh] 2xl:min-h-[65vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
   <Navbar />
   <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0 mt-0 md:mt-36 xl:mt-0">
     {/* Left Section - Text and Buttons */}
     <div className="flex-[0.7] lg:flex-[0.4] flex flex-col items-center xl:items-start mt-4 md:mt-16">
-      <h1 className="font-semibold text-6xl xl:text-[100px] flex justify-end">
+      <h1 className="font-semibold text-6xl xl:text-[100px] 2xl:text-[140px] flex justify-end">
         <span className="text-[#0874DE]">+</span>&nbsp;Property
       </h1>
-      <h1 className="font-semibold text-6xl xl:text-[100px] flex justify-end">
+      <h1 className="font-semibold text-6xl xl:text-[100px] 2xl:text-[140px] flex justify-end">
         Reports
       </h1>
       <p className="font-normal text-[24px] text-[#808080] mt-4">
@@ -111,17 +111,17 @@ export default function Home() {
 
     {/* Right Section - Image */}
     <div className="flex-[0.3] lg:flex-[0.52] xl:ml-[150px] flex justify-center items-center pt-10 md:pt-0">
-      <Image
+    <Image
         src={HeroHomeImage}
         alt="Hero home image"
-        className="h-[300px] xl:h-[70%] object-contain overflow-hidden"
+        className="h-[300px] xl:h-[70%] 2xl:h-[80%] object-contain overflow-hidden"
       />
     </div>
   </div>
 </section>
 
       <HomeFilterBar
-        className="mx-8 md:mx-20 mt-[-100px]"
+        className="mx-8 md:mx-20 2xl:mx-[20%] mt-[-100px]"
         newHomes={newHomes}
         setNewHomes={setNewHomes}
         searched={searched}
@@ -258,62 +258,66 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="xl:min-h-[80vh] min-w-[100vw] overflow-hidden pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-20 lg:gap-x-14 xl:flex-row flex-col justify-center items-center gap-y-5">
-        <div className="w-full lg:flex-[0.6]">
-          <Image src={HeroProject100Image} alt="hero image" className="xl:h-[650px] xl:w-[800px]"/>
+      <section className="xl:min-h-[80vh] min-w-[100vw] pt-28 pb-32 bg-[#F5F5F5] flex px-10 lg:px-20 lg:gap-x-14 xl:flex-row justify-center items-center flex-col gap-y-5">
+  <div className="lg:flex-[0.6] lg:px-4 text-left mt-6 md:mt-0 flex flex-col items-center lg:items-start">
+    <div className="text-[#0874DE] font-medium text-[20px] md:text-[30px]">
+      Online Property Marketplace
+    </div>
+    <div className="text-[2.5rem] md:text-[70px] text-center lg:text-left">
+      <span className="font-normal">We help you find </span>
+      <span
+        className="font-bold md:mt-[-20px] border-b-[4px] sm:border-b-[6px] border-[#0874DE80]"
+      >
+        your new home.
+      </span>
+    </div>
+    <div className="font-normal text-[22px] md:text-[25px] text-[#808080] py-10 text-center lg:text-left">
+      Online property marketplace to buy, sell, and rent residential and
+      commercial properties.
+    </div>
+    <div className="flex flex-col gap-y-3">
+      <div className="flex items-center gap-x-3">
+        <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
+          <Check size={20} color="#0874DE" />
         </div>
-
-        <div className="lg:flex-[0.6] lg:px-4 text-left mt-6 md:mt-0">
-          <div className="text-[#0874DE] font-medium text-[20px] md:text-[30px]">
-            Online Property Marketplace
-          </div>
-          <div className="text-[2.5rem] md:text-[70px]">
-            <span className="font-normal">We help you find </span>
-            <span
-              className="font-bold md:mt-[-20px] border-b-[4px] sm:border-b-[6px] border-[#0874DE80]"
-            >
-              your new home.
-            </span>
-          </div>
-
-          <div className="font-normal text-[22px] md:text-[25px] text-[#808080] py-10">
-            Online property marketplace to buy, sell, and rent residential and
-            commercial properties.
-          </div>
-
-          <div className="flex flex-col gap-y-3">
-            <div className="flex items-center gap-x-3">
-              <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
-                <Check size={20} color="#0874DE" />
-              </div>
-              <div className="text-[22px] md:text-[25px]">Detailed property reports</div>
-            </div>
-            <div className="flex items-center gap-x-3 py-4">
-              <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
-                <Check size={20} color="#0874DE" />
-              </div>
-              <div className="text-[22px] md:text-[25px]">
-                Discover the best deals
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-5">
-            <Button
-              type="primary"
-              shape="round"
-              size="large"
-              icon={<Info width={20} />}
-              iconPosition="end"
-              onClick={() => router.push("/contact")}
-            >
-              About Us
-            </Button>
-          </div>
+        <div className="text-[22px] md:text-[25px]">
+          Detailed property reports
         </div>
-      </section>
+      </div>
+      <div className="flex items-center gap-x-3 py-4">
+        <div className="h-[30px] w-[30px] md:h-[50px] md:w-[50px] rounded-[50%] bg-[#E7E5E5] flex items-center justify-center font-medium">
+          <Check size={20} color="#0874DE" />
+        </div>
+        <div className="text-[22px] md:text-[25px]">
+          Discover the best deals
+        </div>
+      </div>
+    </div>
+    <div className="pt-5">
+      <Button
+        type="primary"
+        shape="round"
+        size="large"
+        icon={<Info width={20} />}
+        iconPosition="end"
+        onClick={() => router.push("/contact")}
+      >
+        About Us
+      </Button>
+    </div>
+  </div>
+
+  <div className="w-full lg:flex-[0.6] flex justify-center">
+    <Image
+      src={"/images/hero-100-project.png"}
+      alt="hero image"
+      width={800}
+      height={650}
+    />
+  </div>
+    </section>
       
-      <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
+      <section className="xl:min-h-[100vh] 2xl:min-h-[70vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
         <div className="flex justify-between mx-4 md:mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-3xl md:text-[50px] font-normal flex">
             <span>Insightful &nbsp;</span>
