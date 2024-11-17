@@ -25,7 +25,7 @@ const Buy = () => {
   const [searched, setSearched] = React.useState(false);
   return (
     <main className="">
-<section className="h-[90vh] md:h-[85vh] lg:h-[75vh] xl:h-[85vh] w-full overflow-hidden  bg-black-grid-with-gradient bg-no-repeat bg-cover">
+<section className="h-[90vh] md:h-[85vh] lg:h-[75vh] xl:h-[85vh] 2xl:h-[73vh] w-full overflow-hidden  bg-black-grid-with-gradient bg-no-repeat bg-cover">
   <Navbar />
   <div className="text-white flex flex-col xl:flex-row justify-evenly gap-y-10 md:gap-y-20 xl:gap-y-10 pt-10 lg:pt-14 relative">
     {/* Text Section */}
