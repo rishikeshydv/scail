@@ -84,7 +84,7 @@ const Reports = () => {
         </div>
       </section>
 
-      <section className="min-h-[70vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-20 pb-10">
+      {/* <section className="min-h-[70vh] w-[100vw] overflow-clip bg-[#F5F5F5] pt-20 pb-10">
         <div className="w-full">
           <div className="text-2xl md:text-4xl lg:text-[50px] font-normal flex justify-center">
             <span>A House History&nbsp;</span>
@@ -119,7 +119,7 @@ Your Property's History. Discover the Insights Hidden in
 Your Property's History"
           />
         </div>
-      </section>
+      </section> */}
 
       <section className="min-h-[70vh] w-[100vw] overflow-clip py-20">
         <div className="w-full mt-6 mb-16">
