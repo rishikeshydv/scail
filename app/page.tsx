@@ -15,7 +15,7 @@ import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject100Image from "@/assets/images/hero-100-project.png";
 import HeroHomeImage from "@/assets/images/hero-house.png";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MobilePhoneImage1 from "@/assets/images/mobile-phone1.png";
 import MobilePhoneImage2 from "@/assets/images/mobile-phone2.png";
 import MobilePhoneImage3 from "@/assets/images/mobile-phone3.png";
@@ -27,11 +27,40 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/dropdown";
+import axios from 'axios';
+interface LocationType {
+  lat: number;
+  lng: number;
+}
+
 export default function Home() {
   const router = useRouter();
   const [searched, setSearched] = React.useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
   const [newHomes, setNewHomes] = React.useState(true);
+  const [city,setCiy] = useState<string>("")
+  useEffect(() => {
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position)=>{ 
+        const {latitude,longitude} =  position.coords;
+        reverseGeocode({lat:latitude,lng:longitude});
+      })
+    }
+  }, []);
+
+  async function reverseGeocode(address:LocationType){
+    try {
+      const res = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${address.lat},${address?.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}`)
+      const zipData = res.data.results[0].formatted_address
+      const splitInfo = zipData.split(",")
+      const cityInfo = splitInfo[1]
+      setCiy(cityInfo)
+    }
+    catch (err){
+      console.log("Error Reverse Geocoding: ", err)
+    }
+  }
+
   return (
     <main>
       <section className="min-h-[135vh] md:min-h-[85vh] 2xl:min-h-[65vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">

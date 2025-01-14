@@ -179,7 +179,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <div className="flex flex-[0.5] lg:flex-[0.3] justify-end">
               <Globe className="text-[#0874DE] mt-2 hidden md:block" />
               <Select>
-                <SelectTrigger className="w-[105px] bg-transparent border-none text-[18px] font-light hidden md:flex">
+                <SelectTrigger className="w-[105px] bg-transparent border-none text-[16px] font-light hidden md:flex">
                   <SelectValue
                     placeholder="ENG 🇺🇸"
                     defaultValue={"eng"}
@@ -197,7 +197,7 @@ export const Navbar = ({ className }: NavbarProps) => {
               </Select>
 
               <Button
-                className="text-sm md:text-[18px] py-4 font-light tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
+                className="text-sm md:text-[15px] py-4 font-light tracking-wide bg-[#0874DE] text-white rounded-3xl px-6"
                 onClick={() => {
                   router.push("/auth/login");
                 }}
