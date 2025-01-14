@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Navbar } from "@/components/navigation";
-import { Button } from "antd";
+
 import {
   Check,
   MoveRight,
@@ -10,6 +10,7 @@ import {
   MapPinHouse,
   Info,
   AlignRight,
+  Search
 } from "lucide-react";
 import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject100Image from "@/assets/images/hero-100-project.png";
@@ -28,6 +29,10 @@ import {
   DropdownItem,
 } from "@nextui-org/dropdown";
 import axios from 'axios';
+import { Input } from "@/components/ui/input";
+import urbanist from "@/font/font";
+import { Button } from "@/components/ui/button";
+import { NewButton } from "@/components/ui/newButton";
 interface LocationType {
   lat: number;
   lng: number;
@@ -81,15 +86,11 @@ export default function Home() {
       {/* Buttons and Dropdown */}
       <div className="flex flex-col md:flex-row gap-y-5 md:gap-y-0 md:gap-x-4 py-6">
         <Button
-          type="primary"
-          shape="round"
-          size="large"
-          icon={<FileText width={20} />}
-          iconPosition="end"
-          className="p-6 text-lg"
+          className="p-6 text-lg bg-[#0874de] rounded-3xl"
           onClick={() => router.push("/reports")}
         >
           Home Report
+          <FileText width={20} />
         </Button>
 
         {/* Dropdown Menu */}
@@ -102,13 +103,10 @@ export default function Home() {
             onMouseEnter={() => setIsDropdownOpen(true)}
           >
             <Button
-              shape="round"
-              size="large"
-              icon={<MapPinHouse width={20} />}
-              iconPosition="end"
-              className="bg-[#262626] border-none text-white p-6 text-lg"
+              className="bg-[#262626] border-none text-white p-6 text-lg rounded-3xl"
             >
               Buy a Home
+              <MapPinHouse width={20} />
             </Button>
           </DropdownTrigger>
 
@@ -147,15 +145,23 @@ export default function Home() {
       />
     </div>
   </div>
+  <div className="flex mt-[-80px] px-20">
+      <Input className="w-[50%] bg-transparent border border-gray-500 text-[18px]" placeholder="Enter your address..." style={{
+        borderRadius: "10px 0px 0px 10px "
+      }}/>
+      <NewButton className="bg-[#0874de]" style={{
+        borderRadius: "0px 10px 10px 0px "
+      }}> <Search /></NewButton> 
+  </div>
 </section>
 
-      <HomeFilterBar
+      {/* <HomeFilterBar
         className="mx-8 md:mx-20 2xl:mx-[20%] mt-[-100px]"
         newHomes={newHomes}
         setNewHomes={setNewHomes}
         searched={searched}
         setSearched={setSearched}
-      />
+      /> */}
       <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-28 pb-32">
         <div className="flex justify-between md:mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
           <div className="text-[24px] md:text-[50px] font-normal flex">
@@ -168,14 +174,9 @@ export default function Home() {
           </div>
 
           <div>
-            <Button
-              type="primary"
-              shape="round"
-              size="large"
-              icon={<AlignRight width={15} />}
-              iconPosition="end"
-            >
+            <Button className="bg-[#0874DE] rounded-3xl text-[16px]">
               View Homes
+              <AlignRight width={15} />
             </Button>
           </div>
         </div>
@@ -324,14 +325,11 @@ export default function Home() {
     </div>
     <div className="pt-5">
       <Button
-        type="primary"
-        shape="round"
-        size="large"
-        icon={<Info width={20} />}
-        iconPosition="end"
         onClick={() => router.push("/contact")}
+        className="bg-[#0874de] rounded-3xl text-[16px]"
       >
         About Us
+        <Info width={20} />
       </Button>
     </div>
   </div>
@@ -359,13 +357,10 @@ export default function Home() {
 
           <div>
             <Button
-              type="primary"
-              shape="round"
-              size="large"
-              icon={<MoveRight width={15} />}
-              iconPosition="end"
+            className="text-[16px] rounded-3xl bg-[#0874de]"
             >
               View All Properties
+              <MoveRight width={15} />
             </Button>
           </div>
         </div>
