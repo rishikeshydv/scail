@@ -10,7 +10,9 @@ import {
   MapPinHouse,
   Info,
   AlignRight,
-  Search
+  Search,
+  BadgeInfo
+
 } from "lucide-react";
 import { HistoryReportCard, PropertyCard } from "@/components/card";
 import HeroProject100Image from "@/assets/images/hero-100-project.png";
@@ -30,7 +32,12 @@ import {
 } from "@nextui-org/dropdown";
 import axios from 'axios';
 import { Input } from "@/components/ui/input";
-import urbanist from "@/font/font";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card"
+
 import { Button } from "@/components/ui/button";
 import { NewButton } from "@/components/ui/newButton";
 interface LocationType {
@@ -53,6 +60,8 @@ export default function Home() {
     }
   }, []);
 
+
+  //logic to detect user's location and display suggested properties based on their location
   async function reverseGeocode(address:LocationType){
     try {
       const res = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${address.lat},${address?.lng}&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}`)
@@ -66,11 +75,37 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+
+    const initializeMap = () => {
+      if (!google.maps.Map){
+        return; 
+      }
+
+      const _autocomplete = new window.google.maps.places.Autocomplete(
+        document.getElementById('autocomplete') as HTMLInputElement
+        );
+
+      //create a marker for each address in the list
+    };
+    if (!window.google) {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = `https://maps.googleapis.com/maps/api/js?v=3.57&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY}&libraries=places`;
+      script.async = true;
+      script.defer = true;
+      script.addEventListener("load", initializeMap); 
+      document.body.appendChild(script);
+    } else {
+        initializeMap(); 
+    }
+  }, []);
+
   return (
     <main>
-      <section className="min-h-[135vh] md:min-h-[85vh] 2xl:min-h-[65vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
+      <section className="min-h-[135vh] md:min-h-[95vh] 2xl:min-h-[65vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
   <Navbar />
-  <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0 mt-0 md:mt-36 xl:mt-0">
+  <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0 mt-0 md:mt-36 xl:mt-6">
     {/* Left Section - Text and Buttons */}
     <div className="flex-[0.7] lg:flex-[0.4] flex flex-col items-center xl:items-start mt-4 md:mt-16">
       <h1 className="font-semibold text-6xl xl:text-[100px] 2xl:text-[140px] flex justify-end">
@@ -105,7 +140,7 @@ export default function Home() {
             <Button
               className="bg-[#262626] border-none text-white p-6 text-lg rounded-3xl"
             >
-              Buy a Home
+              View Homes
               <MapPinHouse width={20} />
             </Button>
           </DropdownTrigger>
@@ -141,15 +176,15 @@ export default function Home() {
     <Image
         src={HeroHomeImage}
         alt="Hero home image"
-        className="h-[300px] xl:h-[70%] 2xl:h-[80%] object-contain overflow-hidden"
+        className="h-[300px] xl:h-[90%] object-contain overflow-hidden"
       />
     </div>
   </div>
   <div className="flex mt-[-80px] px-20">
-      <Input className="w-[50%] bg-transparent border border-gray-500 text-[18px]" placeholder="Enter your address..." style={{
+      <Input id="autocomplete" className="text-white w-[40%] h-[2.5em] bg-transparent border border-gray-500 text-[18px]" placeholder="Enter your address..." style={{
         borderRadius: "10px 0px 0px 10px "
       }}/>
-      <NewButton className="bg-[#0874de]" style={{
+      <NewButton className="bg-[#0874de] h-auto" style={{
         borderRadius: "0px 10px 10px 0px "
       }}> <Search /></NewButton> 
   </div>
@@ -162,15 +197,36 @@ export default function Home() {
         searched={searched}
         setSearched={setSearched}
       /> */}
-      <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-28 pb-32">
+      <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-10 pb-32">
         <div className="flex justify-between md:mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
           <div className="text-[24px] md:text-[50px] font-normal flex">
-            <span>Properties for &nbsp;</span>
+            <span>Top Trending &nbsp;</span>
             <span
               className="font-bold flex flex-col border-b-[4px] sm:border-b-[6px] border-[#0874DE80]"
             >
-              Sell & Rent
+              Properties
             </span>
+              <HoverCard>
+    <HoverCardTrigger className="mt-[1rem] ml-[0.5rem]">
+        <BadgeInfo className="w-6 h-6 text-gray-500"/>
+    </HoverCardTrigger>
+    <HoverCardContent className="w-6">
+        <div className="flex justify-between space-x-4">
+          <div className="space-y-1">
+            <h4 className="text-sm font-semibold">@propai</h4>
+            <p className="text-sm">
+              The results are powered by propai, an AI Model at Propfax
+            </p>
+            <div className="flex items-center pt-2">
+              <span className="text-xs text-muted-foreground">
+                Latest version v0, Jan 2025
+              </span>
+            </div>
+          </div>
+        </div>
+      </HoverCardContent>
+  </HoverCard>
+
           </div>
 
           <div>
