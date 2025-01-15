@@ -23,7 +23,17 @@ import MobilePhoneImage1 from "@/assets/images/mobile-phone1.png";
 import MobilePhoneImage2 from "@/assets/images/mobile-phone2.png";
 import MobilePhoneImage3 from "@/assets/images/mobile-phone3.png";
 import MobilePhoneImage4 from "@/assets/images/mobile-phone4.png";
-import { HomeFilterBar } from "@/components/filters/HomeFilterBar.component copy";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+
 import {
   Dropdown,
   DropdownTrigger,
@@ -33,10 +43,12 @@ import {
 import axios from 'axios';
 import { Input } from "@/components/ui/input";
 import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 
 import { Button } from "@/components/ui/button";
 import { NewButton } from "@/components/ui/newButton";
@@ -103,6 +115,28 @@ export default function Home() {
 
   return (
     <main>
+<Drawer defaultOpen>
+  <DrawerContent className="bg-[#24272B] shadow-lg p-6 border-none rounded-3xl">
+    <DrawerHeader className="mb-4">
+      <DrawerTitle className="text-center text-3xl font-bold text-[#0874de]">
+        Welcome to Propfax!
+      </DrawerTitle>
+      <DrawerDescription className="text-center text-lg text-white mt-2">
+        Please note that our services are currently available only in Tarrant County, TX, United States. We're excited to expand to more locations soon!
+      </DrawerDescription>
+    </DrawerHeader>
+    <DrawerFooter className="flex justify-center mt-6">
+      <DrawerClose>
+        <Button className="px-6 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition duration-200">
+          I Understand
+        </Button>
+      </DrawerClose>
+    </DrawerFooter>
+  </DrawerContent>
+</Drawer>
+
+
+
       <section className="min-h-[135vh] md:min-h-[95vh] 2xl:min-h-[65vh] w-full overflow-hidden bg-black-grid-with-gradient bg-no-repeat bg-cover">
   <Navbar />
   <div className="text-white mx-7 flex flex-col-reverse justify-center gap-y-8 xl:flex-row xl:gap-y-0 mt-0 md:mt-36 xl:mt-6">
@@ -200,32 +234,24 @@ export default function Home() {
       <section className="xl:min-h-[100vh] min-w-[100vw] overflow-hidden pt-20 md:pt-10 pb-32">
         <div className="flex justify-between md:mx-20 items-center flex-col lg:flex-row gap-y-10 md:gap-y-5">
           <div className="text-[24px] md:text-[50px] font-normal flex">
-            <span>Top Trending &nbsp;</span>
+            <span>Trending&nbsp;</span>
             <span
               className="font-bold flex flex-col border-b-[4px] sm:border-b-[6px] border-[#0874DE80]"
             >
-              Properties
+              Property Deals
             </span>
-              <HoverCard>
-    <HoverCardTrigger className="mt-[1rem] ml-[0.5rem]">
-        <BadgeInfo className="w-6 h-6 text-gray-500"/>
-    </HoverCardTrigger>
-    <HoverCardContent className="w-6">
-        <div className="flex justify-between space-x-4">
-          <div className="space-y-1">
-            <h4 className="text-sm font-semibold">@propai</h4>
-            <p className="text-sm">
-              The results are powered by propai, an AI Model at Propfax
-            </p>
-            <div className="flex items-center pt-2">
-              <span className="text-xs text-muted-foreground">
-                Latest version v0, Jan 2025
-              </span>
-            </div>
-          </div>
-        </div>
-      </HoverCardContent>
-  </HoverCard>
+    <TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild className="mt-[1.5rem] ml-[0.5rem]">
+    <BadgeInfo className="w-5 h-5 text-gray-500"/>
+    </TooltipTrigger>
+    <TooltipContent className="bg-black text-white">
+      <p>
+        Powered by @propai
+      </p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
 
           </div>
 
@@ -400,7 +426,7 @@ export default function Home() {
   </div>
     </section>
       
-      <section className="xl:min-h-[100vh] 2xl:min-h-[70vh] min-w-[100vw] overflow-hidden pt-28 md:pb-32">
+      <section className="xl:min-h-[100vh] 2xl:min-h-[70vh] min-w-[100vw] overflow-hidden pt-28 md:pb-16">
         <div className="flex justify-between mx-4 md:mx-20 items-center lg:flex-row flex-col gap-y-5">
           <div className="text-3xl md:text-[50px] font-normal flex">
             <span>Insightful &nbsp;</span>
@@ -443,7 +469,7 @@ properties to find your match"
           />
           <HistoryReportCard
             position={4}
-            title="Your Prop Fax Report!"
+            title="Your Propfax Report!"
             description="Get access to your detailed Prop fax report"
             image={MobilePhoneImage4}
           />

@@ -1,9 +1,6 @@
 "use client"
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import { Button } from "antd";
-import { MoveRight } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 interface HistoryReportCardProps {
   position: number;
@@ -18,7 +15,6 @@ export const HistoryReportCard = ({
   description,
   image,
 }: HistoryReportCardProps) => {
-  const router = useRouter();
   return (
     <div className="rounded-[40px] bg-[#F5F5F5] px-[40px] py-[15px] flex border border-[#0000000D]">
       <div className="flex-[0.7]">
@@ -31,18 +27,7 @@ export const HistoryReportCard = ({
         <div className="font-normal text-[20px] text-[#808080] py-4">
           {description}
         </div>
-        <div className="pb-2">
-          <Button
-            type="primary"
-            shape="round"
-            size="large"
-            icon={<MoveRight width={15} />}
-            iconPosition="end"
-            onClick={()=>router.push("/project/on-progress")}
-          >
-            VIEW DEMO
-          </Button>
-        </div>
+
       </div>
       <div className="flex-[0.3]">
         <Image src={image} alt="mobile phone image" />
